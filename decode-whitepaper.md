@@ -86,7 +86,26 @@ What they are
 
 - Do we need to distinguish Hubs, OS and nodes? (The way I understand it is that the DECODE Hub is the physical thing that runs the DECODE OS, on top of which the DECODE Node is the main user-facing application that users use to manage their data and access to their data. Is this correct?)
 
+- What is a "Node" - is it a hardware device that a participant owns or is it a server running on the internet?
+
 - Recommendation systems (SOTA 5b) and privacy-preserving, discrimination aware data-mining (SOTA 6a): they are placed at the DECODE OS level in the proposal, but aren't these higher-level applications? Or is some kind of OS support necessary to achieve them?
+
+
+- Do ALL interactions with decode need to go through the device?
+
+- What about multiple people who are using the same device?
+
+- Do people themselves need an "account" that is on the server side - perhaps like bitcoin based on a public key which is maintained within a HSM that they own? e.g. ubikey?
+
+- Is there scope for interactions which might happen through a mobile device (e.g. IOS / Android) - perhaps a trust is constructed between the decode device and the mobile device? i.e. I could register my Iphone on the network?
+
+Use of Distributed ledger technology
+
+- What is the rationale that leads us to this conclusion - i.e. Based on a set of characteristics we are looking for, a distributed ledger fits
+
+- What are the key constraints that might differ from eithe Bitcoin or Etheruem - i.e. Privacy, not everyone seeing the entire ledger?
+
+
 
 # DUMP
 
@@ -147,3 +166,18 @@ De-couple the search and access functions. A lightweight open source client with
 ## Trust framework for digital commons, including personal data 
 
 DECODE will transform the current data ecosystem so that individuals can truly own and control their data.  In order to do so, the conditions for the processing of data set out by the individual would constitute the basis for an organisation to accept to engage with and use the data.  This would not be exactly a privacy policy or a consent form, but a different kind of contract or license to use the data.  DECODE proposes a combination of business practices, legal rules and technical solutions (a trust framework) operated through smart rules that manage user preferences for data sharing and capture the “operating rules” for a community of trust.  This starts with transparency over what data is held by whom, and the ability to authorise any sharing while understanding the implications. Taking advantage of the potential of the distributed ledger technologies, DECODE will design legal schemes (contracts and/or licenses) apt to foster stigmergic behaviours by individuals that generate digital commons made of personal data and identify the specific characteristics, ownership regimes, and access rights of such digital commons.
+
+## Architecture Notes
+
+###Values
+
+These from Georges slide deck
+
+
+###Components - What they are, what are their responsibilities
+
+Data storage - in particular what do do with large volumes of streaming data, vs transactional data (e.g. I agree to lend someone my lawnmower for x times)
+
+The Decode Stack - from Hardware -> OS -> Applications
+
+
