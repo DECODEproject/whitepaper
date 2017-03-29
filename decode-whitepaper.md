@@ -51,7 +51,7 @@ Data sources[^datasources]:
 
 - "Streaming" data from sensors
 - open government data
-- user generated content (blogs, recommendations, obervations)
+- user generated content (blogs, recommendations, observations)
 - ...
 
 [^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a special kind of data that we need to reckon with. (JHH)
@@ -90,7 +90,6 @@ What they are
 
 - Recommendation systems (SOTA 5b) and privacy-preserving, discrimination aware data-mining (SOTA 6a): they are placed at the DECODE OS level in the proposal, but aren't these higher-level applications? Or is some kind of OS support necessary to achieve them?
 
-
 - Do ALL interactions with decode need to go through the device?
 
 - What about multiple people who are using the same device?
@@ -99,11 +98,23 @@ What they are
 
 - Is there scope for interactions which might happen through a mobile device (e.g. IOS / Android) - perhaps a trust is constructed between the decode device and the mobile device? i.e. I could register my Iphone on the network?
 
+- Is there a need to provide an "entitlement" to the metadata as well as the data itself ? In some cases privacy is compromised by the knowledge that the data exists.
+
+- Do we need to make the distinction that citizens are both "data owners" and "data consumers"?
+
+- Should we make it clear that the "data owner" should be the arbitrator who decides whether a piece of data is *public* or *restricted*?
+
 Use of Distributed ledger technology
 
 - What is the rationale that leads us to this conclusion - i.e. Based on a set of characteristics we are looking for, a distributed ledger fits
 
-- What are the key constraints that might differ from eithe Bitcoin or Etheruem - i.e. Privacy, not everyone seeing the entire ledger?
+- What are the key constraints that might differ from either Bitcoin or Ethereum - i.e. Privacy, not everyone seeing the entire ledger?
+
+Entitlements
+
+- Internally at thingful we express entitlements very similar to AWS IAM Policies - The readme on this inspired project gives a very useful introduction -  https://github.com/ory/ladon#concepts (2-3 minutes read).
+
+- I think entitlement expirations are a potential minefield if based on "wall clock" time especially in a distributed, possibly adverserial context. My first instinct is that we would need some oracle for time outwith of trusting the operating system and/or a singular NTP.
 
 
 
