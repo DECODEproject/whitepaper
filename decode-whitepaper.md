@@ -101,7 +101,7 @@ In DECODE, smart contracts are executed *outside* the ledger, and the results ar
 
 This separation of *execution* from *verification* is a fundamental design principle of the ledger.
 
-The ledger operates as a series of manager nodes running across the internet. The design of DECODE allows for multiple parties to operate networks of nodes. Further, when desiging a smart contract, the designer can select which node providers may execute the contract. Participants using the application and submitting transactions will have clear visibility of which organisations are participating in validating and accepting their transactions.
+The ledger operates as a series of managed nodes running across the internet. The design of DECODE allows for multiple parties to operate networks of nodes. Further, when desiging a smart contract, the designer can select which node providers may execute the contract. Participants using the application and submitting transactions will have clear visibility of which organisations are participating in validating and accepting their transactions.
 
 Where checks are required of multiple inputs and outputs to a transaction (e.g. to avoid a double spend scenario), all the input transactions will require to also be known to the validating network.
 
