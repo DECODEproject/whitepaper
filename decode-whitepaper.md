@@ -17,16 +17,23 @@ This whitepaper will be updated regularly to include new functionality and impro
 
 # Functionality
 
-*To be described based on 1-2 core use cases, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
-
 DECODE is a *platform*, running applications developed by third parties. Data can be shared (in a controlled and responsible manner) between these applications.
 
 Main goals
 - citizens manage access to their (personal) data
 - citizens know who accessed their (personal) data
-- ...
+- applications can record transactions that are resilient and have verifiable integrity
 
 The architecture must be secure and privacy friendly enough to host different sensitive applications in parallel.
+
+*To be described based on 1-2 core use cases, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
+
+3 exemplar use cases / demo apps:
+
+- A) Citizen Sensing - Air quality for a location
+- B) Asset sharing / renting (TBD, equivalent of FairBnB)
+- C) Complex privacy (TBD, either in terms of participants or varying based on context)
+
 
 # Architecture overview
 
@@ -46,7 +53,6 @@ The *publisher* of restricted data determines who has access to the data. To thi
 (So, for example, a home owner wishing to allow his guests access to the local Wifi could create an entitlement `john-doe-house-wifi`, a smart contract saying "*if someone has an entitlement `renting-john-doe-house` and this entitlement is valid now, then output the entitlement `john-doe-house-wifi` valid for one hour*". Then if the owner rents out his house and issues the renter the entitlement `renting-john-doe-house`, access to the wifi is securely arranged automatically.)
 
 
-
 Data sources[^datasources]:
 
 - "Streaming" data from sensors
@@ -54,29 +60,163 @@ Data sources[^datasources]:
 - user generated content (blogs, recommendations, observations)
 - ...
 
-[^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a special kind of data that we need to reckon with. (JHH)
+[^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
+special kind of data that we need to reckon with. (JHH)
+
+## Core Technical Values
+
+- **Openness** of the platform, to enable innovation and citizen
+participation.
+- **Flexibility** through smart contracts, driven by the needs of the usecases.
+- **Transparency** and **auditability** of collective action and choice, privacy
+of individual actions.
+- **High-integrity**, appropriate **privacy** options, and **availability** against
+disruption and suppression.
+- **User-friendliness** for end-users, and app developers for **easy
+adoption**.
+- **Scalability** and **deployability** to compete with corporate and closed
+platforms.
 
 
-# The nodes
+# Architecture Components - How does DECODE Work?
 
-# The network
+
+## The nodes
+
+## The network
 
 - p2p
+- Identity?
+- Relationship to the ledger? 
 
-# Smart contracts
+## Smart contracts
 
 - a language to express contracts
 
-# Distributed ledger
+## Distributed ledger
 
-# Entitlements
+The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart contracts. To be clear, the ledger in DECODE is not a distributed computing platform in the sense that for e.g. [Ethereum](https://ethereum.gitbooks.io/frontier-guide/content/contracts_and_transactions_intro.html) is, where the contracts themseleves are executed within the distributed "virtual machine" in response to transactions which are submitted by participants.
+
+In DECODE, smart contracts are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *proovable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart contract that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
+
+This separation of *execution* from *verification* is a fundamental design principle of the ledger.
+
+The ledger operates as a series of manager nodes running across the internet. The design of DECODE allows for multiple parties to operate networks of nodes. Further, when desiging a smart contract, the designer can select which node providers may execute the contract. Participants using the application and submitting transactions will have clear visibility of which organisations are participating in validating and accepting their transactions.
+
+Where checks are required of multiple inputs and outputs to a transaction (e.g. to avoid a double spend scenario), all the input transactions will require to also be known to the validating network.
+
+
+
+
+## Entitlements
+
+### Declaration
+
+Entitlements describe the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [Ladon](https://github.com/ory/ladon/blob/master/README.md#concepts).
+
+Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
+
+For example, suppose that an entity with DECODE account ID#234 owns a data item which represents their personal profile:
+
+```
+{
+    :schema "http://.../person"
+    :attributes {
+        :decode-id "#234"
+        :first-name "Xxxxx"
+        :last-name  "Xxxxx"
+        :date-of-birth "YYYY-mm-dd"
+        :passport-number "XXXXXXXXXXX"
+        :gender "xxxx"
+        :address {
+            :number "0"
+            :street "Xxxxxxxx xx"
+            :town "Xxxxxx"
+            :district "Xxxxx"
+            :postal-code "xxxx"
+            :country "XXX"
+        }
+    }
+```
+Person ID#234 wishes to grant a Consumer ID#567 access to some subset of thier data. ID#567 may be another individual or a DECODE application that is going to aggregate the data for some purpose.
+
+DECODE defines three possible access levels:
+
+| Access level    | Description        |
+| --------------- | ------------------ |
+| `invisible`     | Subject can see neither the existence of this attribute, or its value           |
+| `can-discover`  | Subject can see that the data item has a value for this attribute, but not what it is |
+| `can-read`      | Subject can both see that the data item has a value and read that value  |
+
+In this example the consumer ID#567 is the subject and we can represent the entitlement as follows:
+
+```
+{:created 2016-03-30T20:24:34.412-00:00
+ :valid [:from 2016-03-30T20:24:34.412-00:00 
+         :to 2017-03-30T20:24:34.412-00:00]
+ :subjects [#567]
+ :schema http://.../person
+ :owner #234
+ :signature af4534faaacd34552344
+ :access {
+   :decode-id :can-read
+   :first-name :invisible
+   :last-name :can-read
+   :date-of-birth :invisible
+   :passport-number :can-discover
+   :gender :invisible
+   :address {
+     :number :invisible
+     :street :invisible
+     :town :can-read
+     :postal-code :invisible
+     :country :can-read
+   }}
+} 
+```
+
+Notice that the entitlement has a specific time range that it is valid for. It also specifies specifically the list of subjects to which it applies, and the type of data. In this case the entitlement is to a **class** of data, it could also be to a specific data instance.
+
+It indicates the entity which owns this data. It is also signed by the owner so that this entitlement can be verified.
+
+Finally the granular access levels are declared for each specific attribute.
+
+An entity may grant multiple entitlements to the same subject for the same data, but operating under different circumstances, for example, lets say the person in this case has agreed to book a room for rent - once the transaction has reached the point that the booking is confirmed, they are happy for the passport number to be revealed:
+
+```
+...
+  :access {
+  ...
+    :passport-number :can-read
+  ...
+  }
+...
+  :conditions {
+    :booking-status "confirmed"
+  }
+...
+```
+
+(Only the delta to the previous entitlement is shown).
+
+In most cases, the participants in the system will not be creating the entitlements directly, they will be interacting with DECODE applications. These applications will have the ability to declare what entitlements they require and the participants can agree to them, in much the same way that users can accept authorisation grants using OAuth.
+
+
+
+
+### Access control
+
+Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
+
+How does the DECODE platform provide for integrity and transparency around the privacy controls, as expressed in the entitlements?
 
 What they are
 
 - attribute based credentials
 - attribute based encryption
 
-# The user interface
+
+## The user interface
 
 # Conclusions
 
@@ -121,6 +261,8 @@ Entitlements
 # DUMP
 
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
+
+
 
 # FOR REFERENCE: Design requirements taken from the proposal
 
