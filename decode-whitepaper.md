@@ -63,6 +63,8 @@ Data sources[^datasources]:
 [^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
 special kind of data that we need to reckon with. (JHH)
 
+<img src="./images/decode-overview.png" width=800 />
+
 ## Core Technical Values
 
 - **Openness** of the platform, to enable innovation and citizen
@@ -92,6 +94,8 @@ platforms.
 ## Smart contracts
 
 - a language to express contracts
+- Riccardian contracts?
+
 
 ## Distributed ledger
 
