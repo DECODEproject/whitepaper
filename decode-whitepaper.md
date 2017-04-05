@@ -17,16 +17,29 @@ This whitepaper will be updated regularly to include new functionality and impro
 
 # Functionality
 
-DECODE is a *platform*, running applications developed by third parties. Data can be shared (in a controlled and responsible manner) between these applications.
+DECODE aims to design and implement a free and open source, reliable and distributed architecture to run applications developed by third parties.
 
-Main goals
-- citizens manage access to their (personal) data
-- citizens know who accessed their (personal) data
-- applications can record transactions that are resilient and have verifiable integrity
+The DECODE architecture must be secure, distributed and privacy
+friendly as it will host different privacy sensitive applications in
+parallel.
 
-The architecture must be secure and privacy friendly enough to host different sensitive applications in parallel.
+DECODE is made of:
+- a set of specifications for distributed ledgers to support decode
+- a free and open source reference implementation of a distributed ledger
+- a smart rule language that can be translated and graphically represented
+- a GNU/Linux based operating system that can execute signed smart rule applications
+- the documentation needed for operators to write and deploy smart rules that request access to private data
+- an intuitive graphical interface for participants to allow smart rules to access their private data
+- an ontology of attributes for private data that is aggregated by operators
+- an attribute based cryptographic implementation that can grants access to private
 
-*To be described based on 1-2 core use cases, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
+DECODE main goals are:
+- allow *participants* to manage access to their *private data*, by granting and revoke access to parts
+- allow *operators* to write *smart rules* sign them and get the authorisation to run them on DECODE
+- allow *smart rules* to access *private data* based on *entitlements* and matched *attributes*
+- allow everyone to record *entitlements* on a *distributed ledger* whose integrity is resilient and verifiable
+
+TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelona are selected, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
 
 3 exemplar use cases / demo apps:
 
@@ -63,7 +76,7 @@ Data sources[^datasources]:
 [^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
 special kind of data that we need to reckon with. (JHH)
 
-<img src="./images/decode-overview.png" width=800 />
+<img src="images/decode-overview.png" width=800 />
 
 ## Core Technical Values
 
