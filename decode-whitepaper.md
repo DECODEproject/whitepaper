@@ -234,15 +234,29 @@ What they are
 
 ## Identity
 
+Identity within DECODE inverts the current world position whereby participants know little about the operators of the services they are registered with but the services know everything about the identity of the participants.
+
+In DECODE, the focus is on strenghtening the position of the participant in terms if understanding exactly what organisations are operating applications and what those applications are doing with the participants' data.
 
 **Participants**
 
 Disposable identities for participants which are not required to be connected to any real world identifiable personal information (except maybe a use case for a lost device)
 Devices might be a Ubikey or a smart card that is issued by a city.
 
+Identity of participants comprises two perspectives. First there is the identity which a participant uses within the DECODE network (**DECODE IDENTITY**). This is a registered identifier that can be linked to transactions or granted access to data within the DECODE system. Second is the **real world identity** of the participant. This is NOT required to be stored within DECODE, although applications may choose to associate personal data with a **DECODE IDENTITY**.
+
+Demonstrating **real world identity** usually involves a participant providing various personally identifying facts to a system such as date of birth, passport id / driving licence number, potentially with additional offline checks and questions of the participant. For example in signing up to the UK's [gov.uk/Verify](https://www.gov.uk/government/publications/introducing-govuk-verify/introducing-govuk-verify) you register with a federated identity provider (e.g. The Post Office). The post office has a mobile app that can capture images of your passport, OCR the details and confirm them against the HMPO (Her Majesty's Passport office) and then takes a photo using the phone camera in order to compare against the photo on the passport. 
+
+A participant demonstrates control of their **DECODE IDENTITY** through some cryptographic means (essentially by holding a private key). This private key may be embedded on a physical device that the participant owns, such as a [Ubikey](https://www.yubico.com/products/yubikey-hardware/) or Smart Card issued by a civic authority. In the case of a device issued by an authority it may also contain elements of Attribute based credentials, such as validating that the identity lives in a particular city. The authorities who issue the cards *may* contain information about the participants real world identity but there is no requirement for DECODE to contain the link.
+
+Once the **DECODE IDENTITY** is registered with DECODE it can be used to associate other public / private key pairs for the purposes of conducting transactions or gaining access to data. 
+
+
 **Operators**
 
 Identity is transparent to a known and registered organisation that a participant can discover and make a choice about wether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535. 
+
+
 
 ## The user interface
 
