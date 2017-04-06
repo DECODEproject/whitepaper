@@ -129,7 +129,7 @@ Where checks are required of multiple inputs and outputs to a transaction (e.g. 
 
 ### Declaration
 
-Entitlements describe the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [Ladon](https://github.com/ory/ladon/blob/master/README.md#concepts).
+Entitlements describe the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 
 Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
 
@@ -236,6 +236,11 @@ What they are
 ## The user interface
 
 # Conclusions
+
+# References
+
+https://en.wikipedia.org/wiki/Affero_General_Public_License
+
 
 # QUESTIONS
 
