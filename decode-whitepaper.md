@@ -112,7 +112,7 @@ platforms.
 
 ## Distributed ledger
 
-The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart rules. To be clear, the ledger in DECODE is not a distributed computing platform in the sense that for e.g. [Ethereum](https://ethereum.gitbooks.io/frontier-guide/content/contracts_and_transactions_intro.html) is, where the rules themseleves are executed within the distributed "virtual machine" in response to transactions which are submitted by participants.
+The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart rules.
 
 In DECODE, smart rules are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *proovable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart rule that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
 
@@ -232,6 +232,17 @@ What they are
 - attribute based credentials
 - attribute based encryption
 
+## Identity
+
+
+**Participants**
+
+Disposable identities for participants which are not required to be connected to any real world identifiable personal information (except maybe a use case for a lost device)
+Devices might be a Ubikey or a smart card that is issued by a city.
+
+**Operators**
+
+Identity is transparent to a known and registered organisation that a participant can discover and make a choice about wether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535. 
 
 ## The user interface
 
