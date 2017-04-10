@@ -1,0 +1,3 @@
+[submodule "writedown"]
+	path = writedown
+	url = https://github.com/dyne/writedown
