@@ -1,11 +1,16 @@
 ---
 title: DECODE Architecture Whitepaper
-author: Jaap-Henk Hoepman, ...
+author: Jaap-Henk Hoepman, George Danezis, Jaromil Rojo, Mark DeVilliers, Jim Barritt, ...
 ---
 
 # Outline
 
-This documents describes the design of the DECODE architecture.
+This documents describes the design of the DECODE architecture. The document will evolve over time and will be published as a versioned series.
+
+| Version | Date Published |
+| ------- | -------------- |
+| 0.1     | YYYY-MM-dd     |
+
 
 DECODE is ...
 
@@ -236,7 +241,7 @@ What they are
 
 Identity within DECODE inverts the current world position whereby participants know little about the operators of the services they are registered with but the services know everything about the identity of the participants.
 
-In DECODE, the focus is on strenghtening the position of the participant in terms if understanding exactly what organisations are operating applications and what those applications are doing with the participants' data.
+In DECODE, the focus is on strengthening the position of the participant in terms if understanding exactly what organisations are operating applications and what those applications are doing with the participants' data.
 
 **Participants**
 
@@ -251,10 +256,25 @@ The **DECODE IDENTITY** can be considered a **disposable identity** in the sense
 Once the **DECODE IDENTITY** is registered with DECODE it can be used to associate other public / private key pairs for the purposes of conducting transactions or gaining access to data. 
 
 
-
 **Operators**
 
 Identity is transparent to a known and registered organisation that a participant can discover and make a choice about wether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535. 
+
+### How is Identity implemented in DECODE?
+
+A core part of of estabilishing a **real world idenity** is **verification** of some **claims** that an individual makes about themselves. For example "I live at 00 Xxxxx Xxxxxx" or "I am over the age of 18" or "I am a resident of Barcelona city. These **claims** may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the person owning a **DECODE IDENTITY** is also a resident of Barcelona. Further we might seek some verified and uniquely identifiable attribute such that we can write a smart rule that only allows a single vote, irrespective of how many **DECODE IDENTITIES** are associated to that particular person. The unique identifier does not habve to expose real knowledge (for example a citizen ID number) but must be possible to be checked for uniqueness.
+
+DECODE will NOT provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by independent parties to be leveraged in DECODE interactions (specifically, smart rules). These **claims** may also be associated with **entitlements**.
+
+As an example, to return to the voting system for residents of Barcelona. In this case, the entity responsibile for verification would be the city of Barcelona. This is an offline (to DECODE) process which might involve some exchange between the city and the individual. The result of this exchange will be a digital, **verifiable claim** that would be available for that person to use and would be verifiable by any **relying party**. At a high level this will involve a cryptographic proof (e.g. the claim will be cryptographically signed by the city of Barcelona). ALso required will be a mechanism by which the DECODE network can **trust** the public key of the city of Barcelona, i.e. there will need to be a registration protocol to establish this trust.
+
+Once the City has generated and signed this claim, it will need to be associated with a **DECODE Identity**. The most efficient way for this to happen would be for the city of Barcelona to also verify the same person is in possession of both the **DECODE Identity** which might be a physical crypto device (e.g. Smart card). For example this interaction could take place with a website which is run by the city of Barcelona. The **User Journey** for this interaction would involve the person authenticating with their account on this website and then choosing to "link" one or more **DECODE IDENTITIES** with the city of Barcelona account. At this point the City of Barcelona can **issue** a claim that the person with that **DCID** is infact a resident of Barcelona, along with a unique resident key.
+
+Because the choice of which **DCID** to use is in the hands of the **participant** they have strong control of how this link is used. For example a **participant** may choose to create a separate **DCID** for voting on city matters to one they use in a peer sharing application.
+
+**Verification** then, happens **outside** DECODE, but decode maintains a **link** to that verified claim. This can be considered to be related to **attributes** which are stored in DECODE relating to a **DCID**. In the example above, DECODE would store an attribute such as "Residency: Barcelona City" which would itself be cryptographically referencable to the **verified claim** that the city of Barcelona has signed.
+
+The exact mechanism and protocol by which this is accomplished is work in progress and will be updated here in future whitepaper versions. 
 
 
 
