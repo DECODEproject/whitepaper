@@ -262,7 +262,7 @@ Identity is transparent to a known and registered organisation that a participan
 
 ### How is Identity implemented in DECODE?
 
-A core part of of estabilishing a **real world idenity** is **verification** of some **claims** that an individual makes about themselves. For example "I live at 00 Xxxxx Xxxxxx" or "I am over the age of 18" or "I am a resident of Barcelona city. These **claims** may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the person owning a **DECODE IDENTITY** is also a resident of Barcelona. Further we might seek some verified and uniquely identifiable attribute such that we can write a smart rule that only allows a single vote, irrespective of how many **DECODE IDENTITIES** are associated to that particular person. The unique identifier does not habve to expose real knowledge (for example a citizen ID number) but must be possible to be checked for uniqueness.
+A core part of of estabilishing a **real world idenity** is **verification** of some **claims** that an individual makes about themselves. For example *"I live at 00 Xxxxx Xxxxxx"* or *"I am over the age of 18"* or *"I am a resident of Barcelona city"*. These **claims** may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the person owning a **DECODE IDENTITY** is also a resident of Barcelona. Further we might seek some verified and uniquely identifiable attribute such that we can write a smart rule that only allows a single vote, irrespective of how many **DECODE IDENTITIES** are associated to that particular person. The unique identifier does not habve to expose real knowledge (for example a citizen ID number) but must be possible to be checked for uniqueness.
 
 DECODE will NOT provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by independent parties to be leveraged in DECODE interactions (specifically, smart rules). These **claims** may also be associated with **entitlements**.
 
@@ -276,6 +276,7 @@ Because the choice of which **DCID** to use is in the hands of the **participant
 
 The exact mechanism and protocol by which this is accomplished is work in progress and will be updated here in future whitepaper versions. 
 
+In order to make it straighforward for developers to build **DECODE apps** the mechanisms for interacting with and validating external identity claims will be a core part of the language that is used to express **Smart Rules**. 
 
 
 ## The user interface
