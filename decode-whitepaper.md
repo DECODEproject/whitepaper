@@ -1,11 +1,16 @@
 ---
 title: DECODE Architecture Whitepaper
-author: Jaap-Henk Hoepman, ...
+author: Jaap-Henk Hoepman, George Danezis, Jaromil Rojo, Mark DeVilliers, Jim Barritt, ...
 ---
 
 # Outline
 
-This documents describes the design of the DECODE architecture.
+This documents describes the design of the DECODE architecture. The document will evolve over time and will be published as a versioned series.
+
+| Version | Date Published |
+| ------- | -------------- |
+| 0.1     | YYYY-MM-dd     |
+
 
 DECODE is ...
 
@@ -17,16 +22,36 @@ This whitepaper will be updated regularly to include new functionality and impro
 
 # Functionality
 
-*To be described based on 1-2 core use cases, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
+DECODE aims to design and implement a free and open source, reliable and distributed architecture to run applications developed by third parties.
 
-DECODE is a *platform*, running applications developed by third parties. Data can be shared (in a controlled and responsible manner) between these applications.
+The DECODE architecture must be secure, distributed and privacy
+friendly as it will host different privacy sensitive applications in
+parallel.
 
-Main goals
-- citizens manage access to their (personal) data
-- citizens know who accessed their (personal) data
-- ...
+DECODE is made of:
+- a set of specifications for distributed ledgers to support decode
+- a free and open source reference implementation of a distributed ledger
+- a smart rule language that can be translated and graphically represented
+- a GNU/Linux based operating system that can execute signed smart rule applications
+- the documentation needed for operators to write and deploy smart rules that request access to private data
+- an intuitive graphical interface for participants to allow smart rules to access their private data
+- an ontology of attributes for private data that is aggregated by operators
+- an attribute based cryptographic implementation that can grants access to private
 
-The architecture must be secure and privacy friendly enough to host different sensitive applications in parallel.
+DECODE main goals are:
+- allow *participants* to manage access to their *private data*, by granting and revoke access to parts
+- allow *operators* to write *smart rules* sign them and get the authorisation to run them on DECODE
+- allow *smart rules* to access *private data* based on *entitlements* and matched *attributes*
+- allow everyone to record *entitlements* on a *distributed ledger* whose integrity is resilient and verifiable
+
+TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelona are selected, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
+
+3 exemplar use cases / demo apps:
+
+- A) Citizen Sensing - Air quality for a location
+- B) Asset sharing / renting (TBD, equivalent of FairBnB)
+- C) Complex privacy (TBD, either in terms of participants or varying based on context)
+
 
 # Architecture overview
 
@@ -41,44 +66,227 @@ We broaden the scope to resources: data, but also devices. Resources are either 
 
 The *publisher* of restricted data determines who has access to the data. To this end it attaches an *entitlement condition* to the restricted data. Users wishing to obtain access to the data need to prove they possess the necessary *entitlement*. Entitlements can be *issued* to users. Entitlements have a *lifetime*: they are not valid before and not valid after a certain time. Additional flexibility can be expressed through *smart contracts* that, given a set of inputs (consisting of entitlements but also other *context*, like the current location or the current time or date) yield an entitlement. Smart contracts are stored and executed on a *distributed ledger*. Users store[^store] their entitlements privately.
 
+
 [^store]: Maybe entitlements do not even exist when not needed or used, and only come into being when needed.
 
 (So, for example, a home owner wishing to allow his guests access to the local Wifi could create an entitlement `john-doe-house-wifi`, a smart contract saying "*if someone has an entitlement `renting-john-doe-house` and this entitlement is valid now, then output the entitlement `john-doe-house-wifi` valid for one hour*". Then if the owner rents out his house and issues the renter the entitlement `renting-john-doe-house`, access to the wifi is securely arranged automatically.)
-
-
 
 Data sources[^datasources]:
 
 - "Streaming" data from sensors
 - open government data
-- user generated content (blogs, recommendations, obervations)
+- user generated content (blogs, recommendations, observations)
 - ...
 
-[^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a special kind of data that we need to reckon with. (JHH)
+[^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
+special kind of data that we need to reckon with. (JHH)
+
+<img src="images/decode-overview.png" width=800 />
+
+## Core Technical Values
+
+- **Openness** of the platform, to enable innovation and citizen
+participation.
+- **Flexibility** through smart rules, driven by the needs of the usecases.
+- **Transparency** and **auditability** of collective action and choice, privacy
+of individual actions.
+- **High-integrity**, appropriate **privacy** options, and **availability** against
+disruption and suppression.
+- **User-friendliness** for end-users, and app developers for **easy
+adoption**.
+- **Scalability** and **deployability** to compete with corporate and closed
+platforms.
 
 
-# The nodes
+# Architecture Components - How does DECODE Work?
 
-# The network
+
+## The nodes
+
+## The network
 
 - p2p
+- Identity?
+- Relationship to the ledger? 
 
-# Smart contracts
+## Smart rules
 
-- a language to express contracts
+- a language to express rules
+- Riccardian contracts?
 
-# Distributed ledger
 
-# Entitlements
+## Distributed ledger
+
+The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart rules.
+
+In DECODE, smart rules are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *proovable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart rule that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
+
+This separation of *execution* from *verification* is a fundamental design principle of the ledger.
+
+The ledger operates as a series of managed nodes running across the internet. The design of DECODE allows for multiple parties to operate networks of nodes. Further, when desiging a smart rule, the designer can select which node providers may execute the rule. Participants using the application and submitting transactions will have clear visibility of which organisations are participating in validating and accepting their transactions.
+
+Where checks are required of multiple inputs and outputs to a transaction (e.g. to avoid a double spend scenario), all the input transactions will require to also be known to the validating network.
+
+
+
+
+## Entitlements
+
+### Declaration
+
+Entitlements describe the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+
+Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
+
+For example, suppose that an entity with DECODE account ID#234 owns a data item which represents their personal profile:
+
+```
+{
+    :schema "http://.../person"
+    :attributes {
+        :decode-id "#234"
+        :first-name "Xxxxx"
+        :last-name  "Xxxxx"
+        :date-of-birth "YYYY-mm-dd"
+        :passport-number "XXXXXXXXXXX"
+        :gender "xxxx"
+        :address {
+            :number "0"
+            :street "Xxxxxxxx xx"
+            :town "Xxxxxx"
+            :district "Xxxxx"
+            :postal-code "xxxx"
+            :country "XXX"
+        }
+    }
+```
+Person ID#234 wishes to grant a Consumer ID#567 access to some subset of thier data. ID#567 may be another individual or a DECODE application that is going to aggregate the data for some purpose.
+
+DECODE defines three possible access levels:
+
+| Access level    | Description        |
+| --------------- | ------------------ |
+| `invisible`     | Subject can see neither the existence of this attribute, or its value           |
+| `can-discover`  | Subject can see that the data item has a value for this attribute, but not what it is |
+| `can-read`      | Subject can both see that the data item has a value and read that value  |
+
+In this example the consumer ID#567 is the subject and we can represent the entitlement as follows:
+
+```
+{:created 2016-03-30T20:24:34.412-00:00
+ :valid [:from 2016-03-30T20:24:34.412-00:00 
+         :to 2017-03-30T20:24:34.412-00:00]
+ :subjects [#567]
+ :schema http://.../person
+ :owner #234
+ :signature af4534faaacd34552344
+ :access {
+   :decode-id :can-read
+   :first-name :invisible
+   :last-name :can-read
+   :date-of-birth :invisible
+   :passport-number :can-discover
+   :gender :invisible
+   :address {
+     :number :invisible
+     :street :invisible
+     :town :can-read
+     :postal-code :invisible
+     :country :can-read
+   }}
+} 
+```
+
+Notice that the entitlement has a specific time range that it is valid for. It also specifies specifically the list of subjects to which it applies, and the type of data. In this case the entitlement is to a **class** of data, it could also be to a specific data instance.
+
+It indicates the entity which owns this data. It is also signed by the owner so that this entitlement can be verified.
+
+Finally the granular access levels are declared for each specific attribute.
+
+An entity may grant multiple entitlements to the same subject for the same data, but operating under different circumstances, for example, lets say the person in this case has agreed to book a room for rent - once the transaction has reached the point that the booking is confirmed, they are happy for the passport number to be revealed:
+
+```
+...
+  :access {
+  ...
+    :passport-number :can-read
+  ...
+  }
+...
+  :conditions {
+    :booking-status "confirmed"
+  }
+...
+```
+
+(Only the delta to the previous entitlement is shown).
+
+In most cases, the participants in the system will not be creating the entitlements directly, they will be interacting with DECODE applications. These applications will have the ability to declare what entitlements they require and the participants can agree to them, in much the same way that users can accept authorisation grants using OAuth.
+
+
+
+
+### Access control
+
+Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
+
+How does the DECODE platform provide for integrity and transparency around the privacy controls, as expressed in the entitlements?
 
 What they are
 
 - attribute based credentials
 - attribute based encryption
 
-# The user interface
+## Identity
+
+Identity within DECODE inverts the current world position whereby participants know little about the operators of the services they are registered with but the services know everything about the identity of the participants.
+
+In DECODE, the focus is on strengthening the position of the participant in terms if understanding exactly what organisations are operating applications and what those applications are doing with the participants' data.
+
+**Participants**
+
+Identity of participants comprises two perspectives. First there is the identity which a participant uses within the DECODE network (**DECODE IDENTITY**). This is a registered identifier that can be linked to transactions or granted access to data within the DECODE system. Second is the **real world identity** of the participant. This is NOT required to be stored within DECODE, although applications may choose to associate personal data with a **DECODE IDENTITY**.
+
+Demonstrating **real world identity** usually involves a participant providing various personally identifying facts to a system such as date of birth, passport id / driving licence number, potentially with additional offline checks and questions of the participant. For example in signing up to the UK's [gov.uk/Verify](https://www.gov.uk/government/publications/introducing-govuk-verify/introducing-govuk-verify) you register with a federated identity provider (e.g. The Post Office). The post office has a mobile app that can capture images of your passport, OCR the details and confirm them against the HMPO (Her Majesty's Passport office) and then takes a photo using the phone camera in order to compare against the photo on the passport. 
+
+A participant demonstrates control of their **DECODE IDENTITY** through some cryptographic means (essentially by holding a private key). This private key may be embedded on a physical device that the participant owns, such as a [Ubikey](https://www.yubico.com/products/yubikey-hardware/) or Smart Card issued by a civic authority. In the case of a device issued by an authority it may also contain elements of Attribute Based Cryptography, such as validating that the identity lives in a particular city. The authorities who issue the cards *may* contain information about the participants real world identity but there is no requirement for DECODE to contain the link.
+
+The **DECODE IDENTITY** can be considered a **disposable identity** in the sense that a real person can operate multiple **DECODE IDENTITY**s or switch from one to another over time.
+
+Once the **DECODE IDENTITY** is registered with DECODE it can be used to associate other public / private key pairs for the purposes of conducting transactions or gaining access to data. 
+
+
+**Operators**
+
+Identity is transparent to a known and registered organisation that a participant can discover and make a choice about wether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535. 
+
+### How is Identity implemented in DECODE?
+
+A core part of of estabilishing a **real world idenity** is **verification** of some **claims** that an individual makes about themselves. For example *"I live at 00 Xxxxx Xxxxxx"* or *"I am over the age of 18"* or *"I am a resident of Barcelona city"*. These **claims** may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the person owning a **DECODE IDENTITY** is also a resident of Barcelona. Further we might seek some verified and uniquely identifiable attribute such that we can write a smart rule that only allows a single vote, irrespective of how many **DECODE IDENTITIES** are associated to that particular person. The unique identifier does not habve to expose real knowledge (for example a citizen ID number) but must be possible to be checked for uniqueness.
+
+DECODE will NOT provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by independent parties to be leveraged in DECODE interactions (specifically, smart rules). These **claims** may also be associated with **entitlements**.
+
+As an example, to return to the voting system for residents of Barcelona. In this case, the entity responsibile for verification would be the city of Barcelona. This is an offline (to DECODE) process which might involve some exchange between the city and the individual. The result of this exchange will be a digital, **verifiable claim** that would be available for that person to use and would be verifiable by any **relying party**. At a high level this will involve a cryptographic proof (e.g. the claim will be cryptographically signed by the city of Barcelona). ALso required will be a mechanism by which the DECODE network can **trust** the public key of the city of Barcelona, i.e. there will need to be a registration protocol to establish this trust.
+
+Once the City has generated and signed this claim, it will need to be associated with a **DECODE Identity**. The most efficient way for this to happen would be for the city of Barcelona to also verify the same person is in possession of both the **DECODE Identity** which might be a physical crypto device (e.g. Smart card). For example this interaction could take place with a website which is run by the city of Barcelona. The **User Journey** for this interaction would involve the person authenticating with their account on this website and then choosing to "link" one or more **DECODE IDENTITIES** with the city of Barcelona account. At this point the City of Barcelona can **issue** a claim that the person with that **DCID** is infact a resident of Barcelona, along with a unique resident key.
+
+Because the choice of which **DCID** to use is in the hands of the **participant** they have strong control of how this link is used. For example a **participant** may choose to create a separate **DCID** for voting on city matters to one they use in a peer sharing application.
+
+**Verification** then, happens **outside** DECODE, but decode maintains a **link** to that verified claim. This can be considered to be related to **attributes** which are stored in DECODE relating to a **DCID**. In the example above, DECODE would store an attribute such as "Residency: Barcelona City" which would itself be cryptographically referencable to the **verified claim** that the city of Barcelona has signed.
+
+The exact mechanism and protocol by which this is accomplished is work in progress and will be updated here in future whitepaper versions. 
+
+In order to make it straighforward for developers to build **DECODE apps** the mechanisms for interacting with and validating external identity claims will be a core part of the language that is used to express **Smart Rules**. 
+
+
+## The user interface
 
 # Conclusions
+
+# References
+
+https://en.wikipedia.org/wiki/Affero_General_Public_License
+
 
 # QUESTIONS
 
@@ -86,11 +294,43 @@ What they are
 
 - Do we need to distinguish Hubs, OS and nodes? (The way I understand it is that the DECODE Hub is the physical thing that runs the DECODE OS, on top of which the DECODE Node is the main user-facing application that users use to manage their data and access to their data. Is this correct?)
 
+- What is a "Node" - is it a hardware device that a participant owns or is it a server running on the internet?
+
 - Recommendation systems (SOTA 5b) and privacy-preserving, discrimination aware data-mining (SOTA 6a): they are placed at the DECODE OS level in the proposal, but aren't these higher-level applications? Or is some kind of OS support necessary to achieve them?
+
+- Do ALL interactions with decode need to go through the device?
+
+- What about multiple people who are using the same device?
+
+- Do people themselves need an "account" that is on the server side - perhaps like bitcoin based on a public key which is maintained within a HSM that they own? e.g. ubikey?
+
+- Is there scope for interactions which might happen through a mobile device (e.g. IOS / Android) - perhaps a trust is constructed between the decode device and the mobile device? i.e. I could register my Iphone on the network?
+
+- Is there a need to provide an "entitlement" to the metadata as well as the data itself ? In some cases privacy is compromised by the knowledge that the data exists.
+
+- Do we need to make the distinction that citizens are both "data owners" and "data consumers"?
+
+- Should we make it clear that the "data owner" should be the arbitrator who decides whether a piece of data is *public* or *restricted*?
+
+Use of Distributed ledger technology
+
+- What is the rationale that leads us to this conclusion - i.e. Based on a set of characteristics we are looking for, a distributed ledger fits
+
+- What are the key constraints that might differ from either Bitcoin or Ethereum - i.e. Privacy, not everyone seeing the entire ledger?
+
+Entitlements
+
+- Internally at thingful we express entitlements very similar to AWS IAM Policies - The readme on this inspired project gives a very useful introduction -  https://github.com/ory/ladon#concepts (2-3 minutes read).
+
+- I think entitlement expirations are a potential minefield if based on "wall clock" time especially in a distributed, possibly adverserial context. My first instinct is that we would need some oracle for time outwith of trusting the operating system and/or a singular NTP.
+
+
 
 # DUMP
 
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
+
+
 
 # FOR REFERENCE: Design requirements taken from the proposal
 
@@ -108,7 +348,7 @@ More concrete design goals:
 
 - DECODE will develop a decentralised IoT data access system using open standards (for example, CoAP, MQTT, UPnP, etc.)  that accommodates legacy devices, smart objects and new services, enabled by controllable data sharing.  These will be embedded in a modern scalable blockchain, and supported by distributed smart rules, providing a fully decentralised social-application ecosystem.
 - DECODE builds on a Free and Open Source Software (FOSS) and hardware platform.
-- DECODE technology will provide a means to manage identities of parties as collections of personal attributes, access and influence in the domain of the body (BAN), local (LAN) and wide area network (WAN).  It will develop specific data-brokers based on the generic principles proposed for each network, backed by a state of the art blockchain infrastructure supporting smart contracts and privacy protections.
+- DECODE technology will provide a means to manage identities of parties as collections of personal attributes, access and influence in the domain of the body (BAN), local (LAN) and wide area network (WAN).  It will develop specific data-brokers based on the generic principles proposed for each network, backed by a state of the art blockchain infrastructure supporting smart rules and privacy protections.
 - DECODE will develop an intuitive interface empowering citizens to control with the click of a button with whom they share their data, in which format (addressing interoperability), and who is allowed to perform actions at what times, up to the lowest possible granularity.  Specific policy language will be developed that is both easy to express smart rules in, and easy to audit for compliance and to build trust.
 - DECODE will develop a decentralised system for accessing private IoT data and open civic data, creating a data index and data presentation interface, able to deliver secure, stable, validated datasets to a data entitlement layer in which citizens are in full control of these datasets.
 - “MyData approach”: Let the citizen control who can access their personal data and under what circumstances, using adaptive, smart, context-dependent access rules. 
@@ -146,4 +386,19 @@ De-couple the search and access functions. A lightweight open source client with
  
 ## Trust framework for digital commons, including personal data 
 
-DECODE will transform the current data ecosystem so that individuals can truly own and control their data.  In order to do so, the conditions for the processing of data set out by the individual would constitute the basis for an organisation to accept to engage with and use the data.  This would not be exactly a privacy policy or a consent form, but a different kind of contract or license to use the data.  DECODE proposes a combination of business practices, legal rules and technical solutions (a trust framework) operated through smart rules that manage user preferences for data sharing and capture the “operating rules” for a community of trust.  This starts with transparency over what data is held by whom, and the ability to authorise any sharing while understanding the implications. Taking advantage of the potential of the distributed ledger technologies, DECODE will design legal schemes (contracts and/or licenses) apt to foster stigmergic behaviours by individuals that generate digital commons made of personal data and identify the specific characteristics, ownership regimes, and access rights of such digital commons.
+DECODE will transform the current data ecosystem so that individuals can truly own and control their data.  In order to do so, the conditions for the processing of data set out by the individual would constitute the basis for an organisation to accept to engage with and use the data.  This would not be exactly a privacy policy or a consent form, but a different kind of rule or license to use the data.  DECODE proposes a combination of business practices, legal rules and technical solutions (a trust framework) operated through smart rules that manage user preferences for data sharing and capture the “operating rules” for a community of trust.  This starts with transparency over what data is held by whom, and the ability to authorise any sharing while understanding the implications. Taking advantage of the potential of the distributed ledger technologies, DECODE will design legal schemes (rules and/or licenses) apt to foster stigmergic behaviours by individuals that generate digital commons made of personal data and identify the specific characteristics, ownership regimes, and access rights of such digital commons.
+
+## Architecture Notes
+
+###Values
+
+These from Georges slide deck
+
+
+###Components - What they are, what are their responsibilities
+
+Data storage - in particular what do do with large volumes of streaming data, vs transactional data (e.g. I agree to lend someone my lawnmower for x times)
+
+The Decode Stack - from Hardware -> OS -> Applications
+
+
