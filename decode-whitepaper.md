@@ -127,6 +127,9 @@ The ledger operates as a series of managed nodes running across the internet. Th
 
 Where checks are required of multiple inputs and outputs to a transaction (e.g. to avoid a double spend scenario), all the input transactions will require to also be known to the validating network.
 
+### Enabling queries over the ledger
+
+**TODO:** Discussion around how one can query the ledger securely - i.e. in order to query, an index view or projection needs to be created across the data. How is this possible if all the data is private for e.g.? Perhaps related to entitlements and meta data
 
 
 
@@ -402,3 +405,8 @@ Data storage - in particular what do do with large volumes of streaming data, vs
 The Decode Stack - from Hardware -> OS -> Applications
 
 
+### Structure of Applications
+
+https://en.bitcoin.it/wiki/Stratum
+https://en.bitcoin.it/wiki/Obelisk
+https://en.bitcoin.it/wiki/Libbitcoin_Server
