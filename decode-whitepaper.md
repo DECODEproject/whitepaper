@@ -1,6 +1,6 @@
 ---
 title: DECODE Architecture Whitepaper
-author: Jaap-Henk Hoepman, George Danezis, Jaromil Rojo, Mark DeVilliers, Jim Barritt, ...
+author: Jaap-Henk Hoepman, George Danezis, Jaromil Rojo, Mark DeVilliers, Jim Barritt, Shehar Bano, ...
 ---
 
 # Outline
@@ -280,6 +280,28 @@ Because the choice of which **DCID** to use is in the hands of the **participant
 The exact mechanism and protocol by which this is accomplished is work in progress and will be updated here in future whitepaper versions. 
 
 In order to make it straighforward for developers to build **DECODE apps** the mechanisms for interacting with and validating external identity claims will be a core part of the language that is used to express **Smart Rules**. 
+
+### Authentication
+
+Often associated with the concept of **Identity** is the mechanism of **authentication**. For the purposes of DECODE we define authentication as being the mechanism by which a participant gains access to the system in a controlled way such that only that participant can access and control their particular DECODE identity (ultimately represented as one or more private keys for interactions such as signing transactions on the ledger).
+
+### Password-less Authentication
+
+**A core goal of authentication for decode is that we should aim to have authentication without passwords.**
+
+Options for the implementation of this include:
+
+- [one time codes sent to the device](https://medium.com/@ninjudd/passwords-are-obsolete-9ed56d483eb)
+- Device OS security (e.g. fingerprint on a mobile phone or laptop)
+- Embedded authentication in the device, rely upon general OS security such as locking screen on a PC
+
+We also make the observation that in general, security and privacy on the device is not the core purpose of DECODE - of much greater concern is privacy and control of data once it leaves the device and enters the network. 
+
+For example, if I gain access to a persons device (e.g. Laptop) there is already enough of a compromise in terms of being able to access all their non DECODE material that it is potentially not worth having a secondary control on the application itself.
+
+This topic requires further investigation, threat modelling and discussion, however we will aim to attempt to only implement password protection as a last resort.
+
+
 
 
 ## The user interface
