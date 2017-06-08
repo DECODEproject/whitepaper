@@ -231,6 +231,9 @@ In most cases, the participants in the system will not be creating the entitleme
 
 ### Access control
 
+**Principle: Access control should live with the data**
+
+
 Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
 
 How does the DECODE platform provide for integrity and transparency around the privacy controls, as expressed in the entitlements?
