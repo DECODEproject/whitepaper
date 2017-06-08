@@ -81,7 +81,7 @@ Data sources[^datasources]:
 [^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
 special kind of data that we need to reckon with. (JHH)
 
-<img src="images/decode-overview.png" width=800 />
+<img src="views/decode-overview.png" width=800 />
 
 ## Core Technical Values
 
@@ -138,6 +138,31 @@ Where checks are required of multiple inputs and outputs to a transaction (e.g. 
 ### Declaration
 
 Entitlements describe the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+
+We can define two parties in any given data exchange, the **data owner** and the **data consumer**. 
+
+There are 4 key elements to an entitlement declaration:
+
+- What **data attributes** are being shared
+- With **whom** is the data owner sharing data
+- For what **purpose** will the data consumer
+- Under what **conditions** will the data consumer use the data (e.g. https://opendatacommons.org/licenses/pddl/)
+
+**Audit Trail of data access**
+
+Alongside controlling access to the data, decode will also ensure that access to data is **audited**. This is made possible by virtue of the fact that in order to interact with decode, a participant will need to be registered. In particular ***operators** will need to be registered and have some level of authenticity - for example be traceable to a company registration (e.g. in UK companies house). This allows a far greate level of transparency to both the participants and regulatory authorities (e.g. city council) of what data is being shared where.
+
+**Data Receipts**
+
+Alongside audit trails we also wish to make it clear to the participant exactly what entitlements they have granted in a simple manner. An example of work in this area is https://www.digitalcatapultcentre.org.uk/project/pd-receipt/ who are developing ideas around the user experience of how to represent entitlments a user has granted.
+
+**General Data Protection Regulation**
+
+https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
+
+How does this impact / have relevance to decode?
+
+#### Access to individual data attributes
 
 Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
 
@@ -233,15 +258,57 @@ In most cases, the participants in the system will not be creating the entitleme
 
 **Principle: Access control should live with the data**
 
+For example if the data has been aggregated into a central store, access should only be provided to that data through an API which has access control embedded within it, and which understands the DECODE entitlement policy.
+
+Other ways that this can be achieved are via encryption where the access control is directly related to the data.
 
 Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
 
-How does the DECODE platform provide for integrity and transparency around the privacy controls, as expressed in the entitlements?
+**Patterns of Access control**
 
-What they are
+Three patterns of access control of varying sophistication are:
 
-- attribute based credentials
-- attribute based encryption
+- Data Vault (api access to aggregated data)
+- Individual Public Key Encryption - Encrypt data with a master key and then encrypt that key multiple times to different individuals.
+- Utilise ABE such that an attribute based key can be used by multiple data consumers.
+
+<img src="views/access-control.png" width=800 />
+
+<img src="views/access-control-attribute-based-key-data-attribute.png" width=800 />
+
+
+
+**Attribute Based Encryption**
+
+Key based encryption which is based on attributes about the participants - for example a key is created based on the fact that a person is a resident of the city of barcelona. The data can be encrypted in such a way that anyone with that attribute in their key can decrypt.
+
+**Controlling access to individual data attributes**
+
+As well as the attributes of the participants, there are also attributes of the data items - as we wish to have a fine grained control of these we require a design which allows individual data attributes (should this have a different name? maybe data elements?) to be controlled individually.
+
+For example:
+
+I want to allow all residents of barcelona to see my name. I want to allow residents of my street to see my name and see my full address.
+
+How is this implemented cryptographically?
+
+ABE provides an answer for controlling based on people who are residents of barcelona or on my street. Options:
+
+- Encrypt multiple versions of the data with different combinations of attributes - will end up being combinatorial explosion
+- Encrypt each attribute independently, using ABE
+
+The second option could work but will be computationally expensive for large data sets?
+
+**Controlling access to large datasets or streams of data**
+
+We require a mechanism for controlling access to either large datasets or streams of data. Perhaps I wish to publish a dataset including all my movement data from my phone for the last two months and yet control access to certain attributes.
+
+Options:
+
+- Encrypt each data item in the list as above
+- Separate the data into "columns" ie. each data attribute is becomes an array of values and these are then encrypted using ABE
+
+
 
 ## Identity
 
