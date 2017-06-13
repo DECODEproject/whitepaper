@@ -282,6 +282,8 @@ Three patterns of access control of varying sophistication are:
 
 Key based encryption which is based on attributes about the participants - for example a key is created based on the fact that a person is a resident of the city of barcelona. The data can be encrypted in such a way that anyone with that attribute in their key can decrypt.
 
+**Q** How does ABE prevent collusion?
+
 **Controlling access to individual data attributes**
 
 As well as the attributes of the participants, there are also attributes of the data items - as we wish to have a fine grained control of these we require a design which allows individual data attributes (should this have a different name? maybe data elements?) to be controlled individually.
@@ -307,6 +309,7 @@ Options:
 
 - Encrypt each data item in the list as above
 - Separate the data into "columns" ie. each data attribute is becomes an array of values and these are then encrypted using ABE
+- Investigate DRM tech for encrypting large (e.g. Video) streams can similar approaches be applied to user data?
 
 
 
@@ -371,6 +374,15 @@ For example, if I gain access to a persons device (e.g. Laptop) there is already
 
 This topic requires further investigation, threat modelling and discussion, however we will aim to attempt to only implement password protection as a last resort.
 
+## Other Work
+
+**Bitcoin Id (BTID)**
+
+[https://github.com/bitid/bitid/blob/master/BIP_draft.md](https://github.com/bitid/bitid/blob/master/BIP_draft.md)
+
+And 
+
+[https://github.com/bitid/bitid/issues/6](https://github.com/bitid/bitid/issues/6)
 
 
 
