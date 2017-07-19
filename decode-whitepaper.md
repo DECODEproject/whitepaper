@@ -272,9 +272,9 @@ Three patterns of access control of varying sophistication are:
 - Individual Public Key Encryption - Encrypt data with a master key and then encrypt that key multiple times to different individuals.
 - Utilise ABE such that an attribute based key can be used by multiple data consumers.
 
-<img src="views/access-control.png" width=800 />
+<img src="./views/access-control.png" width=800 />
 
-<img src="views/access-control-attribute-based-key-data-attribute.png" width=800 />
+<img src="./views/access-control-attribute-based-key-data-attribute.png" width=800 />
 
 
 
@@ -340,28 +340,13 @@ Identity is transparent to a known and registered organisation that a participan
 
 A core part of of estabilishing a **real world idenity** is **verification** of some **claims** that an individual makes about themselves. For example *"I live at 00 Xxxxx Xxxxxx"* or *"I am over the age of 18"* or *"I am a resident of Barcelona city"*. These **claims** may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the person owning a **DECODE IDENTITY** is also a resident of Barcelona. Further we might seek some verified and uniquely identifiable attribute such that we can write a smart rule that only allows a single vote, irrespective of how many **DECODE IDENTITIES** are associated to that particular person. The unique identifier does not habve to expose real knowledge (for example a citizen ID number) but must be possible to be checked for uniqueness.
 
-(Ula note: Speciffic specs for how the signed key by Identity Verificator based on ABE must be need to be provided (and can be a large hindering for DECODE adoption).)
-
 
 DECODE will NOT provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by independent parties to be leveraged in DECODE interactions (specifically, smart rules). These **claims** may also be associated with **entitlements**.
 
 As an example, to return to the voting system for residents of Barcelona. In this case, the entity responsibile for verification would be the city of Barcelona. This is an offline (to DECODE) process which might involve some exchange between the city and the individual. The result of this exchange will be a digital, **verifiable claim** that would be available for that person to use and would be verifiable by any **relying party**. At a high level this will involve a cryptographic proof (e.g. the claim will be cryptographically signed by the city of Barcelona). ALso required will be a mechanism by which the DECODE network can **trust** the public key of the city of Barcelona, i.e. there will need to be a registration protocol to establish this trust.
 
-(Ula: The protocol must also stablish the way by which uniqueness of verification to **DECODE Identity**/individual is done).
 
 Once the City has generated and signed this claim, it will need to be associated with a **DECODE Identity**. The most efficient way for this to happen would be for the city of Barcelona to also verify the same person is in possession of both the **DECODE Identity** which might be a physical crypto device (e.g. Smart card). For example this interaction could take place with a website which is run by the city of Barcelona. The **User Journey** for this interaction would involve the person authenticating with their account on this website and then choosing to "link" one or more **DECODE IDENTITIES** with the city of Barcelona account. At this point the City of Barcelona can **issue** a claim that the person with that **DCID** is infact a resident of Barcelona, along with a unique resident key.
-
-(Ula: If a unique resident key is provided, then there is a way in which a DECODE app can decrypt the user Identity?
-In other words: How to avoid a "double vouting" schema with different **DCID** but at same time enable verification and uniqueness)
-
-- Bob registers ID1 in decode
-- For ID1, BOB verifies itself with Verification provider (VPr).
-- VPr signs BOB-ID1 public key with its private key, and adds ABE with Bob unique feature (BUF) to ensure uniqueness.
-- BOB logs in DECODE with ID1 and does an action requiring Verification.
-- DECODE Node checks that ID1 key is signed by VPr.
-- Question: How does DECODE checks for vote unicity if BOB has two verified identities due to VPr breach?
-	- Answer 1: If the key includes a BUF, then DECODE can check for unicity if it knows the BUF. But then DECODE can decipher Bob's identity (BUF is common to ID1 and ID2 and must be enough to identify Bob). Then zero-personal-identity DECODE knowledge is lost.
-	- Answer 2: If the key des not include a BUF to identify uniquely a single person, multiple voting schemas can be envisaged, all the reliability of the system relies on VPr!
 
 
 Because the choice of which **DCID** to use is in the hands of the **participant** they have strong control of how this link is used. For example a **participant** may choose to create a separate **DCID** for voting on city matters to one they use in a peer sharing application.
@@ -450,6 +435,18 @@ Entitlements
 - I think entitlement expirations are a potential minefield if based on "wall clock" time especially in a distributed, possibly adverserial context. My first instinct is that we would need some oracle for time outwith of trusting the operating system and/or a singular NTP.
 
 
+Note on identity: (Remarks added by Ula upong reading the white-paper on 19/07/2017) Apologies if they are due to a misunderstanding from my part.
+
+- Speciffic specs for how the signed key by Identity Verificator will need to be provided (and can be a large hindering for DECODE adoption depending on the specs). The protocol must also stablish the way by which uniqueness of verification to **DECODE Identity**/individual is done.
+- If a unique attribute is provided, then there is a way in which a DECODE app can decrypt the user Identity? In other words: How to avoid a "double vouting" schema with different **DCID** but at same time enable verification and uniqueness (for the voting case this is crucial). Case study:
+	- Bob registers his disposable identity ID1 in DECODE.
+	- For ID1, BOB verifies itself with Verification provider (VPr).
+	- VPr signs BOB-ID1 public key with its private key, and signs via ABE with Bob unique feature (BUF) to ensure uniqueness.
+	- BOB logs in DECODE with ID1 and does an action requiring Verification and uniqueness of user.
+	- DECODE checks that ID1 key is signed by VPr.
+	- Question: How does DECODE checks for vote unicity if BOB has two verified identities due to VPr breach?
+		- Answer 1: If the key includes a BUF, then DECODE can check for unicity if it knows the BUF. But then DECODE can decipher Bob's identity (BUF is common to ID1 and ID2 and must be enough to identify Bob uniquely). Then zero-personal-identity DECODE knowledge is lost.
+		- Answer 2: If the key des not include a BUF to identify uniquely a single person, multiple voting schemas can be envisaged, all the reliability of the system relies on VPr, which even if it is not breached, will know the relation of ID1 and ID2 to BOB. Hence his identity will be revealed.
 
 # DUMP
 
