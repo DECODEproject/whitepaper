@@ -2,7 +2,7 @@
 # Added by Writedown on Mon Apr 10 12:10:58 CEST 2017
 WRITEDOWN_TITLE="DECODE Whitepaper v0.2"
 WRITEDOWN_AUTHOR="Denis Roio, James Barritt, Jaap-Henk Hoepman, Mark de Villiers, Tom Demeyer"
-WRITEDOWN_AFFILIATION="DECODEproject.EU Reserch Consortium"
+WRITEDOWN_AFFILIATION="DECODEproject.EU Research Consortium"
 WRITEDOWN_DATE="Monday 10 April 2017"
 WRITEDOWN_TAGS="[blockchain, privacy, architecture, sharing economy, platform cooperativism, implementation]"
 
