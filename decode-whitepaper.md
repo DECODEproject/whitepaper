@@ -29,6 +29,7 @@ friendly as it will host different privacy sensitive applications in
 parallel.
 
 DECODE is made of:
+
 - a set of specifications for distributed ledgers to support decode
 - a free and open source reference implementation of a distributed ledger
 - a smart rule language that can be translated and graphically represented
@@ -36,9 +37,10 @@ DECODE is made of:
 - the documentation needed for operators to write and deploy smart rules that request access to private data
 - an intuitive graphical interface for participants to allow smart rules to access their private data
 - an ontology of attributes for private data that is aggregated by operators
-- an attribute based cryptographic implementation that can grants access to private
+- an attribute based cryptographic implementation that can grants access to data
 
 DECODE main goals are:
+
 - allow *participants* to manage access to their *private data*, by granting and revoke access to parts
 - allow *operators* to write *smart rules* sign them and get the authorisation to run them on DECODE
 - allow *smart rules* to access *private data* based on *entitlements* and matched *attributes*
@@ -58,6 +60,7 @@ TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelo
 We first describe the DECODE architecture at a very high level of abstraction. In the sections to follow we will discuss each of the components, and how they are implemented, in detail.
 
 Entities
+
 - users (citizens)
 - governments (cities)
 - businesses (SMEs)
@@ -66,6 +69,9 @@ We broaden the scope to resources: data, but also devices. Resources are either 
 
 The *publisher* of restricted data determines who has access to the data. To this end it attaches an *entitlement condition* to the restricted data. Users wishing to obtain access to the data need to prove they possess the necessary *entitlement*. Entitlements can be *issued* to users. Entitlements have a *lifetime*: they are not valid before and not valid after a certain time. Additional flexibility can be expressed through *smart contracts* that, given a set of inputs (consisting of entitlements but also other *context*, like the current location or the current time or date) yield an entitlement. Smart contracts are stored and executed on a *distributed ledger*. Users store[^store] their entitlements privately.
 
+```
+tomd: here we need to refine.. entitlements are possibly dynamic, as mentioned in the footnote; also, currently it is not clear that we will execute the contracts 'on the ledger', or just use the ledger as a means of verifiation -- this is mentioned below, as well
+```
 
 [^store]: Maybe entitlements do not even exist when not needed or used, and only come into being when needed.
 
@@ -76,6 +82,7 @@ Data sources[^datasources]:
 - "Streaming" data from sensors
 - open government data
 - user generated content (blogs, recommendations, observations)
+- personal attributes & usage data
 - ...
 
 [^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
@@ -112,14 +119,18 @@ platforms.
 ## Smart rules
 
 - a language to express rules
-- Riccardian contracts?
+- Ricardian contracts?
 
 
 ## Distributed ledger
 
 The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart rules.
 
-In DECODE, smart rules are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *proovable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart rule that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
+``` 
+tomd: we do not store objects in the ledger, I think. Only hashes for verification of various components and transaction information (audit trails?)
+```
+
+In DECODE, smart rules are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *provable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart rule that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
 
 This separation of *execution* from *verification* is a fundamental design principle of the ledger.
 
@@ -136,6 +147,10 @@ Where checks are required of multiple inputs and outputs to a transaction (e.g. 
 ## Entitlements
 
 ### Declaration
+
+```
+tomd: this needs to be rewritten / elaborated, in the current form it does not address the idea of attribute-based dynamic entitlements.
+```
 
 Entitlements describe the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 
@@ -330,6 +345,10 @@ A participant demonstrates control of their **DECODE IDENTITY** through some cry
 The **DECODE IDENTITY** can be considered a **disposable identity** in the sense that a real person can operate multiple **DECODE IDENTITY**s or switch from one to another over time.
 
 Once the **DECODE IDENTITY** is registered with DECODE it can be used to associate other public / private key pairs for the purposes of conducting transactions or gaining access to data. 
+
+```
+tomd: I think this talk about multiple **DECODE IDENTITIES** is very confusing. The word **identity** is not needed, really. The multiple identities that are spoken of are just multiple combinations of attributes. The idea behind the above is clear, the language used consfuses. (for instance below, when multiple decode identities can only vote once...)
+```
 
 
 **Operators**
