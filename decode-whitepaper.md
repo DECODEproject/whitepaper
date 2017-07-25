@@ -72,7 +72,6 @@ The *publisher* of restricted data determines who has access to the data. To thi
 ```
 tomd: here we need to refine.. entitlements are possibly dynamic, as mentioned in the footnote; also, currently it is not clear that we will execute the contracts 'on the ledger', or just use the ledger as a means of verifiation -- this is mentioned below, as well
 ```
-
 [^store]: Maybe entitlements do not even exist when not needed or used, and only come into being when needed.
 
 (So, for example, a home owner wishing to allow his guests access to the local Wifi could create an entitlement `john-doe-house-wifi`, a smart contract saying "*if someone has an entitlement `renting-john-doe-house` and this entitlement is valid now, then output the entitlement `john-doe-house-wifi` valid for one hour*". Then if the owner rents out his house and issues the renter the entitlement `renting-john-doe-house`, access to the wifi is securely arranged automatically.)
@@ -128,6 +127,11 @@ The DECODE platform architecture has at its core a *distributed ledger* implemen
 
 ``` 
 tomd: we do not store objects in the ledger, I think. Only hashes for verification of various components and transaction information (audit trails?)
+```
+
+```
+jimb: the core functionality of chainspace allows for data to be stored as object. The domain model that it uses involves "Objects" and "Transactions" what would be potentially worthwhile in this section of the white paper is a quick summary of that. We can link then to the soon to be published Chainspace white paper for more details.
+Wether we choose to store real data in the ledger or not is then a privacy design issue. We could work through the example of the rental register to explore this topic further, if the rentals themeselves are recorded on the ledger how would we answer the question "how many nights has this property been rented for this year?"
 ```
 
 In DECODE, smart rules are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *provable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart rule that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
@@ -350,6 +354,10 @@ Once the **DECODE IDENTITY** is registered with DECODE it can be used to associa
 tomd: I think this talk about multiple **DECODE IDENTITIES** is very confusing. The word **identity** is not needed, really. The multiple identities that are spoken of are just multiple combinations of attributes. The idea behind the above is clear, the language used consfuses. (for instance below, when multiple decode identities can only vote once...)
 ```
 
+```
+jimb: Perhaps 'DECODE ACCOUNT'? I will pick this up as a discussion point for our tech meetings.
+```
+
 
 **Operators**
 
@@ -463,6 +471,10 @@ Note on identity: (Remarks added by Ula upong reading the white-paper on 19/07/2
 	- Question: How does DECODE checks for vote unicity if BOB has two verified identities due to VPr breach?
 		- Answer 1: If the key includes a BUF, then DECODE can check for unicity if it knows the BUF. But then DECODE can decipher Bob's identity (BUF is common to ID1 and ID2 and must be enough to identify Bob uniquely). Then zero-personal-identity DECODE knowledge is lost.
 		- Answer 2: If the key des not include a BUF to identify uniquely a single person, multiple voting schemas can be envisaged, all the reliability of the system relies on VPr, which even if it is not breached, will know the relation of ID1 and ID2 to BOB. Hence his identity will be revealed.
+
+```
+jimb: Good question - I will also schedule this as a design conversation we need to have in the tech standups. I think that if decode provides a non identifiable  token to the claim authority then it works ok - i.e. the claim authority provides a uniqueness token but all it knows is a random hash so theres no way they can trace it back to the decode account(s) that they user has submitted.
+```
 
 # DUMP
 
