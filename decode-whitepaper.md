@@ -1,6 +1,6 @@
 ---
 title: DECODE Architecture Whitepaper
-author: Jaap-Henk Hoepman, George Danezis, Jaromil Rojo, Mark DeVilliers, Jim Barritt, Shehar Bano, ...
+author: Jaap-Henk Hoepman, George Danezis, Jaromil Rojo, Mark DeVilliers, Jim Barritt, Shehar Bano, Olegu...
 ---
 
 # Outline
