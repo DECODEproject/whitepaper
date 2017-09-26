@@ -4,6 +4,9 @@ This repository contains the DECODE architecture whitepaper
 
 ## Timelines
 
+<img src="https://gogs.dyne.org/DECODE/decode-whitepaper/raw/master/whitepaper-timeline.png"  />
+
+
 | Date    | Milestone                    |
 |---------|------------------------------|
 | 28-Sept | Structure / Narrative Agreed |
@@ -12,7 +15,6 @@ This repository contains the DECODE architecture whitepaper
 | 20-Oct  | Final draft deadline         |
 | 31-Oct  | Publish first version        |
 
-<img src="https://gogs.dyne.org/DECODE/decode-whitepaper/raw/master/whitepaper-timeline.png" width="600" />
 
 
 ## Building
