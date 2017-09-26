@@ -12,7 +12,7 @@ This repository contains the DECODE architecture whitepaper
 | 20-Oct  | Final draft deadline         |
 | 31-Oct  | Publish first version        |
 
-<img src="whitepaper-timeline.png" width="600" />
+<img src="https://gogs.dyne.org/DECODE/decode-whitepaper/raw/master/whitepaper-timeline.png" width="600" />
 
 
 ## Building
