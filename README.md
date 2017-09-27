@@ -19,7 +19,19 @@ This repository contains the DECODE architecture whitepaper
 
 ## Building
 
-Rendering to DOCX and Markdown is handled by Writedown, included as submodule
+Rendering to DOCX and Markdown is handled by Writedown, included as submodule.
+
+You will need [pandoc](http://pandoc.org/installing.html) installed
+
+```
+brew install pandoc
+```
+
+You will also need a LaTeX installation. You should be able to install the basic tex package from [here](http://www.tug.org/mactex/morepackages.html).
+
+If this doesnt work, try [here](https://tug.org/mactex/mactex-download.html)
+
+You then have to find `pdflatex` it should be in `/Library/TeX/texbin` so you can add that to your `$PATH`.
 
 Writedown should be then downloaded as `git submodule`:
 
