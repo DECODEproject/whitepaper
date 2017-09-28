@@ -24,12 +24,10 @@
 #### Reuse where possible
 #### Modular
 ### DECODE OS
-### DECODE Nodes 
+### ValidatingNode
 ### Wallet
-### Verifying Node
-### Hardware 
-### Smart Cards / Crypto
-### Hubs for nodes
+#### Smart Cards / Crypto
+### Hardware Hubs 
 ### IOT connectivity
 
 ### The P2P network
@@ -37,7 +35,10 @@
 
 ### Distributed ledger
 #### Reference to chainspace
-#### Description of what is needed from DECODE perspective, i.e. development of contracts and verifiers, the client part, crypto requirements, i.e. have to build privacy on top using crypto
+#### Contract requirements
+#### Crypto requirements
+
+i.e. development of contracts and verifiers, the client part, crypto requirements, i.e. have to build privacy on top using crypto
 
 ### Smart rules Engine
 
@@ -47,9 +48,7 @@
 ### Example - IOT entitlements
 
 
-```comment
-Editorial discussion: how much of this should we include here?
-```
 # Conclusion
 # References
 # Glossary of Terms
+
