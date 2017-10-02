@@ -56,15 +56,15 @@ TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelo
 
 ## Alternatives to DECODE
 
-# Conceptual Framework
 
-### Privacy by design
-### Distributed Ledgers
-### Attributes and Identity
-### Attributes and entitlements
-### Attribute verification with ABC
-### Attribute Provenance
-### Entitlements and ABE
+# Conceptual Framework
+## Privacy by design
+## Distributed Ledgers
+## Attributes and Identity
+## Attributes and entitlements
+## Attribute verification with ABC
+## Attribute Provenance
+## Entitlements and ABE
 
 We first describe the DECODE architecture at a very high level of abstraction. In the sections to follow we will discuss each of the components, and how they are implemented, in detail.
 
@@ -355,12 +355,12 @@ This topic requires further investigation, threat modelling and discussion, howe
 
 
 
-## Architectural Principles
 
-### Free and Open source
-### Reuse what works
-### Modularity and interoperability
-### Decentralisation and federation
+# Architectural Principles
+## Free and Open source
+## Reuse what works
+## Modularity and interoperability
+## Decentralisation and federation
 
 - **Openness** of the platform, to enable innovation and citizen
 participation.
@@ -375,38 +375,40 @@ adoption**.
 platforms.
 
 
-## Operating system architecture
-### Process separation
-### Privilege escalation
-### Application modules
+
+# Operating system architecture
+## Process separation
+## Privilege escalation
+## Application modules
 
 
-## Hardware architecture
+# Hardware architecture
 
 ```comment
 TODO: find a better title for this section
 ```
-### Relay nodes (validating nodes)
+## Relay nodes (validating nodes)
 - User Interface
 
-### Wallet nodes
+## Wallet nodes
 
 - User Interface
 
-### Hardware Hubs
-### Keys and smart cards
-### IOT connectivity
-### P2P networking
+## Hardware Hubs
+## Keys and smart cards
+## IOT connectivity
+## P2P networking
 
 - p2p
 - Identity?
 - Relationship to the ledger? 
 
 
-## Distributed ledger
-### Reference to chainspace
-### Contract requirements
-### Crypto requirements
+
+# Distributed ledger
+## Reference to chainspace
+## Contract requirements
+## Crypto requirements
 
 The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart rules.
 
@@ -431,23 +433,25 @@ Where checks are required of multiple inputs and outputs to a transaction (e.g. 
 
 **TODO:** Discussion around how one can query the ledger securely - i.e. in order to query, an index view or projection needs to be created across the data. How is this possible if all the data is private for e.g.? Perhaps related to entitlements and meta data
 
-## Smart rules Engine
-### Language requirements
-### Usability and perception
+
+# Smart rules Engine
+## Language requirements
+## Usability and perception
 
 - User interface and visual languages
 
-### Deterministic and proovable computation
+## Deterministic and proovable computation
 
 
 - a language to express rules
 - Ricardian contracts?
 
 
-## DECODE Applications
-### What is a DECODE application?
-### Example - Petitions
-### Example - IOT entitlements
+
+# DECODE Applications
+## What is a DECODE application?
+## Example - Petitions
+## Example - IOT entitlements
 
 
 # Conclusion
