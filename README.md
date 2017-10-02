@@ -16,6 +16,19 @@ This repository contains the DECODE architecture whitepaper
 | 31-Oct  | Publish first version        |
 
 
+## Curators
+
+Here a list of sections and people busy curating them
+
+| Section                   | curators |
+|---------------------------|----------|
+| Conceptual framework      |          |
+| Architectural principles  |          |
+| OS architecture           | jaromil  |
+| Hardware architecture     |          |
+| Distributed ledger        |          |
+| Smart rules engine        | jaromil  |
+| DECODE applications       |          |
 
 ## Building
 
