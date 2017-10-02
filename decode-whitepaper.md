@@ -12,11 +12,13 @@ DECODE is ...
 
 WHY THIS WHITEPAPER: ...
 
-This whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements (like security and privacy and ...). We then give a high-level description of the DECODE architecture, before digging deeper and discussing the main components and how they are implemented in detail.
+This whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements (like security and privacy and ...). We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
 
 This whitepaper will be updated regularly to include new functionality and improved designs. The current version describes the minimum viable product (MVP).
 
-# Functionality
+# Introduction to DECODE
+
+## What is DECODE and why is it important?
 
 DECODE aims to design and implement a free and open source, reliable and distributed architecture to run applications developed by third parties.
 
@@ -50,8 +52,19 @@ TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelo
 - B) Asset sharing / renting (TBD, equivalent of FairBnB)
 - C) Complex privacy (TBD, either in terms of participants or varying based on context)
 
+## History and current "state of the art"
 
-# Architecture overview
+## Alternatives to DECODE
+
+# Conceptual Framework
+
+### Privacy by design
+### Distributed Ledgers
+### Attributes and Identity
+### Attributes and entitlements
+### Attribute verification with ABC
+### Attribute Provenance
+### Entitlements and ABE
 
 We first describe the DECODE architecture at a very high level of abstraction. In the sections to follow we will discuss each of the components, and how they are implemented, in detail.
 
@@ -84,69 +97,9 @@ Data sources[^datasources]:
 special kind of data that we need to reckon with. (JHH)
 
 <img src="views/decode-overview.png" width=800 />
+**Entitlements**
 
-## Core Technical Values
-
-- **Openness** of the platform, to enable innovation and citizen
-participation.
-- **Flexibility** through smart rules, driven by the needs of the usecases.
-- **Transparency** and **auditability** of collective action and choice, privacy
-of individual actions.
-- **High-integrity**, appropriate **privacy** options, and **availability** against
-disruption and suppression.
-- **User-friendliness** for end-users, and app developers for **easy
-adoption**.
-- **Scalability** and **deployability** to compete with corporate and closed
-platforms.
-
-
-# Architecture Components - How does DECODE Work?
-
-
-## The nodes
-
-## The network
-
-- p2p
-- Identity?
-- Relationship to the ledger? 
-
-## Smart rules
-
-- a language to express rules
-- Ricardian contracts?
-
-
-## Distributed ledger
-
-The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart rules.
-
-``` 
-tomd: we do not store objects in the ledger, I think. Only hashes for verification of various components and transaction information (audit trails?)
-```
-
-```
-jimb: the core functionality of chainspace allows for data to be stored as object. The domain model that it uses involves "Objects" and "Transactions" what would be potentially worthwhile in this section of the white paper is a quick summary of that. We can link then to the soon to be published Chainspace white paper for more details.
-Wether we choose to store real data in the ledger or not is then a privacy design issue. We could work through the example of the rental register to explore this topic further, if the rentals themeselves are recorded on the ledger how would we answer the question "how many nights has this property been rented for this year?"
-```
-
-In DECODE, smart rules are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *provable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart rule that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
-
-This separation of *execution* from *verification* is a fundamental design principle of the ledger.
-
-The ledger operates as a series of managed nodes running across the internet. The design of DECODE allows for multiple parties to operate networks of nodes. Further, when desiging a smart rule, the designer can select which node providers may execute the rule. Participants using the application and submitting transactions will have clear visibility of which organisations are participating in validating and accepting their transactions.
-
-Where checks are required of multiple inputs and outputs to a transaction (e.g. to avoid a double spend scenario), all the input transactions will require to also be known to the validating network.
-
-### Enabling queries over the ledger
-
-**TODO:** Discussion around how one can query the ledger securely - i.e. in order to query, an index view or projection needs to be created across the data. How is this possible if all the data is private for e.g.? Perhaps related to entitlements and meta data
-
-
-
-## Entitlements
-
-### Declaration
+**Declaration**
 
 ```
 tomd: this needs to be rewritten / elaborated, in the current form it does not address the idea of attribute-based dynamic entitlements.
@@ -177,7 +130,7 @@ https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
 
 How does this impact / have relevance to decode?
 
-#### Access to individual data attributes
+**Access to individual data attributes**
 
 Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
 
@@ -269,7 +222,7 @@ In most cases, the participants in the system will not be creating the entitleme
 
 
 
-### Access control
+**Access control**
 
 **Principle: Access control should live with the data**
 
@@ -327,11 +280,11 @@ Options:
 - Investigate DRM tech for encrypting large (e.g. Video) streams can similar approaches be applied to user data?
 
 
-## Identity
+**Identity**
 Identity within DECODE inverts the current world position whereby participants know little about the operators of the services they are registered with but the services know everything about the identity of the participants. “Vendor relationship management” so to speak; where the vendors are DECODE-enabled applications.
 In DECODE, the focus is on strengthening the position of the participant in terms if understanding exactly what organisations are operating applications and what those applications are doing with the participants' data.
 
-### Participants
+**Participants**
 The identity of the participants is irrelevant to the DECODE system, and also to the applications that run in the DECODE ecosystem. What ís relevant are the attributes that are related to the participants. We would go as far as to say that identity is a concept not needed at all.In the real world we live and act in many different contexts, these activities and the relations in those contexts each define a perspective on who we ‘really’ are. There is overlap, sure, but there is no context in which **all** aspects of us are relevant. So, what is our identity? 
 
 There are three options: 
@@ -360,12 +313,12 @@ A participant demonstrates control of these **attributes** through some cryptogr
 tomd: don’t really get the essence what you are trying to say in the 'operator' section; maybe relevant elsewhere in the document?
 ```
 
-####Operators
+**Operators**
 
 Identity is transparent to a known and registered organisation that a participant can discover and make a choice about wether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535.
 
 
-### How is verification implemented in DECODE?
+**How is verification implemented in DECODE?**
 
 DECODE will **not** provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by participants to be leveraged in DECODE interactions (specifically, smart rules). These claims may lead to **entitlements**.
 
@@ -379,7 +332,7 @@ Because the choice of using applications that reference this attribute is in the
 In order to make it straighforward for developers to build DECODE applications, the mechanisms for interacting with and validating external or ‘official’ claims will be a core part of the language that is used to express Smart Rules.
 
 
-### Authentication
+**Authentication**
 
 For the purposes of DECODE we define authentication as being the mechanism by which a participant gains access to the system in a controlled way such that only that participant can access and control the DECODE data associated with themselves.  
 Password-less Authentication
@@ -401,9 +354,102 @@ This topic requires further investigation, threat modelling and discussion, howe
 
 
 
-## The user interface
+## Architectural Principles
 
-# Conclusions
+### Free and Open source
+### Reuse what works
+### Modularity and interoperability
+### Decentralisation and federation
+
+- **Openness** of the platform, to enable innovation and citizen
+participation.
+- **Flexibility** through smart rules, driven by the needs of the usecases.
+- **Transparency** and **auditability** of collective action and choice, privacy
+of individual actions.
+- **High-integrity**, appropriate **privacy** options, and **availability** against
+disruption and suppression.
+- **User-friendliness** for end-users, and app developers for **easy
+adoption**.
+- **Scalability** and **deployability** to compete with corporate and closed
+platforms.
+
+
+## Operating system architecture
+### Process separation
+### Privilege escalation
+### Application modules
+
+
+## Hardware architecture
+
+```comment
+TODO: find a better title for this section
+```
+### Relay nodes (validating nodes)
+- User Interface
+
+### Wallet nodes
+
+- User Interface
+
+### Hardware Hubs
+### Keys and smart cards
+### IOT connectivity
+### P2P networking
+
+- p2p
+- Identity?
+- Relationship to the ledger? 
+
+
+## Distributed ledger
+### Reference to chainspace
+### Contract requirements
+### Crypto requirements
+
+The DECODE platform architecture has at its core a *distributed ledger* implementation. This provides the the capablities of availablilty and integrity. The core function of the ledger allows for distributed, redundant storage of objects and the verification of execution of smart rules.
+
+``` 
+tomd: we do not store objects in the ledger, I think. Only hashes for verification of various components and transaction information (audit trails?)
+```
+
+```
+jimb: the core functionality of chainspace allows for data to be stored as object. The domain model that it uses involves "Objects" and "Transactions" what would be potentially worthwhile in this section of the white paper is a quick summary of that. We can link then to the soon to be published Chainspace white paper for more details.
+Wether we choose to store real data in the ledger or not is then a privacy design issue. We could work through the example of the rental register to explore this topic further, if the rentals themeselves are recorded on the ledger how would we answer the question "how many nights has this property been rented for this year?"
+```
+
+In DECODE, smart rules are executed *outside* the ledger, and the results are submitted to the ledger for storage and verification. In this way, we allow for a completely private application to be written because the only requirement of the ledger is that it be *provable* that an execution is correct, the ledger does not need to actually execute the transaction itself. For example one could write a smart rule that can be verified through the use of a [Zero Knowledge Proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
+
+This separation of *execution* from *verification* is a fundamental design principle of the ledger.
+
+The ledger operates as a series of managed nodes running across the internet. The design of DECODE allows for multiple parties to operate networks of nodes. Further, when desiging a smart rule, the designer can select which node providers may execute the rule. Participants using the application and submitting transactions will have clear visibility of which organisations are participating in validating and accepting their transactions.
+
+Where checks are required of multiple inputs and outputs to a transaction (e.g. to avoid a double spend scenario), all the input transactions will require to also be known to the validating network.
+
+**Enabling queries over the ledger**
+
+**TODO:** Discussion around how one can query the ledger securely - i.e. in order to query, an index view or projection needs to be created across the data. How is this possible if all the data is private for e.g.? Perhaps related to entitlements and meta data
+
+## Smart rules Engine
+### Language requirements
+### Usability and perception
+
+- User interface and visual languages
+
+### Deterministic and proovable computation
+
+
+- a language to express rules
+- Ricardian contracts?
+
+
+## DECODE Applications
+### What is a DECODE application?
+### Example - Petitions
+### Example - IOT entitlements
+
+
+# Conclusion
 
 # References
 
