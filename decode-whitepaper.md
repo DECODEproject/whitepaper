@@ -96,7 +96,8 @@ Data sources[^datasources]:
 [^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
 special kind of data that we need to reckon with. (JHH)
 
-<img src="views/decode-overview.png" width=800 />
+![Decode Overview](img/decode-overview.png "Decode Overview")
+
 **Entitlements**
 
 **Declaration**
