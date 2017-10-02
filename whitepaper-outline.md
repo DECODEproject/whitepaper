@@ -4,12 +4,8 @@
 ## History and Current State of Art
 ## Alternatives to DECODE
 
-# The DECODE Distributed Architecture
 
-## Functionality
-### Decentralized Operators and Participants
-
-## Conceptual framework
+# Conceptual framework
 ### Privacy by design
 ### Distributed Ledgers
 ### Attributes and Identity
@@ -18,29 +14,35 @@
 ### Attribute Provenance
 ### Entitlements and ABE
 
-## Architectural components - How does DECODE work?
-### Architectural Principles
-#### Open source
-#### Reuse where possible
-#### Modular
-### DECODE OS
-### ValidatingNode
-### Wallet
-#### Smart Cards / Crypto
-### Hardware Hubs 
+# The DECODE Distributed Architecture
+
+## Architectural Principles
+### Free and Open source
+### Reuse what works
+### Modularity and interoperability
+### Decentralisation and federation
+
+## Operating system architecture
+### Process separation
+### Privilege escalation
+### Application modules
+
+## Hardware architectures
+### Relay nodes (validating nodes)
+### Wallet nodes
+### Hardware Hubs
+### Keys and smart cards
 ### IOT connectivity
 
-### The P2P network
-#### Options, prior art
+## Distributed ledger
+### Reference to chainspace
+### Contract requirements
+### Crypto requirements
 
-### Distributed ledger
-#### Reference to chainspace
-#### Contract requirements
-#### Crypto requirements
-
-i.e. development of contracts and verifiers, the client part, crypto requirements, i.e. have to build privacy on top using crypto
-
-### Smart rules Engine
+## Smart rules Engine
+### Language requirements
+### Usability and perception
+### Deterministic and proovable computation
 
 ## DECODE Applications
 ### What is a DECODE application?
