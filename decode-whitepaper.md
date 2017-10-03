@@ -66,6 +66,11 @@ TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelo
 ## Attribute Provenance
 ## Entitlements and ABE
 
+- Declaration of Entitlements
+- Implementation (Access control)
+- ABE as an implementation
+
+
 We first describe the DECODE architecture at a very high level of abstraction. In the sections to follow we will discuss each of the components, and how they are implemented, in detail.
 
 Entities
