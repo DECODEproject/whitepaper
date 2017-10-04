@@ -1,2 +1,20 @@
-decode-whitepaper.md
+
+introduction.md
+
+conceptual_framework.md
+
+architectural_principles.md
+
+os_architecture.md
+
+hardware_supports.md
+
+distributed_ledger.md
+
+smart_rules.md
+
+decode_applications.md
+
+conclusion.md
+
 
