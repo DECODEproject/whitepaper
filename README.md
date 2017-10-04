@@ -34,9 +34,17 @@ Here a list of sections and people busy curating them
 
 Rendering to DOCX and Markdown is handled by Writedown, included as submodule.
 
-You will need [pandoc](http://pandoc.org/installing.html) installed
+You will need texlive-latex and [pandoc](http://pandoc.org/installing.html) installed
 
 ```
+On Debian based distros
+
+apt-get install -y zsh texlive-latex-base texlive-fonts-recommended texlive-latex-extra pandoc 
+
+-----------
+
+On OSX
+
 brew install pandoc
 ```
 
