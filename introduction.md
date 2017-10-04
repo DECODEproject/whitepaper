@@ -7,10 +7,6 @@ This documents describes the design of the DECODE architecture. The document wil
 | 0.1     | YYYY-MM-dd     |
 
 
-DECODE is ...
-
-WHY THIS WHITEPAPER: ...
-
 This whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements (like security and privacy and ...). We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
 
 This whitepaper will be updated regularly to include new functionality and improved designs. The current version describes the minimum viable product (MVP).
