@@ -17,7 +17,7 @@ tomd: here we need to refine.. entitlements are possibly dynamic, as mentioned i
 ```
 [^store]: Maybe entitlements do not even exist when not needed or used, and only come into being when needed.
 
-![Decode Overview](img/terminology-relationships.png "Key conceptual terminology and relationships")
+![Key conceptual terminology and relationships](img/terminology-relationships.png "Key conceptual terminology and relationships")
 
 
 (So, for example, a home owner wishing to allow his guests access to the local Wifi could create an entitlement `john-doe-house-wifi`, a smart contract saying "*if someone has an entitlement `renting-john-doe-house` and this entitlement is valid now, then output the entitlement `john-doe-house-wifi` valid for one hour*". Then if the owner rents out his house and issues the renter the entitlement `renting-john-doe-house`, access to the wifi is securely arranged automatically.)
@@ -102,8 +102,6 @@ Conceptual overview of why provenance is important
 PAULUS
 ```
 
-**How is verification implemented in DECODE?**
-
 DECODE will **not** provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by participants to be leveraged in DECODE interactions (specifically, smart rules). These claims may lead to **entitlements**.
 
 A core functionality of DECODE is **verification** of **claims** that an individual makes about themselves. For example "I live at 00 Xxxxx Xxxxxx" or "I am over the age of 18" or "I am a resident of Barcelona city". These claims may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the persona as defined by the voting application is also a resident of Barcelona. Furthermore, the application defines a secure and uniquely identifiable attribute, together with a smart rule that only allows a single vote for any particular ballot. Through using DECODE, the attribute does not have to expose any real knowledge (for example a citizen ID number) but it must be possible to be checked for a particular value (number of votes cast).
@@ -139,7 +137,7 @@ There are 4 key elements to an entitlement declaration:
 
 ### Entitlement Policies
 
-An entitlement declaration describes the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+An entitlement policy describes the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 
 Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
 
@@ -164,7 +162,7 @@ In most cases, the participants in the system will not be creating the entitleme
 - Broadcast encryption (e.g. DRM)
 - Attribute based encryption
 
-![Decode Overview](img/access-control-data-vault.png "Traditional 'data vault' access control")
+![Traditional 'data vault' access control](img/access-control-data-vault.png "Traditional 'data vault' access control")
 
 
 **Principle: Access control should live with the data**
@@ -175,7 +173,7 @@ Other ways that this can be achieved are via encryption where the access control
 
 Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
 
-![Decode Overview](img/baseline-encryption.png "Asymmetric key based encryption")
+![Asymmetric key based encryption](img/baseline-encryption.png "Asymmetric key based encryption")
 
 
 
@@ -202,7 +200,7 @@ Key based encryption which is based on attributes about the participants - for e
 
 Is one way in which access control can be implemented and can provide a cryptographic relationship between the declaration and the implementation.
 
-![Decode Overview](img/attribute-based-encryption.png "Attribute based encryption")
+![Attribute based encryption](img/attribute-based-encryption.png "Attribute based encryption")
 
 
 ### Transparency and Integrity
