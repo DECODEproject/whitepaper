@@ -1,16 +1,4 @@
 # Conceptual Framework
-## Privacy by design
-## Distributed Ledgers
-## Attributes and Identity
-## Attributes and entitlements
-## Attribute verification with ABC
-## Attribute Provenance
-## Entitlements and ABE
-
-
-- Declaration of Entitlements
-- Implementation (Access control)
-- ABE as an implementation
 
 We first describe the DECODE architecture at a very high level of abstraction. In the sections to follow we will discuss each of the components, and how they are implemented, in detail.
 
@@ -29,6 +17,9 @@ tomd: here we need to refine.. entitlements are possibly dynamic, as mentioned i
 ```
 [^store]: Maybe entitlements do not even exist when not needed or used, and only come into being when needed.
 
+![Decode Overview](img/terminology-relationships.png "Key conceptual terminology and relationships")
+
+
 (So, for example, a home owner wishing to allow his guests access to the local Wifi could create an entitlement `john-doe-house-wifi`, a smart contract saying "*if someone has an entitlement `renting-john-doe-house` and this entitlement is valid now, then output the entitlement `john-doe-house-wifi` valid for one hour*". Then if the owner rents out his house and issues the renter the entitlement `renting-john-doe-house`, access to the wifi is securely arranged automatically.)
 
 Data sources[^datasources]:
@@ -39,195 +30,35 @@ Data sources[^datasources]:
 - personal attributes & usage data
 - ...
 
-[^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a
-special kind of data that we need to reckon with. (JHH)
+[^datasources]: Not sure whether we need the distinction, although streaming sensor data seems to be a special kind of data that we need to reckon with. (JHH)
 
-![Decode Overview](img/decode-overview.png "Decode Overview")
 
-**Entitlements**
+## Privacy by design
 
-**Declaration**
-
-```
-tomd: this needs to be rewritten / elaborated, in the current form it does not address the idea of attribute-based dynamic entitlements.
+```comment
+PAULUS
 ```
 
-Entitlements describe the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
-
-We can define two parties in any given data exchange, the **data owner** and the **data consumer**. 
-
-There are 4 key elements to an entitlement declaration:
-
-- What **data attributes** are being shared
-- With **whom** is the data owner sharing data
-- For what **purpose** will the data consumer
-- Under what **conditions** will the data consumer use the data (e.g. https://opendatacommons.org/licenses/pddl/)
-
-**Audit Trail of data access**
-
-Alongside controlling access to the data, decode will also ensure that access to data is **audited**. This is made possible by virtue of the fact that in order to interact with decode, a participant will need to be registered. In particular ***operators** will need to be registered and have some level of authenticity - for example be traceable to a company registration (e.g. in UK companies house). This allows a far greate level of transparency to both the participants and regulatory authorities (e.g. city council) of what data is being shared where.
-
-**Data Receipts**
-
-Alongside audit trails we also wish to make it clear to the participant exactly what entitlements they have granted in a simple manner. An example of work in this area is https://www.digitalcatapultcentre.org.uk/project/pd-receipt/ who are developing ideas around the user experience of how to represent entitlments a user has granted.
 
 **General Data Protection Regulation**
 
 https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
 
-How does this impact / have relevance to decode?
+- Note that a software component / product cannot "implement" or be "compliant with" GDPR as compliance is a combination of both software and human systems and processes.
+- Software can however enable or hinder an organisation in achieving GDPR compliance
+- As DECODE is designed with privacy in mind from the ground up it naturally affords a good foundation
+- Further, many of the privacy by design principles will correlate with needs of GDPR compliance, for example right to be forgotten
+- Finally DECODE will provide transparency for **participants** about exactly where their data is and with whom it has been shared which will also enable GDPR compliance
+- See DECODE as a tool that will help your organisation, not as a whole solution to GDPR. 
+-
 
-**Access to individual data attributes**
-
-Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
-
-For example, suppose that an entity with DECODE account ID#234 owns a data item which represents their personal profile:
-
-```
-{
-    :schema "http://.../person"
-    :attributes {
-        :decode-id "#234"
-        :first-name "Xxxxx"
-        :last-name  "Xxxxx"
-        :date-of-birth "YYYY-mm-dd"
-        :passport-number "XXXXXXXXXXX"
-        :gender "xxxx"
-        :address {
-            :number "0"
-            :street "Xxxxxxxx xx"
-            :town "Xxxxxx"
-            :district "Xxxxx"
-            :postal-code "xxxx"
-            :country "XXX"
-        }
-    }
-```
-Person ID#234 wishes to grant a Consumer ID#567 access to some subset of thier data. ID#567 may be another individual or a DECODE application that is going to aggregate the data for some purpose.
-
-DECODE defines three possible access levels:
-
-| Access level    | Description        |
-| --------------- | ------------------ |
-| `invisible`     | Subject can see neither the existence of this attribute, or its value           |
-| `can-discover`  | Subject can see that the data item has a value for this attribute, but not what it is |
-| `can-read`      | Subject can both see that the data item has a value and read that value  |
-
-In this example the consumer ID#567 is the subject and we can represent the entitlement as follows:
-
-```
-{:created 2016-03-30T20:24:34.412-00:00
- :valid [:from 2016-03-30T20:24:34.412-00:00 
-         :to 2017-03-30T20:24:34.412-00:00]
- :subjects [#567]
- :schema http://.../person
- :owner #234
- :signature af4534faaacd34552344
- :access {
-   :decode-id :can-read
-   :first-name :invisible
-   :last-name :can-read
-   :date-of-birth :invisible
-   :passport-number :can-discover
-   :gender :invisible
-   :address {
-     :number :invisible
-     :street :invisible
-     :town :can-read
-     :postal-code :invisible
-     :country :can-read
-   }}
-} 
+## Attributes 
+```comment
+TOM D
 ```
 
-Notice that the entitlement has a specific time range that it is valid for. It also specifies specifically the list of subjects to which it applies, and the type of data. In this case the entitlement is to a **class** of data, it could also be to a specific data instance.
+### Identity
 
-It indicates the entity which owns this data. It is also signed by the owner so that this entitlement can be verified.
-
-Finally the granular access levels are declared for each specific attribute.
-
-An entity may grant multiple entitlements to the same subject for the same data, but operating under different circumstances, for example, lets say the person in this case has agreed to book a room for rent - once the transaction has reached the point that the booking is confirmed, they are happy for the passport number to be revealed:
-
-```
-...
-  :access {
-  ...
-    :passport-number :can-read
-  ...
-  }
-...
-  :conditions {
-    :booking-status "confirmed"
-  }
-...
-```
-
-(Only the delta to the previous entitlement is shown).
-
-In most cases, the participants in the system will not be creating the entitlements directly, they will be interacting with DECODE applications. These applications will have the ability to declare what entitlements they require and the participants can agree to them, in much the same way that users can accept authorisation grants using OAuth.
-
-
-
-
-**Access control**
-
-**Principle: Access control should live with the data**
-
-For example if the data has been aggregated into a central store, access should only be provided to that data through an API which has access control embedded within it, and which understands the DECODE entitlement policy.
-
-Other ways that this can be achieved are via encryption where the access control is directly related to the data.
-
-Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
-
-**Patterns of Access control**
-
-Three patterns of access control of varying sophistication are:
-
-- Data Vault (api access to aggregated data)
-- Individual Public Key Encryption - Encrypt data with a master key and then encrypt that key multiple times to different individuals.
-- Utilise ABE such that an attribute based key can be used by multiple data consumers.
-
-<img src="views/access-control.png" width=800 />
-
-<img src="views/access-control-attribute-based-key-data-attribute.png" width=800 />
-
-
-
-**Attribute Based Encryption**
-
-Key based encryption which is based on attributes about the participants - for example a key is created based on the fact that a person is a resident of the city of barcelona. The data can be encrypted in such a way that anyone with that attribute in their key can decrypt.
-
-**Q** How does ABE prevent collusion?
-
-**Controlling access to individual data attributes**
-
-As well as the attributes of the participants, there are also attributes of the data items - as we wish to have a fine grained control of these we require a design which allows individual data attributes (should this have a different name? maybe data elements?) to be controlled individually.
-
-For example:
-
-I want to allow all residents of barcelona to see my name. I want to allow residents of my street to see my name and see my full address.
-
-How is this implemented cryptographically?
-
-ABE provides an answer for controlling based on people who are residents of barcelona or on my street. Options:
-
-- Encrypt multiple versions of the data with different combinations of attributes - will end up being combinatorial explosion
-- Encrypt each attribute independently, using ABE
-
-The second option could work but will be computationally expensive for large data sets?
-
-**Controlling access to large datasets or streams of data**
-
-We require a mechanism for controlling access to either large datasets or streams of data. Perhaps I wish to publish a dataset including all my movement data from my phone for the last two months and yet control access to certain attributes.
-
-Options:
-
-- Encrypt each data item in the list as above
-- Separate the data into "columns" ie. each data attribute is becomes an array of values and these are then encrypted using ABE
-- Investigate DRM tech for encrypting large (e.g. Video) streams can similar approaches be applied to user data?
-
-
-**Identity**
 Identity within DECODE inverts the current world position whereby participants know little about the operators of the services they are registered with but the services know everything about the identity of the participants. "Vendor relationship management" so to speak; where the vendors are DECODE-enabled applications.
 In DECODE, the focus is on strengthening the position of the participant in terms if understanding exactly what organisations are operating applications and what those applications are doing with the participants' data.
 
@@ -256,14 +87,20 @@ Authentication usually involves a participant providing various personally ident
 
 A participant demonstrates control of these **attributes** through some cryptographic means (essentially by holding a private key). This private key may be embedded on a physical device that the participant owns, such as a [Ubikey](https://www.yubico.com/products/yubikey-hardware/) or Smart Card issued by a civic authority. In the case of a device issued by an authority it may also contain attributes of interest to other DECODE applications, such as the fact that one lives in a particular city. These attributes, when stored, record the provenance and the semantic meaning of the relation in their urn, and can so be "officially verified" attributes that certain applications may require (such as voting in participatory budgeting applications, see below).
 
+
+
+
+### Attribute Provenance
+```comment
+TOM D
 ```
-tomd: don't really get the essence what you are trying to say in the 'operator' section; maybe relevant elsewhere in the document?
+
+Conceptual overview of why provenance is important
+
+### Attribute verification with ABC
+```comment
+PAULUS
 ```
-
-**Operators**
-
-Identity is transparent to a known and registered organisation that a participant can discover and make a choice about wether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535.
-
 
 **How is verification implemented in DECODE?**
 
@@ -279,7 +116,104 @@ Because the choice of using applications that reference this attribute is in the
 In order to make it straighforward for developers to build DECODE applications, the mechanisms for interacting with and validating external or "official" claims will be a core part of the language that is used to express Smart Rules.
 
 
-**Authentication**
+
+## Entitlements
+```comment
+Curator: Mark D
+```
+```
+tomd: this needs to be rewritten / elaborated, in the current form it does not address the idea of attribute-based dynamic entitlements.
+jimb: I'm not sure I understand 'attribute-based dynamic entitlements'
+jimb: need to agree our terminology here, subject vs data owner etc
+
+```
+We can define two parties in any given data exchange, the **data owner** and the **data consumer (or subject)**. **Entitlements** refers to both the contract agreed between these two about sharing of data (the **policy**) *and* the mechanism by which access to the data is controlled (the **implementation**).
+
+There are 4 key elements to an entitlement declaration:
+
+- What **attributes** are being shared
+- With **whom** is the data owner sharing data
+- For what **purpose** will the data consumer
+- Under what **conditions** will the data consumer use the data (e.g. [https://opendatacommons.org/licenses/pddl/](https://opendatacommons.org/licenses/pddl/))
+
+
+### Entitlement Policies
+
+An entitlement declaration describes the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+
+Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
+
+
+DECODE defines three possible access levels:
+
+| Access level    | Description        |
+| --------------- | ------------------ |
+| `invisible`     | Subject can see neither the existence of this attribute, or its value           |
+| `can-discover`  | Subject can see that the data item has a value for this attribute, but not what it is |
+| `can-read`      | Subject can both see that the data item has a value and read that value  |
+
+
+
+In most cases, the participants in the system will not be creating the entitlements directly, they will be interacting with DECODE applications. These applications will have the ability to declare what entitlements they require and the participants can agree to them, in much the same way that users can accept authorisation grants using OAuth.
+
+
+### Implementation (Access control)
+
+- Data Vault
+- Encryption
+- Broadcast encryption (e.g. DRM)
+- Attribute based encryption
+
+![Decode Overview](img/access-control-data-vault.png "Traditional 'data vault' access control")
+
+
+**Principle: Access control should live with the data**
+
+For example if the data has been aggregated into a central store, access should only be provided to that data through an API which has access control embedded within it, and which understands the DECODE entitlement policy.
+
+Other ways that this can be achieved are via encryption where the access control is directly related to the data.
+
+Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
+
+![Decode Overview](img/baseline-encryption.png "Asymmetric key based encryption")
+
+
+
+
+**Controlling access to large datasets or streams of data**
+
+We require a mechanism for controlling access to either large datasets or streams of data. Perhaps I wish to publish a dataset including all my movement data from my phone for the last two months and yet control access to certain attributes.
+
+Options:
+
+- Encrypt each data item in the list as above
+- Separate the data into "columns" ie. each data attribute is becomes an array of values and these are then encrypted using ABE
+- Investigate DRM tech for encrypting large (e.g. Video) streams can similar approaches be applied to user data?
+
+
+### Attribute Based Encryption 
+
+```comment
+Curator: Paulus
+```
+
+Key based encryption which is based on attributes about the participants - for example a key is created based on the fact that a person is a resident of the city of barcelona. The data can be encrypted in such a way that anyone with that attribute in their key can decrypt.
+
+
+Is one way in which access control can be implemented and can provide a cryptographic relationship between the declaration and the implementation.
+
+![Decode Overview](img/attribute-based-encryption.png "Attribute based encryption")
+
+
+### Transparency and Integrity
+
+Alongside controlling access to the data, decode will also ensure that access to data is **audited**. This is made possible by virtue of the fact that in order to interact with decode, a participant will need to be registered. In particular **operators** will need to be registered and have some level of authenticity - for example be traceable to a company registration (e.g. in UK companies house). This allows a far greater level of transparency to both the participants and regulatory authorities (e.g. city council) of what data is being shared where.
+
+Alongside audit trails we also wish to make it clear to the participant exactly what entitlements they have granted in a simple manner. An example of work in this area is https://www.digitalcatapultcentre.org.uk/project/pd-receipt/ who are developing ideas around the user experience of how to represent entitlments a user has granted.
+
+
+
+## Authentication
 
 For the purposes of DECODE we define authentication as being the mechanism by which a participant gains access to the system in a controlled way such that only that participant can access and control the DECODE data associated with themselves.  
 Password-less Authentication
@@ -296,6 +230,21 @@ We also make the observation that in general, security and privacy on the device
 For example, if I gain access to a persons device (e.g. Laptop) there is already enough of a compromise in terms of being able to access all their non DECODE material that it is potentially not worth having a secondary control on the application itself.
 
 This topic requires further investigation, threat modelling and discussion, however we will aim to attempt to only implement password protection as a last resort.
+
+## Distributed Ledgers
+```comment
+ALBERTO
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
