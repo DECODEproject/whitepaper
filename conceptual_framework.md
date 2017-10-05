@@ -125,21 +125,30 @@ jimb: I'm not sure I understand 'attribute-based dynamic entitlements'
 jimb: need to agree our terminology here, subject vs data owner etc
 
 ```
-We can define two parties in any given data exchange, the **data owner** and the **data consumer (or subject)**. **Entitlements** refers to both the contract agreed between these two about sharing of data (the **policy**) *and* the mechanism by which access to the data is controlled (the **implementation**).
 
-There are 4 key elements to an entitlement declaration:
-
-- What **attributes** are being shared
-- With **whom** is the data owner sharing data
-- For what **purpose** will the data consumer
-- Under what **conditions** will the data consumer use the data (e.g. [https://opendatacommons.org/licenses/pddl/](https://opendatacommons.org/licenses/pddl/))
+We define two parties in any given data exchange, the **data owner** and the **data consumer**. An **entitlement** is an agreement of disclosure controlled by the **data owner**. A **data entitlements**  concerns the sharing of data. In DECODE an **entitlement** is defined in a **policy**  *and* implemented with the application of cryptography.
 
 
 ### Entitlement Policies
 
-An entitlement policy describes the access a subject has to some data item. They can be considered similar to descriptions of entitlements for example such as described by [AWS IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+The DECODE architecture is inherently distributed and as such the management of entitlement policies will need to respond to some well understood challenges :
 
-Rather than attempting to build a hirearchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
+**Challenge of embedded decisions** The entitlement policy for a piece of data would need to be consistent wherever that data is stored - the data may be sharded or replicated or both.
+
+**Challenge of lack of overview** Distributed entitlement policies make it difficult to gather and understand policies governing the data.
+
+**Challenge of identity integration** A data entitlement system within the context of a distributed system may need to interface with one of many identity systems.
+
+**Challenge of expression** A formal expression of an entitlement policy should have a rich model of expression.
+
+There are 4 key elements to an entitlement policy :
+
+- What **attributes** are being shared
+- With **whom** is the data owner sharing data
+- For what **purpose**
+- Under what **conditions** will the data consumer use the data (e.g. [https://opendatacommons.org/licenses/pddl/](https://opendatacommons.org/licenses/pddl/))
+
+Rather than attempting to build a hierarchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
 
 
 DECODE defines three possible access levels:
@@ -151,9 +160,11 @@ DECODE defines three possible access levels:
 | `can-read`      | Subject can both see that the data item has a value and read that value  |
 
 
-
 In most cases, the participants in the system will not be creating the entitlements directly, they will be interacting with DECODE applications. These applications will have the ability to declare what entitlements they require and the participants can agree to them, in much the same way that users can accept authorisation grants using OAuth.
 
+```
+markd - I think we should choose one propsed implementation??
+```
 
 ### Implementation (Access control)
 
