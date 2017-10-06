@@ -17,4 +17,4 @@ decode_applications.md
 
 conclusion.md
 
-
+decode-glossary.md
