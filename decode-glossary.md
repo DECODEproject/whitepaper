@@ -12,7 +12,7 @@
 An account is the software construct within decode that provides control of attributes and represents either the Participant, Operator or Attribute verifier in any decode transaction. The account will ultimately relate to some cryptographic construct such as private / public key pair. Attributes will be related to and controlled by an account. An account will be able to submit transactions to the ledger.
 
 ### Attribute
-All data which is in DECODE is attributes. Conversation about whether all data relates to “Attributes about a participant” - simple answer is “yes” - could be an interesting discussion about. All attributes have the potential to demonstrate Provenance.
+All data which is in DECODE is attributes. Conversation about whether all data relates to "Attributes about a participant" - simple answer is "yes" - could be an interesting discussion about. All attributes have the potential to demonstrate Provenance.
 
 ### Attribute provenance
 Meta-data related to an attribute that relates it to an ontology. All attributes must specify a link to an ontology. We may also consider optionally adding other meta-data to attributes that for example describes the source of the attribute data.
@@ -24,7 +24,7 @@ A cryptographic demonstration of the validity / (assurance?) of the provenance o
 Process running in the DECODE OS. Allows to control access to the attribute data.
 
 ### Attribute verifier
-An entity which has the credentials / authority to verify the provenance of an attribute. The expression of this verification will be through cryptographic form which will then be associated with the attribute owned by a participant. e.g. Participant Alice has the attribute “resident of city X” which is related to some cryptographic evidence that this claim is true, traceable back to some authoritative source of city X. An attribute verifier will require an account in order to be able to create this verification. The entity who is the attribute verifier may act also act as an operator at the same time. Further, attribute verification and the subsequent use of that verification may happen within the same application. The authenticity of the verifier may itself be verified by its own attributes.
+An entity which has the credentials / authority to verify the provenance of an attribute. The expression of this verification will be through cryptographic form which will then be associated with the attribute owned by a participant. e.g. Participant Alice has the attribute "resident of city X" which is related to some cryptographic evidence that this claim is true, traceable back to some authoritative source of city X. An attribute verifier will require an account in order to be able to create this verification. The entity who is the attribute verifier may act also act as an operator at the same time. Further, attribute verification and the subsequent use of that verification may happen within the same application. The authenticity of the verifier may itself be verified by its own attributes.
 
 ### Attribute Verification
 Synonym: Attribute Provenance Verification
@@ -82,7 +82,7 @@ The metadata service is responsible for maintaining an index of discoverable dat
 This refers to an (online) service provider hosting nodes on behalf of participants.Note: this may need refining as it's still under discussion.
 
 ### Ontology
-In computer science and information science, an ontology is a formal naming and definition of the types, properties, and interrelationships of the entities that really or fundamentally exist for a particular domain of discourse. It is thus a practical application of philosophical ontology, with a taxonomy. [Ontology - Information Science - Wiki]  A referenceable “schema” which describes the attribute. As raised, we need to be careful this does not become too restrictive. There is a wider discussion around this from the device hub work. While all attributes require a definition, registering changes to ontologies is an open process. Some governance / structure will be needed (to be discussed later). We will also need to consider evolution of ontologies over time.
+In computer science and information science, an ontology is a formal naming and definition of the types, properties, and interrelationships of the entities that really or fundamentally exist for a particular domain of discourse. It is thus a practical application of philosophical ontology, with a taxonomy. [Ontology - Information Science - Wiki]  A referenceable "schema" which describes the attribute. As raised, we need to be careful this does not become too restrictive. There is a wider discussion around this from the device hub work. While all attributes require a definition, registering changes to ontologies is an open process. Some governance / structure will be needed (to be discussed later). We will also need to consider evolution of ontologies over time.
 
 ### Participant
 An individual who digitally participates in the DECODE ecosystem. Participation occurs by interacting with an application. participants own and control attributes via their account.
@@ -106,4 +106,4 @@ They are Application specific functions that take attributes (or objects) and cr
 It is a property of access control of multiple related, yet independent, software systems. With this property, a user logs in with a single ID and password to gain access to a connected system or systems without using different usernames or passwords. (Wikipedia)
 
 ### Transaction
-Transactions are the application of one or more valid procedures – according to type – to active input objects, and possibly some referenced objects, to create a number of new active output objects. (Ref: Chainspace: A Sharded Smart Contracts Platform)
+Transactions are the application of one or more valid procedures - according to type - to active input objects, and possibly some referenced objects, to create a number of new active output objects. (Ref: Chainspace: A Sharded Smart Contracts Platform)
