@@ -12,7 +12,11 @@ clean:
 	rm -r pub
 
 generate-docx: create-target-dir
-	./writedown/render pdf
+	./writedown/render docx
+
+generate-latex: create-target-dir
+	./writedown/render latex
+
 
 generate-pdf: create-target-dir
 	./writedown/render pdf
