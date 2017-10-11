@@ -1,4 +1,4 @@
-VERSION := DRAFT
+VERSION := EA-SNAPSHOT
 INPUT_FILE := decode-whitepaper.md
 
 all: generate-pdf open-pdf
@@ -22,6 +22,6 @@ generate-pdf: create-target-dir
 	./writedown/render pdf
 
 open-pdf:
-	open pub/DECODE_Whitepaper_vDRAFT.pdf
+	open pub/DECODE_Whitepaper_v${VERSION}.pdf
 
 
