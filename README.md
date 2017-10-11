@@ -22,13 +22,13 @@ Here a list of sections and people busy curating them
 
 | Section                   | curators |
 |---------------------------|----------|
-| Conceptual framework      |          |
+| Conceptual framework      | jimb     |
 | Architectural principles  |          |
 | OS architecture           | jaromil  |
 | Hardware architecture     |          |
-| Distributed ledger        |          |
+| Distributed ledger        | alberto  |
 | Smart rules engine        | jaromil  |
-| DECODE applications       |          |
+| DECODE applications       | jimb     |
 
 ## Building
 

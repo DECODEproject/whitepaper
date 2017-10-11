@@ -1,15 +1,14 @@
 # Outline
 
-This documents describes the design of the DECODE architecture. The document will evolve over time and will be published as a versioned series.
+This documents describes the design of the DECODE ([https://decodeproject.eu/](https://decodeproject.eu/)) architecture. The document will evolve over time and will be published regularly as a versioned series.
 
-| Version | Date Published |
-| ------- | -------------- |
-| 0.1     | YYYY-MM-dd     |
+| Version                        | Date Published            | 
+| ------------------------------ | ------------------------- |
+| EA-SNAPSHOT (Early Access)     | (Targeted Oct 31 2017)    |
 
 
-This whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements (like security and privacy and ...). We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
+The whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements. We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
 
-This whitepaper will be updated regularly to include new functionality and improved designs. The current version describes the minimum viable product (MVP).
 
 # Introduction to DECODE
 
@@ -21,7 +20,7 @@ The DECODE architecture must be secure, distributed and privacy
 friendly as it will host different privacy sensitive applications in
 parallel.
 
-DECODE is made of:
+### DECODE is made of:
 
 - a set of specifications for distributed ledgers to support decode
 - a free and open source reference implementation of a distributed ledger
@@ -30,16 +29,19 @@ DECODE is made of:
 - the documentation needed for operators to write and deploy smart rules that request access to private data
 - an intuitive graphical interface for participants to allow smart rules to access their private data
 - an ontology of attributes for private data that is aggregated by operators
-- an attribute based cryptographic implementation that can grants access to data
+- an attribute based cryptographic implementation that can grant access to data
 
-DECODE main goals are:
+
+### DECODE main goals are:
 
 - allow *participants* to manage access to their *private data*, by granting and revoke access to parts
 - allow *operators* to write *smart rules* sign them and get the authorisation to run them on DECODE
 - allow *smart rules* to access *private data* based on *entitlements* and matched *attributes*
 - allow everyone to record *entitlements* on a *distributed ledger* whose integrity is resilient and verifiable
 
+```comment
 TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelona are selected, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
+```
 
 3 exemplar use cases / demo apps:
 
@@ -47,7 +49,25 @@ TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelo
 - B) Asset sharing / renting (TBD, equivalent of FairBnB)
 - C) Complex privacy (TBD, either in terms of participants or varying based on context)
 
-## History and current "state of the art"
+## History and current state of the art
 
-## Alternatives to DECODE
+```
+Bitcoin -> Ethereum 
+        -> Private implementations -> Alternatives to Proof of work
+                                   -> Permissioned -> Hyperledger -> Monax Burrow
+                                                                  -> IBM Fabric
+                                                                  -> R3 Corda
+                                                                  
+Models Of execution:
 
+Execute transactions vs Verification
+
+Privacy
+
+Scalability
+
+                                                             
+                                   
+    
+        
+```
