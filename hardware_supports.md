@@ -1,8 +1,7 @@
-# Hardware architecture
+# DECODE Implementation
 
-```comment
-TODO: find a better title for this section
-```
+
+
 
 ![Decode Overview](img/decode-overview.png "Decode Overview")
 

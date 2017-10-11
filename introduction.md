@@ -14,6 +14,9 @@ The whitepaper is structured as follows. We first describe the functionality the
 
 ## What is DECODE and why is it important?
 
+DECODE is an evolution of the concept of [decentralised systems](section-link) which leverages state of the art cryptographic techniques such as [Distributed Ledgers](section-link) and [Attribute Based Credentials](section-link) to build a system that provides its [participants](glossary-link) the capability to store data securely, give control and transparency over with whom and for what purpose data is shared and transact with other participants or  organisations.
+
+
 DECODE aims to design and implement a free and open source, reliable and distributed architecture to run applications developed by third parties.
 
 The DECODE architecture must be secure, distributed and privacy
