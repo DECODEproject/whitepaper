@@ -64,6 +64,20 @@ TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelo
 
 ## History and current state of the art
 
+Decentralised technology ecosystems have been around for decades, and more recently there has been an explosion of decentralised platforms powering the rise of cryptocurrencies. In 2008-09, Satoshi Nakamoto implemented the first decentralized currency combining advancements in public key cryptography with a consensus algorithm widely known as "proof of work." This was a breakthrough in building a completely decentralised ecosystem that was centered around the transfer of ‘assets’ from one individual to another. Since then, there have been several advancements in using blockchain for creating both fungible and non-fungible assets.
+
+Ethereum [Ref: https://github.com/ethereum/wiki/wiki/White-Paper#history] provides a blockchain implementation that can be used to encode arbitrary state transitions, enabling it to be used as a decentralised ‘back-end’ for applications. Ethereum operates as a programmable blockchain. Rather than give users a set of pre-defined operations (e.g. bitcoin transactions), Ethereum allows users to create their own operations of any complexity they wish. The public ledger of Ethereum and the computing capacity it provides is referred to as the Ethereum Virtual Machine (“EVM”), which can execute code of arbitrary algorithmic complexity.
+
+
+Monax (previously known as Eris) is an open platform for developers to build, ship, and run blockchain-based applications for business ecosystems. It’s client is agnostic to the underlying blockchain technology. Public ledgers such as Ethereum are both anonymous and permissionless systems, i.e any user can run validating nodes, and the inherent nature of the cryptography that is the basis for mining determines that an attacker would need to control more than 50% of the network. The decentralised and distributed nature of the blockchain forms the basis of its trust model.
+
+
+Identity on the internet has evolved from being implemented as centralised silos to federated identity models. Federated identity enables, single sign on available across several large service provider platforms. Service providers continue to be data controllers, in both centralised and federated models. Sovrin [Ref: https://sovrin.org/wp-content/uploads/2017/04/The-Technical-Foundations-of-Sovrin.pdf] is a blockchain based identity platform, providing the user control, security, and portability.
+
+
+DECODE uses Attribute based encryption (ABE) [Ref: Amit Sahai and Brent Waters. Fuzzy Identity-Based Encryption. In EUROCRYPT, volume 3494 of LNCS, pages 457–473. Springer, 2005.] which determines decryption ability based on a user’s attributes. ABE uses zero knowledge proofs to securely verify attributes. Combining ABE with data entitlements with a blockchain based store for transactional data, DECODE provides a new framework for data ownership and transfer.
+
+
 ```
 Bitcoin -> Ethereum
         -> Private implementations -> Alternatives to Proof of work
