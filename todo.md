@@ -15,15 +15,20 @@
 
 - Priya
 
-**Hardware Architecture**
+**DECODE Components**
 - Intro - Jim
 - Relay Nodes (validating nodes) - Jim 
 - Wallet Nodes - Jim
 - Hardware hubs - Kristoffer + Ernesto
 - Keys and smart cards - Kristoffer + Ernesto
-- IOT connectivity - MArk
-- Distributed ledger - Alberto
-- smart rules engine - Jaromil
+- IOT connectivity - Mark
+
+
+**Distributed ledger**
+- Alberto
+
+**smart rules engine**
+- Jaromil
 
 **DECODE Applications**
 - what is a decode applciation - Jim 

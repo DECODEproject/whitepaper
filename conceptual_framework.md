@@ -229,17 +229,18 @@ Defining and declaring entitlements is a matter of describing access rules. In o
 - Broadcast encryption (e.g. DRM)
 - Attribute based encryption
 
-![Traditional 'data vault' access control](img/access-control-data-vault.png "Traditional 'data vault' access control")
+#### Using ABC as an authorization mechanism
+
+!['Data vault' access control](img/access-control-data-vault.png "'Data vault' access control")
 
 
-**Principle: Access control should live with the data**
+#### Using ABE to protect data for public distribution
 
-For example if the data has been aggregated into a central store, access should only be provided to that data through an API which has access control embedded within it, and which understands the DECODE entitlement policy.
-
-Other ways that this can be achieved are via encryption where the access control is directly related to the data.
+Protected at rest
 
 
-![Asymmetric key based encryption](img/baseline-encryption.png "Asymmetric key based encryption")
+![Attribute based encryption access control](img/abe-with-abc.png "Traditional 'data vault' access control")
+
 
 
 

@@ -1,4 +1,4 @@
-# DECODE Implementation
+# DECODE Components
 
 
 
@@ -15,6 +15,13 @@
 ## Hardware Hubs
 ## Keys and smart cards
 ## IOT connectivity
+
+- Device Hub
+- What is it 
+- what role does it play?
+
+- Ontologies
+
 ## P2P networking
 
 - p2p
