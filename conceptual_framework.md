@@ -2,7 +2,7 @@
 
 This section describes the foundational concepts that are combined to achieve the purpose of DECODE. 
 
-*participants* in teh DECODE ecosystem are:
+*participants* in the DECODE ecosystem are:
 
 - citizens, 
 - public authorities
@@ -27,6 +27,11 @@ PAULUS
 
 **General Data Protection Regulation**
 
+
+```comment
+Relevant, but is this the right place for these observations?? (TomD)
+```
+
 https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
 
 - Note that a software component / product cannot "implement" or be "compliant with" GDPR as compliance is a combination of both software and human systems and processes.
@@ -36,6 +41,7 @@ https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
 - Finally DECODE will provide transparency for **participants** about exactly where their data is and with whom it has been shared which will also enable GDPR compliance
 - See DECODE as a tool that will help your organisation, not as a whole solution to GDPR. 
 -
+
 
 ## Attributes 
 ```comment
@@ -120,6 +126,9 @@ To enable this functionality we add a fourth clause to the statement:
 
 ```comment
 jimb: I think we might need to distinguishe more clearly between the conceptual model here and the actual implementation. there is a slight issue I think with talking about clauses and statements in that it sounds like I would expect to see this representation somewhere in the system. we may visualise it in the UI but it feels to me like this structure is more logical than implementation?
+
+tomd: I use it to illustrate the concepts. It is actually implementation (like in triple stores), but not meant to be visualized as such.
+
 ```
 At the very least the \<prov> clause holds an **application id**; the other parts of the clause are optional. The app_id is a unique id that represents an **application**, and is issued what that application registers (for the precise sense in which we use the word application, please see the glossary).
 All statements are made by an application. Without anything else, this application is the only entity that can access the data (applications always have access to their own data); default **scope** is 'application'. Another scope is 'world'; further scopes are entitlements based on (possibly unrelated) attributes (only people of Amsterdam can see that I live in Amsterdam). There is also a 'decode core' application hat does not play by these rules. This would be an application that allows participant to 'administer' their decode 'accounts' and data. Participants that control an \<account> can, through this application, always access (and delete, but not necessarily modify) the statements that have this \<account> as a subject.
@@ -157,8 +166,9 @@ Curator: Mark D
 ```
 tomd: this needs to be rewritten / elaborated, in the current form it does not address the idea of attribute-based dynamic entitlements.
 jimb: I'm not sure I understand 'attribute-based dynamic entitlements'
-jimb: need to agree our terminology here, subject vs data owner etc
+tomd: as in age, f.i.; when I turn 18 entitlements might change
 
+jimb: need to agree our terminology here, subject vs data owner etc
 ```
 
 We define two parties in any given data exchange, the **data owner** and the **data consumer**. An **entitlement** is an agreement of disclosure controlled by the **data owner**. A **data entitlements**  concerns the sharing of data. In DECODE an **entitlement** is defined in a **policy**  *and* implemented with the application of cryptography.
