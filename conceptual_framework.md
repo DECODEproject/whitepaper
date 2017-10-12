@@ -1,10 +1,10 @@
 # Conceptual Framework
 
-This section describes the foundational concepts that are combined to achieve the purpose of DECODE. 
+This section describes the foundational concepts that are combined to achieve the purpose of DECODE.
 
 *participants* in teh DECODE ecosystem are:
 
-- citizens, 
+- citizens,
 - public authorities
 - businesses, sme's, ngo's
 - other legal entities
@@ -22,22 +22,60 @@ A home owner wishing to allow his guests access to the local Wifi, for example, 
 
 ```comment
 PAULUS
+
+Add reference to D1.2 About PbD:
+  The below texts are (mostly) verbatim from that deliverable:
+  * '20170630_D1.2_Privacy Design Strategies for the DECODE architecture & Data Management Plan'(.pdf)
+
+  additional sources to be included:
+  * [Hoepman, 2014] J-H. Hoepman, Privacy Design Strategies, IFIP TC11 29th Int. Conf. on Information Security (IFIP SEC 2014), pp. 446-459.
+  * [Colesky et al., 2016] M. Colesky, J-H. Hoepman, C. Hillen, A critical analysis of Privacy Design Strategies, 2016 IEEE Security and Privacy Workshops, pp. 33-40.
+  * https://www.decodeproject.eu/blog/privacy-design-requirements-decode
+  * (GDPR)
+
 ```
 
+DECODE aims to develop a privacy preserving data distribution platform to foster commons-based sharing economy models, where citizens own and control their data. This asks for a privacy by design- based approach, for which the concept of privacy design strategies have recently been developed.
+The General Data Protection Regulation (GDPR), as well as other data protection or privacy protection laws and regulations, define data protection in legal terms. These terms are soft, open to interpretation, and highly dependent on context. Because of this inherent vagueness, engineers find such legal requirements hard to understand and interpret.
+The GDPR also mandates privacy by design, without describing clearly what this means exactly, let alone giving concrete guidelines on how to go about implementing privacy by design when actually designing a system. Intuitively, privacy design means addressing privacy concerns throughout the system development lifecycle, from the conception of a system, through its design and implementation, proceeding through its deployment all the way to the decommissioning of the system many years later. In terms of software engineering, privacy is a quality attribute, like security, or performance. To make privacy by design concrete, the soft legal norms need to be translated into more concrete design requirements that engineers understand. This is achieved using privacy design strategies.
 
-**General Data Protection Regulation**
+Software can however enable or hinder an organisation in achieving GDPR compliance
+As DECODE is designed with privacy in mind from the ground up it naturally affords a good foundation
+DECODE will provide transparency for **participants** about exactly where their data is and with whom it has been shared which will also enable GDPR compliance
+Further, many of the privacy by design principles will correlate with needs of GDPR compliance, for example right to be forgotten.
 
-https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
+** Privacy Design Strategies **
 
-- Note that a software component / product cannot "implement" or be "compliant with" GDPR as compliance is a combination of both software and human systems and processes.
-- Software can however enable or hinder an organisation in achieving GDPR compliance
-- As DECODE is designed with privacy in mind from the ground up it naturally affords a good foundation
-- Further, many of the privacy by design principles will correlate with needs of GDPR compliance, for example right to be forgotten
-- Finally DECODE will provide transparency for **participants** about exactly where their data is and with whom it has been shared which will also enable GDPR compliance
-- See DECODE as a tool that will help your organisation, not as a whole solution to GDPR. 
--
+As described in (Colesky et. al. 2016) a privacy design strategy specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection. It is noted that this is different from what is understood to be an architectural strategy within the software engineering domain. Instead our strategies can be seen as goals of the privacy protection quality attribute (where a quality attribute is a term from software engineering describing non-functional requirements like performance, security, and also privacy).
+In the description of privacy design strategies we frequently refer to processing of personal data.
+Engineers should be aware that the legal concept of processing is broader than what a typical engineer understands processing to mean.
+In what follows we use the legal interpretation of processing, which includes creating, collecting, storing, sharing and deleting personal data.
 
-## Attributes 
+The eight PbD principles proposed for DECODE are:
+1. _Minimise_: Limit the processing of personal data as much as possible.
+2. _Separate_: Prevent correlation of personal data by separating the processing logically or physically.
+3. _Abstract_: Limit as much as possible the amount of detail of personal data being processed.
+4. _Hide_: protect personal data, or make them unlinkable or unobservable. Prevent personal data becoming public. Prevent exposure of personal data by restricting access, or hiding its very existence.
+5. _Inform_: provide data subjects with adequate information about which personal data is processed, how it is processed, and for what purpose.
+6. _Control_: provide data subjects mechanisms to control the processing of their personal data.
+7. _Enforce_: commit to a privacy friendly way of processing personal data, and enforce this.
+8. _Demonstrate_: provide evidence that you process personal data in a privacy friendly way.
+
+```comment
+Conclusion below needs to be refined.
+```
+Our most important findings are the following:
+1. End-users should be able to receive personalized recommendations or the results of data mining models without disclosing their data to anyone or access to the data of others.
+2. Verifiers should be able to validate transactions without learning secrets and confidential data within the transaction.
+3. Our initial analysis based on the privacy design strategies shows that the initial DECODE architecture is promising in the inherent privacy preserving properties it exhibits.
+We recommend the following:
+1. Use the advantages of blockchain-supported secure multiparty computation, in order to design a secure and private data mining and recommender system.
+2. When refining the DECODE architecture in more detail, one needs to take the observations made in section 4 into account. Especially, some effort needs to be spent deciding how to address the inform, control, enforce and demonstrate strategies.
+3. DECODE supports user-defined smart rules that encode the ‘business’ logic of specific applications. We recommend that to support privacy-friendly contracts, the design should employ mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
+
+We will update this document once the DECODE architecture has been described and decided upon in more detail, to reflect the changes in our assessment.
+
+## Attributes
 ```comment
 TOM D
 ```
@@ -48,21 +86,21 @@ Identity within DECODE inverts the current world position whereby participants k
 In DECODE, the focus is on strengthening the position of the participant in terms if understanding exactly what organisations are operating applications and what those applications are doing with the participants' data.
 
 **Participants**
-The identity of the participants is irrelevant to the DECODE system, and also to the applications that run in the DECODE ecosystem. What is relevant are the attributes that are related to the participants. We would go as far as to say that identity is a concept not needed at all. In the real world we live and act in many different contexts, these activities and the relations in those contexts each define a perspective on who we "really" are. There is overlap, sure, but there is no context in which **all** aspects of us are relevant. So, what is our identity? 
+The identity of the participants is irrelevant to the DECODE system, and also to the applications that run in the DECODE ecosystem. What is relevant are the attributes that are related to the participants. We would go as far as to say that identity is a concept not needed at all. In the real world we live and act in many different contexts, these activities and the relations in those contexts each define a perspective on who we "really" are. There is overlap, sure, but there is no context in which **all** aspects of us are relevant. So, what is our identity?
 
-There are three options: 
+There are three options:
 
 1. identity is what **we** think **we** are (i.e. self)
 2. It is how the state defines us, typically through a number or code assigned at birth
 3. It is the combination of all perspectives from all contexts combined
 
-In the DECODE ecosystem we will keep the diverse and subtle ways of addressing aspects of our lives and selves in different (online, digital) contexts, and leverage the capacity of the medium to improve upon this in a privacy enhancing fashion. When thinking of identity in this ecosystem, option one, above, is irrelevant, and option three is fine in an abstract way, but fraught with privacy issues when it would be possible to address & use practically. That leaves the extremely narrow definition of the government assigned civic number. Apart from the issue that people exist without such numbers, this is just a single attribute of a person, at best a strictly formal (or legal) definition of identity, but missing out on just about everything we are. 
+In the DECODE ecosystem we will keep the diverse and subtle ways of addressing aspects of our lives and selves in different (online, digital) contexts, and leverage the capacity of the medium to improve upon this in a privacy enhancing fashion. When thinking of identity in this ecosystem, option one, above, is irrelevant, and option three is fine in an abstract way, but fraught with privacy issues when it would be possible to address & use practically. That leaves the extremely narrow definition of the government assigned civic number. Apart from the issue that people exist without such numbers, this is just a single attribute of a person, at best a strictly formal (or legal) definition of identity, but missing out on just about everything we are.
 
-Better to avoid discussion and confusion and **not** to use the word identity at all, and talk about different collections of attributes, relevant in different (online, or even DECODE-supported offline) contexts (or *applications*). 
+Better to avoid discussion and confusion and **not** to use the word identity at all, and talk about different collections of attributes, relevant in different (online, or even DECODE-supported offline) contexts (or *applications*).
 
 Let's call such a collection a **profile** for now.
 
-In the end we are talking about physical people (AI's with civil rights are a ways off), even when assigning attributes that are purely abstract, or are transferable, these are about, or related to a person. This person is represented in the DECODE ecosystem as a profile, but **not uniquely**. One physical person will have control of the data related to multiple **profile**. These may overlap (in the values of certain attributes), or may not. 
+In the end we are talking about physical people (AI's with civil rights are a ways off), even when assigning attributes that are purely abstract, or are transferable, these are about, or related to a person. This person is represented in the DECODE ecosystem as a profile, but **not uniquely**. One physical person will have control of the data related to multiple **profile**. These may overlap (in the values of certain attributes), or may not.
 
 These profiles aren't entities in the DECODE system, they are a way of talking about *application-defined* collections of attributes. Profiles are the subject of **entitlements**, even when, for instance, the only attribute needed for the online alcohol-buying app is the age, that app would, in its use, **define** a profile with an age, and nothing else at all. For the sake of argument we leave out practicalities as payment, and the address to send the purchase to.
 
@@ -87,30 +125,30 @@ Curator: TOM D
 
 Of course digital systems cannot be held accountable in any legal sense (yet), but we'll need to address the fact that consequences of using digital and 'autonomous' systems are no longer as precooked as they once were.
 No longer is it guaranteed that the mechanisms and processes though which technology interacts with the world are clear and understandable, even to the engineers who build the systems; the bias in the training data is invisibly and irretreivably encoded in the trained models.
-This means that technology needs to be able to be held accountable in itself, not only through the people running it or the engineers building it. 
+This means that technology needs to be able to be held accountable in itself, not only through the people running it or the engineers building it.
 In order to enable this, accountability needs to be designed into the sytems, needs to be part of the systems, and thus, in a certain sense, systems need to be able to reflect on their actions; at least in response to queries.
 
 #### Data transparency
 
-Taking stock of this *accountability design* challenge leads us to a couple of preconditions to a possible solution or implementation. One of the most important of these, especially in a DECODE context, is **data transparency**. What type of data was used, where, when and for what purpose was this data collected? 
+Taking stock of this *accountability design* challenge leads us to a couple of preconditions to a possible solution or implementation. One of the most important of these, especially in a DECODE context, is **data transparency**. What type of data was used, where, when and for what purpose was this data collected?
 In a system for data management (such as DECODE) the relevant metadata needs to be recorded and made available when needed, either directly to the user in response to queries, or to aggregation alghoritms that produce data that itself needs to be able to provide an account of its provenance. The accountability mechanisms may not be part of DECODE, the data formats needed to make them possible **are**.
 
 In DECODE the provenance metadata is provided through the *application*. When a participant stores some data in a DECODE-enabled system, the participant **always** does this through an *application* like GebiedOnline or Decidim. Similarly, the application may generate data on behalf of the participant (Making Sense) and store it (or a link to it) through DECODE api's. The data recorded or stored always has this 'tag' that it comes from this particular *application*. Of course, in addition to the provanance metadata, much more may be stored, related to its type, lifetime etc.
 
 #### Provenance
 
-Data in the DECODE core is stored as **attributes**. Attributes are **statements** of the form **\<subject> \<predicate> \<object>**. The subject represents the participant, the oject the 'value' (data), and the predicate defines the type of the relation between the subject and the object. 
+Data in the DECODE core is stored as **attributes**. Attributes are **statements** of the form **\<subject> \<predicate> \<object>**. The subject represents the participant, the oject the 'value' (data), and the predicate defines the type of the relation between the subject and the object.
 In the predicate we encode the provenance. An example:
 
     <account> addressLocality 'Amsterdam'
 
 The representation of \<account> in the system is possibly just a public key that I control the private key of; 'Amsterdam' is the value of the attribute, and 'addressLocality' is what the attribute represents.
-What is interesting is the question: *who made this claim*?? Also, what does it mean, *addressLocality*? This is the information that you want to record together with with the attribute statement itself. 
+What is interesting is the question: *who made this claim*?? Also, what does it mean, *addressLocality*? This is the information that you want to record together with with the attribute statement itself.
 Typically, you encode the answers to both questions in the predicate clause. To start with the last question, what does 'addressLocality' mean, you solve that like this:
 
     <account> schema:addressLocality 'Amsterdam'
 
-Where 'schema' is defined to mean http://schema.org/. The total predicate so becomes a urn (which in this case you can even click on for a html version) that defines this particular predicate: http://schema.org/addressLocality. 
+Where 'schema' is defined to mean http://schema.org/. The total predicate so becomes a urn (which in this case you can even click on for a html version) that defines this particular predicate: http://schema.org/addressLocality.
 
 So far this is standard semantic web. It becomes more DECODE specific when we want talk **about the statement**, when we want to record who makes this claim, when we want be able to verify the statement, and possibly to validate the value.
 
@@ -134,20 +172,77 @@ Conceptual overview of why provenance is important
 
 ### Attribute verification with ABC
 ```comment
-PAULUS
+PAULUS - Fixing the terminology.
+
+add sources:
+
+@book{alpar2015attribute,
+  title={Attribute-based identity management:[bridging the cryptographic design of ABCs with the real world]},
+  author={Alp{\'a}r, Gergely},
+  year={2015},
+  publisher={[Sl: sn]}
+}
+
 ```
 
-DECODE will **not** provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by participants to be leveraged in DECODE interactions (specifically, smart rules). These claims may lead to **entitlements**.
+```comment
+ First part of this sentence is still up for discussion.
+ The negative statement 'DECODE is **not** a potato' is also true, and there remains some confusion about what the positive interpretation of "DECODE will **not** provide the role of **identity verification**," should be.
+```
+DECODE will **not** provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by participants to be leveraged in DECODE interactions (specifically, smart rules).
+These claims may lead to **entitlements**.
 
-A core functionality of DECODE is **verification** of **claims** that an individual makes about themselves. For example "I live at 00 Xxxxx Xxxxxx" or "I am over the age of 18" or "I am a resident of Barcelona city". These claims may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the profile as defined by the voting application is also a resident of Barcelona. Furthermore, the application defines a secure and uniquely identifiable attribute, together with a smart rule that only allows a single vote for any particular ballot. Through using DECODE, the attribute does not have to expose any real knowledge (for example a citizen ID number) but it must be possible to be checked for a particular value (number of votes cast).
+A core functionality of DECODE is **verification** of **claims** that an individual makes about themselves.
+For example "I live at 123 Main Street" or "I am over the age of 18" or "I am a resident of Barcelona city".
+These claims may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the persona as defined by the voting application is also a resident of Barcelona.
+Furthermore, the application defines a secure and uniquely identifiable attribute, together with a smart rule that only allows a single vote for any particular ballot.
+Through using DECODE, the attribute does not have to expose any real knowledge (for example a citizen ID number) but it must be possible to be checked for a particular value (number of votes cast).
 
-So how are claims actually verified in the first place? In the example, the entity responsibile for verification would be the city of Barcelona. This could be a physical process, or could be done online (as in the Dutch DigiD mechanism), and involves some exchange between the city and the individual. The result of this exchange would be a cryptographic token, signed by the city, which, invoked with a specific smart rule would result in an attribute with verified provenance and value being set in the DECODE platform. This attribute would be available for that person to use in any application relying on it.  This whole process could take place through a website which is run by the city of Barcelona (and thus is a DECODE enabled application). Required will be a mechanism by which the DECODE network can **trust** the public key of the city of Barcelona, i.e. there will need to be a registration protocol to establish this trust.
+** Attribute Based Credentials **
 
-The User Journey for this interaction would involve the person authenticating with their account on this website and then creating a "city_of_residence: Barcelona" attribute signed with the city's private key. In this example there would be a validity time limit on this attribute, a month, perhaps. People move.
-Because the choice of using applications that reference this attribute is in the hands of the participant they have strong control of how this link is used. In a p2p sharing application a different proof-of-residency attribute may be good enough, for instance.
+Some of the attributes in the DECODE ecosystem are part of **credentials** called Attribute Based Credentials.
+An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity (Alpar, 2015).
+Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system (Alpar, 2015).
+
+```comment
+typical example below, clear why showing a credential is a (legal) *must*.
+though I prefer a non-alcoholic example
+```
+For example, when selling a bottle of wine, a vendor has to verify that their customer is over the age of 18.
+The customer shows their credential; an identity card issued by the government, to convey the information 'date of birth' to the shop owner, in order to prove that they have the attribute 'being over the age of 18'.
+ABCs provide a cryptographic way to authenticate using selectively disclosed personal attributes.
+This means that in the above example, we can use an ABC credential to convey just the property of 'being over the age of 18', without revealing any of the other attributes in our credential, and even without linking this event to previous interactions.
+
+There are three parties involved in the use of ABCs: the issuer of the credential, the user or owner of the credential, and the party that wishes to verify a credential.
+
+```comment
+
+  include these images here:
+* https://privacybydesign.foundation/images/Transactions_IRMA_voorbereiding_en.png
+* https://privacybydesign.foundation/images/Transactions_IRMA_eerste_gebruik_en.png
+
+ source: Privacy by Design Foundation, https://privacybydesign.foundation/irma-explanation/
+
+```
+
+The model for ABCs in DECODE is based on Idemix (Camenisch ... ; IBM ...), since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
+A tested implementation of ABCs is IRMA by the Privacy by Design Foundation (https://privacybydesign.foundation/en/, https://credentials.github.io/).
+Credentials can be part of a claim.
+
+So how are claims actually verified in the first place?
+In the example, the entity responsibile for verification would be the city of Barcelona.
+This could be a physical process, or could be done online (as in the Dutch DigiD mechanism), and involves some exchange between the city and the individual.
+The result of this exchange would be a cryptographic token, signed by the city, which, invoked with a specific smart rule would result in an attribute with verified provenance and value being set in the DECODE platform.
+This attribute would be available for that person to use in any application relying on it.
+This whole process could take place through a website which is run by the city of Barcelona (and thus is a DECODE enabled application).
+Required will be a mechanism by which the DECODE network can **trust** the public key of the city of Barcelona, i.e. there will need to be a registration protocol to establish this trust.
+
+The User Journey for this interaction would involve the person authenticating with their account on this website and then creating a "city_of_residence: Barcelona" attribute signed with the city's private key.
+In this example there would be a validity time limit on this attribute, a month, perhaps. People move.
+Because the choice of using applications that reference this attribute is in the hands of the participant they have strong control of how this link is used.
+In a p2p sharing application a different proof-of-residency attribute may be good enough, for instance.
 
 In order to make it straighforward for developers to build DECODE applications, the mechanisms for interacting with and validating external or "official" claims will be a core part of the language that is used to express Smart Rules.
-
 
 
 ## Entitlements
@@ -237,18 +332,66 @@ Options:
 - Investigate DRM tech for encrypting large (e.g. Video) streams can similar approaches be applied to user data?
 
 
-### Attribute Based Encryption 
+### Attribute Based Encryption
 
 ```comment
 Curator: Paulus
+
+sources:
+
+@inproceedings{Goyal:2006:AEF:1180405.1180418,
+ author = {Goyal, Vipul and Pandey, Omkant and Sahai, Amit and Waters, Brent},
+ title = {Attribute-based Encryption for Fine-grained Access Control of Encrypted Data},
+ booktitle = {Proceedings of the 13th ACM Conference on Computer and Communications Security},
+ series = {CCS '06},
+ year = {2006},
+ isbn = {1-59593-518-5},
+ location = {Alexandria, Virginia, USA},
+ pages = {89--98},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1180405.1180418},
+ doi = {10.1145/1180405.1180418},
+ acmid = {1180418},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {access control, attribute-based encryption, audit logs, broadcast encryption, delegation, hierarchical identity-based encryption},
+}
+@inproceedings{Bethencourt:2007:CAE:1263552.1264219,
+ author = {Bethencourt, John and Sahai, Amit and Waters, Brent},
+ title = {Ciphertext-Policy Attribute-Based Encryption},
+ booktitle = {Proceedings of the 2007 IEEE Symposium on Security and Privacy},
+ series = {SP '07},
+ year = {2007},
+ isbn = {0-7695-2848-1},
+ pages = {321--334},
+ numpages = {14},
+ url = {http://dx.doi.org/10.1109/SP.2007.11},
+ doi = {10.1109/SP.2007.11},
+ acmid = {1264219},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+}
+
+
 ```
+Within DECODE Resources are either *public* or *restricted*. (Some data is personal data, other data is not. The architecture cannot and does not distinguish that at the architecture layer.) Restricted data is *encrypted*.
 
-Key based encryption which is based on attributes about the participants - for example a key is created based on the fact that a person is a resident of the city of barcelona. The data can be encrypted in such a way that anyone with that attribute in their key can decrypt.
+Encryption is one of the methods of access control that can be used within the ecosystem of DECODE data and attributes.
+The access control policy therefore will be enforced by the (original) owner of the data.
 
+However, if the users wished to broadcast their data to a larger, but still restricted, set of users; this method of access control will turn into a key-distribution problem; which is outside of the scope of the main functionality of DECODE.
 
-Is one way in which access control can be implemented and can provide a cryptographic relationship between the declaration and the implementation.
+A solution for this problem can be found in Attribute Based Encryption (ABE).
+ABE allows users to encode complex access conditions based on the possession of attributes into the encryption of their data.
+For example you can encrypt a wine-party invite only for your neighbours: ```( NOT ('being under the age of 18') AND 'being a resident of my street')```
+The data can be encrypted in such a way that anyone with those particular set of attributes in their key can decrypt the message.
 
 ![Attribute based encryption](img/attribute-based-encryption.png "Attribute based encryption")
+
+The main models for ABE come from (Goyal, 2006) and (Bethencourt, 2007).
+Reference implementations are available, but at the time of writing none have been selected to be supported by DECODE.
+
+The design of DECODE will try to support this method of user controlled access policies.
 
 
 ### Transparency and Integrity
@@ -281,19 +424,3 @@ This topic requires further investigation, threat modelling and discussion, howe
 ```comment
 ALBERTO
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
