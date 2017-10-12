@@ -260,7 +260,7 @@ tomd: as in age, f.i.; when I turn 18 entitlements might change
 jimb: need to agree our terminology here, subject vs data owner etc
 ```
 
-We define two parties in any given data exchange, the **data owner** and the **data consumer**. An **entitlement** is an agreement of disclosure controlled by the **data owner**. A **data entitlements**  concerns the sharing of data. In DECODE an **entitlement** is defined in a **policy**  *and* implemented with the application of cryptography.
+We define two parties in any given data exchange, the **data owner** and the **data consumer**. An **entitlement** is an agreement of disclosure controlled by the **data owner**. A **data entitlement**  concerns the sharing of data. In DECODE an **entitlement** is defined in a **policy**  *and* implemented with the application of cryptography.
 
 
 ### Entitlement Policies
