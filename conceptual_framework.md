@@ -71,7 +71,7 @@ Our most important findings are the following:
 We recommend the following:
 1. Use the advantages of blockchain-supported secure multiparty computation, in order to design a secure and private data mining and recommender system.
 2. When refining the DECODE architecture in more detail, one needs to take the observations made in section 4 into account. Especially, some effort needs to be spent deciding how to address the inform, control, enforce and demonstrate strategies.
-3. DECODE supports user-defined smart rules that encode the ‘business’ logic of specific applications. We recommend that to support privacy-friendly contracts, the design should employ mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
+3. DECODE supports user-defined smart rules that encode the 'business' logic of specific applications. We recommend that to support privacy-friendly contracts, the design should employ mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
 
 We will update this document once the DECODE architecture has been described and decided upon in more detail, to reflect the changes in our assessment.
 

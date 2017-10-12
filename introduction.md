@@ -14,7 +14,7 @@ The whitepaper is structured as follows. We first describe the functionality the
 
 ## What is DECODE and why is it important?
 
-DECODE is a transdisciplinary effort involving different fields in technology, legal, business, and social sciences to provide digital tools for managing data online. The main premise of DECODE is to provide value for the  data subjects and citizens themselves rather than the service provider only. The current model relies on service providers collecting citizens’ data in exchange for services. Given the high value of this data to the service provider, a vast number of them appropriate data to create value without providing people with comparable compensation.
+DECODE is a transdisciplinary effort involving different fields in technology, legal, business, and social sciences to provide digital tools for managing data online. The main premise of DECODE is to provide value for the  data subjects and citizens themselves rather than the service provider only. The current model relies on service providers collecting citizens' data in exchange for services. Given the high value of this data to the service provider, a vast number of them appropriate data to create value without providing people with comparable compensation.
 
 DECODE aims to design and implement a free, open source, reliable and distributed architecture to run applications developed by third parties. The DECODE architecture must be secure, distributed and privacy friendly as it will host different privacy sensitive applications in parallel.
 
@@ -45,7 +45,7 @@ parallel.
 - an attribute based cryptographic implementation that can grant access to data
 
 
-### DECODE main goals are:
+### DECODE main goals are:
 
 - allow *participants* to manage access to their *private data*, by granting and revoke access to parts
 - allow *operators* to write *smart rules* sign them and get the authorisation to run them on DECODE
