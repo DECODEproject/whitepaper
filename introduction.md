@@ -2,9 +2,9 @@
 
 This documents describes the design of the DECODE ([https://decodeproject.eu/](https://decodeproject.eu/)) architecture. The document will evolve over time and will be published regularly as a versioned series.
 
-| Version                        | Date Published            |
-| ------------------------------ | ------------------------- |
-| EA-SNAPSHOT (Early Access)     | (Targeted Oct 31 2017)    |
+| Version                        | Date Published            | Description |
+| ------------------------------ | ------------------------- | ---|
+| EA-SNAPSHOT | (Targeted Oct 31 2017)    | Early Access version for consortium and pilot review |
 
 
 The whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements. We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
@@ -20,7 +20,7 @@ DECODE aims to design and implement a free, open source, reliable and distribute
 
 DECODE  focuses  research  and  development  effort  on  novel  notions  of  trust  and  privacy  (privacies)  that  can  be  operationalised  in  new  governance  frameworks,  and  innovative  economic  models  based  on  data  commons.  Entitlements attached to the private data would be searchable in the public domain but will grant access only to  those  parties  that  have  the  entitlement  to  access  it.  This  novel  concept  of  data  rights  and  entitlements  also  applies to data being sent to or consumed by connected IoT objects in order to perform actions on the real world,  allowing citizens to manage and control their devices and the data they generate. [Ref. DECODE proposal]
 
-![Open Data commons](img/entitlements-data-commons.png "Open Data commons")
+![Open Data commons](img/entitlements-data-commons.png "Open Data commons"){width=100}
 
 In its most granular format, the entitlements on data should enable users to choose who they share their data with and what data is being shared with the recipient. The aim of DECODE is to provide blockchain-based tools to give people better control of their data on the internet. The project will then create free and open data commons into which people can share their data in a secure and anonymous way. This will mean that all of society can benefit from the insights that can be gained from data. The project will develop and test a distributed, privacy aware, and trusted technology architecture for decentralised data governance and identity management. [Ref: D6.1 Dissemination Strategy and Communication Plan]
 
