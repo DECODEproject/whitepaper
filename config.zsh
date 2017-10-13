@@ -5,7 +5,7 @@ WRITEDOWN_VERSION="EA-SNAPSHOT"
 
 # Added by Writedown on Mon Apr 10 12:10:58 CEST 2017
 WRITEDOWN_TITLE="DECODE Whitepaper v${WRITEDOWN_VERSION}"
-WRITEDOWN_AUTHOR="[Denis Rojo, James Barritt, Jaap-Henk Hoepman, Mark de Villiers, George Danezis, Tom Demeyer, Shehar Bano, Oleguer Sagarra]"
+WRITEDOWN_AUTHOR="[Denis Rojo, James Barritt, Jaap-Henk Hoepman, Mark de Villiers, Priya Samuel, George Danezis, Tom Demeyer, Shehar Bano, Oleguer Sagarra]"
 WRITEDOWN_AFFILIATION="DECODEproject.EU Research Consortium"
 #WRITEDOWN_DATE="Monday 10 April 2017"
 WRITEDOWN_TAGS="[blockchain, privacy, architecture, sharing economy, platform cooperativism, implementation]"
