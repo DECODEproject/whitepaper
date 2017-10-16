@@ -22,13 +22,64 @@ Here a list of sections and people busy curating them
 
 | Section                   | curators |
 |---------------------------|----------|
+| Introduction              | priya    |
 | Conceptual framework      | jimb     |
-| Architectural principles  |          |
+| Architectural principles  | priya    |
 | OS architecture           | jaromil  |
-| Hardware architecture     |          |
+| The DECODE network        | jimb     |
 | Distributed ledger        | alberto  |
 | Smart rules engine        | jaromil  |
 | DECODE applications       | jimb     |
+
+## Lead Contributors
+
+**Introduction**
+- What is DECODE and why is it important - Priya
+- History and current "state of the art" - Priya
+
+**Conceptual Framework**
+- Privacy By Design - Paulus
+- Attributes - Tom D
+  - Identity - Tom D
+  - Attribute Provenance - Tom D
+  - Attribute Verification with ABC - Paulus
+- Entitlements - Mark
+  - Entitlement Policies - Mark
+  - Implementation (Access Control)
+  - Attribute based Encryption - Paulus
+  - Transparency and integrity - JimB
+- Authentication - Jim - Move to Wallet Nodes?
+- Distributed Ledger - Alberto
+
+**Architectural Principles**
+- Priya
+
+**Operating system Architecture**
+
+- Jaromil
+
+**The DECODE Network**
+- Intro - Jim
+- Relay Nodes (validating nodes) - Jim 
+- Wallet Nodes - Jim
+- Hardware hubs - Kristoffer + Ernesto
+- Keys and smart cards - Kristoffer + Ernesto
+- IOT connectivity - Mark
+- P2P Networking - Jaromil? - do we need this section?
+
+
+**Distributed ledger**
+- Alberto
+
+**smart rules engine**
+- Jaromil
+
+**DECODE Applications**
+- what is a decode applciation - Jim 
+- application ecosystem - Jim / Priya
+- example of petitions - Jim / Priya
+- example of IOT - Jim / Priya
+
 
 ## Building
 
