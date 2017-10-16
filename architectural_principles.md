@@ -23,27 +23,22 @@ DECODE aims to develop a privacy preserving data distribution platform to foster
 DECODE adopts a privacy design strategy which specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection.  This impacts the way personal data is processed, stored, and controlled.
 
 The overarching strategies of
-- Minimising and limiting the use of personal data (minimise & abstract)
-- Preventing correlation of personal data by separating the processing logically or physically (separate)
-- Protecting personal data leaks (hide)
-- Informing users about how their data is processed and how to control their data (inform & control)
-- Enforcing data privacy by specifying a clear privacy policy (enforce)
-- Providing evidence that personal data is processed in a privacy preserving way (demonstrate)
+
+ - Minimising and limiting the use of personal data (minimise & abstract)
+ - Preventing correlation of personal data by separating the processing logically or physically (separate)
+ - Protecting personal data leaks (hide)
+ - Informing users about how their data is processed and how to control their data (inform & control)
+ - Enforcing data privacy by specifying a clear privacy policy (enforce)
+ - Providing evidence that personal data is processed in a privacy preserving way (demonstrate)
 
 ## User friendliness
 
 Building **user-friendly** tools and applications for end-users, and app developers for **easy adoption** is a core principle for DECODE. Using an outside in lean approach, where requirements from users’ are researched and analysed, and prototypes are tested on target community groups will allow DECODE to develop open, interactive and user friendly interfaces.
 
-```
-- **Openness** of the platform, to enable innovation and citizen
-participation.
-- **Flexibility** through smart rules, driven by the needs of the usecases.
-- **Transparency** and **auditability** of collective action and choice, privacy
-of individual actions.
-- **High-integrity**, appropriate **privacy** options, and **availability** against
-disruption and suppression.
-- **User-friendliness** for end-users, and app developers for **easy
-adoption**.
-- **Scalability** and **deployability** to compete with corporate and closed
-platforms.
-```
+ - **Openness** of the platform, to enable innovation and citizen participation.
+ - **Flexibility** through smart rules, driven by the needs of the usecases.
+ - **Transparency** and **auditability** of collective action and choice, privacy of individual actions.
+ - **High-integrity**, appropriate **privacy** options, and **availability** against disruption and suppression.
+ - **User-friendliness** for end-users, and app developers for **easy adoption**.
+ - **Scalability** and **deployability** to compete with corporate and closed platforms.
+
