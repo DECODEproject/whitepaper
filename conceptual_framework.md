@@ -188,7 +188,7 @@ In DECODE the provenance metadata is provided through the *application*. When a 
 
 #### Provenance
 
-Data in the DECODE core is stored as **attributes**. Attributes are **statements** of the form **\<subject> \<predicate> \<object>**. The subject represents the participant, the oject the 'value' (data), and the predicate defines the type of the relation between the subject and the object.
+Data in the DECODE core is stored as **attributes**. Attributes are **statements** of the form **\<subject> \<predicate> \<object>**. The subject represents the participant, the object represents the 'value' (data), and the predicate defines the type of the relation between the subject and the object.
 In the predicate we encode the provenance. An example:
 
     <account> addressLocality 'Amsterdam'
