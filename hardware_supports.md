@@ -1,11 +1,16 @@
-# DECODE Components
+# The DECODE network
 
 
+DECODE is at the core a distributed P2P network of "nodes" that together provide data privacy and integrity services to application developers.
 
+The overall architecture is similar to other distributed ledgers and we have followed familiar terminology, such as "Wallet". We describe here the roles and responsibilities of each of the components and how they work together to achieve our goals.
 
 ![Decode Overview](img/decode-overview.png "Decode Overview")
 
 ## Relay nodes (validating nodes)
+
+The integrity and resilience of the network is provided through a distributed ledger of nodes. One of the key architectural features of DECODE is that it separates *execution* of logic (*contracts*) from the *verification* of that logic, which allows for privacy aware execution [REF!](section-on-concepts). 
+
 - User Interface
 
 ## Wallet nodes

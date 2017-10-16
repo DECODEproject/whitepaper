@@ -2,18 +2,69 @@
 
 This section describes the foundational concepts that are combined to achieve the purpose of DECODE.
 
-*participants* in the DECODE ecosystem are:
+The conceptual framework of DECODE is built on three foundations:
 
-- citizens,
-- public authorities
-- businesses, sme's, ngo's
-- other legal entities
+- A distributed Ledger
+- Zero Knowledge proofs 
+- Attribute Based Cryptography
+- Cryptographically verifiable entitlements
 
-These *participants* generate resources. Resources are either *public* or *restricted*. (Some data is personal data, other data is not. The architecture cannot and does not distinguish that at the architecture layer.) Restricted data is *encrypted*. All data is stored on a p2p, high availability, redundant data store.
+The ledger provides a resilient, tamper-resistant (tamper evident?) record which allows cryptographic demonstration of "facts" to be made. For example in the case of particpatory democracy, it is possible to cryptographically demonstrate that a set of citizens signed their support for a particular initiative. This significantyl increases the value of such an activity in the political world. A comparison would be with an online petition which has only email addresses recorded against it. Without cryptographic evidence there are several problems with this:
 
-The *publisher* of restricted data determines who has access to the data. To this end it attaches an *entitlement condition* to the restricted data. Participants wishing to obtain access to the data need to prove they possess the necessary *entitlement*. Entitlements can be *issued* to participants. Entitlements have a *lifetime*: they are not valid before and not valid after a certain time. Additional flexibility can be expressed through *smart contracts* that, given a set of inputs (consisting of attributes and entitlements but also other *context*, like the current location or the current time or date) yield another entitlement or generate additional data. Smart contracts are defined by *applications* and stored on a *distributed ledger*. Participants store their entitlements privately, insofar as they are not dynamically generated when needed.
+- No traceable evidence that these emails belong to the group of citizens involved
+- "Leaking" of personal data (the emails) breaking privacy
+- No demonstrable evidence that the person who actually controls an email was that who digitally signed the petition
+
+DECODE proposes a scheme whereby not only can citizenship and accountability to an individual be demonstrated cryptographically, it can do so without requiring the proof to contain revealing personal details. This is achieved through the application of Zero Knowledge proofs and Attribute based Cryptography.
+
+Further, DECODE provides for a mechanism of declaring and controlling access to a person's data. We employ combinations of Attribute Based Cryptography and the ledger to record such declarations and provide system mechanisms to control the access. For example it may be that in within a community of individuals the members of the community wish to share data only with their peers. In a traditional setup this would be achieved using standard database and web server technologies. In DECODE we propose a scheme whereby access is provided through cryptographically verifiable credentials (Attribute Based Credentials) and varying levels of mechanism to protect such data, including Attribute Based Encryption. DECODE takes a decentralised approach to the issuing of these credentials, removing the need for a central authority.
+
+Each of these conceptual building blocks are explored within the following sections which should provide the basics required to understand how the implementation functions. Each of the topics is a deep area of study in its own right so we provide references to allow further exploration.
+
+A fundamental concept within DECODE is that *all* data is represented by what are naming *Attributes*. Attributes have a particular definition which is described below. This allows us to build a conceptual model of how DECODE fulfils its purpose. 
+
+To describe how data (hereafter *attributes*) is produced and consumed we specify the entities and roles within the DECODE *ecosystem* That is the set of systems, people and organisations that in combination fulfil the purpose of DECODE.
+
+*Real world entities* that play a defined role in the DECODE ecosystem are:
+
+- Individual citizens
+- Organisations
+    - Public authorities
+    - Businesses
+    - NGOs
+
+```comment
+jimb: How would we classify the organisation of GO or DECIDIM?
+```
+
+Within DECODE we define several *roles* that these individuals or organisations play within the ecosystem.
+
+- Participant
+- Operator
+- Attribute Verifier
+- Node Host
+
+*Participants* represent the end consumers of DECODE - in this role an entity is sotring data and interacting with *applications*. *Applications* are *operated* by *operators* who are entities that code and maintain applications that run in the DECODE ecosystem. *Attribute verifiers* are entities which have the ability to *verify claims* associated with a particular *attribute*, and provide  cryptographic evidence of the claim. For example a public authority can verify that a participant is a resident of a particular city or country. *Node hosts* are members of the DECODE ecosystem who operate the underlying infrastructure of the DECODE network. Most commonly they will be hosting and running the nodes within the network, but may also run specialised services such as meta data services or online wallet services. 
+
+All interactions within DECODE are cryptographically linked back to an *Account*. In its most basic form this can be thought of as a public / private key pair. In effect the controller of an account will own a private key and therefore there is some cryptographic evidence that this control can be demonstrated. This is common to all distributed ledger systems. As with these, it makes the security of the private keys a prime concern [REF!](Section on hardware security).
+
+*Applications* within DECODE are subject themselves to a high degree of verification and transparency. Firstly all applicatioins must be transparent about what *attributes* they wish to access / manipulate for a *Participant*. We refer to this set of attributed as a *Profile*. 
+
+It is mandatory for every *attribute** to be related to both its *provenance* (from where was it derived, namely which application) and also a relationship to an *Ontology* which describes meta-data about an attribute (type, purpose, scope as with ...). 
+
+The combination of this meta data about attributes and verification provides a foundation allows us to build higher level constructs such as *Smart Rules* and *User Experience* which make it straightforward for *Application Developers* to produce high integrity, privacy aware *Applications* without needing access to highly specialised experts in the field of cryptography. It allows *Participants* to have a highly transparent view and control of their data also without the nescessity to become cryptographic and privacy experts themselves. A key principle of DECODE is "User Freindliness" for both *Application developers* and *participants*
+
+```comment
+jimb: what eg of ontologies are we happy putting here?
+```
+
 
 ![Key conceptual terminology and relationships](img/terminology-relationships.png "Key conceptual terminology and relationships")
+
+
+*Participants* generate resources. Resources are either *public* or *restricted*. (Some data is personal data, other data is not. The architecture cannot and does not distinguish that at the architecture layer.) Restricted data is *encrypted*. All data is stored on a p2p, high availability, redundant data store.
+
+The *publisher* of restricted data determines who has access to the data. To this end it attaches an *entitlement condition* to the restricted data. Participants wishing to obtain access to the data need to prove they possess the necessary *entitlement*. Entitlements can be *issued* to participants. Entitlements have a *lifetime*: they are not valid before and not valid after a certain time. Additional flexibility can be expressed through *smart contracts* that, given a set of inputs (consisting of attributes and entitlements but also other *context*, like the current location or the current time or date) yield another entitlement or generate additional data. Smart contracts are defined by *applications* and stored on a *distributed ledger*. Participants store their entitlements privately, insofar as they are not dynamically generated when needed.
 
 A home owner wishing to allow his guests access to the local Wifi, for example, could create an entitlement `john-doe-house-wifi`, a smart contract saying "*if someone has an entitlement `renting-john-doe-house` and this entitlement is valid now, then output the entitlement `john-doe-house-wifi` valid for one hour*". Then if the owner rents out his house and issues the renter the entitlement `renting-john-doe-house`, access to the wifi is securely arranged automatically.
 
@@ -424,7 +475,7 @@ For example, if I gain access to a persons device (e.g. Laptop) there is already
 
 This topic requires further investigation, threat modelling and discussion, however we will aim to attempt to only implement password protection as a last resort.
 
-## Distributed Ledgers
+## Distributed Ledger
 ```comment
 ALBERTO
 ```
