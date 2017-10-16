@@ -1,6 +1,6 @@
 # Architectural Principles
 
-DECODE is composed of both hardware and software components - each component will adhere to the core architectural principles described below. The underlying philosophy adopted is that of the Unix philosophy [Ref: The Art of Unix Programming - Eric S. Raymond] following key principles of modularity, clarity, composition, separation, simplicity, parsimony, transparency, robustness, representation and least surprise.
+DECODE is composed of both hardware and software components - each component will adhere to the core architectural principles described below. The underlying philosophy adopted is that of the Unix philosophy [@Raymond:2003:AUP:829549] following key principles of modularity, clarity, composition, separation, simplicity, parsimony, transparency, robustness, representation and least surprise.
 
 ## Free and Open source
 
@@ -18,7 +18,7 @@ The current era in technology has seen a shift from large monolithic systems to 
 
 ## Privacy by design
 
-DECODE aims to develop a privacy preserving data distribution platform to foster commons-based sharing economy models, where citizens own and control their data. This asks for a privacy by design- based approach, for which the concept of privacy design strategies have recently been developed. [Ref: D1.2 Privacy Design Strategies for the DECODE Architecture]
+DECODE aims to develop a privacy preserving data distribution platform to foster commons-based sharing economy models, where citizens own and control their data. This asks for a privacy by design- based approach, for which the concept of privacy design strategies have recently been developed. [@D1.2]
 
 DECODE adopts a privacy design strategy which specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection.  This impacts the way personal data is processed, stored, and controlled.
 
