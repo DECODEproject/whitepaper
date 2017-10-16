@@ -2,9 +2,9 @@
 
 This documents describes the design of the DECODE ([https://decodeproject.eu/](https://decodeproject.eu/)) architecture. The document will evolve over time and will be published regularly as a versioned series.
 
-| Version                        | Date Published            | 
-| ------------------------------ | ------------------------- | 
-| EA-SNAPSHOT | (Targeted Oct 31 2017)    | 
+| Version                        | Date Published            |
+| ------------------------------ | ------------------------- |
+| EA-SNAPSHOT | (Targeted Oct 31 2017)    |
 
 
 The whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements. We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
@@ -72,7 +72,7 @@ Ethereum [Ref: https://github.com/ethereum/wiki/wiki/White-Paper#history] provid
 Monax (previously known as Eris) is an open platform for developers to build, ship, and run blockchain-based applications for business ecosystems. It’s client is agnostic to the underlying blockchain technology. Public ledgers such as Ethereum are both anonymous and permissionless systems, i.e any user can run validating nodes, and the inherent nature of the cryptography that is the basis for mining determines that an attacker would need to control more than 50% of the network. The decentralised and distributed nature of the blockchain forms the basis of its trust model.
 
 
-Identity on the internet has evolved from being implemented as centralised silos to federated identity models. Federated identity enables, single sign on available across several large service provider platforms. Service providers continue to be data controllers, in both centralised and federated models. Sovrin [Ref: https://sovrin.org/wp-content/uploads/2017/04/The-Technical-Foundations-of-Sovrin.pdf] is a blockchain based identity platform, providing the user control, security, and portability.
+Identity on the internet has evolved from being implemented as centralised silos to federated identity models. Federated identity enables, single sign on available across several large service provider platforms. Service providers continue to be data controllers, in both centralised and federated models. Sovrin [@Sovrin] is a blockchain based identity platform, providing the user control, security, and portability.
 
 
 DECODE uses Attribute based encryption (ABE) [Ref: Amit Sahai and Brent Waters. Fuzzy Identity-Based Encryption. In EUROCRYPT, volume 3494 of LNCS, pages 457–473. Springer, 2005.] which determines decryption ability based on a user’s attributes. ABE uses zero knowledge proofs to securely verify attributes. Combining ABE with data entitlements with a blockchain based store for transactional data, DECODE provides a new framework for data ownership and transfer.
