@@ -29,10 +29,6 @@ One of the goals of the DECODE platform is to create a level playing field that 
 #### Deployability and availability
 Deployability is key to ensure the adoption and success of DECODE. Therefore, the HUB must be easily available. The most available potential HUB is any commercial computer. According to Barcelona data-sheet 20171 the Household ICT penetration is 88.3 in 2015 (% on population 16 to 74 years with a computer at home). Despite most of commercial computers not being open source this is a viable alternative for promoting an early adoption. For scenarios where an embedded device with a small form factor is required, low cost open source single board computers (SBCs) are a good alternative for the DECODE HUB. 
 
-**Picture here**
-
-Embedded devices usually cost between 25 and 150 euros and they often come with a small form factor which make them portable and easily installable. These embedded devices require very little to run and most of them are based on efficient ARM based processors that allow them to operate without the need of active cooling systems.
-
 #### Hardware security
 The need for privacy and confidentiality differ according to the use cases of the platform. For instance, noise quality data requires less security than biometric health-centered data that’s being sent to a physician. This requires encryption on many different levels. To build trust in the platform, the DECODE needs to respond to the level of security each separate use case.
 Software-based security means that access conditions can be hacked and logs can be tampered with. In addition, the data itself cannot be considered secure if left unprotected on a regular PC.
