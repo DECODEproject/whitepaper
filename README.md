@@ -46,6 +46,7 @@ apt-get install -y zsh texlive-latex-base texlive-fonts-recommended texlive-late
 On OSX
 
 brew install pandoc
+brew install pandoc-citeproc
 ```
 
 You will also need a LaTeX installation. You should be able to install the basic tex package from [here](http://www.tug.org/mactex/morepackages.html).
