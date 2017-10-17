@@ -483,3 +483,6 @@ For example, if I gain access to a persons device (e.g. Laptop) there is already
 
 This topic requires further investigation, threat modelling and discussion, however we will aim to attempt to only implement password protection as a last resort.
 
+It is possible then for the **operator** to provide a "Login with DECODE" option whereby an integration between the wallet and the online service where the wallet provides a credentialisation to the application containing relevant information. For example it may involve the wallet passing a proof of residency credential to the application. 
+
+Following the core privacy by design principles, only the information absolutely nescessary should be requested by

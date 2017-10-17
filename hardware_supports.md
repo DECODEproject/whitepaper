@@ -15,7 +15,36 @@ The integrity and resilience of the network is provided through a distributed le
 
 ## Wallet nodes
 
-- User Interface
+The wallet is the minimum component a person requires to interact with DECODE. Every **participant** will have their own wallet. The wallet has several core functions:
+
+- Store securely cryptographic material (e.g. private keys)
+- Securely store Attribute based credentials, linked to private keys
+- Execute DECODE transactions (via Smart Rules) and submit them to the Ledger for verification
+- Store, encrypted the participant's **attributes**
+- Define and publish **entitlement policies** based on interactions with **applications**
+- Provide the participant with a graphical user interface that allows them to manage their attributes, entitlements and applications. 
+
+Optionally a participant can push the cryptographic functions of the wallet onto a hardware device, similar to Trezor, Ledger Nano from the blockchain world. A discussion of these options is to be found in the hardware section.
+
+We have identified two options for participants to obtain a wallet and begin interacting with DECODE. This is a topic of research for the DECODE system and is likely to evolve as we move into field testing with real communities of participants.
+
+
+**a) Download a Wallet**
+
+The wallet will be available as a standalone application that a participant can download to their device (either laptop or mobile device). In combination with a hardware security device this will form the maximum level of protection that a participant can achieve. 
+
+Whenever the participant must perform a cryptographically sensitive activity such as signing a transaction, they will be redirected to their wallet to perform this. 
+
+
+**a) Wallets Hosted by Operators**
+
+We recognise however that *requiring* participants to download software and engage with a registration process *may* be a barrier to adoption. We plan to explore this through user research and field experiments. With this in mind, the architecture of DECODE also supports the concept of an ***hosted wallet***. 
+
+DECODE intends to provide tools and documentation to allow **operators**[^3rdpartywallet] to host wallets *on behalf* of their existing users. This is an  low barrier to entry for an operator, involving minimal integration whereby the operator maintains any existing authentication mechanisms they have in place and links existing accounts to a DECODE wallet. It also preserves any existing authentication structures the application may have, allowing DECODE functionality to be added in a decoupled and safe manner.
+
+To maintain the core values of DECODE however, a constraint of this scenario is that the user *must be aware and consciously agree* to the connection between their account and DECODE. Whilst the process itself maybe "1 click" for the user, the user journey must include a "connect my account to DECODE" phase. The exact design guidelines for how this is achieved will be developed on an ongoing basis.
+
+[^3rdpartywallet]: It might be possible for 3rd Parties to create an online wallet hosting service,  however we have yet to explore the demand for this scenario.
 
 ## Hardware Hubs
 ### Requirements
