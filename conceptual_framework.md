@@ -8,8 +8,9 @@ The conceptual framework of DECODE is built on three foundations:
 - Zero Knowledge proofs 
 - Attribute Based Cryptography
 - Cryptographically verifiable entitlements
+- A highly verifiable and controlled execution environment
 
-The ledger provides a resilient, tamper-resistant (tamper evident?) record which allows cryptographic demonstration of "facts" to be made. For example in the case of particpatory democracy, it is possible to cryptographically demonstrate that a set of citizens signed their support for a particular initiative. This significantyl increases the value of such an activity in the political world. A comparison would be with an online petition which has only email addresses recorded against it. Without cryptographic evidence there are several problems with this:
+The ledger provides a resilient, tamper-resistant (tamper evident?) record which allows cryptographic demonstration of "facts" to be made. For example in the case of participatory democracy, it is possible to cryptographically demonstrate that a set of citizens signed their support for a particular initiative. This significantly increases the value of such an activity in the political world. A comparison would be with an online petition which has only email addresses recorded against it. Without cryptographic evidence there are several problems with this:
 
 - No traceable evidence that these emails belong to the group of citizens involved
 - "Leaking" of personal data (the emails) breaking privacy
@@ -17,7 +18,13 @@ The ledger provides a resilient, tamper-resistant (tamper evident?) record which
 
 DECODE proposes a scheme whereby not only can citizenship and accountability to an individual be demonstrated cryptographically, it can do so without requiring the proof to contain revealing personal details. This is achieved through the application of Zero Knowledge proofs and Attribute based Cryptography.
 
-Further, DECODE provides for a mechanism of declaring and controlling access to a person's data. We employ combinations of Attribute Based Cryptography and the ledger to record such declarations and provide system mechanisms to control the access. For example it may be that in within a community of individuals the members of the community wish to share data only with their peers. In a traditional setup this would be achieved using standard database and web server technologies. In DECODE we propose a scheme whereby access is provided through cryptographically verifiable credentials (Attribute Based Credentials) and varying levels of mechanism to protect such data, including Attribute Based Encryption. DECODE takes a decentralised approach to the issuing of these credentials, removing the need for a central authority.
+DECODE provides for a mechanism of declaring and controlling access to a person's data. We employ combinations of Attribute Based Cryptography and the ledger to record such declarations and provide system mechanisms to control the access. For example it may be that in within a community of individuals the members of the community wish to share data only with their peers. In a traditional setup this would be achieved using standard database and web server technologies. In DECODE we propose a scheme whereby access is provided through cryptographically verifiable credentials (Attribute Based Credentials) and varying levels of mechanism to protect such data, including Attribute Based Encryption. DECODE takes a decentralised approach to the issuing of these credentials, removing the need for a central authority.
+
+We can extend this data sharing capability to datasets for wide sharing - for example we can consider individual contributions to an aggregate dataset. This is often called the Open Data Commons [REF!](to d1.8). 
+
+```comment
+jimb: Add some summary from D1.8
+```
 
 Each of these conceptual building blocks are explored within the following sections which should provide the basics required to understand how the implementation functions. Each of the topics is a deep area of study in its own right so we provide references to allow further exploration.
 
@@ -50,13 +57,14 @@ All interactions within DECODE are cryptographically linked back to an *Account*
 
 *Applications* within DECODE are subject themselves to a high degree of verification and transparency. Firstly all applicatioins must be transparent about what *attributes* they wish to access / manipulate for a *Participant*. We refer to this set of attributed as a *Profile*. 
 
-It is mandatory for every *attribute** to be related to both its *provenance* (from where was it derived, namely which application) and also a relationship to an *Ontology* which describes meta-data about an attribute (type, purpose, scope as with ...). 
-
-The combination of this meta data about attributes and verification provides a foundation allows us to build higher level constructs such as *Smart Rules* and *User Experience* which make it straightforward for *Application Developers* to produce high integrity, privacy aware *Applications* without needing access to highly specialised experts in the field of cryptography. It allows *Participants* to have a highly transparent view and control of their data also without the nescessity to become cryptographic and privacy experts themselves. A key principle of DECODE is "User Freindliness" for both *Application developers* and *participants*
+It is mandatory for every *attribute** to be related to both its *provenance* (from where was it derived, namely which application) and also a relationship to an *Ontology* (e.g. [FOAF](http://xmlns.com/foaf/spec/) which describes meta-data about an attribute (type, purpose, scope).  Optionally an attribute can be cryptographically **verified** by an **Attribute Verifier**).
 
 ```comment
-jimb: what eg of ontologies are we happy putting here?
+jimb: clear up the terminology on provenance. 
 ```
+
+The combination of this meta data about attributes and verification provides a foundation allows us to build higher level constructs such as *Smart Rules* and *User Experience* which make it straightforward for *Application Developers* to produce high integrity, privacy aware *Applications* without needing access to highly specialised experts in the field of cryptography. It allows *Participants* to have a highly transparent view and control of their data also without the necessity to become cryptographic and privacy experts themselves. A key principle of DECODE is "User Friendliness" for both *Application developers* and *participants*
+
 
 
 ![Key conceptual terminology and relationships](img/terminology-relationships.png "Key conceptual terminology and relationships")
