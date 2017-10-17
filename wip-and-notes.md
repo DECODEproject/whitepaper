@@ -2,6 +2,30 @@
 
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
 
+
+## Authentication
+
+
+
+For the purposes of DECODE we define authentication as being the mechanism by which a participant gains access to the system in a controlled way such that only that participant can access and control the DECODE data associated with themselves.  
+Password-less Authentication
+A core goal of authentication for decode is that we should aim to have authentication without passwords.
+
+Options for the implementation of this include:
+
+-	one time codes sent to a device
+-	Device OS security (e.g. fingerprint on a mobile phone or laptop)
+-	Embedded authentication in the device, rely upon general OS security such as locking screen on a PC
+
+We also make the observation that in general, security and privacy on the device is not the core purpose of DECODE - of much greater concern is privacy and control of data once it leaves the device and enters the network.
+
+For example, if I gain access to a persons device (e.g. Laptop) there is already enough of a compromise in terms of being able to access all their non DECODE material that it is potentially not worth having a secondary control on the application itself.
+
+This topic requires further investigation, threat modelling and discussion, however we will aim to attempt to only implement password protection as a last resort.
+
+It is possible then for the **operator** to provide a "Login with DECODE" option whereby an integration between the wallet and the online service where the wallet provides a credentialisation to the application containing relevant information. For example it may involve the wallet passing a proof of residency credential to the application. 
+
+Following the core privacy by design principles, only the information absolutely nescessary should be requested by
 ### Transparency and Integrity
 
 Alongside controlling access to the data, decode will also ensure that access to data is **audited**. This is made possible by virtue of the fact that in order to interact with decode, a participant will need to be registered. In particular **operators** will need to be registered and have some level of authenticity - for example be traceable to a company registration (e.g. in UK companies house). This allows a far greater level of transparency to both the participants and regulatory authorities (e.g. city council) of what data is being shared where.

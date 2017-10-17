@@ -467,22 +467,20 @@ A core design proposal of DECODE is the use of ZeroKnowledge proofs to allow for
 
 ## Authentication
 
-For the purposes of DECODE we define authentication as being the mechanism by which a participant gains access to the system in a controlled way such that only that participant can access and control the DECODE data associated with themselves.  
-Password-less Authentication
-A core goal of authentication for decode is that we should aim to have authentication without passwords.
+DECODE recognises two scenarios involving Authentication.
 
-Options for the implementation of this include:
+**a) Authentication to DECODE wallets and nodes**
 
--	one time codes sent to a device
--	Device OS security (e.g. fingerprint on a mobile phone or laptop)
--	Embedded authentication in the device, rely upon general OS security such as locking screen on a PC
+This is the means by which the participant protects access to their wallet. In its most basic form this will be the standard option of a password credential. 
 
-We also make the observation that in general, security and privacy on the device is not the core purpose of DECODE - of much greater concern is privacy and control of data once it leaves the device and enters the network.
+DECODE also supports and will explore the concepts of more sophisticated authentication, for example external hardware security devices and leveraging biometric capabilities of devices.
 
-For example, if I gain access to a persons device (e.g. Laptop) there is already enough of a compromise in terms of being able to access all their non DECODE material that it is potentially not worth having a secondary control on the application itself.
+**b) The use of decode as a federated authentication provider**
 
-This topic requires further investigation, threat modelling and discussion, however we will aim to attempt to only implement password protection as a last resort.
+It is possible for **operators** to provide a "Login with DECODE" option. In this scenario the operator would enable an integration whereby the participant would be redirected to their DECODE wallet, authenticate there as above and then an exchange of application specific cryptographic credentials would be passed back to the website, allowing them to be authenticated. 
 
-It is possible then for the **operator** to provide a "Login with DECODE" option whereby an integration between the wallet and the online service where the wallet provides a credentialisation to the application containing relevant information. For example it may involve the wallet passing a proof of residency credential to the application. 
+A key principle at work with this scenario is that the operators must themselves be transparent to the participants. This means in practice that in order to allow login with DECODE the operator must first register with DECODE and itself be cryptographically audit-able in any actions it takes in the DECODE system. 
 
-Following the core privacy by design principles, only the information absolutely nescessary should be requested by
+This raises questions around the governance of the DECODE ecosystem which will be explored as it is field tested and evolved.
+
+

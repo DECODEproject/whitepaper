@@ -42,9 +42,12 @@ We recognise however that *requiring* participants to download software and enga
 
 DECODE intends to provide tools and documentation to allow **operators**[^3rdpartywallet] to host wallets *on behalf* of their existing users. This is an  low barrier to entry for an operator, involving minimal integration whereby the operator maintains any existing authentication mechanisms they have in place and links existing accounts to a DECODE wallet. It also preserves any existing authentication structures the application may have, allowing DECODE functionality to be added in a decoupled and safe manner.
 
+[^3rdpartywallet]: It might be possible for 3rd Parties to create an online wallet hosting service,  however we have yet to explore the demand for this scenario.
+
 To maintain the core values of DECODE however, a constraint of this scenario is that the user *must be aware and consciously agree* to the connection between their account and DECODE. Whilst the process itself maybe "1 click" for the user, the user journey must include a "connect my account to DECODE" phase. The exact design guidelines for how this is achieved will be developed on an ongoing basis.
 
-[^3rdpartywallet]: It might be possible for 3rd Parties to create an online wallet hosting service,  however we have yet to explore the demand for this scenario.
+There is a tradeoff with this scenario in that while it allows for lower barrier to adoption, it also diminishes the true value of DECODE as a decentralised system. In this scenario, the trust relationship has not been decentralised, i.e. the participant is still trusting the operator as an organisation with all their data.
+
 
 ## Hardware Hubs
 ### Requirements
