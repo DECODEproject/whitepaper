@@ -16,11 +16,11 @@ The whitepaper is structured as follows. We first describe the functionality the
 
 DECODE is a transdisciplinary effort involving different fields in technology, legal, business, and social sciences to provide digital tools for managing data online. The main premise of DECODE is to provide value for the  data subjects and citizens themselves rather than the service provider only. The current model relies on service providers collecting citizens' data in exchange for services. Given the high value of this data to the service provider, a vast number of them appropriate data to create value without providing people with comparable compensation.
 
-DECODE aims to design and implement a free, open source, reliable and distributed architecture to run applications developed by third parties. The DECODE architecture must be secure, distributed and privacy friendly as it will host different privacy sensitive applications in parallel.
+DECODE aims to design and implement a free, open source, reliable and distributed architecture to run applications developed by third parties. The DECODE architecture is secure, distributed and privacy friendly as it will host different privacy sensitive applications in parallel.
 
-DECODE  focuses  research  and  development  effort  on  novel  notions  of  trust  and  privacy  (privacies)  that  can  be  operationalised  in  new  governance  frameworks,  and  innovative  economic  models  based  on  data  commons.  Entitlements attached to the private data would be searchable in the public domain but will grant access only to  those  parties  that  have  the  entitlement  to  access  it.  This  novel  concept  of  data  rights  and  entitlements  also  applies to data being sent to or consumed by connected IoT objects in order to perform actions on the real world,  allowing citizens to manage and control their devices and the data they generate. [Ref. DECODE proposal]
+DECODE  focuses  research  and  development  effort  on  novel  notions  of  trust  and  privacy that  can  be  operationalised  in  new  governance  frameworks,  and  innovative  economic  models  based  on  digital  commons.  Entitlements attached to the private data would be searchable in the public domain but will grant access only to  those  parties  that  have  the  entitlement  to  access  it.  This  novel  concept  of  data  rights  and  entitlements  also  applies to data being sent to or consumed by connected IoT objects in order to perform actions on the real world,  allowing citizens to manage and control their devices and the data they generate. [@DECODEProject]
 
-![Open Data commons](img/entitlements-data-commons.png "Open Data commons"){width=300}
+![Open Data commons](img/entitlements-data.png "Open Data commons"){width=300}
 
 In its most granular format, the entitlements on data should enable users to choose who they share their data with and what data is being shared with the recipient. The aim of DECODE is to provide blockchain-based tools to give people better control of their data on the internet. The project will then create free and open data commons into which people can share their data in a secure and anonymous way. This will mean that all of society can benefit from the insights that can be gained from data. The project will develop and test a distributed, privacy aware, and trusted technology architecture for decentralised data governance and identity management. [Ref: D6.1 Dissemination Strategy and Communication Plan]
 
@@ -92,9 +92,5 @@ Execute transactions vs Verification
 Privacy
 
 Scalability
-
-
-
-
 
 ```

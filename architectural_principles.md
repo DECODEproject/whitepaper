@@ -35,10 +35,11 @@ The overarching strategies of
 
 Building **user-friendly** tools and applications for end-users, and app developers for **easy adoption** is a core principle for DECODE. Using an outside in lean approach, where requirements from users’ are researched and analysed, and prototypes are tested on target community groups will allow DECODE to develop open, interactive and user friendly interfaces.
 
+```
  - **Openness** of the platform, to enable innovation and citizen participation.
  - **Flexibility** through smart rules, driven by the needs of the usecases.
  - **Transparency** and **auditability** of collective action and choice, privacy of individual actions.
  - **High-integrity**, appropriate **privacy** options, and **availability** against disruption and suppression.
  - **User-friendliness** for end-users, and app developers for **easy adoption**.
  - **Scalability** and **deployability** to compete with corporate and closed platforms.
-
+```
