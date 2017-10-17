@@ -18,6 +18,63 @@ The current era in technology has seen a shift from large monolithic systems to 
 
 ## Privacy by design
 
+
+```comment
+PAULUS
+
+Add reference to D1.2 About PbD:
+  The below texts are (mostly) verbatim from that deliverable:
+  * '20170630_D1.2_Privacy Design Strategies for the DECODE architecture & Data Management Plan'(.pdf)
+
+  additional sources to be included:
+  * [Hoepman, 2014] J-H. Hoepman, Privacy Design Strategies, IFIP TC11 29th Int. Conf. on Information Security (IFIP SEC 2014), pp. 446-459.
+  * [Colesky et al., 2016] M. Colesky, J-H. Hoepman, C. Hillen, A critical analysis of Privacy Design Strategies, 2016 IEEE Security and Privacy Workshops, pp. 33-40.
+  * https://www.decodeproject.eu/blog/privacy-design-requirements-decode
+  * (GDPR)
+
+```
+
+DECODE aims to develop a privacy preserving data distribution platform to foster commons-based sharing economy models, where citizens own and control their data. This asks for a privacy by design- based approach, for which the concept of privacy design strategies have recently been developed.
+The General Data Protection Regulation (GDPR), as well as other data protection or privacy protection laws and regulations, define data protection in legal terms. These terms are soft, open to interpretation, and highly dependent on context. Because of this inherent vagueness, engineers find such legal requirements hard to understand and interpret.
+The GDPR also mandates privacy by design, without describing clearly what this means exactly, let alone giving concrete guidelines on how to go about implementing privacy by design when actually designing a system. Intuitively, privacy design means addressing privacy concerns throughout the system development lifecycle, from the conception of a system, through its design and implementation, proceeding through its deployment all the way to the decommissioning of the system many years later. In terms of software engineering, privacy is a quality attribute, like security, or performance. To make privacy by design concrete, the soft legal norms need to be translated into more concrete design requirements that engineers understand. This is achieved using privacy design strategies.
+
+Software can however enable or hinder an organisation in achieving GDPR compliance
+As DECODE is designed with privacy in mind from the ground up it naturally affords a good foundation
+DECODE will provide transparency for **participants** about exactly where their data is and with whom it has been shared which will also enable GDPR compliance
+Further, many of the privacy by design principles will correlate with needs of GDPR compliance, for example right to be forgotten.
+
+** Privacy Design Strategies **
+
+As described in (Colesky et. al. 2016) a privacy design strategy specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection. It is noted that this is different from what is understood to be an architectural strategy within the software engineering domain. Instead our strategies can be seen as goals of the privacy protection quality attribute (where a quality attribute is a term from software engineering describing non-functional requirements like performance, security, and also privacy).
+In the description of privacy design strategies we frequently refer to processing of personal data.
+Engineers should be aware that the legal concept of processing is broader than what a typical engineer understands processing to mean.
+In what follows we use the legal interpretation of processing, which includes creating, collecting, storing, sharing and deleting personal data.
+
+The eight PbD principles proposed for DECODE are:
+1. _Minimise_: Limit the processing of personal data as much as possible.
+2. _Separate_: Prevent correlation of personal data by separating the processing logically or physically.
+3. _Abstract_: Limit as much as possible the amount of detail of personal data being processed.
+4. _Hide_: protect personal data, or make them unlinkable or unobservable. Prevent personal data becoming public. Prevent exposure of personal data by restricting access, or hiding its very existence.
+5. _Inform_: provide data subjects with adequate information about which personal data is processed, how it is processed, and for what purpose.
+6. _Control_: provide data subjects mechanisms to control the processing of their personal data.
+7. _Enforce_: commit to a privacy friendly way of processing personal data, and enforce this.
+8. _Demonstrate_: provide evidence that you process personal data in a privacy friendly way.
+
+```comment
+Conclusion below needs to be refined.
+```
+Our most important findings are the following:
+1. End-users should be able to receive personalized recommendations or the results of data mining models without disclosing their data to anyone or access to the data of others.
+2. Verifiers should be able to validate transactions without learning secrets and confidential data within the transaction.
+3. Our initial analysis based on the privacy design strategies shows that the initial DECODE architecture is promising in the inherent privacy preserving properties it exhibits.
+We recommend the following:
+1. Use the advantages of blockchain-supported secure multiparty computation, in order to design a secure and private data mining and recommender system.
+2. When refining the DECODE architecture in more detail, one needs to take the observations made in section 4 into account. Especially, some effort needs to be spent deciding how to address the inform, control, enforce and demonstrate strategies.
+3. DECODE supports user-defined smart rules that encode the 'business' logic of specific applications. We recommend that to support privacy-friendly contracts, the design should employ mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
+
+We will update this document once the DECODE architecture has been described and decided upon in more detail, to reflect the changes in our assessment.
+
+
 DECODE aims to develop a privacy preserving data distribution platform to foster commons-based sharing economy models, where citizens own and control their data. This asks for a privacy by design- based approach, for which the concept of privacy design strategies have recently been developed. [@D1.2]
 
 DECODE adopts a privacy design strategy which specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection.  This impacts the way personal data is processed, stored, and controlled.

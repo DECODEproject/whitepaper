@@ -3,6 +3,17 @@
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
 
 
+
+## Attributed intor
+
+*Participants* generate resources. Resources are either *public* or *restricted*. (Some data is personal data, other data is not. The architecture cannot and does not distinguish that at the architecture layer.) Restricted data is *encrypted*. All data is stored on a p2p, high availability, redundant data store.
+
+The *publisher* of restricted data determines who has access to the data. To this end it attaches an *entitlement condition* to the restricted data. Participants wishing to obtain access to the data need to prove they possess the necessary *entitlement*. Entitlements can be *issued* to participants. Entitlements have a *lifetime*: they are not valid before and not valid after a certain time. Additional flexibility can be expressed through *smart contracts* that, given a set of inputs (consisting of attributes and entitlements but also other *context*, like the current location or the current time or date) yield another entitlement or generate additional data. Smart contracts are defined by *applications* and stored on a *distributed ledger*. Participants store their entitlements privately, insofar as they are not dynamically generated when needed.
+
+A home owner wishing to allow his guests access to the local Wifi, for example, could create an entitlement `john-doe-house-wifi`, a smart contract saying "*if someone has an entitlement `renting-john-doe-house` and this entitlement is valid now, then output the entitlement `john-doe-house-wifi` valid for one hour*". Then if the owner rents out his house and issues the renter the entitlement `renting-john-doe-house`, access to the wifi is securely arranged automatically.
+
+
+
 ## Authentication
 
 
