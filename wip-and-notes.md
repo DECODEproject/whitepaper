@@ -2,6 +2,14 @@
 
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
 
+### Transparency and Integrity
+
+Alongside controlling access to the data, decode will also ensure that access to data is **audited**. This is made possible by virtue of the fact that in order to interact with decode, a participant will need to be registered. In particular **operators** will need to be registered and have some level of authenticity - for example be traceable to a company registration (e.g. in UK companies house). This allows a far greater level of transparency to both the participants and regulatory authorities (e.g. city council) of what data is being shared where.
+
+Alongside audit trails we also wish to make it clear to the participant exactly what entitlements they have granted in a simple manner. An example of work in this area is https://www.digitalcatapultcentre.org.uk/project/pd-receipt/ who are developing ideas around the user experience of how to represent entitlments a user has granted.
+
+
+
 ## P2P
 
 
