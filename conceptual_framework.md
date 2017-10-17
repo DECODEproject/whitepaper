@@ -55,7 +55,82 @@ Within DECODE we define several *roles* that these individuals or organisations 
 
 All interactions within DECODE are cryptographically linked back to an *Account*. In its most basic form this can be thought of as a public / private key pair. In effect the controller of an account will own a private key and therefore there is some cryptographic evidence that this control can be demonstrated. This is common to all distributed ledger systems. As with these, it makes the security of the private keys a prime concern [REF!](Section on hardware security).
 
-*Applications* within DECODE are subject themselves to a high degree of verification and transparency. Firstly all applicatioins must be transparent about what *attributes* they wish to access / manipulate for a *Participant*. We refer to this set of attributed as a *Profile*. 
+*Applications* within DECODE are subject themselves to a high degree of verification and transparency. Firstly all applications must be transparent about what *attributes* they wish to access / manipulate for a *Participant*. We refer to this set of attributes as a *Profile*. 
+ 
+A key concept to understand about DECODE is that attributes are strongly linked to applications. This provides a level of control and traceability over the system. It says that attributes can only be “created” (or “captured”) by applications and that there is a 1 to 1 relationship between attributes and applications. This means that e.g. even if two applications both capture a First Name, in DECODE these represent separate instances of attributes. 
+
+Data items on there own provide little value, for example the string "Paris" could mean many things to many people. In order to be able to make a useful system that can process data, and in particular provide additional value for the purpose of data privacy and integrity, DECODE implements a conceptual model that attaches other key concepts to an attribute. This model allows us to make claims about attributes. We begin with a basic structure of the form:
+
+ATTRIBUTE = (SUBJECT PREDICATE OBJECT)
+
+Where the SUBJECT is the entity to which the attribute relates (in DECODE terms, the account), the PREDICATE describes the relationship between the  SUBJECT and the OBJECT and the OBJECT being the value of the attribute.
+
+Thus we might say (say in JSON):
+
+locality : ["decode-account:543232", “schema:addressLocality", "Paris"]
+    ^                  ^                        ^                  ^
+    |                  |                        |                  |
+ATTRIBUTE           SUBJECT                 PREDICATE           OBJECT
+
+
+where schema and decode-account are URNs (https://www.w3.org/TR/uri-clarification/#urn-namespaces) to http://schema.org/ . How to interpret a decode-account URN is TBD.
+
+
+
+This already provides a lot of value. However DECODE adds two further concepts to the model, PROVENANCE and SCOPE…
+
+ATTRIBUTE = (SUBJECT PREDICATE OBJECT PROVENANCE SCOPE)
+
+
+PROVENANCE provides traceable evidence to support the claim we are making. This evidence currently consists of two parts, the source of the attribute, by which we mean the application which captured it or generated it, and optionally one or more verification elements which are links to a cryptographic demonstration of that attribute. In our example this would be an Attribute Based Credential issued by the city authority of Paris associated with the private key of the account.
+
+SCOPE relates to the agreement that is made between the application and the owner of the attribute (usually the Participant), in terms of entitlement. In DECODE terms, this is a link to an entitlement policy.
+
+```
+locality : ["decode-account:543232”,      <— SUBJECT
+	    "schema:addressLocality”,     <- PREDICATE
+            "Paris”,                      <- OBJECT
+            ["application:23234”,         <- source        /           
+             "verification:67565”]        <- verification  \PROVENANCE
+            "entitlement:8678756”         <- SCOPE
+           ]
+    ^                
+    |               
+ATTRIBUTE          
+```
+
+application, verification and entitlement are also URNS, TBD how they resolve.
+
+Don’t think we should include this part until we are closer to implementation but the structure in (loosely) BNF (https://tools.ietf.org/html/rfc4234, https://www.w3.org/Notation.html)  for attributes is as follows:
+
+```
+/*
+1# means 1 or more items in a repeating list, separated by commas
+1* means one or more repetitions of the following symbol
+*/
+
+ATTRIBUTE = (SUBJECT PREDICATE OBJECT PROVENANCE SCOPE)
+
+SUBJECT = decode_account
+PREDICATE = 1#ontology_url
+OBJECT = 1*string
+PROVENANCE = (source *verification)
+SCOPE = entitlement_policy
+
+ontology_url: A deep link to a particular ontology reference, e.g. http://xmlns.com/foaf/spec/#term_Person
+string: In a formal definition would be made up of valid characters, omitted here
+
+source: a link back to the DECODE application that originated the attribute
+
+verification: a link to zero or more (making it optional) cryptographic verifications of the attribute, for e.g. an attribute based credential representing residency of “Paris”. Note: the ABC that is linked to may also be used by other attributes.
+
+entitlement_policy: A link to an entitlement policy 
+```
+
+
+Thought - theres a whole part of the proposal around “standards” etc - what if the above formed some form of RFC to define privacy aware attributes? We could at least write it as an RFC and submit it to see what people thought, DECODE would be a reference implementation.
+
+
 
 It is mandatory for every *attribute** to be related to both its *provenance* (from where was it derived, namely which application) and also a relationship to an *Ontology* (e.g. [FOAF](http://xmlns.com/foaf/spec/) which describes meta-data about an attribute (type, purpose, scope).  Optionally an attribute can be cryptographically **verified** by an **Attribute Verifier**).
 
@@ -479,7 +554,7 @@ DECODE also supports and will explore the concepts of more sophisticated authent
 
 It is possible for **operators** to provide a "Login with DECODE" option. In this scenario the operator would enable an integration whereby the participant would be redirected to their DECODE wallet, authenticate there as above and then an exchange of application specific cryptographic credentials would be passed back to the website, allowing them to be authenticated. 
 
-A key principle at work with this scenario is that the operators must themselves be transparent to the participants. This means in practice that in order to allow login with DECODE the operator must first register with DECODE and itself be cryptographically audit-able in any actions it takes in the DECODE system. 
+A key principle at work with this scenario is that the operators must themselves be transparent to the participants. This means in practice that in order to allow login with DECODE the operator must first register with DECODE and itself be cryptographically audit-    able in any actions it takes in the DECODE system. 
 
 This raises questions around the governance of the DECODE ecosystem which will be explored as it is field tested and evolved.
 
