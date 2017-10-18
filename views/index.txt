@@ -1,9 +1,9 @@
 
 introduction.md
 
-conceptual_framework.md
-
 architectural_principles.md
+
+conceptual_framework.md
 
 os_architecture.md
 
