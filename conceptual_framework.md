@@ -68,13 +68,13 @@ jimb: I've removed original section about this from here - but one concept that 
 ```
 ## Attributes
 
-Data items alone provide little value, for example the string "Paris" could mean many things to many people. In order to be able to make a useful system that can process data, and in particular provide additional value for the purpose of data privacy and integrity, DECODE implements a conceptual model that attaches other key concepts to an attribute. This model allows us to make **claims** about attributes. We begin with a basic structure of the form:
+Data items alone provide little value, for example the string "Paris" could mean many things to many people. In order to be able to make a useful system that can process data, and in particular provide additional value for the purpose of data privacy and integrity, DECODE implements a conceptual model that attaches meta-data to an attribute. This model allows us to make **claims** about attributes. We begin with a basic structure of the form:
 
 ATTRIBUTE = (SUBJECT PREDICATE OBJECT)
 
 Where the SUBJECT is the entity to which the attribute relates (in DECODE terms, the account), the PREDICATE describes the relationship between the  SUBJECT and the OBJECT and the OBJECT is the value of the attribute.
 
-Thus we might say (say in JSON):
+Thus we might say (e.g. in JSON):
 
 ```
 locality : ["decode-account:543232", “schema:addressLocality", "Paris"]
@@ -83,7 +83,7 @@ locality : ["decode-account:543232", “schema:addressLocality", "Paris"]
 ATTRIBUTE           SUBJECT                 PREDICATE           OBJECT
 ```
 
-where `schema` and `decode-account` are [URNs](https://www.w3.org/TR/uri-clarification/#urn-namespaces) to [https://schema.org/](https://schema.org/) . How to interpret a decode-account URN is TBD.
+where `schema` and `decode-account` are [URNs](https://www.w3.org/TR/uri-clarification/#urn-namespaces) `schema` expands to [https://schema.org/](https://schema.org/) . How to interpret a decode-account URN is TBD.
 
 
 
@@ -137,9 +137,9 @@ verification: a link to zero or more (making it optional) cryptographic verifica
 entitlement_policy: A link to an entitlement policy 
 ```
 
-
+```comment
 Thought - theres a whole part of the proposal around “standards” etc - what if the above formed some form of RFC to define privacy aware attributes? We could at least write it as an RFC and submit it to see what people thought, DECODE would be a reference implementation.
-
+```
 
 
 ### Identity
