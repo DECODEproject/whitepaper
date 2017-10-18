@@ -20,7 +20,7 @@ DECODE aims to design and implement a free, open source, reliable and distribute
 
 DECODE  focuses  research  and  development  effort  on  novel  notions  of  trust  and  privacy that  can  be  operationalised  in  new  governance  frameworks,  and  innovative  economic  models  based  on  digital  commons.
 
-The digital commons are a form of commons involving the distribution and communal ownership of informational resources and technology. Resources are typically designed to be used by the community by which they are created. In particular, the distinction between digital commons and other digital resources is that the community of people building them can intervene in the governing of their interaction processes and of their shared resources.[@D1.8] [@digitalcommons]
+The digital commons are a form of commons involving the distribution and communal ownership of informational resources and technology. Resources are typically designed to be used by the community by which they are created. In particular, the distinction between digital commons and other digital resources is that the community of people building them can intervene in the governing of their interaction processes and of their shared resources [@digitalcommons] [@D1.8].
 
 ![Digital commons](img/entitlements-data.png "Digital commons"){width=300}
 
