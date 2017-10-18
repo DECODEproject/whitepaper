@@ -9,8 +9,6 @@ os_architecture.md
 
 hardware_supports.md
 
-distributed_ledger.md
-
 smart_rules.md
 
 decode_applications.md

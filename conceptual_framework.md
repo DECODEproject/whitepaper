@@ -398,9 +398,9 @@ The design of DECODE will try to support this method of user controlled access p
 
 ### The Distributed Ledger
 
-Attribute based credentials and encryption provide a foundation for building privacy preserving applications (Confidentiality). DECODE is at its core a decentralised application. The main component that provides this capability is the distributed ledger.
+Attribute based credentials and encryption provide a foundation for building privacy preserving applications (Confidentiality). DECODE is at its core a decentralised application. The main component that provides this capability is the distributed ledger. Within DECODE, the ledger provides for two characteristics, Integrity and Availability. 
 
-Within DECODE the distributed provides for two characteristics, Integrity and Availability. An important design principle for the ledger is that *no public data must be stored on the ledger*. This is one of the classic constraints of decentralised systems (the other being scalability). Whilst bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. This is the same for Ethereum although it is moving in this direction by integrating features from ZCash (https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow zk-SNARK (https://eprint.iacr.org/2013/879.pdf) computations from solidity in the upcoming metropolis release (https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). 
+In order to support the Confidentiality requirements of DECODE, an important design principle for the ledger is that *no public data must be stored on the ledger*. This is one of the classic constraints of decentralised systems (the other being scalability). Whilst for example bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. This is the same for Ethereum although it is moving in this direction by integrating features from [ZCash](https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow [zk-SNARK] (https://eprint.iacr.org/2013/879.pdf) computations from solidity, in the upcoming [metropolis release](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). 
 
 DECODE puts this principal at the centre of its Privacy by Design strategy. The cryptographic mechanism by which this is achieved is through Zero Knowledge proofs.
 
@@ -411,6 +411,7 @@ In practical terms for example, in combination with attribute based cryptography
 In summary the key requirements of a distributed ledger for the purposed of DECODE are:
 
 - Byzantine Fault Tolerance
+- Decentralised networkk
 - Ability to implement contracts that transaction execution from verification via ZK Proofs
 - An environment that allows a higher order language to be created (See Smart Rules)
 - Ability to scale horizontally 
