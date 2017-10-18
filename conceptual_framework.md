@@ -77,7 +77,7 @@ Where the SUBJECT is the entity to which the attribute relates (in DECODE terms,
 Thus we might say (e.g. in JSON):
 
 ```
-locality : ["decode-account:543232", “schema:addressLocality", "Paris"]
+locality : ["decode-account:543232", "schema:addressLocality", "Paris"]
     ^                  ^                        ^                  ^
     |                  |                        |                  |
 ATTRIBUTE           SUBJECT                 PREDICATE           OBJECT
@@ -97,16 +97,17 @@ PROVENANCE provides traceable evidence to support the claim we are making. This 
 SCOPE relates to the agreement that is made between the application and the owner of the attribute (usually the Participant), in terms of entitlement. In DECODE terms, this is a link to an entitlement policy.
 
 ```
-locality : ["decode-account:543232”,      <— SUBJECT
-	    "schema:addressLocality”,     <- PREDICATE
-            "Paris”,                      <- OBJECT
-            ["application:23234”,         <- source        /           
-             "verification:67565”]        <- verification  \PROVENANCE
-            "entitlement:8678756”         <- SCOPE
+locality:["decode-account:543232", <- SUBJECT   
+	    "schema:addressLocality",     <- PREDICATE
+            "Paris",                      <- OBJECT
+            ["application:23234",         <- source        /           
+             "verification:67565"]        <- verification  \PROVENANCE
+            "entitlement:8678756"         <- SCOPE
            ]
     ^                
     |               
 ATTRIBUTE          
+
 ```
 
 application, verification and entitlement are also URNS, TBD how they resolve.
