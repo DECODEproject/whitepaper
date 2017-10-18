@@ -62,7 +62,7 @@ One of the goals of the DECODE platform is to create a level playing field that 
 Deployability is key to ensure the adoption and success of DECODE. Therefore, the HUB must be easily available. The most available potential HUB is any commercial computer. According to Barcelona data-sheet 20171 the Household ICT penetration is 88.3 in 2015 (% on population 16 to 74 years with a computer at home). Despite most of commercial computers not being open source this is a viable alternative for promoting an early adoption. For scenarios where an embedded device with a small form factor is required, low cost open source single board computers (SBCs) are a good alternative for the DECODE HUB. 
 
 #### Hardware security
-The need for privacy and confidentiality differ according to the use cases of the platform. For instance, noise quality data requires less security than biometric health-centered data that’s being sent to a physician. This requires encryption on many different levels. To build trust in the platform, the DECODE needs to respond to the level of security each separate use case.
+The need for privacy and confidentiality differ according to the use cases of the platform. For instance, noise quality data requires less security than biometric health-centered data that's being sent to a physician. This requires encryption on many different levels. To build trust in the platform, the DECODE needs to respond to the level of security each separate use case.
 Software-based security means that access conditions can be hacked and logs can be tampered with. In addition, the data itself cannot be considered secure if left unprotected on a regular PC.
 
 For this reason the DECODE platform user should consider the adoption of hardware-based security when a higher level of confidentiality is required. The interaction with these security measures should be easy and effortless for the end-user.
@@ -92,7 +92,7 @@ Traditional authentication mechanisms consist in only one factor authentication 
 Authentication factors include:
 
 - Knowledge factors: the user is required to prove knowledge of a secret in order to  authenticate. Typical secrets include passwords, PIN codes, answer to secret question etc.
-- Possession factors: “something only the user has” is just the modern form of owning a key that opens a lock. Typically, objects used in authentication include passive or active tokens, smart card chips packaged in a variety of form factors (key, token, ring, badge, etc.).
+- Possession factors: "something only the user has" is just the modern form of owning a key that opens a lock. Typically, objects used in authentication include passive or active tokens, smart card chips packaged in a variety of form factors (key, token, ring, badge, etc.).
 - Inherence factors: associated with the user, such as biometric methods, including fingerprint readers, retina scanners or voice recognition.
 
 In order to make access more secure DECODE will support hardware based authentication with login tokens that provides 2FA via the U2F standard. The login token will safeguard and manage digital keys for strong authentication and provide crypto processing. These modules traditionally come in the form of a plug-in card or an external device that can be attached directly to a DECODE HUB.

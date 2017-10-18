@@ -57,7 +57,7 @@ All interactions within DECODE are cryptographically linked back to an *Account*
 
 *Applications* within DECODE are subject themselves to a high degree of verification and transparency. All applications must be transparent about what *attributes* they wish to access / manipulate for a *Participant*. We refer to this set of attributes as a *Profile*. 
  
-A key concept to understand about DECODE is that attributes are strongly linked to applications. This provides a level of control and traceability over the system. It says that attributes can only be “created” (or “captured”) by applications and that there is a 1 to 1 relationship between attributes and applications. This means that e.g. even if two applications both capture a First Name, in DECODE these represent separate instances of attributes. 
+A key concept to understand about DECODE is that attributes are strongly linked to applications. This provides a level of control and traceability over the system. It says that attributes can only be "created" (or "captured") by applications and that there is a 1 to 1 relationship between attributes and applications. This means that e.g. even if two applications both capture a First Name, in DECODE these represent separate instances of attributes. 
 
 Creating a structured model around attributes provides a foundation allows us to build higher level constructs such as *Smart Rules* and *User Experience* which make it straightforward for *Application Developers* to produce high integrity, privacy aware *Applications* without needing access to highly specialised experts in the field of cryptography. It allows *Participants* to have a highly transparent view and control of their data also without the necessity to become cryptographic and privacy experts themselves. A key principle of DECODE is "User Friendliness" for both *Application developers* and *participants*
 
@@ -87,7 +87,7 @@ where `schema` and `decode-account` are [URNs](https://www.w3.org/TR/uri-clarifi
 
 
 
-This already provides a lot of value. However DECODE adds two further concepts to the model, PROVENANCE and SCOPE…
+This already provides a lot of value. However DECODE adds two further concepts to the model, PROVENANCE and SCOPE.
 
 ATTRIBUTE = (SUBJECT PREDICATE OBJECT PROVENANCE SCOPE)
 
@@ -112,7 +112,7 @@ ATTRIBUTE
 
 application, verification and entitlement are also URNS, TBD how they resolve.
 
-Don’t think we should include this part until we are closer to implementation but the structure in (loosely) BNF (https://tools.ietf.org/html/rfc4234, https://www.w3.org/Notation.html)  for attributes is as follows:
+Don't think we should include this part until we are closer to implementation but the structure in (loosely) BNF (https://tools.ietf.org/html/rfc4234, https://www.w3.org/Notation.html)  for attributes is as follows:
 
 ```
 /*
@@ -133,13 +133,13 @@ string: In a formal definition would be made up of valid characters, omitted her
 
 source: a link back to the DECODE application that originated the attribute
 
-verification: a link to zero or more (making it optional) cryptographic verifications of the attribute, for e.g. an attribute based credential representing residency of “Paris”. Note: the ABC that is linked to may also be used by other attributes.
+verification: a link to zero or more (making it optional) cryptographic verifications of the attribute, for e.g. an attribute based credential representing residency of "Paris". Note: the ABC that is linked to may also be used by other attributes.
 
 entitlement_policy: A link to an entitlement policy 
 ```
 
 ```comment
-Thought - theres a whole part of the proposal around “standards” etc - what if the above formed some form of RFC to define privacy aware attributes? We could at least write it as an RFC and submit it to see what people thought, DECODE would be a reference implementation.
+Thought - theres a whole part of the proposal around "standards" etc - what if the above formed some form of RFC to define privacy aware attributes? We could at least write it as an RFC and submit it to see what people thought, DECODE would be a reference implementation.
 ```
 
 
@@ -180,9 +180,6 @@ jimb: How does ABC now fit in with the conceptual model of attribute verificatio
 
 
 ### Attribute Provenance
-```comment
-Curator: TOM D
-```
 
 #### Accountability of systems
 
@@ -198,43 +195,6 @@ In a system for data management (such as DECODE) the relevant metadata needs to 
 
 In DECODE the provenance metadata is provided through the *application*. When a participant stores some data in a DECODE-enabled system, the participant **always** does this through an *application* like GebiedOnline or Decidim. Similarly, the application may generate data on behalf of the participant (Making Sense) and store it (or a link to it) through DECODE api's. The data recorded or stored always has this 'tag' that it comes from this particular *application*. Of course, in addition to the provanance metadata, much more may be stored, related to its type, lifetime etc.
 
-#### Provenance
-
-Data in the DECODE core is stored as **attributes**. Attributes are **statements** of the form **\<subject> \<predicate> \<object>**. The subject represents the participant, the object represents the 'value' (data), and the predicate defines the type of the relation between the subject and the object.
-In the predicate we encode the provenance. An example:
-
-    <account> addressLocality 'Amsterdam'
-
-The representation of \<account> in the system is possibly just a public key that I control the private key of; 'Amsterdam' is the value of the attribute, and 'addressLocality' is what the attribute represents.
-What is interesting is the question: *who made this claim*?? Also, what does it mean, *addressLocality*? This is the information that you want to record together with with the attribute statement itself.
-Typically, you encode the answers to both questions in the predicate clause. To start with the last question, what does 'addressLocality' mean, you solve that like this:
-
-    <account> schema:addressLocality 'Amsterdam'
-
-Where 'schema' is defined to mean http://schema.org/. The total predicate so becomes a urn (which in this case you can even click on for a html version) that defines this particular predicate: http://schema.org/addressLocality.
-
-So far this is standard semantic web. It becomes more DECODE specific when we want talk **about the statement**, when we want to record who makes this claim, when we want be able to verify the statement, and possibly to validate the value.
-
-To enable this functionality we add a fourth clause to the statement:
-
-    <account> schema:addressLocality 'Amsterdam' <app_id:scope:verifier>
-
-```comment
-jimb: I think we might need to distinguishe more clearly between the conceptual model here and the actual implementation. there is a slight issue I think with talking about clauses and statements in that it sounds like I would expect to see this representation somewhere in the system. we may visualise it in the UI but it feels to me like this structure is more logical than implementation?
-
-tomd: I use it to illustrate the concepts. It is actually implementation (like in triple stores), but not meant to be visualized as such.
-
-```
-At the very least the \<prov> clause holds an **application id**; the other parts of the clause are optional. The app_id is a unique id that represents an **application**, and is issued what that application registers (for the precise sense in which we use the word application, please see the glossary).
-All statements are made by an application. Without anything else, this application is the only entity that can access the data (applications always have access to their own data); default **scope** is 'application'. Another scope is 'world'; further scopes are entitlements based on (possibly unrelated) attributes (only people of Amsterdam can see that I live in Amsterdam). There is also a 'decode core' application hat does not play by these rules. This would be an application that allows participant to 'administer' their decode 'accounts' and data. Participants that control an \<account> can, through this application, always access (and delete, but not necessarily modify) the statements that have this \<account> as a subject.
-
-The *verifier*, lastly, is a participant, operator or a group of these that can vouch for the statement in a precise and formal way. In the above case that could be the City of Amsterdam, for a formal and legal claim, or it could be 15 people of Amsterdam that form a quorum to vouch that I, illegal immigrant of Amsterdam *do* indeed live there (as is a requirement of gebied online, for instance).
-The implementation, through digital signing and attribute based cryptography is described elsewhere. The 'verifier' field of the provenace clause holds enough information to verify that the claim is made by the verifier and not altered after signing.
-
-
-
-
-Conceptual overview of why provenance is important
 
 ### Attribute verification with ABC
 ```comment

@@ -11,7 +11,7 @@ DECODE adopts free software, however free software projects cannot be entirely c
 - the reputation inside the community
 - the adoption of the good practices diffused in the community (for instance public repository, - continuous free upgrading, an efficient system of bugtrack and feedback
 the quality of the code, including its documentation to allow understanding of the code;
-- the software’s coverage, as the presence of automatic tests for evaluating the absence of bug on high percentages in the written code. [Ref D1.8]
+- the software's coverage, as the presence of automatic tests for evaluating the absence of bug on high percentages in the written code. [Ref D1.8]
 
 
 ## Modularity and interoperability
@@ -101,7 +101,7 @@ We will update this document once the DECODE architecture has been described and
 
 ## User friendliness
 
-Building **user-friendly** tools and applications for end-users, and app developers for **easy adoption** is a core principle for DECODE. Using an outside in lean approach, where requirements from users’ are researched and analysed, and prototypes are tested on target community groups will allow DECODE to develop open, interactive and user friendly interfaces.
+Building **user-friendly** tools and applications for end-users, and app developers for **easy adoption** is a core principle for DECODE. Using an outside in lean approach, where requirements from users' are researched and analysed, and prototypes are tested on target community groups will allow DECODE to develop open, interactive and user friendly interfaces.
 
 ```
  - **Openness** of the platform, to enable innovation and citizen participation.
