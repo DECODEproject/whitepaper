@@ -193,40 +193,18 @@ In order to enable this, accountability needs to be designed into the sytems, ne
 Taking stock of this *accountability design* challenge leads us to a couple of preconditions to a possible solution or implementation. One of the most important of these, especially in a DECODE context, is **data transparency**. What type of data was used, where, when and for what purpose was this data collected?
 In a system for data management (such as DECODE) the relevant metadata needs to be recorded and made available when needed, either directly to the user in response to queries, or to aggregation alghoritms that produce data that itself needs to be able to provide an account of its provenance. The accountability mechanisms may not be part of DECODE, the data formats needed to make them possible **are**.
 
-In DECODE the provenance metadata is provided through the *application*. When a participant stores some data in a DECODE-enabled system, the participant **always** does this through an *application* like GebiedOnline or Decidim. Similarly, the application may generate data on behalf of the participant (Making Sense) and store it (or a link to it) through DECODE api's. The data recorded or stored always has this 'tag' that it comes from this particular *application*. Of course, in addition to the provanance metadata, much more may be stored, related to its type, lifetime etc.
+In DECODE the provenance metadata is provided through the *application*. When a participant stores some data in a DECODE-enabled system, the participant **always** does this through an *application*. Similarly, the application may generate data on behalf of the participant and store it (or a link to it) through DECODE. The data recorded or stored always has the relationship recorded that it comes from this particular *application* (The **source**). 
 
 
 ### Attribute verification with ABC
-```comment
-PAULUS - Fixing the terminology.
 
-add sources:
-
-@book{alpar2015attribute,
-  title={Attribute-based identity management:[bridging the cryptographic design of ABCs with the real world]},
-  author={Alp{\'a}r, Gergely},
-  year={2015},
-  publisher={[Sl: sn]}
-}
-
-```
+In order to provide a stronger assertion about the **provenance** of attributes in DECODE, we incorporate the cryptographic mechanism of 
+** Attribute Based Credentials (ABC)**
 
 ```comment
- First part of this sentence is still up for discussion.
- The negative statement 'DECODE is **not** a potato' is also true, and there remains some confusion about what the positive interpretation of "DECODE will **not** provide the role of **identity verification**," should be.
+editorial: are these direct quotes? should be blockquote?
 ```
-DECODE will **not** provide the role of **identity verification**, however it will provide an integration protocol to allow **claims** made by participants to be leveraged in DECODE interactions (specifically, smart rules).
-These claims may lead to **entitlements**.
 
-A core functionality of DECODE is **verification** of **claims** that an individual makes about themselves.
-For example "I live at 123 Main Street" or "I am over the age of 18" or "I am a resident of Barcelona city".
-These claims may be important in a particular application use case. For example if we have an application which allows voting to residents of Barcelona, we might want to be able to verify that the persona as defined by the voting application is also a resident of Barcelona.
-Furthermore, the application defines a secure and uniquely identifiable attribute, together with a smart rule that only allows a single vote for any particular ballot.
-Through using DECODE, the attribute does not have to expose any real knowledge (for example a citizen ID number) but it must be possible to be checked for a particular value (number of votes cast).
-
-** Attribute Based Credentials **
-
-Some of the attributes in the DECODE ecosystem are part of **credentials** called Attribute Based Credentials.
 An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity (Alpar, 2015).
 Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system (Alpar, 2015).
 
@@ -272,9 +250,7 @@ In order to make it straighforward for developers to build DECODE applications, 
 
 
 ## Entitlements
-```comment
-Curator: Mark D
-```
+
 ```
 tomd: this needs to be rewritten / elaborated, in the current form it does not address the idea of attribute-based dynamic entitlements.
 jimb: I'm not sure I understand 'attribute-based dynamic entitlements'
@@ -420,13 +396,41 @@ Reference implementations are available, but at the time of writing none have be
 
 The design of DECODE will try to support this method of user controlled access policies.
 
-### Distributed Ledger
+### The Distributed Ledger
 
-Jim will write this part - explain role of the ledger 
+Attribute based credentials and encryption provide a foundation for building privacy preserving applications (Confidentiality). DECODE is at its core a decentralised application. The main component that provides this capability is the distributed ledger.
 
-A core design proposal of DECODE is the use of ZeroKnowledge proofs to allow for privacy preserving transactions to be recorded on the ledger. Other distributed ledgers are also moving in this direction (e.g. Ethereum).
+Within DECODE the distributed provides for two characteristics, Integrity and Availability. An important design principle for the ledger is that *no public data must be stored on the ledger*. This is one of the classic constraints of decentralised systems (the other being scalability). Whilst bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. This is the same for Ethereum although it is moving in this direction by integrating features from ZCash (https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow zk-SNARK (https://eprint.iacr.org/2013/879.pdf) computations from solidity in the upcoming metropolis release (https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). 
 
-**Requirements of DECODE**
+DECODE puts this principal at the centre of its Privacy by Design strategy. The cryptographic mechanism by which this is achieved is through Zero Knowledge proofs.
+
+In short these allow a participant to perform an action (transaction) and record in a tamper resistant and highly available store a verifiable record of that transaction. The transaction might be for example adding a signature to a petition or recording an entitlement policy granting access to personal data. The transaction will then later be verifiable without ever requiring the participant to reveal their source data.
+
+In practical terms for example, in combination with attribute based cryptography, this allows for anonymous yet verifiable petitions (see examples section). The resulting petition has a high degree of integrity because the ledger provides a Byzantine Fault tolerant replication mechanism and a high degree of Availability because it is decentralised and therefore not under the control of a single party or system. This makes it extremely resistant to many forms of failure or attack.
+
+In summary the key requirements of a distributed ledger for the purposed of DECODE are:
+
+- Byzantine Fault Tolerance
+- Ability to implement contracts that transaction execution from verification via ZK Proofs
+- An environment that allows a higher order language to be created (See Smart Rules)
+- Ability to scale horizontally 
+- Open source
+ 
+
+#### Chainspace Ledger implementation
+
+DECODE presents the novel distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found at [REF!-CHAINSPACE PAPER](...).
+
+In summary, chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
+
+**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the white paper for more details.
+
+#### Alternative Ledger Implementations
+
+The architecture of DECODE, following the guiding principles of being modular and reusing code, is not restricted to the implementation of Chainspace to provide the underlying ledger capability. It is possible for example that with the cryptographic advances in Solidity already mentioned, that it would be possible to build DECODE using any ledger system that also incorporated the solidity vm, either Ethereum itself or for example the hyperledger [Burrow project](https://github.com/hyperledger/burrow) from [Monax](https://monax.io/).
+
+As the project and this whitepaper evolves alternatives will be explored and tested as they may solve for different tradeoffs. 
+
 
 
 ## Authentication

@@ -2,6 +2,9 @@
 
 DECODE is composed of both hardware and software components - each component will adhere to the core architectural principles described below. The underlying philosophy adopted is that of the Unix philosophy [@Raymond:2003:AUP:829549] following key principles of modularity, clarity, composition, separation, simplicity, parsimony, transparency, robustness, representation and least surprise.
 
+
+
+
 ## Free and Open source
 
 All work produced by DECODE will be published as free and open source according to licenses approved by the Free Software Foundation Europe and emerging open hardware standards. The **openness** of the platform will enable innovation and citizen participation.
@@ -19,6 +22,10 @@ the quality of the code, including its documentation to allow understanding of t
 Adopting the key unix principle of modularity (simple parts connected by clean interface), enables building independent components which can be reused and combined to form a flexible eco-system of software products. DECODE will develop a modular privacy-aware tools and libraries that integrate with the operating system backed by a state of the art blockchain infrastructure supporting smart-contracts and privacy protections.
 
 DECODE would adopt a layered architecture, with components that build on top of each other. As opposed to building privacy aware applications solely in the application layer (layer 7) of the Operating System, privacy would be built into the lower layers as well, such as transport, network and data-link layers.
+
+## Reuse don't Re-Invent
+
+DECODE aims to be built upon the solid foundations of existing well proven software wherever appropriate. For example we build "DECODE OS" based on the well known and solid Debian OS.
 
 ## Decentralisation and federation
 
