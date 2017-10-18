@@ -2,6 +2,15 @@
 
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
 
+## ABC
+
+A core functionality of DECODE is **verification** of **claims** that an individual makes about themselves.
+For example "I live at 123 Main Street" or "I am over the age of 18" or "I am a resident of Barcelona city".
+These claims may be important in a particular application use case. For example if we have an application which allows residents of Paris to sign a petition, we might want to be able to verify that the **account** used to  is also a resident of Barcelona.
+Furthermore, the application defines a secure and uniquely identifiable attribute, together with a smart rule that only allows a single vote for any particular ballot.
+Through using DECODE, the attribute does not have to expose any real knowledge (for example a citizen ID number) but it must be possible to be checked for a particular value (number of votes cast).
+
+
 ## Provenance
 
 Data in the DECODE core is stored as **attributes**. Attributes are **statements** of the form **\<subject> \<predicate> \<object>**. The subject represents the participant, the object represents the 'value' (data), and the predicate defines the type of the relation between the subject and the object.
