@@ -1,5 +1,18 @@
 # DECODE Applications
+
 ## What is a DECODE application?
+
+A DECODE application is application capable of interacting with the DECODE nodes, constituting the main endpoint for human interaction with DECODE.
+
+DECODE will test and evaluate four pilot/trials in Amsterdam and Barcelona following a lean and agile methodology. 
+
+DECODE use-cases to be evaluated with pilots:
+
+- **Open democracy**: this use case builds on the D-CENT project, which developed decentralised democracy applications used by thousands of citizens across Europe. It demonstrated how viable distributed systems can foster the next generation of democracy tools and open policy making. DECODE's Barcelona pilot will go a step beyond by making data available and easily accessible by citizens, fostering informed collective decision-making.
+- **Data aggregation dashboard** : Providing access to crowdsourced information about the city to foster informed and deliberative decision-making.
+- **Collaborative economy / Hospitality** : Providing a new model where the data platform is the new middleman. The data is the raw resource through which value is created, enabling businesses to offer better and better services, which in turn generates more accurate data in a closed ecosystem.
+- **Participatory citizen sensing / IoT**: T Facilitates an open, secure and privacy-aware market place of distributed, wireless  sensors and actuators in which every citizen can participate, fostering a smart, IoT enabled city from the ground up. The pilot facilitates an open, secure and privacy-aware ecosystem of distributed, wireless sensors and actuators in which every citizen can participate, fostering an IOT enabled city from the ground up.
+
 ## Application Ecosystem
 
 
