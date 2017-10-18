@@ -35,15 +35,16 @@ The current era in technology has seen a shift from large monolithic systems to 
 
 
 ```comment
-PAULUS
+Priya
 
-Add reference to D1.2 About PbD:
-  The below texts are (mostly) verbatim from that deliverable:
-  * '20170630_D1.2_Privacy Design Strategies for the DECODE architecture & Data Management Plan'(.pdf)
+  The below texts are (mostly) verbatim from the deliverable:
+  * [@D1.2]
 
-  additional sources to be included:
-  * [Hoepman, 2014] J-H. Hoepman, Privacy Design Strategies, IFIP TC11 29th Int. Conf. on Information Security (IFIP SEC 2014), pp. 446-459.
-  * [Colesky et al., 2016] M. Colesky, J-H. Hoepman, C. Hillen, A critical analysis of Privacy Design Strategies, 2016 IEEE Security and Privacy Workshops, pp. 33-40.
+  Additional sources already added to the bibliography:
+  * [@PrivacyDesignPattersHoepman2014]
+  * [@PrivacyDeisngStrategiesColesky16]
+
+  Suggestions for completeness:
   * https://www.decodeproject.eu/blog/privacy-design-requirements-decode
   * (GDPR)
 
@@ -61,7 +62,7 @@ Further, many of the privacy by design principles will correlate with needs of G
 
 ### Privacy Design Strategies
 
-As described in (Colesky et. al. 2016) a privacy design strategy specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection. It is noted that this is different from what is understood to be an architectural strategy within the software engineering domain. Instead our strategies can be seen as goals of the privacy protection quality attribute (where a quality attribute is a term from software engineering describing non-functional requirements like performance, security, and also privacy).
+As described in [@PrivacyDeisngStrategiesColesky16] a privacy design strategy specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection. It is noted that this is different from what is understood to be an architectural strategy within the software engineering domain. Instead our strategies can be seen as goals of the privacy protection quality attribute (where a quality attribute is a term from software engineering describing non-functional requirements like performance, security, and also privacy).
 In the description of privacy design strategies we frequently refer to processing of personal data.
 Engineers should be aware that the legal concept of processing is broader than what a typical engineer understands processing to mean.
 In what follows we use the legal interpretation of processing, which includes creating, collecting, storing, sharing and deleting personal data.
@@ -85,26 +86,12 @@ The eight PbD principles proposed for DECODE are:
 @. _Demonstrate_: provide evidence that you process personal data in a privacy friendly way.
 
 ```comment
-Conclusion below needs to be refined.
+   **Very** brief refinement of the conclusion of [@D1.2] below.  
 ```
-Our most important findings are the following:
 
-1. End-users should be able to receive personalized recommendations or the results of data mining models without disclosing their data to anyone or access to the data of others.
-
-2. Verifiers should be able to validate transactions without learning secrets and confidential data within the transaction.
-
-3. Our initial analysis based on the privacy design strategies shows that the initial DECODE architecture is promising in the inherent privacy preserving properties it exhibits.
-
-We recommend the following:
-
-1. Use the advantages of blockchain-supported secure multiparty computation, in order to design a secure and private data mining and recommender system.
-
-2. When refining the DECODE architecture in more detail, one needs to take the observations made in section 4 into account. Especially, some effort needs to be spent deciding how to address the inform, control, enforce and demonstrate strategies.
-
-3. DECODE supports user-defined smart rules that encode the 'business' logic of specific applications. We recommend that to support privacy-friendly contracts, the design should employ mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
-
-We will update this document once the DECODE architecture has been described and decided upon in more detail, to reflect the changes in our assessment.
-
+DECODE supports user-defined smart rules that encode the 'business' logic of specific applications.
+To support privacy-friendly contracts, DECODE offers mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
+In order to achieve this in a secure and private system, DECODE uses the advantages of blockchain-supported secure multiparty computation.
 
 ## User friendliness
 
