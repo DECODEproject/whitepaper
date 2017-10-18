@@ -1,4 +1,4 @@
-# Conceptual Framework
+# Conceptual Foundations
 
 This section describes the foundational concepts that are combined to achieve the purpose of DECODE.
 
