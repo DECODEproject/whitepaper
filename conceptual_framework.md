@@ -5,7 +5,7 @@ This section describes the foundational concepts that are combined to achieve th
 The conceptual framework of DECODE is built on three foundations:
 
 - A distributed Ledger
-- Zero Knowledge proofs 
+- Zero Knowledge proofs
 - Attribute Based Cryptography
 - Cryptographically verifiable entitlements
 - A highly verifiable and controlled execution environment
@@ -20,7 +20,7 @@ DECODE proposes a scheme whereby not only can citizenship and accountability to 
 
 DECODE provides for a mechanism of declaring and controlling access to a person's data. We employ combinations of Attribute Based Cryptography and the ledger to record such declarations and provide system mechanisms to control the access. For example it may be that in within a community of individuals the members of the community wish to share data only with their peers. In a traditional setup this would be achieved using standard database and web server technologies. In DECODE we propose a scheme whereby access is provided through cryptographically verifiable credentials (Attribute Based Credentials) and varying levels of mechanism to protect such data, including Attribute Based Encryption. DECODE takes a decentralised approach to the issuing of these credentials, removing the need for a central authority.
 
-We can extend this data sharing capability to datasets for wide sharing - for example we can consider individual contributions to an aggregate dataset. This is often called the Open Data Commons [REF!](to d1.8). 
+We can extend this data sharing capability to datasets for wide sharing - for example we can consider individual contributions to an aggregate dataset. This is often called the Open Data Commons [REF!](to d1.8).
 
 ```comment
 jimb: Add some summary from D1.8
@@ -28,7 +28,7 @@ jimb: Add some summary from D1.8
 
 Each of these conceptual building blocks are explored within the following sections which should provide the basics required to understand how the implementation functions. Each of the topics is a deep area of study in its own right so we provide references to allow further exploration.
 
-A fundamental concept within DECODE is that *all* data is represented by **attributes**, described below. This allows us to build a conceptual model of how DECODE fulfils its purpose. 
+A fundamental concept within DECODE is that *all* data is represented by **attributes**, described below. This allows us to build a conceptual model of how DECODE fulfils its purpose.
 
 To describe how data (hereafter **attributes**) is produced and consumed we first specify the entities and roles within the DECODE *ecosystem*. That is, the set of systems, people and organisations that in combination fulfil the purpose of DECODE.
 
@@ -51,13 +51,13 @@ Within DECODE we define several *roles* that these individuals or organisations 
 - Attribute Verifier
 - Node Host
 
-*Participants* represent the end consumers of DECODE - in this role an entity is storing data and interacting with *applications*. *Applications* are *operated* by *operators* who are entities that code and maintain applications that run in the DECODE ecosystem. *Attribute verifiers* are entities which have the ability to *verify claims* associated with a particular *attribute*, and provide  cryptographic evidence of the claim. For example a public authority can verify that a participant is a resident of a particular city or country. *Node hosts* are members of the DECODE ecosystem who operate the underlying infrastructure of the DECODE network. Most commonly they will be hosting and running the nodes within the network, but may also run specialised services such as meta data services or online wallet services. 
+*Participants* represent the end consumers of DECODE - in this role an entity is storing data and interacting with *applications*. *Applications* are *operated* by *operators* who are entities that code and maintain applications that run in the DECODE ecosystem. *Attribute verifiers* are entities which have the ability to *verify claims* associated with a particular *attribute*, and provide  cryptographic evidence of the claim. For example a public authority can verify that a participant is a resident of a particular city or country. *Node hosts* are members of the DECODE ecosystem who operate the underlying infrastructure of the DECODE network. Most commonly they will be hosting and running the nodes within the network, but may also run specialised services such as meta data services or online wallet services.
 
 All interactions within DECODE are cryptographically linked back to an *Account*. In its most basic form this can be thought of as a public / private key pair. In effect the controller of an account will own a private key and therefore there is some cryptographic evidence that this control can be demonstrated. This is common to all distributed ledger systems. As with these, it makes the security of the private keys a prime concern [REF!](Section on hardware security).
 
-*Applications* within DECODE are subject themselves to a high degree of verification and transparency. All applications must be transparent about what *attributes* they wish to access / manipulate for a *Participant*. We refer to this set of attributes as a *Profile*. 
- 
-A key concept to understand about DECODE is that attributes are strongly linked to applications. This provides a level of control and traceability over the system. It says that attributes can only be "created" (or "captured") by applications and that there is a 1 to 1 relationship between attributes and applications. This means that e.g. even if two applications both capture a First Name, in DECODE these represent separate instances of attributes. 
+*Applications* within DECODE are subject themselves to a high degree of verification and transparency. All applications must be transparent about what *attributes* they wish to access / manipulate for a *Participant*. We refer to this set of attributes as a *Profile*.
+
+A key concept to understand about DECODE is that attributes are strongly linked to applications. This provides a level of control and traceability over the system. It says that attributes can only be "created" (or "captured") by applications and that there is a 1 to 1 relationship between attributes and applications. This means that e.g. even if two applications both capture a First Name, in DECODE these represent separate instances of attributes.
 
 Creating a structured model around attributes provides a foundation allows us to build higher level constructs such as *Smart Rules* and *User Experience* which make it straightforward for *Application Developers* to produce high integrity, privacy aware *Applications* without needing access to highly specialised experts in the field of cryptography. It allows *Participants* to have a highly transparent view and control of their data also without the necessity to become cryptographic and privacy experts themselves. A key principle of DECODE is "User Friendliness" for both *Application developers* and *participants*
 
@@ -135,7 +135,7 @@ source: a link back to the DECODE application that originated the attribute
 
 verification: a link to zero or more (making it optional) cryptographic verifications of the attribute, for e.g. an attribute based credential representing residency of "Paris". Note: the ABC that is linked to may also be used by other attributes.
 
-entitlement_policy: A link to an entitlement policy 
+entitlement_policy: A link to an entitlement policy
 ```
 
 ```comment
@@ -193,12 +193,12 @@ In order to enable this, accountability needs to be designed into the sytems, ne
 Taking stock of this *accountability design* challenge leads us to a couple of preconditions to a possible solution or implementation. One of the most important of these, especially in a DECODE context, is **data transparency**. What type of data was used, where, when and for what purpose was this data collected?
 In a system for data management (such as DECODE) the relevant metadata needs to be recorded and made available when needed, either directly to the user in response to queries, or to aggregation alghoritms that produce data that itself needs to be able to provide an account of its provenance. The accountability mechanisms may not be part of DECODE, the data formats needed to make them possible **are**.
 
-In DECODE the provenance metadata is provided through the *application*. When a participant stores some data in a DECODE-enabled system, the participant **always** does this through an *application*. Similarly, the application may generate data on behalf of the participant and store it (or a link to it) through DECODE. The data recorded or stored always has the relationship recorded that it comes from this particular *application* (The **source**). 
+In DECODE the provenance metadata is provided through the *application*. When a participant stores some data in a DECODE-enabled system, the participant **always** does this through an *application*. Similarly, the application may generate data on behalf of the participant and store it (or a link to it) through DECODE. The data recorded or stored always has the relationship recorded that it comes from this particular *application* (The **source**).
 
 
 ### Attribute verification with ABC
 
-In order to provide a stronger assertion about the **provenance** of attributes in DECODE, we incorporate the cryptographic mechanism of 
+In order to provide a stronger assertion about the **provenance** of attributes in DECODE, we incorporate the cryptographic mechanism of
 ** Attribute Based Credentials (ABC)**
 
 ```comment
@@ -339,45 +339,11 @@ Options:
 
 ```comment
 Curator: Paulus
-
-sources:
-
-@inproceedings{Goyal:2006:AEF:1180405.1180418,
- author = {Goyal, Vipul and Pandey, Omkant and Sahai, Amit and Waters, Brent},
- title = {Attribute-based Encryption for Fine-grained Access Control of Encrypted Data},
- booktitle = {Proceedings of the 13th ACM Conference on Computer and Communications Security},
- series = {CCS '06},
- year = {2006},
- isbn = {1-59593-518-5},
- location = {Alexandria, Virginia, USA},
- pages = {89--98},
- numpages = {10},
- url = {http://doi.acm.org/10.1145/1180405.1180418},
- doi = {10.1145/1180405.1180418},
- acmid = {1180418},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {access control, attribute-based encryption, audit logs, broadcast encryption, delegation, hierarchical identity-based encryption},
-}
-@inproceedings{Bethencourt:2007:CAE:1263552.1264219,
- author = {Bethencourt, John and Sahai, Amit and Waters, Brent},
- title = {Ciphertext-Policy Attribute-Based Encryption},
- booktitle = {Proceedings of the 2007 IEEE Symposium on Security and Privacy},
- series = {SP '07},
- year = {2007},
- isbn = {0-7695-2848-1},
- pages = {321--334},
- numpages = {14},
- url = {http://dx.doi.org/10.1109/SP.2007.11},
- doi = {10.1109/SP.2007.11},
- acmid = {1264219},
- publisher = {IEEE Computer Society},
- address = {Washington, DC, USA},
-}
-
-
 ```
-Within DECODE Resources are either *public* or *restricted*. (Some data is personal data, other data is not. The architecture cannot and does not distinguish that at the architecture layer.) Restricted data is *encrypted*.
+
+Within DECODE Resources are either *public* or *restricted*.
+(Some data is personal data, other data is not. The architecture cannot and does not distinguish that at the architecture layer.)
+Restricted data is *encrypted*.
 
 Encryption is one of the methods of access control that can be used within the ecosystem of DECODE data and attributes.
 The access control policy therefore will be enforced by the (original) owner of the data.
@@ -386,12 +352,12 @@ However, if the users wished to broadcast their data to a larger, but still rest
 
 A solution for this problem can be found in Attribute Based Encryption (ABE).
 ABE allows users to encode complex access conditions based on the possession of attributes into the encryption of their data.
-For example you can encrypt a wine-party invite only for your neighbours: ```( NOT ('being under the age of 18') AND 'being a resident of my street')```
-The data can be encrypted in such a way that anyone with those particular set of attributes in their key can decrypt the message.
+For example you can encrypt a party invite only for your neighbours: ```( NOT ('being under the age of 18') AND 'being a resident of my street')```
+The data can be encrypted in such a way that only individual agents with those particular set of attributes in their wallet can decrypt the message.
 
 ![Attribute based encryption](img/attribute-based-encryption.png "Attribute based encryption")
 
-The main models for ABE come from (Goyal, 2006) and (Bethencourt, 2007).
+The main models for ABE come from [@ABE] and [@ABE_CP].
 Reference implementations are available, but at the time of writing none have been selected to be supported by DECODE.
 
 The design of DECODE will try to support this method of user controlled access policies.
@@ -403,16 +369,14 @@ DECODE recognises two scenarios involving Authentication.
 
 **a) Authentication to DECODE wallets and nodes**
 
-This is the means by which the participant protects access to their wallet. In its most basic form this will be the standard option of a password credential. 
+This is the means by which the participant protects access to their wallet. In its most basic form this will be the standard option of a password credential.
 
 DECODE also supports and will explore the concepts of more sophisticated authentication, for example external hardware security devices and leveraging biometric capabilities of devices.
 
 **b) The use of decode as a federated authentication provider**
 
-It is possible for **operators** to provide a "Login with DECODE" option. In this scenario the operator would enable an integration whereby the participant would be redirected to their DECODE wallet, authenticate there as above and then an exchange of application specific cryptographic credentials would be passed back to the website, allowing them to be authenticated. 
+It is possible for **operators** to provide a "Login with DECODE" option. In this scenario the operator would enable an integration whereby the participant would be redirected to their DECODE wallet, authenticate there as above and then an exchange of application specific cryptographic credentials would be passed back to the website, allowing them to be authenticated.
 
-A key principle at work with this scenario is that the operators must themselves be transparent to the participants. This means in practice that in order to allow login with DECODE the operator must first register with DECODE and itself be cryptographically audit-    able in any actions it takes in the DECODE system. 
+A key principle at work with this scenario is that the operators must themselves be transparent to the participants. This means in practice that in order to allow login with DECODE the operator must first register with DECODE and itself be cryptographically audit-    able in any actions it takes in the DECODE system.
 
 This raises questions around the governance of the DECODE ecosystem which will be explored as it is field tested and evolved.
-
-
