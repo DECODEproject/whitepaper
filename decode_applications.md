@@ -12,3 +12,12 @@
 ## Example - IOT entitlements
 
 
+```comment
+TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelona are selected, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
+```
+
+3 exemplar use cases / demo apps:
+
+- A) Citizen Sensing - Air quality for a location
+- B) Asset sharing / renting (TBD, equivalent of FairBnB)
+- C) Complex privacy (TBD, either in terms of participants or varying based on context)
