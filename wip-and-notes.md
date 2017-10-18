@@ -2,6 +2,15 @@
 
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
 
+
+
+
+## P2P networking
+
+- p2p
+- Identity?
+- Relationship to the ledger? 
+
 ## ABC
 
 A core functionality of DECODE is **verification** of **claims** that an individual makes about themselves.

@@ -396,43 +396,6 @@ Reference implementations are available, but at the time of writing none have be
 
 The design of DECODE will try to support this method of user controlled access policies.
 
-### The Distributed Ledger
-
-Attribute based credentials and encryption provide a foundation for building privacy preserving applications (Confidentiality). DECODE is at its core a decentralised application. The main component that provides this capability is the distributed ledger. Within DECODE, the ledger provides for two characteristics, Integrity and Availability. 
-
-In order to support the Confidentiality requirements of DECODE, an important design principle for the ledger is that *no public data must be stored on the ledger*. This is one of the classic constraints of decentralised systems (the other being scalability). Whilst for example bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. This is the same for Ethereum although it is moving in this direction by integrating features from [ZCash](https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow [zk-SNARK] (https://eprint.iacr.org/2013/879.pdf) computations from solidity, in the upcoming [metropolis release](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). 
-
-DECODE puts this principal at the centre of its Privacy by Design strategy. The cryptographic mechanism by which this is achieved is through Zero Knowledge proofs.
-
-In short these allow a participant to perform an action (transaction) and record in a tamper resistant and highly available store a verifiable record of that transaction. The transaction might be for example adding a signature to a petition or recording an entitlement policy granting access to personal data. The transaction will then later be verifiable without ever requiring the participant to reveal their source data.
-
-In practical terms for example, in combination with attribute based cryptography, this allows for anonymous yet verifiable petitions (see examples section). The resulting petition has a high degree of integrity because the ledger provides a Byzantine Fault tolerant replication mechanism and a high degree of Availability because it is decentralised and therefore not under the control of a single party or system. This makes it extremely resistant to many forms of failure or attack.
-
-In summary the key requirements of a distributed ledger for the purposed of DECODE are:
-
-- Byzantine Fault Tolerance
-- Decentralised networkk
-- Ability to implement contracts that transaction execution from verification via ZK Proofs
-- An environment that allows a higher order language to be created (See Smart Rules)
-- Ability to scale horizontally 
-- Open source
- 
-
-#### Chainspace Ledger implementation
-
-DECODE presents the novel distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found at [REF!-CHAINSPACE PAPER](...).
-
-In summary, chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
-
-**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the white paper for more details.
-
-#### Alternative Ledger Implementations
-
-The architecture of DECODE, following the guiding principles of being modular and reusing code, is not restricted to the implementation of Chainspace to provide the underlying ledger capability. It is possible for example that with the cryptographic advances in Solidity already mentioned, that it would be possible to build DECODE using any ledger system that also incorporated the solidity vm, either Ethereum itself or for example the hyperledger [Burrow project](https://github.com/hyperledger/burrow) from [Monax](https://monax.io/).
-
-As the project and this whitepaper evolves alternatives will be explored and tested as they may solve for different tradeoffs. 
-
-
 
 ## Authentication
 
