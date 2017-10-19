@@ -30,14 +30,7 @@ In its most granular format, the entitlements on data enable users to choose who
 
 DECODE is an evolution of the concept of [decentralised systems](section-link) which leverages state of the art cryptographic techniques such as [Distributed Ledgers](section-link) and [Attribute Based Credentials](section-link) to build a system that provides its [participants](glossary-link) the capability to store data securely, give control and transparency over with whom and for what purpose data is shared and transact with other participants or  organisations.
 
-DECODE aims to design and implement a free and open source, reliable and distributed architecture to run applications developed by third parties.
-
-The DECODE architecture must be secure, distributed and privacy
-friendly as it will host different privacy sensitive applications in
-parallel.
-
-
-### DECODE is made of:
+At a high level we can describe DECODE as being composed of the following:
 
 - a set of specifications for distributed ledgers to support decode
 - a free and open source reference implementation of a distributed ledger
@@ -49,9 +42,11 @@ parallel.
 - an attribute based cryptographic implementation that can grant access to data
 
 
-### DECODE main goals are:
+### The goals of DECODE:
 
-- allow *participants* to manage access to their *private data*, by granting and revoke access to parts
+We identify the following key goals for DECODE:
+
+- allow *participants* to manage access to their *private data*, by granting and revoke access through *entitlements*
 - allow *operators* to write *smart rules* sign them and get the authorisation to run them on DECODE
 - allow *smart rules* to access *private data* based on *entitlements* and matched *attributes*
 - allow everyone to record *entitlements* on a *distributed ledger* whose integrity is resilient and verifiable
