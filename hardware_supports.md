@@ -16,12 +16,10 @@ The integrity and resilience of the network is provided through a distributed ne
 The validating nodes are key to providing the integrity and availability of the DECODE network. Therefore we build them from the ground up with a strong emphasis on verifiability by basing them on the DECODE OS. Each node will also contain the distributed ledger node and any other libraries and software that is required to participate in the DECODE network. This is likely to include cryptographic functionality and P2P networking capabilities to allow dynamic and evolving P2P networks to be formed. It is possible that the P2P networking capabilities can come from the underlying ledger implementation, or be augmented with custom protocols.
 
 It is important to note that DECODE does not mandate that every participant host a validating node. The minimum software you need access to in order to participate is a DECODE Wallet. 
- 
 
-The process of governance of the node network and the underlying motivations to make the network self sustainable are a research topic within DECODE and as this evolves, the results will be updated in this whitepaper.
+A key research question for DECODE is how to cover the cost of computation for these validating nodes? Who operates them? What are their motivations? The bottom line is that it incurs a cost to purchase hardware and consume electricity. For example, Ethereum has created a self sustaining network by offering a financial incentive to those nodes who execute the transactions, which is a straightforward economic model. 
 
-Existing self sustaining networks such as Bitcoin or Ethereum offer a financial incentive to node hosts to operate the validating nodes of the network. DECODE will explore alternate, social motivations alongside these.
-
+DECODE seeks to explore alternative incentive models that do not involve direct financial reward and this will be an ongoing initiative for the project. It looks to models that work for the common good of citizens and will be exploring scenarios that move towards an "economy of the commons" as opposed to the centralised concentration of wealth within a few large organisations, which is the current dominant force in the data economy.
 
 ## DECODE Wallets
 
