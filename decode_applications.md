@@ -37,7 +37,7 @@ DECODE use-cases to be evaluated with pilots:
 - Options for securing access (including just securing access to the stream via ABC)
 - Still a topic of research and evolution
 
-## Example - Peer verified credentials
+## Example - Peer verified credentials
 
 Would allow access control to private groups of people where membership of the group is granted by peer support
 
