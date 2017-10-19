@@ -5,15 +5,25 @@ DECODE is at the core a distributed P2P network of "nodes" that together provide
 
 The overall architecture is similar to other distributed ledgers and we have followed familiar terminology, such as "Wallet". We describe here the roles and responsibilities of each of the components and how they work together to achieve our goals.
 
-![Decode Overview](img/decode-overview.png "Decode Overview")
+![Decode Network Architecture](img/decode-network-architecture.png "Decode Network Architecture")
 
-## Relay nodes (validating nodes)
 
-The integrity and resilience of the network is provided through a distributed ledger of nodes. One of the key architectural features of DECODE is that it separates *execution* of logic (*contracts*) from the *verification* of that logic, which allows for privacy aware execution [REF!](section-on-concepts). 
 
-- User Interface
+## Validating Nodes
 
-## Wallet nodes
+The integrity and resilience of the network is provided through a distributed network of Validating nodes. One of the key architectural features of DECODE is that it separates *execution* of logic (*contracts*) from the *verification* of that logic, which allows for privacy aware execution [REF!](section-on-concepts-distributed-ledgers).
+
+The validating nodes are key to providing the integrity and availability of the DECODE network. Therefore we build them from the ground up with a strong emphasis on verifiability by basing them on the DECODE OS. Each node will also contain the distributed ledger node and any other libraries and software that is required to participate in the DECODE network. This is likely to include cryptographic functionality and P2P networking capabilities to allow dynamic and evolving P2P networks to be formed. It is possible that the P2P networking capabilities can come from the underlying ledger implementation, or be augmented with custom protocols.
+
+It is important to note that DECODE does not mandate that every participant host a validating node. The minimum software you need access to in order to participate is a DECODE Wallet. 
+ 
+
+The process of governance of the node network and the underlying motivations to make the network self sustainable are a research topic within DECODE and as this evolves, the results will be updated in this whitepaper.
+
+Existing self sustaining networks such as Bitcoin or Ethereum offer a financial incentive to node hosts to operate the validating nodes of the network. DECODE will explore alternate, social motivations alongside these.
+
+
+## DECODE Wallets
 
 The wallet is the minimum component a person requires to interact with DECODE. Every **participant** will have their own wallet. The wallet has several core functions:
 
@@ -47,6 +57,8 @@ DECODE intends to provide tools and documentation to allow **operators**[^3rdpar
 To maintain the core values of DECODE however, a constraint of this scenario is that the user *must be aware and consciously agree* to the connection between their account and DECODE. Whilst the process itself maybe "1 click" for the user, the user journey must include a "connect my account to DECODE" phase. The exact design guidelines for how this is achieved will be developed on an ongoing basis.
 
 There is a tradeoff with this scenario in that while it allows for lower barrier to adoption, it also diminishes the true value of DECODE as a decentralised system. In this scenario, the trust relationship has not been decentralised, i.e. the participant is still trusting the operator as an organisation with all their data.
+
+![Decode Overview](img/decode-overview.png "Decode Overview")
 
 
 ## Hardware Hubs
@@ -112,9 +124,6 @@ In case of need or desire for higher privacy control, users can opt for a specif
 
 ## IOT connectivity
 
-```comment
-Curator: MarkD
-```
 A core use-case for the DECODE project is to provide a set of tools to enable personal IOT data to be securely managed.
 
 Integrating with the plethora of IOT devices on the market is a non-trivial problem and one that the DECODE project considers solving by :
@@ -123,29 +132,9 @@ Integrating with the plethora of IOT devices on the market is a non-trivial prob
 
 **Semantic Understanding** Once data is normalised it is important to understand the meaning of the data. To add this understanding you could use an ontology such as the M3-Lite (http://ontology.fiesta-iot.eu/ontologyDocs/m3-lite.owl#).
 
-An example of a tool that follows is the device-hub software offered by thingful. The tool is available at https://github.com/thingful/device-hub
+An example of a tool that provides this approach is the device-hub software offered by thingful. The tool is available at [https://github.com/thingful/device-hub](https://github.com/thingful/device-hub)
 
-## Distributed Ledger
-
-Within DECODE, the ledger provides for two characteristics, Integrity and Availability. This is an important distinction within DECODE. Privacy (or Confidentiality) is not a core function of the ledger but is rather enabled by its features and design. 
-
-In combination with ABC and ABE, DEOCODE achieves privacy through the core principle that *no private data must be stored on the ledger*. Privacy is one of the classic issues faced by decentralised systems (the other being scalability). For example while bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. The same is true for Ethereum, although it is moving in this direction by integrating features from [ZCash](https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow [zk-SNARK] (https://eprint.iacr.org/2013/879.pdf) computations from solidity, in the upcoming [metropolis release](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). Other ledger implementations are exploring different designs by which privacy can be obtained, for example [R3 Corda](https://www.corda.net/).
-
-DECODE puts this principal at the centre of its Privacy by Design strategy. The cryptographic mechanism by which this is achieved is through Zero Knowledge proofs.
-
-In short these allow a participant to perform an action (transaction) and record a verifiable proof of that transaction which has no relation to the data used within the transaction. The proof can be stored quite safely on any number of nodes since it contains no private data. It is also possible for multiple nodes to validate the transaction and build up a level of confidence in it (Integrity) and enable redundancy of the proof (Availability).
-
-In practical terms for example, in combination with attribute based cryptography, this allows for anonymous yet verifiable petitions (see examples section). The resulting petition has a high degree of integrity because the ledger provides a Byzantine Fault tolerant replication mechanism and a high degree of Availability because it is decentralised and therefore not under the control of a single party or system. This makes it extremely resistant to many forms of failure or attack.
-
-In summary the key requirements of a distributed ledger for the purposed of DECODE are:
-
-- Byzantine Fault Tolerance
-- Decentralised networkk
-- Ability to implement contracts that transaction execution from verification via ZK Proofs
-- An environment that allows a higher order language to be created (See Smart Rules)
-- Ability to scale horizontally 
-- Open source
- 
+## The Ledger Implementation 
 
 ### Chainspace 
 

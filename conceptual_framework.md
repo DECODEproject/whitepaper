@@ -362,6 +362,27 @@ Reference implementations are available, but at the time of writing none have be
 
 The design of DECODE will try to support this method of user controlled access policies.
 
+## Distributed Ledger
+
+Within DECODE, the ledger provides for two characteristics, Integrity and Availability. This is an important distinction within DECODE. Privacy (or Confidentiality) is not a core function of the ledger but is rather enabled by its features and design. 
+
+In combination with ABC and ABE, DEOCODE achieves privacy through the core principle that *no private data must be stored on the ledger*. Privacy is one of the classic issues faced by decentralised systems (the other being scalability). For example while bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. The same is true for Ethereum, although it is moving in this direction by integrating features from [ZCash](https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow [zk-SNARK](https://eprint.iacr.org/2013/879.pdf) computations from solidity, in the upcoming [metropolis release](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). Other ledger implementations are exploring different designs by which privacy can be obtained, for example [R3 Corda](https://www.corda.net/).
+
+DECODE puts this principal at the centre of its Privacy by Design strategy. The cryptographic mechanism by which this is achieved is through Zero Knowledge proofs.
+
+In short these allow a participant to perform an action (transaction) and record a verifiable proof of that transaction which has no relation to the data used within the transaction. The proof can be stored quite safely on any number of nodes since it contains no private data. It is also possible for multiple nodes to validate the transaction and build up a level of confidence in it (Integrity) and enable redundancy of the proof (Availability).
+
+In practical terms for example, in combination with attribute based cryptography, this allows for anonymous yet verifiable petitions (see examples section). The resulting petition has a high degree of integrity because the ledger provides a Byzantine Fault tolerant replication mechanism and a high degree of Availability because it is decentralised and therefore not under the control of a single party or system. This makes it extremely resistant to many forms of failure or attack.
+
+In summary the key requirements of a distributed ledger for the purposed of DECODE are:
+
+- Byzantine Fault Tolerance
+- Decentralised networkk
+- Ability to implement contracts that transaction execution from verification via ZK Proofs
+- An environment that allows a higher order language to be created (See Smart Rules)
+- Ability to scale horizontally 
+- Open source
+
 
 ## Authentication
 
