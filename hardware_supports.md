@@ -91,9 +91,9 @@ An exchange between DECODE nodes can only take place once both parties are secur
 Traditional authentication mechanisms consist in only one factor authentication like a pin code or password. But password based security has proven to be insufficient to prevent unauthorized access to websites, networks and hardware devices. For this reason, users are now requiring  multiple factor authentication, usually called 2FA for Two-factor authentication, 3FA for Three-factor authentication, etc. By combining several authentication factors, the authentication process is made more secure.
 Authentication factors include:
 
-- Knowledge factors: the user is required to prove knowledge of a secret in order to  authenticate. Typical secrets include passwords, PIN codes, answer to secret question etc.
-- Possession factors: "something only the user has" is just the modern form of owning a key that opens a lock. Typically, objects used in authentication include passive or active tokens, smart card chips packaged in a variety of form factors (key, token, ring, badge, etc.).
-- Inherence factors: associated with the user, such as biometric methods, including fingerprint readers, retina scanners or voice recognition.
+- Knowledge factors: The users needs to prove knowledge of a secret that only themselvs know. Typical secrets include passwords, PIN codes, answer to secret question etc.
+- Possession factors: An object that the user owns is used as a key to access the system. Typically, objects used in authentication include passive or active tokens, smart card chips packaged in a variety of form factors (key, token, ring, badge, etc.).
+- Inherence factors: something associated with the user, such as biometrics, are used as a key to access the system. Examples include fingerprint readers, retina scanners, voice recognition etc.
 
 In order to make access more secure DECODE will support hardware based authentication with login tokens that provides 2FA via the U2F standard. The login token will safeguard and manage digital keys for strong authentication and provide crypto processing. These modules traditionally come in the form of a plug-in card or an external device that can be attached directly to a DECODE HUB.
 
