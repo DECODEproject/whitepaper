@@ -21,8 +21,35 @@ DECODE use-cases to be evaluated with pilots:
  is transparent to a known and registered organisation that a participant can discover and make a choice about wether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535.
 
 
-## Example - Petitions
+## Example - Participatory Democracy through Petitions
+
+- How to use ABC to be private
+- Include token to prevent double voting in ABC
+- ABC issued from authority e.g. City of Paris
+- Use of category counters to get aggregate statistics without sharing data (e.g. I just need to tick the age group, not share my date of birth, the smart rules can do this for me) can still decide wether or not I want to even do that
+- Verification of the petition afterwards by some authority - makes it valuable in order to contribute in some meaningful way to a formal process
+- Not yet at the same level as a legal vote - requires many more legal constraints
+
 ## Example - IOT entitlements
+
+- Contributing IOT data from my devices
+- Include use of device up to add ontology data
+- Options for securing access (including just securing access to the stream via ABC)
+- Still a topic of research and evolution
+
+## Example - Peer verified credentials
+
+Would allow access control to private groups of people where membership of the group is granted by peer support
+
+- the P2P issuer scenario 
+- A group of people together form a "decentralised Issuer"
+- Research topic 
+- A simple model would be to nominate "administrators"
+- Isnt this just a contract implementation that can generate a credential if x number of signatories who also have the credential support the candidate?
+
+## Example - Data commons?
+
+Should we come up with something here or leave it till a next iteration of WP?
 
 
 ```comment
