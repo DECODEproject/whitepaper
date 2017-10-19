@@ -64,12 +64,12 @@ Noise pollution is an issue for a number of citizens living in particularly nois
 
 It is important to note that this example, integrates entitlements across public and sensitive personal data. In this context, private, personal and sensitive personal data can be defined as follows
 
-Private Data: In information science, this refers to data that is considered private, but may not may not be related to a physical person.
+- Private Data: In information science, this refers to data that is considered private, but may not may not be related to a physical person.
 
-Personal Data: Any information related to a natural person or 'Data Subject', that can be used to directly or indirectly identify the person. 
+- Personal Data: Any information related to a natural person or 'Data Subject', that can be used to directly or indirectly identify the person. 
 [@GDPRglossary]
 
-Sensitive personal: Personal data consisting of information on the racial or ethnic origin of the data subject, political opinions, religious beliefs etc. [@GDPRglossary]
+- Sensitive personal: Personal data consisting of information on the racial or ethnic origin of the data subject, political opinions, religious beliefs etc. [@GDPRglossary]
 
 Several cities include IoT devices that measure pollution levels (including noise) and publish this data in an open an accessible format. Sentilo is an example of an open source sensor and actuator platform designed to fit in the Smart City architecture, in several cities such data is freely and openly accessible. 
 

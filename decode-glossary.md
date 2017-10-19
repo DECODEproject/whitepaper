@@ -42,20 +42,20 @@ The internal architecture of DECODE, node anatomy, communications between nodes,
 The environment in which DECODE operates, involving other systems, pilots, organisations, open source communities. We can consider various specific ecosystems for example the "Sharing economy" ecosystem which may have different characteristics
 
 ####DECODE Platform
-Software with a high degree of privacy by design that provides the core functionality of DECODE. For example, DECODE OS, Distributed Ledger, device metadata. (Ref: D4.2 - Online Test Infrastructure, D1.1 DECODE Scenarios and requirements definition report)
+Software with a high degree of privacy by design that provides the core functionality of DECODE. For example, DECODE OS, Distributed Ledger, device metadata. [@D4.2][@D1.1]
 
 #### DECODE SDK
-The SDK is a development kit for modules developed and distributed by other consortium partners. It can be used to build, test and profile individual software applications on top of the DECODE OS, both locally and remotely on the continous integration infrastructure. (Ref: D4.1 DECODE OS Software Development Kit)
+The SDK is a development kit for modules developed and distributed by other consortium partners. It can be used to build, test and profile individual software applications on top of the DECODE OS, both locally and remotely on the continous integration infrastructure. [@D4.1]
 
 #### DECODE Node
 Controlled execution environment where the DECODE Hub runs. Decentralized transactions will be continuously being carried by the NODE.
-(Ref: D4.3  Provisional Hardware Platform)
+[@D4.3]
 
 #### DECODE Hub
-The DECODE HUB is the hardware component of the DECODE architecture. The HUB is any device on which the DECODE OS is installed. It provides connectivity to IoT devices, connects to other DE- CODE nodes and supports the DECODE OS. As any other component of the DECODE architecture, the HUB needs to follow the values of openness, security, scalability, deployability and flexibility. (Ref: D4.3  Provisional Hardware Platform)
+The DECODE HUB is the hardware component of the DECODE architecture. The HUB is any device on which the DECODE OS is installed. It provides connectivity to IoT devices, connects to other DE- CODE nodes and supports the DECODE OS. As any other component of the DECODE architecture, the HUB needs to follow the values of openness, security, scalability, deployability and flexibility. [@D4.3]
 
 #### DECODE OS
-The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project. (Ref: D4.4 First release of DECODE OS). The DECODE OS is a blend of Devuan OS, with DECODE specific packages included within it.
+The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project. [@D4.4]. The DECODE OS is a blend of Devuan OS, with DECODE specific packages included within it.
 
 #### DECODE Core
 The DECODE Core is a process that acts as a co-ordinator for different components of DECODE (Application Smart Rule engines, IOT Connector, Attribute Vault, Ledger Connector).Note: this may need refining as it's still under discussion.
@@ -73,7 +73,7 @@ Previous Term: Device HubDevice HubMaps IoT data coming from external sensor dev
 Allows the processes part of DECODE Core to interface with the Distributed Ledger.
 
 #### Ledger Node
-This term is derived from the Bitcoin concept of a node. Bitcoin is a widely known cryptocurrency based on blockchain that organizes nodes in a peer-to-peer (p2p) network; any node can join and become part of the network. If a node receives new information, it broadcasts it to rest of the network. While all nodes listen to and broadcast information, only special nodes can append information to the blockchain. (Ref: D3.1 Survey of Technologies for ABC, Entitlements and Blockchains)
+This term is derived from the Bitcoin concept of a node. Bitcoin is a widely known cryptocurrency based on blockchain that organizes nodes in a peer-to-peer (p2p) network; any node can join and become part of the network. If a node receives new information, it broadcasts it to rest of the network. While all nodes listen to and broadcast information, only special nodes can append information to the blockchain. [@D3.1]
 
 #### Metadata service
 The metadata service is responsible for maintaining an index of discoverable data and their locations, displaying any data that is accessible, allow a user to make an entitlement request to access data that is not yet accessible.  (Ref: D3.2 Data access and Transaction Module)
@@ -82,7 +82,7 @@ The metadata service is responsible for maintaining an index of discoverable dat
 This refers to an (online) service provider hosting nodes on behalf of participants.Note: this may need refining as it's still under discussion.
 
 #### Ontology
-In computer science and information science, an ontology is a formal naming and definition of the types, properties, and interrelationships of the entities that really or fundamentally exist for a particular domain of discourse. It is thus a practical application of philosophical ontology, with a taxonomy. [Ontology - Information Science - Wiki]  A referenceable "schema" which describes the attribute. As raised, we need to be careful this does not become too restrictive. There is a wider discussion around this from the device hub work. While all attributes require a definition, registering changes to ontologies is an open process. Some governance / structure will be needed (to be discussed later). We will also need to consider evolution of ontologies over time.
+In computer science and information science, an ontology is a formal naming and definition of the types, properties, and interrelationships of the entities that really or fundamentally exist for a particular domain of discourse. It is thus a practical application of philosophical ontology, with a taxonomy. Specifically in information science terminology, an ontology is a referenceable "schema" which describes the attribute. As raised, we need to be careful this does not become too restrictive. There is a wider discussion around this from the device hub work. While all attributes require a definition, registering changes to ontologies is an open process. Some governance / structure will be needed (to be discussed later). We will also need to consider evolution of ontologies over time.
 
 #### Participant
 An individual who digitally participates in the DECODE ecosystem. Participation occurs by interacting with an application. participants own and control attributes via their account.
@@ -94,7 +94,7 @@ Relates to the set of attributes which are required application to run. There ar
 A pilot application is a domain specific software application which will leverage the DECODE platform. Some part of this application may be a website (e.g. DECIDIM) and it is anticipated that some element of the application will involve definition and deployment of Smart Rules, Persona definitions and Ontology meta data.
 
 #### Smart Contract
-A computer protocol intended to facilitate, verify, or enforce the negotiation or performance of a contract. (Wikipedia)
+A computer protocol intended to facilitate, verify, or enforce the negotiation or performance of a contract.
 
 #### Smart Rule engine
 Process running in the DECODE OS. It is part of the Application and runs the Application Smart Rules.
@@ -103,7 +103,7 @@ Process running in the DECODE OS. It is part of the Application and runs the App
 They are Application specific functions that take attributes (or objects) and create entitlements.
 
 #### SSO (Single Sign On)
-It is a property of access control of multiple related, yet independent, software systems. With this property, a user logs in with a single ID and password to gain access to a connected system or systems without using different usernames or passwords. (Wikipedia)
+It is a property of access control of multiple related, yet independent, software systems. With this property, a user logs in with a single ID and password to gain access to a connected system or systems without using different usernames or passwords. 
 
 #### Transaction
-Transactions are the application of one or more valid procedures - according to type - to active input objects, and possibly some referenced objects, to create a number of new active output objects. (Ref: Chainspace: A Sharded Smart Contracts Platform)
+Transactions are the application of one or more valid procedures - according to type - to active input objects, and possibly some referenced objects, to create a number of new active output objects. [@1708.03778]
