@@ -110,9 +110,12 @@ Priya: Jim, I'm not sure if we discussed the relevance of ABC in this pilot/exam
 Options for securing access (including just securing access to the stream via ABC)
 ```
 
-## Example - Peer verified credentials
+## Example - Peer to peer identity and reputation verification
 
-Would allow access control to private groups of people where membership of the group is granted by peer support
+There has been rapid growth in the sharing economy in the last decade. The presence of several large online platforms such as AirBnb and has enabled more people to engage in sharing resources available to them. A core driving factor in this fast growing economy is _trust_, and is one of the biggest concerns of using sharing economy platforms. 
+
+Sharing economy companies are beginning to understand the importance of that trust. In a peer-to-peer marketplace, verifying user identity increases trust, and from there users begins to build their online reputations. Identity verification is currently implemented via thrid parties undertaking the process of conducting identity and background checks on the users of the platform. Concerns have been raised that the Verified ID model disrupts privacy. Criticism is also spread to the reliance on social networks, which opens up issues of surveillance, identity theft and fake identity use. This presents a use case for a peer to peer identity and reputation verification. In this use case, DECODE is used as a decentralised platform that enables users to anonymously and securely verify the identity of other users in their community.
+
 
 - the P2P issuer scenario 
 - A group of people together form a "decentralised Issuer"
