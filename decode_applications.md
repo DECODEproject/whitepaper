@@ -114,14 +114,16 @@ Options for securing access (including just securing access to the stream via AB
 
 There has been rapid growth in the sharing economy in the last decade. The presence of several large online platforms such as AirBnb and has enabled more people to engage in sharing resources available to them. A core driving factor in this fast growing economy is _trust_, and is one of the biggest concerns of using sharing economy platforms. 
 
-Sharing economy companies are beginning to understand the importance of that trust. In a peer-to-peer marketplace, verifying user identity increases trust, and from there users begins to build their online reputations. Identity verification is currently implemented via thrid parties undertaking the process of conducting identity and background checks on the users of the platform. Concerns have been raised that the Verified ID model disrupts privacy. Criticism is also spread to the reliance on social networks, which opens up issues of surveillance, identity theft and fake identity use. This presents a use case for a peer to peer identity and reputation verification. In this use case, DECODE is used as a decentralised platform that enables users to anonymously and securely verify the identity of other users in their community.
+Sharing economy companies are beginning to understand the importance of that trust. In a peer-to-peer marketplace, verifying user identity increases trust, and from there users begins to build their online reputations. Identity verification is currently implemented via thrid parties undertaking the process of conducting identity and background checks on the users of the platform. Concerns have been raised that the Verified ID model disrupts privacy. Criticism is also spread to the reliance on social networks, which opens up issues of surveillance, identity theft and fake identity use. This presents a use case for a peer to peer identity and reputation verification. In this example, DECODE is used as a decentralised platform that enables users to anonymously and securely verify the identity of other users in their community.
 
+The core implementation of P2P verification in DECODE relies on a group of people acting as a decentralised Issuer within the context of ABC. 
 
-- the P2P issuer scenario 
-- A group of people together form a "decentralised Issuer"
-- Research topic 
-- A simple model would be to nominate "administrators"
-- Isnt this just a contract implementation that can generate a credential if x number of signatories who also have the credential support the candidate?
+* An unverfied user submits a 'claim' for an identity verification into the system, for example, this could be a claim that 'User X is a resident of block 10, nichonson street, Edinburgh'. 
+* A smart contract is created for this claim, and this is submitted into DECODE.
+* Existing verified users (or nominated administrators) are notified of this claim, and they can anonymously verify the claim. 
+* When a consensus is reached on the results of the claim contract, the transaction is deemed complete and the user making the claim is then promoted to a verified user.
+* The claimant is issued with attribute based credential certificate to denote that they are a verified user.
+
 
 ## Example - Data commons and Open data
 
