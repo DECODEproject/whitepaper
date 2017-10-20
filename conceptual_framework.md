@@ -231,7 +231,7 @@ There are three parties involved in the use of ABCs: the issuer of the credentia
 Need to update these diagrams so that they use the terms "Issuer" and "Relying party" as "verifier will be confusing with our term "attribute verifier"
 ```
 
-The model for ABCs in DECODE is based on Idemix [@amenischL01; @IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
+The model for ABCs in DECODE is based on Idemix [@CamenischL01; @IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
 A tested implementation of ABCs is IRMA by the Privacy by Design Foundation (https://privacybydesign.foundation/en/, https://credentials.github.io/).
 Credentials can be part of a claim.
 
