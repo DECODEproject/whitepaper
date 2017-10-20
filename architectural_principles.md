@@ -85,23 +85,8 @@ The eight PbD principles proposed for DECODE are:
 
 @. _Demonstrate_: provide evidence that you process personal data in a privacy friendly way.
 
-```comment
-   **Very** brief refinement of the conclusion of [@D1.2] below.  
-```
-
-DECODE supports user-defined smart rules that encode the 'business' logic of specific applications.
-To support privacy-friendly contracts, DECODE offers mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
-In order to achieve this in a secure and private system, DECODE uses the advantages of blockchain-supported secure multiparty computation.
 
 ## User friendliness
 
 Building **user-friendly** tools and applications for end-users, and app developers for **easy adoption** is a core principle for DECODE. Using an outside in lean approach, where requirements from users' are researched and analysed, and prototypes are tested on target community groups will allow DECODE to develop open, interactive and user friendly interfaces.
 
-```
- - **Openness** of the platform, to enable innovation and citizen participation.
- - **Flexibility** through smart rules, driven by the needs of the usecases.
- - **Transparency** and **auditability** of collective action and choice, privacy of individual actions.
- - **High-integrity**, appropriate **privacy** options, and **availability** against disruption and suppression.
- - **User-friendliness** for end-users, and app developers for **easy adoption**.
- - **Scalability** and **deployability** to compete with corporate and closed platforms.
-```

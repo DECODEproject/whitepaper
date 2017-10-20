@@ -28,6 +28,19 @@ DECODE aims to design and implement a free, open source, reliable and distribute
 
 The whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements. We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
 
+```
+ - **Openness** of the platform, to enable innovation and citizen participation.
+ - **Flexibility** through smart rules, driven by the needs of the usecases.
+ - **Transparency** and **auditability** of collective action and choice, privacy of individual actions.
+ - **High-integrity**, appropriate **privacy** options, and **availability** against disruption and suppression.
+ - **User-friendliness** for end-users, and app developers for **easy adoption**.
+ - **Scalability** and **deployability** to compete with corporate and closed platforms.
+```
+
+
+DECODE supports smart rules that encode the 'business' logic of specific applications.
+To support privacy-friendly contracts, DECODE offers mechanisms for verifiers to check validity of smart contracts without having to learn private/confidential state within the contracts.
+In order to achieve this in a secure and private system, DECODE uses the advantages of blockchain-supported secure multiparty computation.
 
 ## Applications and scenarios
 
