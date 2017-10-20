@@ -1,13 +1,13 @@
 # Outline
 
-This documents describes the design of the DECODE ([https://decodeproject.eu/](https://decodeproject.eu/)) architecture. The document will evolve over time and will be published regularly as a versioned series.
+This document describes the design of the DECODE ([https://decodeproject.eu/](https://decodeproject.eu/)) architecture. The document will evolve over time and will be published regularly as a versioned series.
 
 | Version                        | Date Published            |
 | ------------------------------ | ------------------------- |
 | EA-SNAPSHOT | (Targeted Oct 31 2017)    |
 
 
-The whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements. We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
+The Whitepaper gives an overview of what DECODE is, why it is important and how it relates to the landscape of decentralised applications. It then reviews the conceptual foundations on which it is built and how they combine to achieve its purpose. It then describes at a high level the core components of the architecture and what role they play and finishes with illustrative examples of how it can be applied in the real world.
 
 
 # Introduction to DECODE

@@ -2,6 +2,10 @@
 
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
 
+
+The whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements. We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
+
+
 ## Applications and scenarios
 
 DECODE will test and evaluate four pilot/trials in Amsterdam and Barcelona following a lean and agile methodology. 
