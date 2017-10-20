@@ -174,11 +174,6 @@ Authentication usually involves a participant providing various personally ident
 
 A participant demonstrates control of these **attributes** through some cryptographic means (essentially by holding a private key). This private key may be embedded on a physical device that the participant owns, such as a [Ubikey](https://www.yubico.com/products/yubikey-hardware/) or Smart Card issued by a civic authority. In the case of a device issued by an authority it may also contain attributes of interest to other DECODE applications, such as the fact that one lives in a particular city. These attributes, when stored, record the provenance and the semantic meaning of the relation in their urn, and can so be "officially verified" attributes that certain applications may require (such as voting in participatory budgeting applications, see below).
 
-```comment
-jimb: How does ABC now fit in with the conceptual model of attribute verification and provenance
-```
-
-
 
 ### Attribute Provenance
 
@@ -209,10 +204,6 @@ editorial: are these direct quotes? should be blockquote?
 An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity (Alpar, 2015).
 Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system (Alpar, 2015).
 
-```comment
-typical example below, clear why showing a credential is a (legal) *must*.
-though I prefer a non-alcoholic example
-```
 For example, when selling a bottle of wine, a vendor has to verify that their customer is over the age of 18.
 The customer shows their credential; an identity card issued by the government, to convey the information 'date of birth' to the shop owner, in order to prove that they have the attribute 'being over the age of 18'.
 ABCs provide a cryptographic way to authenticate using selectively disclosed personal attributes.
@@ -220,14 +211,13 @@ This means that in the above example, we can use an ABC credential to convey jus
 
 There are three parties involved in the use of ABCs: the issuer of the credential, the user or owner of the credential, and the party that wishes to verify a credential.
 
+![Privacy by design from IRMA](img/Transactions_IRMA_voorbereiding_en.png "User requests a credential")
+
+
+![Privacy by design from IRMA](img/Transactions_IRMA_eerste_gebruik_en.png "User presents credential")
+
 ```comment
-
-  include these images here:
-* https://privacybydesign.foundation/images/Transactions_IRMA_voorbereiding_en.png
-* https://privacybydesign.foundation/images/Transactions_IRMA_eerste_gebruik_en.png
-
- source: Privacy by Design Foundation, https://privacybydesign.foundation/irma-explanation/
-
+Need to update these diagrams so that they use the terms "Issuer" and "Relying party" as "verifier will be confusing with our term "attribute verifier"
 ```
 
 The model for ABCs in DECODE is based on Idemix (Camenisch ... ; IBM ...), since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
@@ -252,14 +242,6 @@ In order to make it straighforward for developers to build DECODE applications, 
 
 ## Entitlements
 
-```
-tomd: this needs to be rewritten / elaborated, in the current form it does not address the idea of attribute-based dynamic entitlements.
-jimb: I'm not sure I understand 'attribute-based dynamic entitlements'
-tomd: as in age, f.i.; when I turn 18 entitlements might change
-
-jimb: need to agree our terminology here, subject vs data owner etc
-```
-
 We define two parties in any given data exchange, the **data owner** and the **data consumer**. An **entitlement** is an agreement of disclosure controlled by the **data owner**. A **data entitlement**  concerns the sharing of data. In DECODE an **entitlement** is defined in a **policy**  *and* implemented with the application of cryptography.
 
 
@@ -281,6 +263,10 @@ There are 4 key elements to an entitlement policy :
 - With **whom** is the data owner sharing data
 - For what **purpose**
 - Under what **conditions** will the data consumer use the data (e.g. [https://opendatacommons.org/licenses/pddl/](https://opendatacommons.org/licenses/pddl/))
+- What is the **timeframe** within which this entitlement is valid (Expiry date)
+- How does the entitlement respond to changes to the value of the attribute
+
+This last point is a subject of further research and exploration - how should an entitlement be considered when the underlying attribute is super-seeded. For example If a participant provides a new address to the application, does the entitlement automatically apply to the new address? It may be possible to express such "rules" using the Smart Rules language.
 
 Rather than attempting to build a hierarchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
 
@@ -296,9 +282,7 @@ DECODE defines three possible access levels:
 
 In most cases, the participants in the system will not be creating the entitlements directly, they will be interacting with DECODE applications. These applications will have the ability to declare what entitlements they require and the participants can agree to them, in much the same way that users can accept authorisation grants using OAuth.
 
-```
-markd - I think we should choose one propsed implementation??
-```
+
 
 ### Implementation (Access control)
 
@@ -311,15 +295,36 @@ Defining and declaring entitlements is a matter of describing access rules. In o
 
 #### Using ABC as an authorization mechanism
 
+In this scenario, we leverage a "traditional" architecture whereby a central entity stores data of many people and protects it by means of access control implementations. DECODE allows for the possibility to be integrated with such systems as the source of authorisation information. By referring to entitlement policies stored within DECODE, the application can then accept Attribute based credentials presented by users and validate them agains the policy, in order to make an authorisation decision. This model allows for DECODE to be easily integrated to existing systems whilst still providing state of the art cryptographic security. 
+
+The implementation of this will be based around the [Json Web Token (JWT)](https://tools.ietf.org/html/rfc7519) specification.
+
 !['Data vault' access control](img/access-control-data-vault.png "'Data vault' access control")
 
 
-#### Using ABE to protect data for public distribution
+#### Using ABE as an access control mechanism
 
-Protected at rest
+Evolving the model towards a more decentralised approach, DECODE proposes that data can be encrypted in order that it can be stored in the open (for example on a massively distributed file sharing system such as IPFS. A baseline implementation of this would be simply to encrypt the data with the public key of every user who has the entitlement. DECODE will explore the use of Attribute Based Encryption (ABE) a state of the art cryptographic mechanism which is an evolving topic but that has the potential to significantly reduce the overhead of allowing groups of people cryptographic access to an encrypted data source. 
+
+At a high level, it relates cryptographically an attribute that the participants possess to the encryption of the data. In one way this can be seen as each participant owning a key which is unique to them, where the encrypted data can be decrypted by any of the keys. For example a participant "Charlie" may want to share their monthly energy usage with other members of their block of flats. Charlie can use ABE to encrypt using the public key of the attribute "member of block of flats" such that anyone else in the block can decrypt it. In this model, DECODE enables the owner of the data to enforce the access control as opposed to relying on a third party as in the previous scenario.
+
+ABE allows users to encode more complex access conditions. For example you can encrypt a party invite only for your neighbours: ```( NOT ('being under the age of 18') AND 'being a resident of my block')```
+The data can be encrypted in such a way that only individual agents with those particular set of attributes in their wallet can decrypt the message.
+
+![Attribute based encryption](img/attribute-based-encryption.png "Attribute based encryption")
+
+The main models for ABE come from [@ABE] and [@ABE_CP].
+Reference implementations are available, but at the time of writing none have been selected to be supported by DECODE.
+
+The design of DECODE will try to support this method of user controlled access policies.
 
 
-![Attribute based encryption access control](img/abe-with-abc.png "Traditional 'data vault' access control")
+One of the complexities with ABE is the scheme by which keys are issued. Many existing schemes rely on a central party to issue and manage keys. DECODE will explore more decentralised models in this space. 
+
+However, if the participants wished to broadcast their data to a larger, but still restricted, set of users; this method of access control will turn into a key-distribution problem; which is outside of the scope of the main functionality of DECODE at this stage.
+
+
+![Attribute based encryption access control](img/abe-with-abc.png "Attribute based encryption access control")
 
 
 
@@ -329,39 +334,13 @@ Protected at rest
 
 We require a mechanism for controlling access to either large datasets or streams of data. Perhaps I wish to publish a dataset including all my movement data from my phone for the last two months and yet control access to certain attributes.
 
-Options:
+This is also an ongoing research topic within DECODE. Potential options arE:
 
 - Encrypt each data item in the list as above
 - Separate the data into "columns" ie. each data attribute is becomes an array of values and these are then encrypted using ABE
 - Investigate DRM tech for encrypting large (e.g. Video) streams can similar approaches be applied to user data?
 
 
-### Attribute Based Encryption
-
-```comment
-Curator: Paulus
-```
-
-Within DECODE Resources are either *public* or *restricted*.
-(Some data is personal data, other data is not. The architecture cannot and does not distinguish that at the architecture layer.)
-Restricted data is *encrypted*.
-
-Encryption is one of the methods of access control that can be used within the ecosystem of DECODE data and attributes.
-The access control policy therefore will be enforced by the (original) owner of the data.
-
-However, if the users wished to broadcast their data to a larger, but still restricted, set of users; this method of access control will turn into a key-distribution problem; which is outside of the scope of the main functionality of DECODE.
-
-A solution for this problem can be found in Attribute Based Encryption (ABE).
-ABE allows users to encode complex access conditions based on the possession of attributes into the encryption of their data.
-For example you can encrypt a party invite only for your neighbours: ```( NOT ('being under the age of 18') AND 'being a resident of my street')```
-The data can be encrypted in such a way that only individual agents with those particular set of attributes in their wallet can decrypt the message.
-
-![Attribute based encryption](img/attribute-based-encryption.png "Attribute based encryption")
-
-The main models for ABE come from [@ABE] and [@ABE_CP].
-Reference implementations are available, but at the time of writing none have been selected to be supported by DECODE.
-
-The design of DECODE will try to support this method of user controlled access policies.
 
 ## Distributed Ledger
 
