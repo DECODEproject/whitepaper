@@ -1,7 +1,30 @@
 # DUMP
 
+
+```
+Bitcoin -> Ethereum
+        -> Private implementations -> Alternatives to Proof of work
+                                   -> Permissioned -> Hyperledger -> Monax Burrow
+                                                                  -> IBM Fabric
+                                                                  -> R3 Corda
+
+Models Of execution:
+
+Execute transactions vs Verification
+
+Privacy
+
+Scalability
+
+```
+
+DECODE uses Attribute based encryption (ABE) [Ref: Amit Sahai and Brent Waters. Fuzzy Identity-Based Encryption. In EUROCRYPT, volume 3494 of LNCS, pages 457-473. Springer, 2005.] which determines decryption ability based on a user's attributes. ABE uses zero knowledge proofs to securely verify attributes. Combining ABE with data entitlements with a blockchain based store for transactional data, DECODE provides a new framework for data ownership and transfer.
+
+
 *Put things here that you think are relevant, but that are not clear enough yet, or for which it is not clear where to place them*
 
+
+DECODE aims to design and implement a free, open source, reliable and distributed architecture to run applications developed by third parties. The DECODE architecture is secure, distributed and privacy friendly as it will host different privacy sensitive applications in parallel.
 
 The whitepaper is structured as follows. We first describe the functionality the architecture should implement, together with the main non-functional requirements. We then give a high-level description of the conceptual foundations that are brought together, before digging deeper and discussing the main components. We describe the function and responsibility of these and how they relate to each other. We then discuss what kind of applications can be built with DECODE and provide some examples.
 
