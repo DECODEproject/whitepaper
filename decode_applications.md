@@ -39,7 +39,7 @@ It is important to note that actual Legal voting is somewhat beyond the scope of
 
 There are several important invariants for this system:
 
-1. It should not be possible for any entity to be able to connect the real world identity of a signatory of the petition to their signature
+- It should not be possible for any entity to be able to connect the real world identity of a signatory of the petition to their signature
 - Any entity should be able to cryptographically verify the results of the petition (how many signatories there were)
 - It should not be possible for a participant to sign the petition twice, or should be possible to identify that two signatures are from the same account 
 - A signatory must demonstrate cryptographic evidence that they are a legal resident of the city
@@ -53,7 +53,7 @@ It is also possible when issuing the credential to provide a unique token that c
 
 The integrity and tamper resistance is provided by utilising a distributed ledger to verify the results. The application of zero knowledge proofs provides us with a mechanism to ensure that we do not need to store the credentials themselves (private data) on the ledger. 
 
-The core *petition mechanism* is an example of a "distributed application" this is in DECODE terms a more tightly defined notion than for example in Ethereum. In DECODE it is a "distributes application with levels of guarantee about privacy by design built in".
+The core *petition mechanism* is an example of a "distributed application" this is in DECODE terms a more tightly defined notion than for example in Ethereum. In DECODE it is a "distributed application with levels of guarantee about privacy by design built in".
 
 The core of the implementation of the petition in DECODE is the Smart Rules which describe the logic of the *contract* that implements the invariants above.
 
@@ -80,7 +80,7 @@ It is important to note that this example, integrates entitlements across public
 
 - Sensitive personal: Personal data consisting of information on the racial or ethnic origin of the data subject, political opinions, religious beliefs etc. [@GDPRglossary]
 
-Several cities include IoT devices that measure pollution levels (including noise) and publish this data in an open an accessible format. Sentilo is an example of an open source sensor and actuator platform designed to fit in the Smart City architecture, in several cities such data is freely and openly accessible. 
+Several cities include IoT devices that measure pollution levels (including noise) and publish this data in an open an accessible format. [Sentilo](http://sentilo.io) is an example of an open source sensor and actuator platform designed to fit in the City architecture, in several cities such data is freely and openly accessible. 
 
 Individual citizens regularly measure and gather data from wearable devices such as activity, sleep, blood pressure, and heart rate etc. Terrabytes of IoT data from personal wearable devices currently live in closed data silos which are not amenable to contributing to a Digital Commons dataset. Combining both private and public data in this context, can lead to new insights about citizens habits and correlations. DECODE provides a privacy aware solution to establishing this union of data sets, giving people the ability to control the visibility of their personal data.
 
@@ -123,6 +123,9 @@ Would allow access control to private groups of people where membership of the g
 ## Example - Data commons and Open data
 
 - Can we take the barcelona dashboard and make it generic, in particular to what purpose would we want to do this?
-
 - Discuss people choosing to allow their data to contribute to a data commons
 - Describe how a DECODE application could take data from DECODE and mash it with an open dataset, providing a trail of authenticity 
+
+```
+Ula: I'll write a temptative draft of this subsection, relating the Petitions and IoT data with the concept of Open data. In particular, explaining how, using DECODE, one could build an application that shows you your private data in relation to publicly generated data, be it open datasets or crowd-generated ones (such as the ones that the petitions scenario or the IoT scenario could generate). This can help also in generating privacy aware recomendation systems that inform the user by leveraging Data Commons on issues such as: "where am I in relation to the public in this issue"?
+```
