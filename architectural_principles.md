@@ -34,22 +34,6 @@ The current era in technology has seen a shift from large monolithic systems to 
 ## Privacy by design
 
 
-```comment
-Priya
-
-  The below texts are (mostly) verbatim from the deliverable:
-  * [@D1.2]
-
-  Additional sources already added to the bibliography:
-  * [@PrivacyDesignPattersHoepman2014]
-  * [@PrivacyDeisngStrategiesColesky16]
-
-  Suggestions for completeness:
-  * https://www.decodeproject.eu/blog/privacy-design-requirements-decode
-  * (GDPR)
-
-```
-
 DECODE aims to develop a privacy preserving data distribution platform to foster commons-based sharing economy models, where citizens own and control their data. This asks for a privacy by design- based approach, for which the concept of privacy design strategies have recently been developed.[@D1.2]
 
 The General Data Protection Regulation (GDPR), as well as other data protection or privacy protection laws and regulations, define data protection in legal terms. These terms are soft, open to interpretation, and highly dependent on context. Because of this inherent vagueness, engineers find such legal requirements hard to understand and interpret.

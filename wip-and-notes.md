@@ -1,6 +1,23 @@
 # DUMP
 
 
+```comment
+Priya
+
+  The below texts are (mostly) verbatim from the deliverable:
+  * [@D1.2]
+
+  Additional sources already added to the bibliography:
+  * [@PrivacyDesignPattersHoepman2014]
+  * [@PrivacyDeisngStrategiesColesky16]
+
+  Suggestions for completeness:
+  * https://www.decodeproject.eu/blog/privacy-design-requirements-decode
+  * (GDPR)
+
+```
+
+
 ```
 Bitcoin -> Ethereum
         -> Private implementations -> Alternatives to Proof of work
