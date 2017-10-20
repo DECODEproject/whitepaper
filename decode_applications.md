@@ -4,25 +4,32 @@
 
 A DECODE application is any software application capable of interacting with the DECODE nodes, constituting the main endpoint for human interaction with DECODE.
 
-DECODE will test and evaluate four pilot/trials in Amsterdam and Barcelona following a lean and agile methodology. 
+A DECODE application is composed of several parts:
 
-DECODE use-cases to be evaluated with pilots:
+- Systems external to DECODE such as websites, databases and mobile apps
+- Smart rules created by the *application developer* and deployed to the DECODE network. These represent core contracts of the application
+- A DECODE account cryptographically controlled by the *Operator* of the application which is linked to the application
+- A *Profile* which declares which attributes an application requires and their related metadata
 
-- **Open democracy**: this use case builds on the D-CENT project, which developed decentralised democracy applications used by thousands of citizens across Europe. It demonstrated how viable distributed systems can foster the next generation of democracy tools and open policy making. DECODE's Barcelona pilot will go a step beyond by making data available and easily accessible by citizens, fostering informed collective decision-making.
-- **Data aggregation dashboard** : Providing access to crowdsourced information about the city to foster informed and deliberative decision-making.
-- **Collaborative economy / Hospitality** : Providing a new model where the data platform is the new middleman. The data is the raw resource through which value is created, enabling businesses to offer better and better services, which in turn generates more accurate data in a closed ecosystem.
-- **Participatory citizen sensing / IoT**: T Facilitates an open, secure and privacy-aware market place of distributed, wireless  sensors and actuators in which every citizen can participate, fostering a smart, IoT enabled city from the ground up. The pilot facilitates an open, secure and privacy-aware ecosystem of distributed, wireless sensors and actuators in which every citizen can participate, fostering an IOT enabled city from the ground up.
+The systems which are external to DECODE will interact with DECODE via a Wallet that is connected to the application.
 
-```
-Priya: Jim, is this sub-section required?
-### Application operators
+An important aspect of applications is that they should provide a high degree of transparency as to who *operates* them, what data they will require / generate and for what purpose. To this end, DECODE will require all applications to be registered in an *application register* which will provide references to evidence concerning the operator. For example, in the UK there is a public record of companies which can be referenced e.g. [https://beta.companieshouse.gov.uk/company/04091535](https://beta.companieshouse.gov.uk/company/04091535). 
 
- is transparent to a known and registered organisation that a participant can discover and make a choice about whether to interact with or provide data to. For example an app mayb be operated by a company which will be required to be registered in the civic records for a city / country and a link made between the app, the operator and such records. In the uk there is the example of Companies house which can be accessed via a URL, for eg https://beta.companieshouse.gov.uk/company/04091535.
-```
+DECODE will continue to explore and evolve the concepts around operators and their trust relationship with participants. Please refer to the [decode project website](https://decodeproject.eu/pilots) for the latest news on how DECODE is being applied and tested in the field.
 
-To facilitate these use-cases, the following section describes how DECODE can be used in certain real world example scenarios.
 
-## Example - Participatory Democracy through Petitions
+The range of applications for DECODE is wide. In order to bring together the concepts in this whitepaper and illustrate how they work together in a more concrete way, we consider here several applications as illustrative examples of the way in which the various DECODE components interact to provide a service. 
+
+These are:
+
+- Participatory Democracy
+- Participatory Citizen Sensing (IOT)
+- Peer to peer verification of credentials
+- Data commons and Open data
+
+
+
+## Scenario - Participatory Democracy through Petitions
 
 In this example a City Authority would like to allow Citizens to participate more directly in decision making. One way to do this is to provide support for Citizens to support proposed initiatives through signing a petition. This example of course can be generalised to any context in which a group of people wish to create a petition and is closely related to an example where participants vote between choices, either as a Poll or a vote. 
 
@@ -58,7 +65,7 @@ By employing the combination of ABC, a privacy preserving ledger (does not conta
 
 Signing petitions or voting is not limited to participatory democracy. It is in fact a very common activity amongst any group and will have wide-ranging utility to community movements and organisations. For example UNICEF have successfully developed a community project called [Ureport](https://ureport.in/) which does exactly this and enables communities to have a voice.
 
-## Example - IOT entitlements
+## Example scenario - Participatory Citizen Sensing (IOT Entitlements)
 
 Noise pollution is an issue for a number of citizens living in particularly noisy areas, such as, large public squares where activities take place. In these areas there is higher than average participation in citizens setting up IoT devices that measure noise. In this example, an involved citizen is interested in the correlation between health data (sleep patterns) and the levels of noise pollution in the area.
 
@@ -101,7 +108,7 @@ Priya: Jim, I'm not sure if we discussed the relevance of ABC in this pilot/exam
 Options for securing access (including just securing access to the stream via ABC)
 ```
 
-## Example - Peer verified credentials
+## Example scenario - Peer verified credentials
 
 Would allow access control to private groups of people where membership of the group is granted by peer support
 
@@ -111,17 +118,9 @@ Would allow access control to private groups of people where membership of the g
 - A simple model would be to nominate "administrators"
 - Isnt this just a contract implementation that can generate a credential if x number of signatories who also have the credential support the candidate?
 
-## Example - Data commons?
+## Example scenario - Data commons and Open data
 
-Should we come up with something here or leave it till a next iteration of WP?
+- Can we take the barcelona dashboard and make it generic, in particular to what purpose would we want to do this?
 
-
-```comment
-TODO: description of 1-2 use cases once the first pilot in Amsterdam and Barcelona are selected, e.g. collaborative economy/hospitality (FairBnB) and participatory citizen sensing (Things Network, Fitbit)*
-```
-
-3 exemplar use cases / demo apps:
-
-- A) Citizen Sensing - Air quality for a location
-- B) Asset sharing / renting (TBD, equivalent of FairBnB)
-- C) Complex privacy (TBD, either in terms of participants or varying based on context)
+- Discuss people choosing to allow their data to contribute to a data commons
+- Describe how a DECODE application could take data from DECODE and mash it with an open dataset, providing a trail of authenticity 
