@@ -127,10 +127,17 @@ The core implementation of P2P verification in DECODE relies on a group of peopl
 
 ## Example - Data commons and Open data
 
+The latests years have seen a rise of movements demanding transparency of data in general, and specially in the domain of public administrations. Citizens and companies are increasingly asking for datasets to be released in the form of Open Data, so they can be shared and reused. These datasets, however, usually provide a general broad picture but should be combined with other crowd-sourced pools of data and also with private data in order to fully leverage their potential.
+
+DECODE in this sense can help, by providing a platform where an application to view public data and generate custom visualizations of it, in relation to each user's private information, can be developped. Also, it can help in providing a platform allowing a controlled crowd-sourcing of data, thus enabling the idea of Data Commons to go beyond the simple concept of Open Data. The earlier examples of IoT entitlements or of a petition system that allows to disclose general information about the voters are two concrete examples of this.
+
+A detailed example could be a dashboard that mixes public data sources as well as crowd-sources one. There, each user can generate visualizations that put their profiles in contrast with the general "public trends", thus obtaining unique information of their private information in a controlled way (which would be loaded on the client side). The configuration of each dashboard could be shared with peers so each person gets their own vision, and even the private data in it could also selectively be shared with the proper entitlements. Such an application would on the one hand effectively use a mix of public, private and crowd-sourced data for the common good, and on the other hand exemplify and induce the need to users to "donate" their data to generate Data Commons that allow to tackle societal problems such as pollution, citizen concerns, etc...
+
+```
+(Ula) Tried to answer the questions:
+
 - Can we take the barcelona dashboard and make it generic, in particular to what purpose would we want to do this?
 - Discuss people choosing to allow their data to contribute to a data commons
 - Describe how a DECODE application could take data from DECODE and mash it with an open dataset, providing a trail of authenticity 
 
-```
-Ula: I'll write a temptative draft of this subsection, relating the Petitions and IoT data with the concept of Open data. In particular, explaining how, using DECODE, one could build an application that shows you your private data in relation to publicly generated data, be it open datasets or crowd-generated ones (such as the ones that the petitions scenario or the IoT scenario could generate). This can help also in generating privacy aware recomendation systems that inform the user by leveraging Data Commons on issues such as: "where am I in relation to the public in this issue"?
 ```
