@@ -199,16 +199,27 @@ In order to provide a stronger assertion about the **provenance** of attributes 
 
 ```comment
 editorial: are these direct quotes? should be blockquote?
+Paulus: Yes. I've added double quotes to make this clear. Feel free to style the quotations in any other way that preserves the source.
 ```
 
-An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity (Alpar, 2015).
-Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system (Alpar, 2015).
+"An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity [@alpar2015attribute]."
+"Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system [@alpar2015attribute]."
 
+```comment
+typical example below, clear why showing a credential is a (legal) *must*.
+though I prefer a non-alcoholic example
+```
 For example, when selling a bottle of wine, a vendor has to verify that their customer is over the age of 18.
 The customer shows their credential; an identity card issued by the government, to convey the information 'date of birth' to the shop owner, in order to prove that they have the attribute 'being over the age of 18'.
 ABCs provide a cryptographic way to authenticate using selectively disclosed personal attributes.
 This means that in the above example, we can use an ABC credential to convey just the property of 'being over the age of 18', without revealing any of the other attributes in our credential, and even without linking this event to previous interactions.
 
+An different example, proves the usefulness when attempting to digitize a membership system.
+Clasically, a library card allows a member to borrow a book.
+This credential reveals no more information about the borrower than their membership of the library.
+When building a digital library card system, it is difficult to verify active membership without cross-referencing the card with a list of authorized members.
+ABCs allow the showing of a membership credential, without having to check the list of authorized members.
+In addition it can provide multi-show unlinkability of the credential showings, which prevents them from leaking information about the specific member through logging of the interactions.
 There are three parties involved in the use of ABCs: the issuer of the credential, the user or owner of the credential, and the party that wishes to verify a credential.
 
 ![Privacy by design from IRMA](img/Transactions_IRMA_voorbereiding_en.png "User requests a credential")
@@ -220,7 +231,7 @@ There are three parties involved in the use of ABCs: the issuer of the credentia
 Need to update these diagrams so that they use the terms "Issuer" and "Relying party" as "verifier will be confusing with our term "attribute verifier"
 ```
 
-The model for ABCs in DECODE is based on Idemix (Camenisch ... ; IBM ...), since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
+The model for ABCs in DECODE is based on Idemix [@amenischL01; @IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
 A tested implementation of ABCs is IRMA by the Privacy by Design Foundation (https://privacybydesign.foundation/en/, https://credentials.github.io/).
 Credentials can be part of a claim.
 
@@ -228,17 +239,17 @@ So how are claims actually verified in the first place?
 In the example, the entity responsibile for verification would be the city of Barcelona.
 This could be a physical process, or could be done online (as in the Dutch DigiD mechanism), and involves some exchange between the city and the individual.
 The result of this exchange would be a cryptographic token, signed by the city, which, invoked with a specific smart rule would result in an attribute with verified provenance and value being set in the DECODE platform.
-This attribute would be available for that person to use in any application relying on it.
 This whole process could take place through a website which is run by the city of Barcelona (and thus is a DECODE enabled application).
 Required will be a mechanism by which the DECODE network can **trust** the public key of the city of Barcelona, i.e. there will need to be a registration protocol to establish this trust.
 
-The User Journey for this interaction would involve the person authenticating with their account on this website and then creating a "city_of_residence: Barcelona" attribute signed with the city's private key.
-In this example there would be a validity time limit on this attribute, a month, perhaps. People move.
-Because the choice of using applications that reference this attribute is in the hands of the participant they have strong control of how this link is used.
+ABCs could provide both the trust mechanism for externally verified attributes, and the initial cryptographic tokens can be produced through a process of proving (possibly in zero-knowledge) the control of a credential.
+
+The User Journey for this interaction would involve the person authenticating this website and then creating a "city_of_residence: Barcelona" credential signed with the city's private key.
+In this example there would be a validity time limit on the attribute, a month, perhaps, within the credential. People move.
+Because the choice of using applications that accepts this credential is in the hands of the participant they have strong control of how this link is used.
 In a p2p sharing application a different proof-of-residency attribute may be good enough, for instance.
 
 In order to make it straighforward for developers to build DECODE applications, the mechanisms for interacting with and validating external or "official" claims will be a core part of the language that is used to express Smart Rules.
-
 
 ## Entitlements
 
@@ -295,7 +306,7 @@ Defining and declaring entitlements is a matter of describing access rules. In o
 
 #### Using ABC as an authorization mechanism
 
-In this scenario, we leverage a "traditional" architecture whereby a central entity stores data of many people and protects it by means of access control implementations. DECODE allows for the possibility to be integrated with such systems as the source of authorisation information. By referring to entitlement policies stored within DECODE, the application can then accept Attribute based credentials presented by users and validate them agains the policy, in order to make an authorisation decision. This model allows for DECODE to be easily integrated to existing systems whilst still providing state of the art cryptographic security. 
+In this scenario, we leverage a "traditional" architecture whereby a central entity stores data of many people and protects it by means of access control implementations. DECODE allows for the possibility to be integrated with such systems as the source of authorisation information. By referring to entitlement policies stored within DECODE, the application can then accept Attribute based credentials presented by users and validate them agains the policy, in order to make an authorisation decision. This model allows for DECODE to be easily integrated to existing systems whilst still providing state of the art cryptographic security.
 
 The implementation of this will be based around the [Json Web Token (JWT)](https://tools.ietf.org/html/rfc7519) specification.
 
@@ -304,7 +315,7 @@ The implementation of this will be based around the [Json Web Token (JWT)](https
 
 #### Using ABE as an access control mechanism
 
-Evolving the model towards a more decentralised approach, DECODE proposes that data can be encrypted in order that it can be stored in the open (for example on a massively distributed file sharing system such as IPFS. A baseline implementation of this would be simply to encrypt the data with the public key of every user who has the entitlement. DECODE will explore the use of Attribute Based Encryption (ABE) a state of the art cryptographic mechanism which is an evolving topic but that has the potential to significantly reduce the overhead of allowing groups of people cryptographic access to an encrypted data source. 
+Evolving the model towards a more decentralised approach, DECODE proposes that data can be encrypted in order that it can be stored in the open (for example on a massively distributed file sharing system such as IPFS. A baseline implementation of this would be simply to encrypt the data with the public key of every user who has the entitlement. DECODE will explore the use of Attribute Based Encryption (ABE) a state of the art cryptographic mechanism which is an evolving topic but that has the potential to significantly reduce the overhead of allowing groups of people cryptographic access to an encrypted data source.
 
 At a high level, it relates cryptographically an attribute that the participants possess to the encryption of the data. In one way this can be seen as each participant owning a key which is unique to them, where the encrypted data can be decrypted by any of the keys. For example a participant "Charlie" may want to share their monthly energy usage with other members of their block of flats. Charlie can use ABE to encrypt using the public key of the attribute "member of block of flats" such that anyone else in the block can decrypt it. In this model, DECODE enables the owner of the data to enforce the access control as opposed to relying on a third party as in the previous scenario.
 
@@ -319,7 +330,7 @@ Reference implementations are available, but at the time of writing none have be
 The design of DECODE will try to support this method of user controlled access policies.
 
 
-One of the complexities with ABE is the scheme by which keys are issued. Many existing schemes rely on a central party to issue and manage keys. DECODE will explore more decentralised models in this space. 
+One of the complexities with ABE is the scheme by which keys are issued. Many existing schemes rely on a central party to issue and manage keys. DECODE will explore more decentralised models in this space.
 
 However, if the participants wished to broadcast their data to a larger, but still restricted, set of users; this method of access control will turn into a key-distribution problem; which is outside of the scope of the main functionality of DECODE at this stage.
 
@@ -344,7 +355,7 @@ This is also an ongoing research topic within DECODE. Potential options arE:
 
 ## Distributed Ledger
 
-Within DECODE, the ledger provides for two characteristics, Integrity and Availability. This is an important distinction within DECODE. Privacy (or Confidentiality) is not a core function of the ledger but is rather enabled by its features and design. 
+Within DECODE, the ledger provides for two characteristics, Integrity and Availability. This is an important distinction within DECODE. Privacy (or Confidentiality) is not a core function of the ledger but is rather enabled by its features and design.
 
 In combination with ABC and ABE, DEOCODE achieves privacy through the core principle that *no private data must be stored on the ledger*. Privacy is one of the classic issues faced by decentralised systems (the other being scalability). For example while bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. The same is true for Ethereum, although it is moving in this direction by integrating features from [ZCash](https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow [zk-SNARK](https://eprint.iacr.org/2013/879.pdf) computations from solidity, in the upcoming [metropolis release](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). Other ledger implementations are exploring different designs by which privacy can be obtained, for example [R3 Corda](https://www.corda.net/).
 
@@ -360,7 +371,7 @@ In summary the key requirements of a distributed ledger for the purposed of DECO
 - Decentralised networkk
 - Ability to implement contracts that transaction execution from verification via ZK Proofs
 - An environment that allows a higher order language to be created (See Smart Rules)
-- Ability to scale horizontally 
+- Ability to scale horizontally
 - Open source
 
 ### Querying the ledger
