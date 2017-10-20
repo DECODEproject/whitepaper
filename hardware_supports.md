@@ -36,7 +36,7 @@ Optionally a participant can push the cryptographic functions of the wallet onto
 
 We have identified two options for participants to obtain a wallet and begin interacting with DECODE. This is a topic of research for the DECODE system and is likely to evolve as we move into field testing with real communities of participants.
 
-### User Experience
+### User Experience
 
 The wallet will be one of the primary interfaces between DECODE and the participant, the other being the *applications* themselves. The wallet interface will be explored through a user centric design process which will aim to provide a state of the art experience for participants focused on transparency of who they have shared their data with. The Wallet will also be the point at which a particpant interacts with smart rules. 
 

@@ -31,7 +31,7 @@ These are:
 
 
 
-## Scenario - Participatory Democracy through Petitions
+## Example - Participatory Democracy through Petitions
 
 In this example a City Authority would like to allow Citizens to participate more directly in decision making. One way to do this is to provide support for Citizens to support proposed initiatives through signing a petition. This example of course can be generalised to any context in which a group of people wish to create a petition and is closely related to an example where participants vote between choices, either as a Poll or a vote. 
 
@@ -67,7 +67,7 @@ By employing the combination of ABC, a privacy preserving ledger (does not conta
 
 Signing petitions or voting is not limited to participatory democracy. It is in fact a very common activity amongst any group and will have wide-ranging utility to community movements and organisations. For example UNICEF have successfully developed a community project called [Ureport](https://ureport.in/) which does exactly this and enables communities to have a voice.
 
-## Example scenario - Participatory Citizen Sensing (IOT Entitlements)
+## Example - Participatory Citizen Sensing (IOT Entitlements)
 
 Noise pollution is an issue for a number of citizens living in particularly noisy areas, such as, large public squares where activities take place. In these areas there is higher than average participation in citizens setting up IoT devices that measure noise. In this example, an involved citizen is interested in the correlation between health data (sleep patterns) and the levels of noise pollution in the area.
 
@@ -110,7 +110,7 @@ Priya: Jim, I'm not sure if we discussed the relevance of ABC in this pilot/exam
 Options for securing access (including just securing access to the stream via ABC)
 ```
 
-## Example scenario - Peer verified credentials
+## Example - Peer verified credentials
 
 Would allow access control to private groups of people where membership of the group is granted by peer support
 
@@ -120,7 +120,7 @@ Would allow access control to private groups of people where membership of the g
 - A simple model would be to nominate "administrators"
 - Isnt this just a contract implementation that can generate a credential if x number of signatories who also have the credential support the candidate?
 
-## Example scenario - Data commons and Open data
+## Example - Data commons and Open data
 
 - Can we take the barcelona dashboard and make it generic, in particular to what purpose would we want to do this?
 
