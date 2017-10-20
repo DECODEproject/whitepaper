@@ -11,7 +11,9 @@ A DECODE application is composed of several parts:
 - A DECODE account cryptographically controlled by the *Operator* of the application which is linked to the application
 - A *Profile* which declares which attributes an application requires and their related metadata
 
-The systems which are external to DECODE will interact with DECODE via a Wallet that is connected to the application.
+The systems which are external to DECODE will interact with DECODE via a Wallet that is connected to the account of the operator. This will provide the ability to deploy contracts and execute transactions.
+
+Querying data from the DECODE network is still a matter for exploration, however the direction of travel is that there will be available a Query API for applications. The architecture supports the capability to provide a specific query index over the underlying ledger, similar to [https://blockchain.info/](https://blockchain.info/). 
 
 An important aspect of applications is that they should provide a high degree of transparency as to who *operates* them, what data they will require / generate and for what purpose. To this end, DECODE will require all applications to be registered in an *application register* which will provide references to evidence concerning the operator. For example, in the UK there is a public record of companies which can be referenced e.g. [https://beta.companieshouse.gov.uk/company/04091535](https://beta.companieshouse.gov.uk/company/04091535). 
 
