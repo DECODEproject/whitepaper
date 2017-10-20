@@ -383,6 +383,10 @@ In summary the key requirements of a distributed ledger for the purposed of DECO
 - Ability to scale horizontally 
 - Open source
 
+### Querying the ledger
+
+Having a robust and verifiable source of truth for transactions is of little value if applications cannot make use of the record. To this end, DECODE will provide a query interface over the ledger which will be a separate capability. This area is still under development and updates will be provided in subsequent versions of the whitepaper.
+
 
 ## Authentication
 
