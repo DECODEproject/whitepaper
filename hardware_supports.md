@@ -118,6 +118,8 @@ The procedure for acessing the system will follow the next steps:
 2. You get a request from the validating node to plug in your hardware key and complete a challenge. The challenge could for example be to press a button, input a pin code supplying a specific biometric inherence factor.
 3. You are logged into the system if said challenged is passed.
 
+![U2F-diagram](img/U2F-diagram.png "U2F diagram")
+
 Open source examples for hardware security modules and login tokens:
 
 **Authentication keys:**
