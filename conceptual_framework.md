@@ -222,14 +222,12 @@ ABCs allow the showing of a membership credential, without having to check the l
 In addition it can provide multi-show unlinkability of the credential showings, which prevents them from leaking information about the specific member through logging of the interactions.
 There are three parties involved in the use of ABCs: the issuer of the credential, the user or owner of the credential, and the party that wishes to verify a credential.
 
-![Privacy by design from IRMA](img/Transactions_IRMA_voorbereiding_en.png "User requests a credential")
+![User requests a credential](img/abc-preparation.png "User requests a credential")
 
 
-![Privacy by design from IRMA](img/Transactions_IRMA_eerste_gebruik_en.png "User presents credential")
+![User presents credential](img/abc-first-use.png "User presents credential")
 
-```comment
-Need to update these diagrams so that they use the terms "Issuer" and "Relying party" as "verifier will be confusing with our term "attribute verifier"
-```
+
 
 The model for ABCs in DECODE is based on Idemix [@CamenischL01; @IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
 A tested implementation of ABCs is IRMA by the Privacy by Design Foundation (https://privacybydesign.foundation/en/, https://credentials.github.io/).
