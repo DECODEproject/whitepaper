@@ -24,7 +24,7 @@ The digital commons are a form of commons involving the distribution and communa
 
 In DECODE, Entitlements attached to private data will be searchable in the public domain but will grant access only to  those  parties  that  have  the  entitlement  to  access  it.  This  novel  concept  of  data  rights  and  entitlements  also  applies to data being sent to or consumed by connected IoT objects in order to perform actions on the real world,  allowing citizens to manage and control their devices and the data they generate. [@DECODEProject]
 
-DECODE enables participants to choose who they share their data with and what data is being shared with the recipient. The aim of DECODE is to provide state of the art tools to give people better control of their data on the internet. The project will contribute to enabling a free and open data commons into which people can share their data in a secure and anonymous way. This will mean that all of society can benefit from the insights that can be gained from data. 
+DECODE enables participants to choose who they share their data with and what data is being shared with the recipient. The aim of DECODE is to provide state of the art tools to give people better control of their data on the internet. The project will contribute to enabling a free and open digital commons into which people can share their data in a secure and anonymous way. This will mean that all of society can benefit from the insights that can be gained from data. 
 
 The project will develop and test a free, open source, distributed, privacy aware, and trusted technology architecture for decentralised data governance and identity management. [@D6.1]
 
