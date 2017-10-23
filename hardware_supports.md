@@ -112,15 +112,23 @@ Authentication factors include:
 
 In order to make access more secure DECODE will support hardware based authentication with login tokens that provides 2FA via the U2F standard. The login token will safeguard and manage digital keys for strong authentication and provide crypto processing. These modules traditionally come in the form of a plug-in card or an external device that can be attached directly to a DECODE HUB.
 
+The procedure for acessing the system will follow the next steps:
+
+1. You sign in with your password.
+2. You get a request from the validating node to plug in your hardware key and complete a challenge. The challenge could for example be to press a button, input a pin code supplying a specific biometric inherence factor.
+3. You are logged into the system if said challenged is passed.
+
 Open source examples for hardware security modules and login tokens:
 
 **Authentication keys:**
-- Nitrokey
-- U2F zero
+- **Nitrokey:** Nitrokey is an USB key that enables high security encryption, signing of data and login to the Web, networks and computers. Booth Hardware and software are Open Sourced. 
+- **U2F zero:**U2F Zero is a USB key that works with all services that support U2F. It works for 2 factor authentication and sometimes password replacement. There is a button on the key that the users press to authenticate themselves.
+- **FST-01 (Flying stone):** This is a small 32 bit computer that comes in the shape of a USB key
+
 
 **Hardware secure modules:**
-- CrypTech 
-- Pitchfork
+- **CrypTech Alpha:** "The CrypTech Alpha is an open source standalone prototype key-storage and hardware cryptography platform."
+- **Pitchfork:** Project PITCHFORK is a small dedicated computer for handling your cryptographic operations and keys.
 
 In case of need or desire for higher privacy control, users can opt for a specific computer with more advanced hardware security features. 
 
