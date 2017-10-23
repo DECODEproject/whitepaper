@@ -26,7 +26,7 @@ In DECODE, Entitlements attached to private data will be searchable in the publi
 
 DECODE enables participants to choose who they share their data with and what data is being shared with the recipient. The aim of DECODE is to provide state of the art tools to give people better control of their data on the internet. The project will contribute to enabling a free and open data commons into which people can share their data in a secure and anonymous way. This will mean that all of society can benefit from the insights that can be gained from data. 
 
-The project will develop and test a free, open source, distributed, privacy aware, and trusted technology architecture for decentralised data governance and identity management. [Ref: D6.1 Dissemination Strategy and Communication Plan]
+The project will develop and test a free, open source, distributed, privacy aware, and trusted technology architecture for decentralised data governance and identity management. [@D6.1]
 
 ### The goals of DECODE:
 
@@ -42,7 +42,7 @@ We identify the following key goals for DECODE:
 
 Decentralised technology ecosystems have been around for decades, and more recently there has been an explosion of decentralised platforms powering the rise of cryptocurrencies. In 2008-09, Satoshi Nakamoto implemented the first decentralised currency combining advancements in public key cryptography with a consensus algorithm widely known as "proof of work" This was a breakthrough in building a completely decentralised ecosystem that was centred around the transfer of 'assets' from one individual to another. Since then, there have been several advancements in using blockchain for creating both fungible and non-fungible assets.
 
-Ethereum [Ref: https://github.com/ethereum/wiki/wiki/White-Paper#history] provides a blockchain implementation that can be used to encode arbitrary state transitions, enabling it to be used as a decentralised 'back-end' for applications. Ethereum takes the very specific distributed application of bitcoin and generalises it to provide a massively decentralised computing infrastructure. Nodes in the network execute decentralised applications via "Smart Contracts" and record the state transitions on a public blockchain. These smart contracts are executed through a computing virtual machine called the "Ethereum Virtual Machine" (EVM). 
+Ethereum [@EthereumWP] provides a blockchain implementation that can be used to encode arbitrary state transitions, enabling it to be used as a decentralised 'back-end' for applications. Ethereum takes the very specific distributed application of bitcoin and generalises it to provide a massively decentralised computing infrastructure. Nodes in the network execute decentralised applications via "Smart Contracts" and record the state transitions on a public blockchain. These smart contracts are executed through a computing virtual machine called the "Ethereum Virtual Machine" (EVM). 
 
 Monax (published on the hyperledger project as Burrow) is an open platform for developers to build, ship, and run blockchain-based applications. It's client is agnostic to the underlying blockchain technology. Public ledgers such as Ethereum are both anonymous and permissionless systems, i.e any user can run validating nodes, and the inherent nature of the cryptography that is the basis for mining determines that an attacker would need to control more than 50% of the network. The decentralised and distributed nature of the network combined with the cost of proof of work, forms the basis of its trust model.
 
