@@ -32,7 +32,7 @@ Synonym: Attribute Provenance Verification
 #### Blockchain
 A type of distributed ledger that records transactions in a sequence of "blocks"
 
-#### DCAPP OPERATOR
+#### Operator
 Organisation or individual who is responsible for the build, deployment and operation of an application. Operators may also own and control attributes via an account within decode. Operators may also create new attributes that are then associated with participants. The minimum requirements of eligibility for an operator to deploy an application to the decode platform require further discussion as the platform evolves. Taking into account a general desire for greater transparency to the participant of the organisations with whom they are interacting and sharing data.
 
 #### DECODE Architecture
@@ -43,6 +43,10 @@ The environment in which DECODE operates, involving other systems, pilots, organ
 
 ####DECODE Platform
 Software with a high degree of privacy by design that provides the core functionality of DECODE. For example, DECODE OS, Distributed Ledger, device metadata. [@D4.2][@D1.1]
+
+#### DECODE Application
+A DECODE application is a domain specific software application which will leverage the DECODE platform. Some part of this application may be a website and it is anticipated that some element of the application will involve definition and deployment of Smart Rules, Persona definitions and Ontology meta data.
+
 
 #### DECODE SDK
 The SDK is a development kit for modules developed and distributed by other consortium partners. It can be used to build, test and profile individual software applications on top of the DECODE OS, both locally and remotely on the continous integration infrastructure. [@D4.1]
@@ -90,8 +94,6 @@ An individual who digitally participates in the DECODE ecosystem. Participation 
 #### Profile
 Relates to the set of attributes which are required application to run. There are as many profiles as there are Applications. It is application specific as to whether the attributes need to be verified. We need to discuss further the relationship between entitlements and personas, also the user journey when a participant connects to an app for the first time (i.e. some exchange where the app requests entitlement to attributes). Persona may also declare attributes that it will generate and then be associated with an account, for example browsing behaviour, favorites, reccommendations.
 
-#### Pilot Application
-A pilot application is a domain specific software application which will leverage the DECODE platform. Some part of this application may be a website (e.g. DECIDIM) and it is anticipated that some element of the application will involve definition and deployment of Smart Rules, Persona definitions and Ontology meta data.
 
 #### Smart Contract
 A computer protocol intended to facilitate, verify, or enforce the negotiation or performance of a contract.
