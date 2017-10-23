@@ -118,12 +118,15 @@ Sharing economy companies are beginning to understand the importance of that tru
 
 The core implementation of P2P verification in DECODE relies on a group of people acting as a decentralised Issuer within the context of ABC. 
 
-* An unverfied user submits a 'claim' for an identity verification into the system, for example, this could be a claim that 'User X is a resident of block 10, nichonson street, Edinburgh'. 
+* An unverfied user submits a 'claim' for an identity verification into the system, for example, this could be a claim that 'User X is a resident of block 10, nicholson street, Edinburgh'. 
 * A smart contract is created for this claim, and this is submitted into DECODE.
-* Existing verified users (or nominated administrators) are notified of this claim, and they can anonymously verify the claim. 
+* Existing verified users (or nominated administrators) are notified of this claim, and they can anonymously verify the claim, based on their location or association with the claimant via other applications.
 * When a consensus is reached on the results of the claim contract, the transaction is deemed complete and the user making the claim is then promoted to a verified user.
 * The claimant is issued with attribute based credential certificate to denote that they are a verified user.
 
+There is potential for using various DECODE enabled applications for the verification of separate identity attributes and reputation credentials. This moves away from using a centralised issuing party for credential checking, this provides users the privacy and control of their data. 
+
+This is an area of research both within DECODE and among the blockchain community. Findings from Indre (@Indre) particularly in the area of accommodation sharing have shown that relying only on software based solutions is not enough. There was a strong demand for community based design decisions, such as approaching networks of friends or neighborhoods for identity and reputation verification.
 
 ## Example - Data commons and Open data
 
