@@ -297,10 +297,15 @@ In most cases, the participants in the system will not be creating the entitleme
 
 Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
 
-- Data Vault
-- Encryption
-- Broadcast encryption (e.g. DRM)
-- Attribute based encryption
+DECODE moves towards a more decentralised model and ultimately will explore ways in which both the data and the mechanisms of access control can be decentralised, including the issuing and verification of credentials. 
+
+An intermediate position which provides for low investment integration to existing systems is to leverage the core foundations of a distributed ledger and attribute credentials to improve on the more "traditional" access control methods.
+
+The following sections describe both of these scenarios, starting with leveraging cryptographic credentials in a "standard" data access scenario and then expanding on this to move towards a more decentralised data storage and optimisation of encryption through Attribute Based Encryption.
+
+The possibility of having completely decentralised credential issuers is currently a research topic and will be explored as the project progresses. It is imagined that the first scenario will be possible to integrate with existing applications sooner.
+
+
 
 #### Using ABC as an authorization mechanism
 
