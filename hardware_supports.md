@@ -88,10 +88,36 @@ The theme of data storage will continue to evolve and this whitepaper will be up
 
 
 ## Hardware Hubs
-### Requirements
-#### Capability of running DECODE OS
 
-The processor of the HUB needs to run the DECODE OS. The DECODE OS is based on Devuan and which developed by Dyne, who published the first release on April 2017. To assure compatibility of a specific processor, it must be made a target of the DECODE OS SDK. The DECODE OS SDK is modeled after the Devuan SDK and supports all its architecture targets. Additionally, to run the DECODE OS, the DECODE HUB needs to host enough computing power to act as local data broker, encrypt data and potentially run local storage of historical information. 
+We use the term "Hub" to refer to any underlying compute infrastructure that can execute either the wallet software or a validating node. In this sense a hub can be anyone of the following:
+
+- Physical server or PC
+- A virtual machine in a public or private cloud infrastructure (e.g. AWS, Google Cloud, Azure)
+- A single board computer for e.g. [OLinuxXIno Lime](https://www.olimex.com/Products/OLinuXino/A10/A10-OLinuXino-LIME/open-source-hardware).
+- A smart card running limited cryptographic code
+- A mobile device such as a phone or tablet
+
+This section provides a high level description of the requirements that such hardware will require, and a section specifically around the use of hardware for improving security.
+
+In general, the DECODE platform is under more control by the participant the more that the participant has control over the full stack execution environment. Ultimately this is down to the hardware level and DECODE aims to provide details of how a participant or an operator can operate DECODE nodes that are entirely open source and auditable.
+
+DECODE will support and explore a wide range of hardware software configurations, following the principle of being open and modular. This will allow participants to customise the level of security and control they adopt. There is a tradeoff between investment on the part of the participant to purchase and configure hardware devices vs the extra level of control and reduce need for trust of a third party. 
+
+### Requirements
+#### Capability to run DECODE OS
+
+The processor of the HUB must be able to run the DECODE OS. The DECODE OS is based on Devuan and which developed by Dyne, who published the first release on April 2017. To assure compatibility of a specific processor, it must be made a target of the DECODE OS SDK. The DECODE OS SDK is modelled after the Devuan SDK and supports all its architecture targets. 
+
+Additionally the following capabilities are required:
+
+- Network connectivity (either wireless or ethernet)
+- Processing power and memory to support:
+    - cryptographic operations
+    - embedded web server operations
+    - execution of smart rules language
+- Local storage in the initial phases at least enough to store attributes
+
+The exact requirements of these will be determined as the project moves forwards and published. Different configurations will have different requirements - for example there will be significantly more minimum cmpute power required for a validating node than just running a single wallet, which is should be possible to run on a mobile device.
 
 #### Transparency 
 One of the goals of the DECODE platform is to create a level playing field that enables developers from all backgrounds to contribute to society by implementing innovative applications and opening up new economical, technological and social values based on the new infrastructure that DECODE will provide. To facilitate the participation of these developers, all the elements of the DECODE architecture should be open source. For that reason any device specifically designed to operate as a DECODE HUB should be open source and compliant with the Open Source Hardware Association (OSHWA). Schematics, design files and documentation should be available for designers to build upon. DECODE will encourage hardware designers to join their efforts in creating a more secure and open hardware.  
@@ -100,12 +126,13 @@ One of the goals of the DECODE platform is to create a level playing field that 
 Deployability is key to ensure the adoption and success of DECODE. Therefore, the HUB must be easily available. The most available potential HUB is any commercial computer. According to Barcelona data-sheet 20171 the Household ICT penetration is 88.3 in 2015 (% on population 16 to 74 years with a computer at home). Despite most of commercial computers not being open source this is a viable alternative for promoting an early adoption. For scenarios where an embedded device with a small form factor is required, low cost open source single board computers (SBCs) are a good alternative for the DECODE HUB. 
 
 #### Hardware security
-The need for privacy and confidentiality differ according to the use cases of the platform. For instance, noise quality data requires less security than biometric health-centered data that's being sent to a physician. This requires encryption on many different levels. To build trust in the platform, the DECODE needs to respond to the level of security each separate use case.
+The need for privacy and confidentiality differ according to the use cases of the platform. For instance, noise quality data requires less security than biometric health-centered data that's being sent to a physician. This requires encryption on many different levels. To build trust in the platform, the DECODE hub needs to respond to the level of security for each separate use case.
 Software-based security means that access conditions can be hacked and logs can be tampered with. In addition, the data itself cannot be considered secure if left unprotected on a regular PC.
 
-For this reason the DECODE platform user should consider the adoption of hardware-based security when a higher level of confidentiality is required. The interaction with these security measures should be easy and effortless for the end-user.
+For this reason the DECODE offers Participants the option to adopt hardware-based security when a higher level of confidentiality is required. The interaction with these security measures should be easy and effortless for the end-user.
 
 Potential hardware security features for the HUB:
+
 - **Multiple factor authentication:**
 The security protection provided by a single authentication method, e.g. a password, have proved to be weak. To make access conditions 		more secure, the system can ask for a multiple factor authentication. This could be the combination of a password with some token that the user have (like an RFID or BLE device) or  biometric data like fingerprint readers or voice recognition.
 - **Secure processors:**
@@ -124,38 +151,34 @@ Decentralized transactions will be continuously being carried by the NODE. This 
 
 
 ## Keys and smart cards
-An exchange between DECODE nodes can only take place once both parties are security identified in the system. The DECODE architecture will provide an authentication method to enter the system.
+
+The DECODE architecture will provide an authentication method to interact with the system, as described, the main entry point will be via the Wallet.
 
 Traditional authentication mechanisms consist in only one factor authentication like a pin code or password. But password based security has proven to be insufficient to prevent unauthorized access to websites, networks and hardware devices. For this reason, users are now requiring  multiple factor authentication, usually called 2FA for Two-factor authentication, 3FA for Three-factor authentication, etc. By combining several authentication factors, the authentication process is made more secure.
 Authentication factors include:
 
-- Knowledge factors: The users needs to prove knowledge of a secret that only themselvs know. Typical secrets include passwords, PIN codes, answer to secret question etc.
+- Knowledge factors: The users needs to prove knowledge of a secret that only themselves know. Typical secrets include passwords, PIN codes, answer to secret question etc.
 - Possession factors: An object that the user owns is used as a key to access the system. Typically, objects used in authentication include passive or active tokens, smart card chips packaged in a variety of form factors (key, token, ring, badge, etc.).
-- Inherence factors: something associated with the user, such as biometrics, are used as a key to access the system. Examples include fingerprint readers, retina scanners, voice recognition etc.
+- Inherent factors: something associated with the user, such as biometrics, are used as a key to access the system. Examples include fingerprint readers, retina scanners, voice recognition etc.
 
-In order to make access more secure DECODE will support hardware based authentication with login tokens that provides 2FA via the U2F standard. The login token will safeguard and manage digital keys for strong authentication and provide crypto processing. These modules traditionally come in the form of a plug-in card or an external device that can be attached directly to a DECODE HUB.
+In order to make access more secure DECODE will optionally support hardware based authentication with login tokens that provides 2FA via the U2F standard. The login token can safeguard and manage digital keys for strong authentication and provide crypto processing. These modules traditionally come in the form of a plug-in card or an external device that can be attached directly to a DECODE HUB.
 
-The procedure for acessing the system will follow the next steps:
-
-1. You sign in with your password.
-2. You get a request from the validating node to plug in your hardware key and complete a challenge. The challenge could for example be to press a button, input a pin code supplying a specific biometric inherence factor.
-3. You are logged into the system if said challenged is passed.
-
-![U2F-diagram](img/U2F-diagram.png "U2F diagram")
 
 Open source examples for hardware security modules and login tokens:
 
 **Authentication keys:**
-- **Nitrokey:** Nitrokey is an USB key that enables high security encryption, signing of data and login to the Web, networks and computers. Booth Hardware and software are Open Sourced. 
+
+- **Nitrokey:** Nitrokey is an USB key that enables high security encryption, signing of data and login to the Web, networks and computers. Both Hardware and software are Open Sourced. 
 - **U2F zero:**U2F Zero is a USB key that works with all services that support U2F. It works for 2 factor authentication and sometimes password replacement. There is a button on the key that the users press to authenticate themselves.
 - **FST-01 (Flying stone):** This is a small 32 bit computer that comes in the shape of a USB key
 
 
 **Hardware secure modules:**
+
 - **CrypTech Alpha:** "The CrypTech Alpha is an open source standalone prototype key-storage and hardware cryptography platform."
 - **Pitchfork:** Project PITCHFORK is a small dedicated computer for handling your cryptographic operations and keys.
 
-In case of need or desire for higher privacy control, users can opt for a specific computer with more advanced hardware security features. 
+
 
 
 ## IOT connectivity
