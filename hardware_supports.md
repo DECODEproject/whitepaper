@@ -63,6 +63,29 @@ There is a tradeoff with this scenario in that while it allows for lower barrier
 
 ![Decode Overview](img/decode-overview.png "Decode Overview")
 
+## Data Storage
+
+There are three significant *types* of data which are stored within the DECODE system:
+
+1. Attributes
+2. Ledger Transactions
+3. IOT Data streams
+
+**Attributes** are stored in the **Attribute Store**. In the simplest case the implementation is to store in encrypted form locally to the wallet. This will be the starting point for the implementation of DECODE. It is however possible that a **distributed storage** mechanism could be provided using a P2P protocol such as [IPFS](https://ipfs.io/). This capability would be exposed via the attribute store interface. The advantage of a distributed store are:
+
+- Resilience / backup
+- Access same data on multiple devices
+- Wallet itself need not have storage capabilities (can act purely as a crypto engine / key manager)
+
+A distributed store could take advantage of the existing P2P network of DECODE validating nodes or be formed of a separate network, either an existing network or one that is formed by DECODE participants.
+
+**Ledger Transactions** will be stored in the ledger node system, dependant on the implementation of the ledger. Our privacy by design principles ensure that no *private* data will be stored on the ledger. It is possible that encrypted data could be stored on the ledger. 
+
+**IOT Data streams** IOT data represents a special case of data in that it is likely to involve larger volumes of time series data. DECODE will continue to explore this space as it moves into implementation. A key question will be how to leverage existing IOT data stores / aggregators such as the [AWS IOT](https://aws.amazon.com/iot/). Following our principle of "Reuse don't Re-Invent", one option is to provide tools that allow decode to be integrated as an entitlements and access control mechanism over such existing aggregators and data stores. A more involved option is for DECODE to provide a custom store (based on open source stack such as [Cassandra](http://cassandra.apache.org/) or [Elastic Search](https://www.elastic.co/products/elasticsearch). Elastic search for example already provides a mechanism for [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/shield/current/configuring-rbac.html) which may provide a starting point.
+
+The theme of data storage will continue to evolve and this whitepaper will be updated accordingly in subsequent versions.
+ 
+
 
 ## Hardware Hubs
 ### Requirements
