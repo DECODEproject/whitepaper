@@ -103,6 +103,8 @@ In general, the DECODE platform is under more control by the participant the mor
 
 DECODE will support and explore a wide range of hardware software configurations, following the principle of being open and modular. This will allow participants to customise the level of security and control they adopt. There is a tradeoff between investment on the part of the participant to purchase and configure hardware devices vs the extra level of control and reduce need for trust of a third party. 
 
+A key principal is that DECODE should not *mandate* the use of custom hardware by participants, in order to allow for greater adoption. It remains to be seen if participants "vote with their feet" and choose hardware devices, once DECODE is operational.
+
 ### Requirements
 #### Capability to run DECODE OS
 
