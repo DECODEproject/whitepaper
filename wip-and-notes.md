@@ -91,7 +91,7 @@ To facilitate these use-cases, the following section describes how DECODE can be
 - Identity?
 - Relationship to the ledger? 
 
-## ABC
+## ABC
 
 A core functionality of DECODE is **verification** of **claims** that an individual makes about themselves.
 For example "I live at 123 Main Street" or "I am over the age of 18" or "I am a resident of Barcelona city".
@@ -100,7 +100,7 @@ Furthermore, the application defines a secure and uniquely identifiable attribut
 Through using DECODE, the attribute does not have to expose any real knowledge (for example a citizen ID number) but it must be possible to be checked for a particular value (number of votes cast).
 
 
-## Provenance
+## Provenance
 
 Data in the DECODE core is stored as **attributes**. Attributes are **statements** of the form **\<subject> \<predicate> \<object>**. The subject represents the participant, the object represents the 'value' (data), and the predicate defines the type of the relation between the subject and the object.
 In the predicate we encode the provenance. An example:
@@ -195,6 +195,13 @@ https://github.com/Kuebler-IT/meshvpn/wiki/Tutorial
 
 
 https://github.com/meshbird/meshbird
+
+i2p
+
+gnunet
+
+cjdns
+
 
 
 
