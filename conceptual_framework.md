@@ -2,26 +2,37 @@
 
 This section describes the foundational concepts that are combined to achieve the purpose of DECODE.
 
-The conceptual framework of DECODE is built on three foundations:
+DECODE is built upon several foundations:
 
-- A distributed Ledger
-- Zero Knowledge proofs
-- Attribute Based Cryptography
+- Decentralisation of trust
+- A distributed ledger
+- Zero knowledge proofs
+- Attribute based cryptography
 - Cryptographically verifiable entitlements
+- A "Smart Rules" language to express governance of participants data
 - A highly verifiable and controlled execution environment
 
-The ledger provides a resilient, tamper-resistant (tamper evident?) record which allows cryptographic demonstration of "facts" to be made. For example in the case of participatory democracy, it is possible to cryptographically demonstrate that a set of citizens signed their support for a particular initiative. This significantly increases the value of such an activity in the political world. A comparison would be with an online petition which has only email addresses recorded against it. Without cryptographic evidence there are several problems with this:
+A key concept behind DECODE is to build a system which aims towards a model of *decentralised trust*. This means that as much as possible, the control over the system should not be in the hands of a small number of entities over whom the participants of the system have no influence or recourse. For example, even though Bitcoin began life as a model for decentralisation, the current state is that the hash power is controlled by a few large mining pools. DECODE will seek to explore alternative, decentralised models and economic incentives (See [section on distributed ledgers REF!](section)) 
 
-- No traceable evidence that these emails belong to the group of citizens involved
-- "Leaking" of personal data (the emails) breaking privacy
-- No demonstrable evidence that the person who actually controls an email was that who digitally signed the petition
+![Distribution of bitcoin hash rate by miners - Oct 2017](img/bitcoin-pools-oct-2017.png "Distribution of bitcoin hash rate by miners - Oct 2017")
 
-DECODE proposes a scheme whereby not only can citizenship and accountability to an individual be demonstrated cryptographically, it can do so without requiring the proof to contain revealing personal details. This is achieved through the application of Zero Knowledge proofs and Attribute based Cryptography.
 
-In this example, DECODE provides for a mechanism of declaring and controlling access to a person's data. We employ combinations of Attribute Based Cryptography and the ledger to record such declarations and provide system mechanisms to control the access. For example it may be that in within a community of individuals the members of the community wish to share data only with their peers. In a traditional setup this would be achieved using standard database and web server technologies. In DECODE we propose a scheme whereby access is provided through cryptographically verifiable credentials (Attribute Based Credentials) and varying levels of mechanism to protect such data, including Attribute Based Encryption. DECODE takes a decentralised approach to the issuing of these credentials, removing the need for a central authority.
+A distributed ledger with decentralised governance provides a public, resilient, tamper-resistant and censorship resistant record which allows any party to be able to verify some "fact" recorded within it. This verification is demonstrable through the use of cryptography.  
 
+The public nature of the ledger is in tension with a desire to maintain the privacy of the participants of the network. DECODE applies the concept of Zero knowledge proofs to allow the cryptographic proof of a transaction to be recorded in the ledger without needing to publicly record the data within the transaction itself.
+
+In addition to the participant's transactional data, a key element of privacy is to allow a strong control over data which is directly related to *Identity*. In DECODE all data is represented as [*Attributes* REF!](section). DECODE takes an approach to identity which states that what a participant discloses about their identity should only be related to the minimum transfer of information required for a particular interaction. Further, this transfer of information should occur through a privacy preserving mechanism. 
+
+The cryptographic implementation of this mechanism is [*Attribute Based Credentials* REF!](section). This mechanism allows a participant to proove something about themselves without transfering data to the *relying party* (The entity who requires proof). Underlying this mechanism is also a kind of Zero knowledge proof. For example a participant can cryptographically proove their residency of a particular city without exposing sensitive information such as data of birth, national Id number, address. This mechanism can also be used to provide strong guarantees about authenticity of an interaction whilst preserving a level of individual anonymity, particularly relevant for scenarios of [participatory democracy REF!](section).
+
+
+Building on its verifiable public record and privacy preserving cryptography and design, DECODE adds a mechanism for participants to declare and enforce agreements about how their data is consumed. DECODE refers to this mechanism as the [*entitlements* REF!](section) a participant agrees to over their data. These entitlements are cryptographically verifiable and can be extended to be cryptographically enforceable through Attribute Based Encryption.
 
 We can extend this data sharing capability to datasets for wide sharing - for example we can consider individual contributions to an aggregate dataset. This is often called the Digital Commons [REF!](to d1.8).
+
+Based on the principle of User Friendliness, giving participants access to a means to express and understand these entitlements is a further aim of DECODE, which is expressed through the development of a [*Smart Rules* REF!](section) language and user interface.
+
+Finally, DECODE considers the full technology stack within which all of the above foundations executes. This includes the underlying hardware platforms ([*Hub* REF!](section)) and the [*operating system* REF!](section) on which the software executes. DECODE terms this the *controlled execution environment* and explores ways to provide assurance, transparency and reproducibility of the execution environment.
 
 
 Each of these conceptual building blocks are explored within the following sections which should provide the basics required to understand how the implementation functions. Each of the topics is a deep area of study in its own right so we provide references to allow further exploration.
