@@ -23,9 +23,6 @@ In this example, DECODE provides for a mechanism of declaring and controlling ac
 
 We can extend this data sharing capability to datasets for wide sharing - for example we can consider individual contributions to an aggregate dataset. This is often called the Digital Commons [REF!](to d1.8).
 
-```comment
-jimb: Add some summary from D1.8
-```
 
 Each of these conceptual building blocks are explored within the following sections which should provide the basics required to understand how the implementation functions. Each of the topics is a deep area of study in its own right so we provide references to allow further exploration.
 
