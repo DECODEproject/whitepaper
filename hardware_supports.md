@@ -106,7 +106,17 @@ DECODE will support and explore a wide range of hardware software configurations
 A key principal is that DECODE should not *mandate* the use of custom hardware by participants, in order to allow for greater adoption. It remains to be seen if participants "vote with their feet" and choose hardware devices, once DECODE is operational.
 
 ### Requirements
-#### Capability to run DECODE OS
+
+We list five key requirements of the hardware hubs here:
+
+- Ability to run DECODE OS
+- Transparency
+- Deployability and availability
+- Hardware security
+- Connectivity
+
+
+#### Ability to run DECODE OS
 
 The processor of the HUB must be able to run the DECODE OS. The DECODE OS is based on Devuan and which developed by Dyne, who published the first release on April 2017. To assure compatibility of a specific processor, it must be made a target of the DECODE OS SDK. The DECODE OS SDK is modelled after the Devuan SDK and supports all its architecture targets. 
 
