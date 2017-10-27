@@ -155,32 +155,28 @@ In DECODE the provenance metadata is provided through the *application*. When a 
 ### Attribute verification with ABC
 
 In order to provide a stronger assertion about the **provenance** of attributes in DECODE, we incorporate the cryptographic mechanism of
-** Attribute Based Credentials (ABC)**
+**Attribute Based Credentials (ABC)**
 
-```comment
-editorial: are these direct quotes? should be blockquote?
-Paulus: Yes. I've added double quotes to make this clear. Feel free to style the quotations in any other way that preserves the source.
-```
 
-"An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity [@alpar2015attribute]."
-"Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system [@alpar2015attribute]."
+>An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity.
 
-```comment
-typical example below, clear why showing a credential is a (legal) *must*.
-though I prefer a non-alcoholic example
-```
+
+> Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system 
+
+- [@alpar2015attribute].
+
 For example, when selling a bottle of wine, a vendor has to verify that their customer is over the age of 18.
 The customer shows their credential; an identity card issued by the government, to convey the information 'date of birth' to the shop owner, in order to prove that they have the attribute 'being over the age of 18'.
 ABCs provide a cryptographic way to authenticate using selectively disclosed personal attributes.
 This means that in the above example, we can use an ABC credential to convey just the property of 'being over the age of 18', without revealing any of the other attributes in our credential, and even without linking this event to previous interactions.
 
-An different example, proves the usefulness when attempting to digitize a membership system.
+An different example, proves the usefulness when attempting to digitise a membership system.
 Clasically, a library card allows a member to borrow a book.
 This credential reveals no more information about the borrower than their membership of the library.
-When building a digital library card system, it is difficult to verify active membership without cross-referencing the card with a list of authorized members.
-ABCs allow the showing of a membership credential, without having to check the list of authorized members.
-In addition it can provide multi-show unlinkability of the credential showings, which prevents them from leaking information about the specific member through logging of the interactions.
-There are three parties involved in the use of ABCs: the issuer of the credential, the user or owner of the credential, and the party that wishes to verify a credential.
+When building a digital library card system, it is difficult to verify active membership without cross-referencing the card with a list of authorised members.
+ABCs allow the showing of a membership credential, without having to check the list of authorised members.
+In addition it can provide multi-show un-linkability of the credential showings, which prevents them from leaking information about the specific member through logging of the interactions.
+There are three parties involved in the use of ABCs: the *Issuer* of the credential, the user or *Owner* of the credential (in DECODE terms, the *Participant*, and the party that wishes to verify a credential (*Relying Party*).
 
 ![User requests a credential](img/abc-preparation.png "User requests a credential")
 
@@ -189,7 +185,7 @@ There are three parties involved in the use of ABCs: the issuer of the credentia
 
 
 
-The model for ABCs in DECODE is based on Idemix [@CamenischL01; @IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
+The proposed model for ABCs in DECODE is based on Idemix [@CamenischL01; @IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
 A tested implementation of ABCs is IRMA by the Privacy by Design Foundation (https://privacybydesign.foundation/en/, https://credentials.github.io/).
 Credentials can be part of a claim.
 
