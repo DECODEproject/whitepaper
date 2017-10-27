@@ -14,9 +14,6 @@ DECODE is built upon several foundations:
 
 A key concept behind DECODE is to build a system which aims towards a model of *decentralised trust*. This means that as much as possible, the control over the system should not be in the hands of a small number of entities over whom the participants of the system have no influence or recourse. For example, even though Bitcoin began life as a model for decentralisation, the current state is that the hash power is controlled by a few large mining pools. DECODE will seek to explore alternative, decentralised models and economic incentives (See [section on distributed ledgers REF!](section)) 
 
-![Distribution of bitcoin hash rate by miners - Oct 2017](img/bitcoin-pools-oct-2017.png "Distribution of bitcoin hash rate by miners - Oct 2017")
-
-
 A distributed ledger with decentralised governance provides a public, resilient, tamper-resistant and censorship resistant record which allows any party to be able to verify some "fact" recorded within it. This verification is demonstrable through the use of cryptography.  
 
 The public nature of the ledger is in tension with a desire to maintain the privacy of the participants of the network. DECODE applies the concept of Zero knowledge proofs to allow the cryptographic proof of a transaction to be recorded in the ledger without needing to publicly record the data within the transaction itself.
@@ -24,6 +21,7 @@ The public nature of the ledger is in tension with a desire to maintain the priv
 In addition to the participant's transactional data, a key element of privacy is to allow a strong control over data which is directly related to *Identity*. In DECODE all data is represented as [*Attributes* REF!](section). DECODE takes an approach to identity which states that what a participant discloses about their identity should only be related to the minimum transfer of information required for a particular interaction. Further, this transfer of information should occur through a privacy preserving mechanism. 
 
 The cryptographic implementation of this mechanism is [*Attribute Based Credentials* REF!](section). This mechanism allows a participant to prove something about themselves without transfering any other identifying information to the *relying party* (The entity that requires proof). Underlying this selective disclosure mechanisme is often a Zero knowledge protocol to allow for multi-show unlinkability. For example a participant can cryptographically prove their residency of a particular city without exposing sensitive information such as data of birth, national Id number, or the actual address. This mechanism can also be used to provide strong guarantees about authenticity of an interaction whilst preserving a level of individual anonymity, particularly relevant for scenarios of [participatory democracy REF!](section).
+
 
 
 Building on its verifiable public record and privacy preserving cryptography and design, DECODE adds a mechanism for participants to declare and enforce agreements about how their data is consumed. DECODE refers to this mechanism as the [*entitlements* REF!](section) a participant agrees to over their data. These entitlements are cryptographically verifiable and can be extended to be cryptographically enforceable through Attribute Based Encryption.

@@ -1,6 +1,9 @@
 # DUMP
 #
 
+![Distribution of bitcoin hash rate by miners - Oct 2017](img/bitcoin-pools-oct-2017.png "Distribution of bitcoin hash rate by miners - Oct 2017"){height=300px}
+
+
 The document will evolve over time and will be published regularly as a versioned series.
 
 | Version                        | Date Published            |
