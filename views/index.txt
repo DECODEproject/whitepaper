@@ -8,7 +8,6 @@ conceptual_framework.md
 
 hardware_supports.md
 
-
 decode_applications.md
 
 conclusion.md
