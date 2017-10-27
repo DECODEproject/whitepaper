@@ -8,9 +8,6 @@ conceptual_framework.md
 
 hardware_supports.md
 
-smart_rules.md
-
-os_architecture.md
 
 decode_applications.md
 
