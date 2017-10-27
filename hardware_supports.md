@@ -21,7 +21,7 @@ A key research question for DECODE is how to cover the cost of computation for t
 
 DECODE seeks to explore alternative incentive models that do not involve direct financial reward and this will be an ongoing initiative for the project. It looks to models that work for the common good of citizens and will be exploring scenarios that move towards an "economy of the commons" as opposed to the centralised concentration of wealth within a few large organisations, which is the current dominant force in the data economy.
 
-## DECODE Wallets
+## Wallets
 
 The wallet is the minimum component a person requires to interact with DECODE. Every **participant** will have their own wallet. The wallet has several core functions:
 
