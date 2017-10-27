@@ -107,10 +107,10 @@ Based on the user's preferences and the ontology of the IoT data being processed
 
 Within DECODE, this continues to be a topic of research and evolution. IoT data is currently both fragmented and siloed, with the application of user interfaces that easily and transparently allow users to add/remove/change entitlements on their IoT data, DECODE will enable IoT data to be used to share IoT data in  privacy preserving way.
 
-```
+<!--
 Priya: Jim, I'm not sure if we discussed the relevance of ABC in this pilot/example/scenario.
 Options for securing access (including just securing access to the stream via ABC)
-```
+-->
 
 ## Example - Peer to peer identity and reputation verification
 
@@ -138,11 +138,10 @@ DECODE in this sense can help, by providing a platform where an application to v
 
 A detailed example could be a dashboard that mixes public data sources as well as crowd-sources one. There, each user can generate visualizations that put their profiles in contrast with the general "public trends", thus obtaining unique information of their private information in a controlled way (which would be loaded on the client side). The configuration of each dashboard could be shared with peers so each person gets their own vision, and even the private data in it could also selectively be shared with the proper entitlements. Such an application would on the one hand effectively use a mix of public, private and crowd-sourced data for the common good, and on the other hand exemplify and induce the need to users to "donate" their data to generate Digital Commons that allow to tackle societal problems such as pollution and other citizen concerns.
 
-```
+<!--
 (Ula) Tried to answer the questions:
 
 - Can we take the barcelona dashboard and make it generic, in particular to what purpose would we want to do this?
 - Discuss people choosing to allow their data to contribute to a digital commons
 - Describe how a DECODE application could take data from DECODE and mash it with an open dataset, providing a trail of authenticity 
-
-```
+-->
