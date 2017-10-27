@@ -304,7 +304,7 @@ However, if the participants wished to broadcast their data to a larger, but sti
 
 We require a mechanism for controlling access to either large datasets or streams of data. Perhaps I wish to publish a dataset including all my movement data from my phone for the last two months and yet control access to certain attributes.
 
-This is also an ongoing research topic within DECODE. Potential options arE:
+This is also an ongoing research topic within DECODE. Potential options are:
 
 - Encrypt each data item in the list as above
 - Separate the data into "columns" ie. each data attribute is becomes an array of values and these are then encrypted using ABE
