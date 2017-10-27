@@ -2,6 +2,51 @@
 #
 
 
+Don't think we should include this part until we are closer to implementation but the structure in (loosely) BNF (https://tools.ietf.org/html/rfc4234, https://www.w3.org/Notation.html)  for attributes is as follows:
+
+```
+/*
+1# means 1 or more items in a repeating list, separated by commas
+1* means one or more repetitions of the following symbol
+*/
+
+ATTRIBUTE = (SUBJECT PREDICATE OBJECT PROVENANCE SCOPE)
+
+SUBJECT = decode_account
+PREDICATE = 1#ontology_url
+OBJECT = 1*string
+PROVENANCE = (source *verification)
+SCOPE = entitlement_policy
+
+ontology_url: A deep link to a particular ontology reference, e.g. http://xmlns.com/foaf/spec/#term_Person
+string: In a formal definition would be made up of valid characters, omitted here
+
+source: a link back to the DECODE application that originated the attribute
+
+verification: a link to zero or more (making it optional) cryptographic verifications of the attribute, for e.g. an attribute based credential representing residency of "Paris". Note: the ABC that is linked to may also be used by other attributes.
+
+entitlement_policy: A link to an entitlement policy
+```
+
+```comment
+Thought - theres a whole part of the proposal around "standards" etc - what if the above formed some form of RFC to define privacy aware attributes? We could at least write it as an RFC and submit it to see what people thought, DECODE would be a reference implementation.
+```
+```
+locality:["decode-account:543232", <- SUBJECT   
+	    "schema:addressLocality",     <- PREDICATE
+            "Paris",                      <- OBJECT
+            ["application:23234",         <- source        /           
+             "verification:67565"]        <- verification  \PROVENANCE
+            "entitlement:8678756"         <- SCOPE
+           ]
+    ^                
+    |               
+ATTRIBUTE          
+
+```
+
+application, verification and entitlement are also URNS, TBD how they resolve.
+
 
 Take the example case of participatory democracy. It is possible to cryptographically demonstrate that a set of citizens signed their support for a particular initiative. This significantly increases the value of such an activity in the political world. A comparison would be with an online petition which has only email addresses recorded against it. Without cryptographic evidence there are several problems:
 

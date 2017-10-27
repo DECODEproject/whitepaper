@@ -70,9 +70,6 @@ Creating a structured model around attributes provides a foundation allows us to
 
 ![Key conceptual terminology and relationships](img/terminology-relationships.png "Key conceptual terminology and relationships")
 
-```comment
-jimb: I've removed original section about this from here - but one concept that is not represented is the lifespan of an attribute
-```
 ## Attributes
 
 Data items alone provide little value, for example the string "Paris" could mean many things to many people. In order to be able to make a useful system that can process data, and in particular provide additional value for the purpose of data privacy and integrity, DECODE implements a conceptual model that attaches meta-data to an attribute. This model allows us to make **claims** about attributes. We begin with a basic structure of the form:
@@ -103,51 +100,7 @@ PROVENANCE provides traceable evidence to support the claim we are making. This 
 
 SCOPE relates to the agreement that is made between the application and the owner of the attribute (usually the Participant), in terms of entitlement. In DECODE terms, this is a link to an entitlement policy.
 
-```
-locality:["decode-account:543232", <- SUBJECT   
-	    "schema:addressLocality",     <- PREDICATE
-            "Paris",                      <- OBJECT
-            ["application:23234",         <- source        /           
-             "verification:67565"]        <- verification  \PROVENANCE
-            "entitlement:8678756"         <- SCOPE
-           ]
-    ^                
-    |               
-ATTRIBUTE          
-
-```
-
-application, verification and entitlement are also URNS, TBD how they resolve.
-
-Don't think we should include this part until we are closer to implementation but the structure in (loosely) BNF (https://tools.ietf.org/html/rfc4234, https://www.w3.org/Notation.html)  for attributes is as follows:
-
-```
-/*
-1# means 1 or more items in a repeating list, separated by commas
-1* means one or more repetitions of the following symbol
-*/
-
-ATTRIBUTE = (SUBJECT PREDICATE OBJECT PROVENANCE SCOPE)
-
-SUBJECT = decode_account
-PREDICATE = 1#ontology_url
-OBJECT = 1*string
-PROVENANCE = (source *verification)
-SCOPE = entitlement_policy
-
-ontology_url: A deep link to a particular ontology reference, e.g. http://xmlns.com/foaf/spec/#term_Person
-string: In a formal definition would be made up of valid characters, omitted here
-
-source: a link back to the DECODE application that originated the attribute
-
-verification: a link to zero or more (making it optional) cryptographic verifications of the attribute, for e.g. an attribute based credential representing residency of "Paris". Note: the ABC that is linked to may also be used by other attributes.
-
-entitlement_policy: A link to an entitlement policy
-```
-
-```comment
-Thought - theres a whole part of the proposal around "standards" etc - what if the above formed some form of RFC to define privacy aware attributes? We could at least write it as an RFC and submit it to see what people thought, DECODE would be a reference implementation.
-```
+One element of attributes that is still under consideration and review is the *lifespan* of an attribute, or the time frame within which it exists. It is possible that attributes have an expiry and certain that attributes are dynamic with respect to time. For example I may move house and unavoidably become older with the passing of time. The thinking so far in these areas tends towards representing data as append only, immutable event streams. That is to say that you never "overwrite" or "mutate" an attribute, only add a new instance that represents the new value. The most common reference model to think about this is your bank account, consisting of a set of debits and credits. You can't go back and "undo" a withdrawal, but you can make a compensating transaction and make a deposit of the same amount which in real terms ends at the same outcome. 
 
 
 ### Identity
