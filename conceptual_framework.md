@@ -24,12 +24,7 @@ In addition to the participant's transactional data, a key element of privacy is
 The cryptographic implementation of this mechanism is Attribute Based Credentials. This mechanism allows a participant to prove something about themselves without transfering any other identifying information to the *relying party* (The entity that requires proof). Underlying this selective disclosure mechanisme is often a Zero knowledge protocol to allow for multi-show unlinkability. For example a participant can cryptographically prove their residency of a particular city without exposing sensitive information such as data of birth, national Id number, or the actual address. This mechanism can also be used to provide strong guarantees about authenticity of an interaction whilst preserving a level of individual anonymity, particularly relevant for scenarios of participatory democracy.
 
 
-<<<<<<< HEAD
-
-Building on its verifiable public record and privacy preserving cryptography and design, DECODE adds a mechanism for participants to declare and enforce agreements about how their data is consumed. DECODE refers to this mechanism as the [*entitlements* REF!](section) a participant agrees to over their data. These entitlements are cryptographically verifiable and can be extended to be cryptographically enforceable through Attribute Based Encryption.
-=======
 Building on its verifiable public record and privacy preserving cryptography and design, DECODE adds a mechanism for participants to declare and enforce agreements about how their data is consumed. DECODE refers to this mechanism as the entitlements a participant agrees to over their data. These entitlements are cryptographically verifiable and can be extended to be cryptographically enforceable through Attribute Based Encryption.
->>>>>>> Removed section references. Revert this if you know how to add internal section refs.
 
 We can extend this data sharing capability to datasets for wide sharing - for example we can consider individual contributions to an aggregate dataset. This is often called the Digital Commons [@D1.8].
 
@@ -90,8 +85,7 @@ locality : ["decode-account:543232", "schema:addressLocality", "Paris"]
 ATTRIBUTE           SUBJECT                 PREDICATE           OBJECT
 ```
 
-where `schema` and `decode-account` are [URNs](https://www.w3.org/TR/uri-clarification/#urn-namespaces) `schema` expands to [https://schema.org/](https://schema.org/) . How to interpret a decode-account URN is TBD.
-
+where `schema` and `decode-account` are [URNs](https://www.w3.org/TR/uri-clarification/#urn-namespaces) `schema` expands to [https://schema.org/](https://schema.org/).
 
 
 This already provides a lot of value. However DECODE adds two further concepts to the model, PROVENANCE and SCOPE.
@@ -120,7 +114,7 @@ There are three options:
 2. It is how the state defines us, typically through a number or code assigned at birth
 3. It is the combination of all perspectives from all contexts combined
 
-In the DECODE ecosystem we will keep the diverse and subtle ways of addressing aspects of our lives and selves in different (online, digital) contexts, and leverage the capacity of the medium to improve upon this in a privacy enhancing fashion. When thinking of identity in this ecosystem, option one, above, is irrelevant, and option three is fine in an abstract way, but fraught with privacy issues when it would be possible to address & use practically. That leaves the extremely narrow definition of the government assigned civic number. Apart from the issue that people exist without such numbers, this is just a single attribute of a person, at best a strictly formal (or legal) definition of identity, but missing out on just about everything we are.
+In the DECODE ecosystem we will keep the diverse and subtle ways of addressing aspects of our lives and selves in different (online, digital) contexts, and leverage the capacity of the medium to improve upon this in a privacy enhancing fashion. When thinking of identity in this ecosystem, option one, above, is irrelevant, and option three is fine in an abstract way, but fraught with privacy issues when it would be possible to address and use practically. That leaves the extremely narrow definition of the government assigned civic number. Apart from the issue that people exist without such numbers, this is just a single attribute of a person, at best a strictly formal (or legal) definition of identity, but missing out on just about everything we are.
 
 Better to avoid discussion and confusion and **not** to use the word identity at all, and talk about different collections of attributes, relevant in different (online, or even DECODE-supported offline) contexts (or *applications*). 
 
@@ -130,11 +124,11 @@ In the end we are talking about physical people (AI's with civil rights are a wa
 
 These profiles aren't entities in the DECODE system, they are a way of talking about *application-defined* collections of attributes. Profiles are the subject of **entitlements**, even when, for instance, the only attribute needed for the online alcohol-buying app is the age, that app would, in its use, **define** a profile with an age, and nothing else at all. For the sake of argument we leave out practicalities as payment, and the address to send the purchase to.
 
-The connection to the real person in the real world is through a DECODE account that the person will authenticate against in order to interact with DECODE applications. This account is not part of the decode data that these applications have anything to do with, although the authentication app or apps (multiple means of authentication) could be seen as a special kind of DECODE enabled applications.
+The connection to the real person in the real world is through a DECODE account that the person will authenticate against in order to interact with DECODE applications. This account is not part of the DECODE data that these applications have anything to do with, although the authentication app or apps (multiple means of authentication) could be seen as a special kind of DECODE enabled applications.
 
-Authentication usually involves a participant providing various personally identifying facts to a system such as date of birth, passport id / driving licence number, potentially with additional offline checks and questions of the participant. For example in signing up to the UK's [gov.uk/Verify](https://www.gov.uk/government/publications/introducing-govuk-verify/introducing-govuk-verify) you register with a federated identity provider (e.g. The Post Office). The post office has a mobile app that can capture images of your passport, OCR the details and confirm them against the HMPO (Her Majesty's Passport office) and then takes a photo using the phone camera in order to compare against the photo on the passport.
+Authentication usually involves a participant providing various personally identifying facts to a system such as date of birth, passport id / driving licence number, potentially with additional offline checks and questions of the participant. For example in signing up to the UK's [Gov.uk Verify](https://www.gov.uk/government/publications/introducing-govuk-verify/introducing-govuk-verify) you register with a federated identity provider (e.g. The Post Office). The post office has a mobile app that can capture images of your passport, OCR the details and confirm them against the HMPO (Her Majesty's Passport office) and then takes a photo using the phone camera in order to compare against the photo on the passport.
 
-A participant demonstrates control of these **attributes** through some cryptographic means (essentially by holding a private key). This private key may be embedded on a physical device that the participant owns, such as a [Ubikey](https://www.yubico.com/products/yubikey-hardware/) or Smart Card issued by a civic authority. In the case of a device issued by an authority it may also contain attributes of interest to other DECODE applications, such as the fact that one lives in a particular city. These attributes, when stored, record the provenance and the semantic meaning of the relation in their urn, and can so be "officially verified" attributes that certain applications may require (such as voting in participatory budgeting applications, see below).
+A participant demonstrates control of these **attributes** through some cryptographic means (essentially by holding a private key). This private key may be embedded on a physical device that the participant owns, such as a [Ubikey](https://www.yubico.com/products/yubikey-hardware/) or Smart Card issued by a civic authority. In the case of a device issued by an authority it may also contain attributes of interest to other DECODE applications, such as the fact that one lives in a particular city. These attributes, when stored, record the provenance and the semantic meaning of the relation in their URN, and can so be "officially verified" attributes that certain applications may require (such as voting in participatory budgeting applications, see below).
 
 Taking this approach to "identity", also has the benefit of following a privacy by design principle of only providing the minimum set of information that is absolutely required for a particular interaction.
 
@@ -150,23 +144,21 @@ In order to enable this, accountability needs to be designed into the sytems, ne
 #### Data transparency
 
 Taking stock of this *accountability design* challenge leads us to a couple of preconditions to a possible solution or implementation. One of the most important of these, especially in a DECODE context, is **data transparency**. What type of data was used, where, when and for what purpose was this data collected?
-In a system for data management (such as DECODE) the relevant metadata needs to be recorded and made available when needed, either directly to the user in response to queries, or to aggregation alghoritms that produce data that itself needs to be able to provide an account of its provenance. The accountability mechanisms may not be part of DECODE, the data formats needed to make them possible **are**.
+In a system for data management (such as DECODE) the relevant metadata needs to be recorded and made available when needed, either directly to the user in response to queries, or to aggregation algorithms that produce data that itself needs to be able to provide an account of its provenance. The accountability mechanisms may not be part of DECODE, the data formats needed to make them possible **are**.
 
 In DECODE the provenance metadata is provided through the *application*. When a participant stores some data in a DECODE-enabled system, the participant **always** does this through an *application*. Similarly, the application may generate data on behalf of the participant and store it (or a link to it) through DECODE. The data recorded or stored always has the relationship recorded that it comes from this particular *application* (The **source**).
 
 
 ### Attribute verification with ABC
 
-In order to provide a stronger assertion about the **provenance** of attributes in DECODE, we incorporate the cryptographic mechanism of
-**Attribute Based Credentials (ABC)**
+In order to provide a stronger assertion about the **provenance** of attributes in DECODE, we incorporate the cryptographic mechanism of Attribute Based Credentials (ABC)
 
 
->An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity.
+> An attribute in this case is any indivisible piece of personal information that can be described by a bit-string, such as an identifier, a qualification or a property of an entity. [@alpar2015attribute]
 
 
-> Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system 
+> Informally, an Attribute-Based Credential (ABC) is a cryptographic container of attributes that can provide security assurances for all participants in the system. [@alpar2015attribute]
 
-- [@alpar2015attribute].
 
 For example, when selling a bottle of wine, a vendor has to verify that their customer is over the age of 18.
 The customer shows their credential; an identity card issued by the government, to convey the information 'date of birth' to the shop owner, in order to prove that they have the attribute 'being over the age of 18'.
@@ -187,14 +179,13 @@ There are three parties involved in the use of ABCs: the *Issuer* of the credent
 ![User presents credential](img/abc-first-use.png "User presents credential")
 
 
-
-The proposed model for ABCs in DECODE is based on Idemix [@CamenischL01; @IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
+The proposed model for ABCs in DECODE is based on Idemix [@CamenischL01] [@IBM_Idemix], since the DECODE implementation requires multiple verifications of non-identifying credentials to be unlinkable.
 A tested implementation of ABCs is IRMA by the Privacy by Design Foundation (https://privacybydesign.foundation/en/, https://credentials.github.io/).
 Credentials can be part of a claim.
 
 So how are claims actually verified in the first place?
 In the example, the entity responsibile for verification would be the city of Barcelona.
-This could be a physical process, or could be done online (as in the Dutch DigiD mechanism), and involves some exchange between the city and the individual.
+This could be a physical process, or could be done online (as in the Dutch [DigiD](https://www.digid.nl/) mechanism), and involves some exchange between the city and the individual.
 The result of this exchange would be a cryptographic token, signed by the city, which, invoked with a specific smart rule would result in an attribute with verified provenance and value being set in the DECODE platform.
 This whole process could take place through a website which is run by the city of Barcelona (and thus is a DECODE enabled application).
 Required will be a mechanism by which the DECODE network can **trust** the public key of the city of Barcelona, i.e. there will need to be a registration protocol to establish this trust.
@@ -204,7 +195,7 @@ ABCs could provide both the trust mechanism for externally verified attributes, 
 The User Journey for this interaction would involve the person authenticating this website and then creating a "city_of_residence: Barcelona" credential signed with the city's private key.
 In this example there would be a validity time limit on the attribute, a month, perhaps, within the credential. People move.
 Because the choice of using applications that accepts this credential is in the hands of the participant they have strong control of how this link is used.
-In a p2p sharing application a different proof-of-residency attribute may be good enough, for instance.
+In a P2P sharing application a different proof-of-residency attribute may be good enough, for instance.
 
 In order to make it straighforward for developers to build DECODE applications, the mechanisms for interacting with and validating external or "official" claims will be a core part of the language that is used to express Smart Rules.
 
@@ -234,7 +225,7 @@ There are 4 key elements to an entitlement policy :
 - What is the **timeframe** within which this entitlement is valid (Expiry date)
 - How does the entitlement respond to changes to the value of the attribute
 
-This last point is a subject of further research and exploration - how should an entitlement be considered when the underlying attribute is super-seeded. For example If a participant provides a new address to the application, does the entitlement automatically apply to the new address? It may be possible to express such "rules" using the Smart Rules language.
+This last point is a subject of further research and exploration - how should an entitlement be considered when the underlying attribute is superseded. For example, if a participant provides a new address to the application, does the entitlement automatically apply to the new address? It may be possible to express such "rules" using the Smart Rules language.
 
 Rather than attempting to build a hierarchical entitlements system by classifying certain attributes into privacy groups, such as "sensitive, personal, public" DECODE specifies all entitlements at the granularity of individual attributes.
 
@@ -262,13 +253,13 @@ An intermediate position which provides for low investment integration to existi
 
 The following sections describe both of these scenarios, starting with leveraging cryptographic credentials in a "standard" data access scenario and then expanding on this to move towards a more decentralised data storage and optimisation of encryption through Attribute Based Encryption.
 
-The possibility of having completely decentralised credential issuers is currently a research topic and will be explored as the project progresses. It is imagined that the first scenario will be possible to integrate with existing applications sooner.
+The possibility of having completely decentralised credential issuers is currently a research topic and will be explored as the project progresses. It is imagined that the first scenario will integrate with the existing applications sooner.
 
 
 
 #### Using ABC as an authorization mechanism
 
-In this scenario, we leverage a "traditional" architecture whereby a central entity stores data of many people and protects it by means of access control implementations. DECODE allows for the possibility to be integrated with such systems as the source of authorisation information. By referring to entitlement policies stored within DECODE, the application can then accept Attribute based credentials presented by users and validate them agains the policy, in order to make an authorisation decision. This model allows for DECODE to be easily integrated to existing systems whilst still providing state of the art cryptographic security.
+In this scenario, we leverage a "traditional" architecture whereby a central entity stores data of many people and protects it by means of access control implementations. DECODE allows for the possibility to be integrated with such systems as the source of authorisation information. By referring to entitlement policies stored within DECODE, the application can then accept Attribute Based Credentials presented by users and validate them against the policy, in order to make an authorisation decision. This model allows for DECODE to be easily integrated to existing systems whilst still providing state of the art cryptographic security.
 
 The implementation of this will be based around the [Json Web Token (JWT)](https://tools.ietf.org/html/rfc7519) specification.
 
@@ -286,8 +277,7 @@ The data can be encrypted in such a way that only individual agents with those p
 
 ![Attribute based encryption](img/attribute-based-encryption.png "Attribute based encryption")
 
-The main models for ABE come from [@ABE] and [@ABE_CP].
-Reference implementations are available, but at the time of writing none have been selected to be supported by DECODE.
+The main models for ABE come from previous work on 'Attribute-based Encryption for Fine-grained Access Control of Encrypted Data'[@ABE] and 'Ciphertext-Policy Attribute-Based Encryption'[@ABE_CP]. Reference implementations are available, but at the time of writing none have been selected to be supported by DECODE.
 
 The design of DECODE will try to support this method of user controlled access policies.
 
@@ -301,18 +291,17 @@ However, if the participants wished to broadcast their data to a larger, but sti
 
 
 
-
-
 **Controlling access to large datasets or streams of data**
 
-We require a mechanism for controlling access to either large datasets or streams of data. Perhaps I wish to publish a dataset including all my movement data from my phone for the last two months and yet control access to certain attributes.
+We require a mechanism for controlling access to either large datasets or streams of data. Perhaps a participant wishes to publish a dataset including all their movement data from their phone for the last two months and yet control access to certain attributes.
 
-This is also an ongoing research topic within DECODE. Potential options are:
+This is also an ongoing research topic within DECODE. 
+
+Potential options are:
 
 - Encrypt each data item in the list as above
 - Separate the data into "columns" ie. each data attribute is becomes an array of values and these are then encrypted using ABE
-- Investigate DRM tech for encrypting large (e.g. Video) streams can similar approaches be applied to user data?
-
+- Investigate DRM tech for encrypting large streams (e.g. video). Can similar approaches be applied to user data?
 
 
 ## Distributed Ledger
@@ -330,7 +319,7 @@ In practical terms for example, in combination with attribute based cryptography
 In summary the key requirements of a distributed ledger for the purposed of DECODE are:
 
 - Byzantine Fault Tolerance
-- Decentralised networkk
+- Decentralised network
 - Ability to implement contracts that transaction execution from verification via ZK Proofs
 - An environment that allows a higher order language to be created (See Smart Rules)
 - Ability to scale horizontally
@@ -338,7 +327,7 @@ In summary the key requirements of a distributed ledger for the purposed of DECO
 
 ### Querying the ledger
 
-Having a robust and verifiable source of truth for transactions is of little value if applications cannot make use of the record. To this end, DECODE will provide a query interface over the ledger which will be a separate capability. This area is still under development and updates will be provided in the whitepaper as it evolves.
+Having a robust and verifiable source of truth for transactions is of little value if applications cannot make use of the record. To this end, DECODE will provide a query interface over the ledger which will be a separate capability. This area is still under development and updates will be provided via. the whitepaper as it evolves.
 
 
 ## Authentication
@@ -355,6 +344,6 @@ DECODE also supports and will explore the concepts of more sophisticated authent
 
 It is possible for **operators** to provide a "Login with DECODE" option. In this scenario the operator would enable an integration whereby the participant would be redirected to their DECODE wallet, authenticate there as above and then an exchange of application specific cryptographic credentials would be passed back to the website, allowing them to be authenticated.
 
-A key principle at work with this scenario is that the operators must themselves be transparent to the participants. This means in practice that in order to allow login with DECODE the operator must first register with DECODE and itself be cryptographically audit-    able in any actions it takes in the DECODE system.
+A key principle at work with this scenario is that the operators must themselves be transparent to the participants. This means in practice that in order to allow login with DECODE the operator must first register with DECODE and itself be cryptographically auditable in any actions it takes in the DECODE system.
 
 This raises questions around the governance of the DECODE ecosystem which will be explored as it is field tested and evolved.
