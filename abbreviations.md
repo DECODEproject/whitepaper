@@ -53,6 +53,8 @@ OS - Operating System
 
 OSHWA - Open Source Hardware Association
 
+PbD - Privacy by Design
+
 POSIX - Portable Operating System Interface
 
 RBAC - Role Based Access Control
