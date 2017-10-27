@@ -1,4 +1,4 @@
-# Smart rules Engine
+## Smart rules Engine
 
 What we call "Smart Rules" in DECODE are a computable [@sober1978computability] sociolect [@louwerse2004semantic] that can be parsed into a semantic model referred to a finite ontology and executed by a distributed computing cluster. It is of central importance to grant participants the access to such a language and clear understanding of what it expresses and of the consequences of its execution.
 
