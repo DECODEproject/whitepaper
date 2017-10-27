@@ -83,7 +83,7 @@ A distributed store could take advantage of the existing P2P network of DECODE v
 
 **IOT Data streams** IOT data represents a special case of data in that it is likely to involve larger volumes of time series data. DECODE will continue to explore this space as it moves into implementation. A key question will be how to leverage existing IOT data stores / aggregators such as the [AWS IOT](https://aws.amazon.com/iot/). Following our principle of "Reuse don't Re-Invent", one option is to provide tools that allow decode to be integrated as an entitlements and access control mechanism over such existing aggregators and data stores. A more involved option is for DECODE to provide a custom store (based on open source stack such as [Cassandra](http://cassandra.apache.org/) or [Elastic Search](https://www.elastic.co/products/elasticsearch). Elastic search for example already provides a mechanism for [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/shield/current/configuring-rbac.html) which may provide a starting point.
 
-The theme of data storage will continue to evolve and this whitepaper will be updated accordingly in subsequent versions.
+The theme of data storage will continue to evolve and will be published via the whitepaper.
  
 
 
@@ -203,13 +203,13 @@ As part of the mission of DECODE, we present a distributed ledger implementation
 
 In summary, chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
 
-**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the white paper for more details.
+**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the [chainspace whitepaperREF!](space) for more details.
 
 ### Alternatives
 
 The architecture of DECODE, following the guiding principles of being modular and reusing code, is not restricted to the implementation of Chainspace to provide the underlying ledger capability. It is possible for example that with the cryptographic advances in Solidity already mentioned, that it would be possible to build DECODE using any ledger system that also incorporated the solidity vm, either Ethereum itself or for example the hyperledger [Burrow project](https://github.com/hyperledger/burrow) from [Monax](https://monax.io/).
 
-As the project and this whitepaper evolves alternatives will be explored and tested as they may solve for different tradeoffs. 
+As the project evolves alternatives will be explored and tested as they may solve for different tradeoffs, these will be documented in the public whitepaper. 
 
 
 

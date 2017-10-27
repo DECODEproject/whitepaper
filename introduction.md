@@ -7,7 +7,7 @@ This document describes the design of the DECODE ([https://decodeproject.eu/](ht
 | EA-SNAPSHOT | (Targeted Oct 31 2017)    |
 
 
-The Whitepaper gives an overview of what DECODE is, why it is important and how it relates to the landscape of decentralised applications. It then reviews the conceptual foundations on which it is built and how they combine to achieve its purpose. It then describes at a high level the core components of the architecture and what role they play and finishes with illustrative examples of how it can be applied in the real world.
+This document gives an overview of what DECODE is, why it is important and how it relates to the landscape of decentralised applications. It then reviews the conceptual foundations on which it is built and how they combine to achieve its purpose. It then describes at a high level the core components of the architecture and what role they play and finishes with illustrative examples of how it can be applied in the real world.
 
 
 # Introduction to DECODE

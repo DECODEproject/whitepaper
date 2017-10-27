@@ -20,7 +20,7 @@ An important aspect of applications is that they should provide a high degree of
 DECODE will continue to explore and evolve the concepts around operators and their trust relationship with participants. Please refer to the [decode project website](https://decodeproject.eu/pilots) for the latest news on how DECODE is being applied and tested in the field.
 
 
-The range of applications for DECODE is wide. In order to bring together the concepts in this whitepaper and illustrate how they work together in a more concrete way, we consider here several applications as illustrative examples of the way in which the various DECODE components interact to provide a service. 
+The range of applications for DECODE is wide. In order to bring together the concepts presented here and illustrate how they work together in a more concrete way, we consider here several applications as illustrative examples of the way in which the various DECODE components interact to provide a service. 
 
 These are:
 
