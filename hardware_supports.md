@@ -25,7 +25,7 @@ A distributed store could take advantage of the existing P2P network of DECODE v
 
 **Ledger Transactions** will be stored in the ledger node system, dependant on the implementation of the ledger. Our privacy by design principles ensure that no *private* data will be stored on the ledger. It is possible that encrypted data could be stored on the ledger. 
 
-**IOT Data streams** IOT data represents a special case of data in that it is likely to involve larger volumes of time series data. DECODE will continue to explore this space as it moves into implementation. A key question will be how to leverage existing IOT data stores / aggregators such as the [AWS IOT](https://aws.amazon.com/iot/). Following our principle of "Reuse don't Re-Invent", one option is to provide tools that allow decode to be integrated as an entitlements and access control mechanism over such existing aggregators and data stores. A more involved option is for DECODE to provide a custom store (based on open source stack such as [Cassandra](http://cassandra.apache.org/) or [Elastic Search](https://www.elastic.co/products/elasticsearch). Elastic search for example already provides a mechanism for [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/shield/current/configuring-rbac.html) which may provide a starting point.
+**IOT Data streams** IOT data represents a special case of data in that it is likely to involve larger volumes of time series data. DECODE will continue to explore this space as it moves into implementation. A key question will be how to leverage existing IOT data stores / aggregators such as the [AWS IOT](https://aws.amazon.com/iot/). Following our principle of "Reuse don't Re-Invent", one option is to provide tools that allow decode to be integrated as an entitlements and access control mechanism over such existing aggregators and data stores. A more involved option is for DECODE to provide a custom store (based on open source stack such as [Cassandra](http://cassandra.apache.org/) or [Elastic Search](https://www.elastic.co/products/elasticsearch)). Elastic search for example already provides a mechanism for [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/shield/current/configuring-rbac.html) which may provide a starting point.
 
 The theme of data storage will continue to evolve and will be published via the whitepaper.
 
@@ -107,9 +107,9 @@ What we call "Smart Rules" in DECODE are a computable [@sober1978computability] 
 
 The open nature of the smart rules is extremely important when compared to the popularization of "sharing economies" that apply mostly unknown rules that are opaque to the participants and undemocratically adjusted by third parties who are not participating in the economy, but in most cases just profiting from it.
 
-The DECODE project plans the development of a language for "smart-rules" that is not conceived to stay behind the scenes, but to be understood and modified: this a different approach to data management rather than CRUD-type interaction, an approach that is also necessitated by the distributed and write once immutable nature of blockchain technologies.
+The DECODE project plans the development of a language for "smart rules" that is not conceived to stay behind the scenes, but to be understood and modified: this a different approach to data management rather than CRUD-type interaction, an approach that is also necessitated by the distributed and write once immutable nature of blockchain technologies.
 
-The underpinnings of the smart rules implementation are explained in depth in the forthcoming deliverable D3.3 "Data Privacy and Smart Language requirements, its  initial set of smart rules and related ontology".
+The underpinnings of the smart rules implementation are explained in-depth in the forthcoming deliverable D3.3 "Data Privacy and Smart Language requirements, its  initial set of smart rules and related ontology".
 
 ## Operating system architecture
 
@@ -117,13 +117,13 @@ The DECODE OS is the base operating system running all software designed, develo
 
 The primary goal of the DECODE OS can be explained in brief by defining it as a "controlled execution environment" where, from the making of its base to the execution of every single application, all steps are recorded on a ledger of events that can be saved, analysed and shipped along with every instance of the operating system. A secondary goal of this development is that of making the results of such a recorded sequence of operations reproducible.
 
-DECODE's implementation of a distributed computational system aims to be solid and fit for mission critical purposes by leveraging well established standard practices in the UNIX world. Contrary to the monolithic applications implementing blockchain functionalities in a single runtime environment running in application space, our implementation of a DECODE Node [@D1.1] is a controlled execution environment unit for Smart Rules grafted on the classic concept of a UNIX-like operating system, keeping POSIX.1b and SystemV compatibilty.
+DECODE's implementation of a distributed computational system aims to be solid and fit for mission critical purposes by leveraging well established standard practices in the UNIX world. Contrary to the monolithic applications implementing blockchain functionalities in a single runtime environment running in application space, our implementation of a DECODE Node [@D1.1] is a controlled execution environment unit for Smart Rules grafted on the classic concept of a UNIX-like operating system, keeping POSIX.1b and SystemV compatibility.
 
 The DECODE OS is explained in depth in the project deliverable "First Release of the DECODE OS" [@D4.4].
 
 ## Hardware Hubs
 
-We use the term "Hub" to refer to any underlying compute infrastructure that can execute either the wallet software or a validating node. In this sense a hub can be anyone of the following:
+We use the term "Hub" to refer to any underlying compute infrastructure that can execute either the wallet software or a validating node. In this sense a hub can be any one of the following:
 
 - Physical server or PC
 - A virtual machine in a public or private cloud infrastructure (e.g. AWS, Google Cloud, Azure)
@@ -131,13 +131,13 @@ We use the term "Hub" to refer to any underlying compute infrastructure that can
 - A smart card running limited cryptographic code
 - A mobile device such as a phone or tablet
 
-This section provides a high level description of the requirements that such hardware will require, and a section specifically around the use of hardware for improving security.
+This section provides a high level description of the requirements of the hardware, and a section specifically around the use of hardware for improving security.
 
-In general, the DECODE platform is under more control by the participant the more that the participant has control over the full stack execution environment. Ultimately this is down to the hardware level and DECODE aims to provide details of how a participant or an operator can operate DECODE nodes that are entirely open source and auditable.
+In general, a participant who has more control over the full stack execution environment also has more control over the DECODE platform. Ultimately this is down to the hardware level and DECODE aims to provide details of how a participant or an operator can operate DECODE nodes that are entirely open source and auditable.
 
 DECODE will support and explore a wide range of hardware software configurations, following the principle of being open and modular. This will allow participants to customise the level of security and control they adopt. There is a tradeoff between investment on the part of the participant to purchase and configure hardware devices vs the extra level of control and reduce need for trust of a third party. 
 
-A key principal is that DECODE should not *mandate* the use of custom hardware by participants, in order to allow for greater adoption. It remains to be seen if participants "vote with their feet" and choose hardware devices, once DECODE is operational.
+A key principle is that DECODE should not *mandate* the use of custom hardware by participants, in order to allow for greater adoption. It remains to be seen if participants "vote with their feet" and choose hardware devices, once DECODE is operational.
 
 ### Requirements
 
@@ -152,7 +152,7 @@ We list five key requirements of the hardware hubs here:
 
 #### Ability to run DECODE OS
 
-The processor of the HUB must be able to run the DECODE OS. The DECODE OS is based on Devuan and which developed by Dyne, who published the first release on April 2017. To assure compatibility of a specific processor, it must be made a target of the DECODE OS SDK. The DECODE OS SDK is modelled after the Devuan SDK and supports all its architecture targets. 
+The processor of the HUB must be able to run the DECODE OS. To assure compatibility of a specific processor, it must be made a target of the DECODE OS SDK [@D4.1]. The DECODE OS SDK is modelled after the Devuan SDK and supports all its architecture targets. 
 
 Additionally the following capabilities are required:
 
@@ -163,7 +163,7 @@ Additionally the following capabilities are required:
     - execution of smart rules language
 - Local storage in the initial phases at least enough to store attributes
 
-The exact requirements of these will be determined as the project moves forwards and published. Different configurations will have different requirements - for example there will be significantly more minimum cmpute power required for a validating node than just running a single wallet, which is should be possible to run on a mobile device.
+The exact requirements of these will be determined as the project moves forward. Different configurations will have different requirements - for example there will be significantly more minimum compute power required for a validating node than just running a single wallet, which is should be possible to run on a mobile device.
 
 #### Transparency 
 One of the goals of the DECODE platform is to create a level playing field that enables developers from all backgrounds to contribute to society by implementing innovative applications and opening up new economical, technological and social values based on the new infrastructure that DECODE will provide. To facilitate the participation of these developers, all the elements of the DECODE architecture should be open source. For that reason any device specifically designed to operate as a DECODE HUB should be open source and compliant with the Open Source Hardware Association (OSHWA). Schematics, design files and documentation should be available for designers to build upon. DECODE will encourage hardware designers to join their efforts in creating a more secure and open hardware.  

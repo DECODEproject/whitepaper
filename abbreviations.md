@@ -1,4 +1,9 @@
 # Abbreviations
+
+2FA - 2 Factor Authentication
+
+3FA - 3 Factor Authentication
+
 ABC - Attribute Based Cryptography
 
 ABE - Attribute Based Encryption
@@ -68,6 +73,8 @@ SNARK - Succinct Non-interactive ARgument of Knowledge
 SSO - Single Sign On
 
 URN - Uniform Resource Name
+
+U2F - Universal 2nd Factor
 
 XML - Extensible Markup Language
 
