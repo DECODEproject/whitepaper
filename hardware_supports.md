@@ -1,4 +1,4 @@
-# The DECODE network
+# DECODE Architecture
 
 
 DECODE is at the core a distributed P2P network of "nodes" that together provide data privacy and integrity services to application developers.
@@ -7,6 +7,27 @@ The overall architecture is similar to other distributed ledgers and we have fol
 
 ![Decode Network Architecture](img/decode-network-architecture.png "Decode Network Architecture")
 
+## Data Storage
+
+There are three significant *types* of data which are stored within the DECODE system:
+
+1. Attributes
+2. Ledger Transactions
+3. IOT Data streams
+
+**Attributes** are stored in the **Attribute Store**. In the simplest case the implementation is to store in encrypted form locally to the wallet. This will be the starting point for the implementation of DECODE. It is however possible that a **distributed storage** mechanism could be provided using a P2P protocol such as [IPFS](https://ipfs.io/). This capability would be exposed via the attribute store interface. The advantage of a distributed store are:
+
+- Resilience / backup
+- Access same data on multiple devices
+- Wallet itself need not have storage capabilities (can act purely as a crypto engine / key manager)
+
+A distributed store could take advantage of the existing P2P network of DECODE validating nodes or be formed of a separate network, either an existing network or one that is formed by DECODE participants.
+
+**Ledger Transactions** will be stored in the ledger node system, dependant on the implementation of the ledger. Our privacy by design principles ensure that no *private* data will be stored on the ledger. It is possible that encrypted data could be stored on the ledger. 
+
+**IOT Data streams** IOT data represents a special case of data in that it is likely to involve larger volumes of time series data. DECODE will continue to explore this space as it moves into implementation. A key question will be how to leverage existing IOT data stores / aggregators such as the [AWS IOT](https://aws.amazon.com/iot/). Following our principle of "Reuse don't Re-Invent", one option is to provide tools that allow decode to be integrated as an entitlements and access control mechanism over such existing aggregators and data stores. A more involved option is for DECODE to provide a custom store (based on open source stack such as [Cassandra](http://cassandra.apache.org/) or [Elastic Search](https://www.elastic.co/products/elasticsearch). Elastic search for example already provides a mechanism for [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/shield/current/configuring-rbac.html) which may provide a starting point.
+
+The theme of data storage will continue to evolve and will be published via the whitepaper.
 
 
 ## Validating Nodes
@@ -62,30 +83,43 @@ To maintain the core values of DECODE however, a constraint of this scenario is 
 There is a tradeoff with this scenario in that while it allows for lower barrier to adoption, it also diminishes the true value of DECODE as a decentralised system. In this scenario, the trust relationship has not been decentralised, i.e. the participant is still trusting the operator as an organisation with all their data.
 
 ![Decode Overview](img/decode-overview.png "Decode Overview")
-
-## Data Storage
-
-There are three significant *types* of data which are stored within the DECODE system:
-
-1. Attributes
-2. Ledger Transactions
-3. IOT Data streams
-
-**Attributes** are stored in the **Attribute Store**. In the simplest case the implementation is to store in encrypted form locally to the wallet. This will be the starting point for the implementation of DECODE. It is however possible that a **distributed storage** mechanism could be provided using a P2P protocol such as [IPFS](https://ipfs.io/). This capability would be exposed via the attribute store interface. The advantage of a distributed store are:
-
-- Resilience / backup
-- Access same data on multiple devices
-- Wallet itself need not have storage capabilities (can act purely as a crypto engine / key manager)
-
-A distributed store could take advantage of the existing P2P network of DECODE validating nodes or be formed of a separate network, either an existing network or one that is formed by DECODE participants.
-
-**Ledger Transactions** will be stored in the ledger node system, dependant on the implementation of the ledger. Our privacy by design principles ensure that no *private* data will be stored on the ledger. It is possible that encrypted data could be stored on the ledger. 
-
-**IOT Data streams** IOT data represents a special case of data in that it is likely to involve larger volumes of time series data. DECODE will continue to explore this space as it moves into implementation. A key question will be how to leverage existing IOT data stores / aggregators such as the [AWS IOT](https://aws.amazon.com/iot/). Following our principle of "Reuse don't Re-Invent", one option is to provide tools that allow decode to be integrated as an entitlements and access control mechanism over such existing aggregators and data stores. A more involved option is for DECODE to provide a custom store (based on open source stack such as [Cassandra](http://cassandra.apache.org/) or [Elastic Search](https://www.elastic.co/products/elasticsearch). Elastic search for example already provides a mechanism for [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/shield/current/configuring-rbac.html) which may provide a starting point.
-
-The theme of data storage will continue to evolve and will be published via the whitepaper.
  
 
+## The Ledger Implementation 
+
+### Chainspace 
+
+As part of the mission of DECODE, we present a distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found at [REF!-CHAINSPACE PAPER](...).
+
+In summary, chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
+
+**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the [chainspace whitepaperREF!](space) for more details.
+
+### Alternatives
+
+The architecture of DECODE, following the guiding principles of being modular and reusing code, is not restricted to the implementation of Chainspace to provide the underlying ledger capability. It is possible for example that with the cryptographic advances in Solidity already mentioned, that it would be possible to build DECODE using any ledger system that also incorporated the solidity vm, either Ethereum itself or for example the hyperledger [Burrow project](https://github.com/hyperledger/burrow) from [Monax](https://monax.io/).
+
+As the project evolves alternatives will be explored and tested as they may solve for different tradeoffs, these will be documented in the public whitepaper. 
+
+## Smart rules Engine
+
+What we call "Smart Rules" in DECODE are a computable [@sober1978computability] sociolect [@louwerse2004semantic] that can be parsed into a semantic model referred to a finite ontology and executed by a distributed computing cluster. It is of central importance to grant participants the access to such a language and clear understanding of what it expresses and of the consequences of its execution.
+
+The open nature of the smart rules is extremely important when compared to the popularization of "sharing economies" that apply mostly unknown rules that are opaque to the participants and undemocratically adjusted by third parties who are not participating in the economy, but in most cases just profiting from it.
+
+The DECODE project plans the development of a language for "smart-rules" that is not conceived to stay behind the scenes, but to be understood and modified: this a different approach to data management rather than CRUD-type interaction, an approach that is also necessitated by the distributed and write once immutable nature of blockchain technologies.
+
+The underpinnings of the smart rules implementation are explained in depth in the forthcoming deliverable D3.3 "Data Privacy and Smart Language requirements, its  initial set of smart rules and related ontology".
+
+## Operating system architecture
+
+The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project. This operating system is based on the renown Devuan GNU+Linux distribution, a fork of the now 20 years old Debian distribution, maintained by the Dyne.org foundation and an open community of volunteers. Devuan forked Debian to preserve the simplicity and minimalism of the SystemV tradition in UNIX systems, still running modern software applications and inheriting the security patches from Debian.
+
+The primary goal of the DECODE OS can be explained in brief by defining it as a "controlled execution environment" where, from the making of its base to the execution of every single application, all steps are recorded on a ledger of events that can be saved, analysed and shipped along with every instance of the operating system. A secondary goal of this development is that of making the results of such a recorded sequence of operations reproducible.
+
+DECODE's implementation of a distributed computational system aims to be solid and fit for mission critical purposes by leveraging well established standard practices in the UNIX world. Contrary to the monolithic applications implementing blockchain functionalities in a single runtime environment running in application space, our implementation of a "DECODE NODE" (see D1.1) is a controlled execution environment unit for Smart Rules grafted on the classic concept of a UNIX-like operating system, keeping POSIX.1b and SystemV compatibilty.
+
+The DECODE OS is explained in depth in the deliverable D4.4 "First Release of the DECODE OS".
 
 ## Hardware Hubs
 
@@ -204,43 +238,6 @@ Integrating with the plethora of IOT devices on the market is a non-trivial prob
 **Semantic Understanding** Once data is normalised it is important to understand the meaning of the data. To add this understanding you could use an ontology such as the M3-Lite (http://ontology.fiesta-iot.eu/ontologyDocs/m3-lite.owl#).
 
 An example of a tool that provides this approach is the device-hub software offered by thingful. The tool is available at [https://github.com/thingful/device-hub](https://github.com/thingful/device-hub)
-
-## The Ledger Implementation 
-
-### Chainspace 
-
-As part of the mission of DECODE, we present a distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found at [REF!-CHAINSPACE PAPER](...).
-
-In summary, chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
-
-**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the [chainspace whitepaperREF!](space) for more details.
-
-### Alternatives
-
-The architecture of DECODE, following the guiding principles of being modular and reusing code, is not restricted to the implementation of Chainspace to provide the underlying ledger capability. It is possible for example that with the cryptographic advances in Solidity already mentioned, that it would be possible to build DECODE using any ledger system that also incorporated the solidity vm, either Ethereum itself or for example the hyperledger [Burrow project](https://github.com/hyperledger/burrow) from [Monax](https://monax.io/).
-
-As the project evolves alternatives will be explored and tested as they may solve for different tradeoffs, these will be documented in the public whitepaper. 
-
-## Smart rules Engine
-
-What we call "Smart Rules" in DECODE are a computable [@sober1978computability] sociolect [@louwerse2004semantic] that can be parsed into a semantic model referred to a finite ontology and executed by a distributed computing cluster. It is of central importance to grant participants the access to such a language and clear understanding of what it expresses and of the consequences of its execution.
-
-The open nature of the smart rules is extremely important when compared to the popularization of "sharing economies" that apply mostly unknown rules that are opaque to the participants and undemocratically adjusted by third parties who are not participating in the economy, but in most cases just profiting from it.
-
-The DECODE project plans the development of a language for "smart-rules" that is not conceived to stay behind the scenes, but to be understood and modified: this a different approach to data management rather than CRUD-type interaction, an approach that is also necessitated by the distributed and write once immutable nature of blockchain technologies.
-
-The underpinnings of the smart rules implementation are explained in depth in the forthcoming deliverable D3.3 "Data Privacy and Smart Language requirements, its  initial set of smart rules and related ontology".
-
-## Operating system architecture
-
-The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project. This operating system is based on the renown Devuan GNU+Linux distribution, a fork of the now 20 years old Debian distribution, maintained by the Dyne.org foundation and an open community of volunteers. Devuan forked Debian to preserve the simplicity and minimalism of the SystemV tradition in UNIX systems, still running modern software applications and inheriting the security patches from Debian.
-
-The primary goal of the DECODE OS can be explained in brief by defining it as a "controlled execution environment" where, from the making of its base to the execution of every single application, all steps are recorded on a ledger of events that can be saved, analysed and shipped along with every instance of the operating system. A secondary goal of this development is that of making the results of such a recorded sequence of operations reproducible.
-
-DECODE's implementation of a distributed computational system aims to be solid and fit for mission critical purposes by leveraging well established standard practices in the UNIX world. Contrary to the monolithic applications implementing blockchain functionalities in a single runtime environment running in application space, our implementation of a "DECODE NODE" (see D1.1) is a controlled execution environment unit for Smart Rules grafted on the classic concept of a UNIX-like operating system, keeping POSIX.1b and SystemV compatibilty.
-
-The DECODE OS is explained in depth in the deliverable D4.4 "First Release of the DECODE OS".
-
 
 
 
