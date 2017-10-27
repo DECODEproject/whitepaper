@@ -6,22 +6,5 @@ The open nature of the smart rules is extremely important when compared to the p
 
 The DECODE project plans the development of a language for "smart-rules" that is not conceived to stay behind the scenes, but to be understood and modified: this a different approach to data management rather than CRUD-type interaction, an approach that is also necessitated by the distributed and write once immutable nature of blockchain technologies.
 
-DECODE's "smart rules" language is conceived as a trust framework which is both usable (can be executed) and expressive (can be understood) to encode smart rules and contracts relating to the governance of personal and other data in the DECODE architecture. The possibility to understand and not only to execute a language is of paramount importance to allow algorithmic sovereignty [@Roio2017AlgoSov]. Algorithms are law  [@lessig1999code] in their own specific domain and just as law they must be subject to reviews, critiques and transformations according to societal needs and techno-political negotiations.
-
-The objective is to achieve compliance with privacy regulations and digital right by converging them in a usable and expressive integrated approach (crossing the domains of social, legal, economic and technical modeling) formalised by smart rules that represent social contracts and entitlements. The design of the smart rules language should promote clarity and avoid ambiguities. The rules should ensure the respect of the decisions of the data owner (for example, citizens, or the city administration or an organisation processing data) as well regulations and legal obligations on application providers.
-
-The data management and policy enforcement according to rules is defined by the user interacting directly with rules or with a facilitate abstraction of them, graphically representing their flow, facilitating progressive level of understanding by all participants.
-
-## Language requirements
-## Usability and perception
-
-- User interface and visual languages
-
-## Deterministic and proovable computation
-
-
-- a language to express rules
-- Ricardian contracts?
-
-
+The underpinnings of the smart rules implementation are explained in depth in the forthcoming deliverable D3.3 "Data Privacy and Smart Language requirements, its  initial set of smart rules and related ontology".
 
