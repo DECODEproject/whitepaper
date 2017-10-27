@@ -4,13 +4,17 @@
 An account is the software construct within decode that provides control of attributes and represents either the Participant, Operator or Attribute verifier in any decode transaction. The account will ultimately relate to some cryptographic construct such as private / public key pair. Attributes will be related to and controlled by an account. An account will be able to submit transactions to the ledger.
 
 #### Attribute
-All data which is in DECODE is attributes. Conversation about whether all data relates to "Attributes about a participant" - simple answer is "yes" - could be an interesting discussion about. All attributes have the potential to demonstrate Provenance.
+All data which is in DECODE are attributes. All attributes have the potential to demonstrate Provenance.
+
+<!--
+Conversation about whether all data relates to. "Attributes about a participant" - simple answer is "yes" - could be an interesting discussion about. 
+-->
 
 #### Attribute provenance
 Meta-data related to an attribute that relates it to an ontology. All attributes must specify a link to an ontology. We may also consider optionally adding other meta-data to attributes that for example describes the source of the attribute data.
 
 #### Attribute Provenance Verification
-A cryptographic demonstration of the validity / (assurance?) of the provenance of an attribute. A key property of provenance is that it should be possible to demonstrate provenance without revealing any connection back to the decode account and hence all the other attributes related to it, thus preserving privacy of the participant. The assumed mechanism for this is via some implementation of Zero Knowledge Proofs. All provenance verification must be cryptographically relatable back to an account within DECODE.
+A cryptographic demonstration of the validity of the provenance of an attribute. A key property of provenance is that it should be possible to demonstrate provenance without revealing any connection back to the decode account and hence all the other attributes related to it, thus preserving privacy of the participant. The assumed mechanism for this is via some implementation of Zero Knowledge Proofs. All provenance verification must be cryptographically relatable back to an account within DECODE.
 
 #### Attribute vault
 Process running in the DECODE OS. Allows to control access to the attribute data.
@@ -28,16 +32,16 @@ A type of distributed ledger that records transactions in a sequence of "blocks"
 Organisation or individual who is responsible for the build, deployment and operation of an application. Operators may also own and control attributes via an account within decode. Operators may also create new attributes that are then associated with participants. The minimum requirements of eligibility for an operator to deploy an application to the decode platform require further discussion as the platform evolves. Taking into account a general desire for greater transparency to the participant of the organisations with whom they are interacting and sharing data.
 
 #### DECODE Architecture
-The internal architecture of DECODE, node anatomy, communications between nodes, components that are used to build DECODE
+The internal architecture of DECODE, node anatomy, communications between nodes, components that are used to build DECODE.
 
-####DECODE Ecosystem
-The environment in which DECODE operates, involving other systems, pilots, organisations, open source communities. We can consider various specific ecosystems for example the "Sharing economy" ecosystem which may have different characteristics
+#### DECODE Ecosystem
+The environment in which DECODE operates, involving other systems, pilots, organisations, open source communities. We can consider various specific ecosystems for example the "Sharing economy" ecosystem which may have different characteristics.
 
-####DECODE Platform
-Software with a high degree of privacy by design that provides the core functionality of DECODE. For example, DECODE OS, Distributed Ledger, device metadata. [@D4.2][@D1.1]
+#### DECODE Platform
+Software with a high degree of privacy by design that provides the core functionality of DECODE. For example, DECODE OS, Distributed Ledger, device metadata. [@D4.2] [@D1.1]
 
 #### DECODE Application
-A DECODE application is a domain specific software application which will leverage the DECODE platform. Some part of this application may be a website and it is anticipated that some element of the application will involve definition and deployment of Smart Rules, Persona definitions and Ontology meta data.
+A DECODE application is a domain specific software application which will leverage the DECODE platform. Some part of this application may be a website and it is anticipated that some element of the application will involve definition and deployment of Smart Rules, Profile definitions and Ontology meta data.
 
 
 #### DECODE SDK
@@ -54,7 +58,7 @@ The DECODE HUB is the hardware component of the DECODE architecture. The HUB is 
 The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project [@D4.4]. The DECODE OS is a blend of Devuan OS, with DECODE specific packages included within it.
 
 #### DECODE Core
-The DECODE Core is a process that acts as a co-ordinator for different components of DECODE (Application Smart Rule engines, IOT Connector, Attribute Vault, Ledger Connector).Note: this may need refining as it's still under discussion.
+The DECODE Core is a process that acts as a co-ordinator for different components of DECODE (Application Smart Rule engines, IOT Connector, Attribute Vault, Ledger Connector).
 
 #### Distributed Ledger
 A consensus of replicated, shared, and synchronized digital data geographically spread across multiple sites, countries, or institutions. There is no central administrator or centralised data storage.
@@ -63,19 +67,19 @@ A consensus of replicated, shared, and synchronized digital data geographically 
 It describe which Participant's attribute can view or have access to another attribute.
 
 #### IOT Connector
-Previous Term: Device HubDevice HubMaps IoT data coming from external sensor devices to an ontology known to DECODE.
+Previous Term: Device Hub. Maps IoT data coming from external sensor devices to an ontology known to DECODE.
 
 #### Ledger Connector
 Allows the processes part of DECODE Core to interface with the Distributed Ledger.
 
 #### Ledger Node
-This term is derived from the Bitcoin concept of a node. Bitcoin is a widely known cryptocurrency based on blockchain that organizes nodes in a peer-to-peer (p2p) network; any node can join and become part of the network. If a node receives new information, it broadcasts it to rest of the network. While all nodes listen to and broadcast information, only special nodes can append information to the blockchain. [@D3.1]
+This term is derived from the Bitcoin concept of a node. Bitcoin is a widely known cryptocurrency based on blockchain that organizes nodes in a peer-to-peer (P2P) network; any node can join and become part of the network. If a node receives new information, it broadcasts it to rest of the network. While all nodes listen to and broadcast information, only special nodes can append information to the blockchain. [@D3.1]
 
 #### Metadata service
-The metadata service is responsible for maintaining an index of discoverable data and their locations, displaying any data that is accessible, allow a user to make an entitlement request to access data that is not yet accessible.  (Ref: D3.2 Data access and Transaction Module)
+The metadata service is responsible for maintaining an index of discoverable data and their locations, displaying any data that is accessible, allow a user to make an entitlement request to access data that is not yet accessible.  [@D3.2]
 
 #### Node Host
-This refers to an (online) service provider hosting nodes on behalf of participants.Note: this may need refining as it's still under discussion.
+This refers to an (online) service provider hosting nodes on behalf of participants.
 
 #### Ontology
 In computer science and information science, an ontology is a formal naming and definition of the types, properties, and interrelationships of the entities that really or fundamentally exist for a particular domain of discourse. It is thus a practical application of philosophical ontology, with a taxonomy. Specifically in information science terminology, an ontology is a referenceable "schema" which describes the attribute. As raised, we need to be careful this does not become too restrictive. There is a wider discussion around this from the device hub work. While all attributes require a definition, registering changes to ontologies is an open process. Some governance / structure will be needed (to be discussed later). We will also need to consider evolution of ontologies over time.
@@ -84,7 +88,7 @@ In computer science and information science, an ontology is a formal naming and 
 An individual who digitally participates in the DECODE ecosystem. Participation occurs by interacting with an application. participants own and control attributes via their account.
 
 #### Profile
-Relates to the set of attributes which are required application to run. There are as many profiles as there are Applications. It is application specific as to whether the attributes need to be verified. We need to discuss further the relationship between entitlements and personas, also the user journey when a participant connects to an app for the first time (i.e. some exchange where the app requests entitlement to attributes). Persona may also declare attributes that it will generate and then be associated with an account, for example browsing behaviour, favorites, reccommendations.
+Relates to the set of attributes which are required application to run. There are as many profiles as there are Applications. It is application specific as to whether the attributes need to be verified. A Profile may also declare attributes that it will generate and then be associated with an account, for example browsing behaviour, favorites, reccommendations.
 
 
 #### Smart Contract
