@@ -1,6 +1,13 @@
 # DUMP
 #
 
+The document will evolve over time and will be published regularly as a versioned series.
+
+| Version                        | Date Published            |
+| ------------------------------ | ------------------------- |
+| EA-SNAPSHOT | (Targeted Oct 31 2017)    |
+
+
 
 Don't think we should include this part until we are closer to implementation but the structure in (loosely) BNF (https://tools.ietf.org/html/rfc4234, https://www.w3.org/Notation.html)  for attributes is as follows:
 

@@ -1,11 +1,6 @@
 # Outline
 
-This document describes the design of the DECODE ([https://decodeproject.eu/](https://decodeproject.eu/)) architecture. The document will evolve over time and will be published regularly as a versioned series.
-
-| Version                        | Date Published            |
-| ------------------------------ | ------------------------- |
-| EA-SNAPSHOT | (Targeted Oct 31 2017)    |
-
+This document describes the design of the DECODE ([https://decodeproject.eu/](https://decodeproject.eu/)) architecture. 
 
 It provides an overview of what DECODE is, why it is important and how it relates to the landscape of decentralised applications. It reviews the conceptual foundations on which it is built and how they combine to achieve its purpose. It describes at a high level the core components of the architecture and what role they play and finishes with illustrative examples of how it can be applied in the real world.
 
