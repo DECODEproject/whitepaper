@@ -7,7 +7,7 @@ DECODE is built upon several foundations:
 - Decentralisation of trust
 - A distributed ledger
 - Zero knowledge proofs
-- Attribute based cryptography
+- Attribute Based Cryptography
 - Cryptographically verifiable entitlements
 - A "Smart Rules" language to express governance of participants data
 - A highly verifiable and controlled execution environment
