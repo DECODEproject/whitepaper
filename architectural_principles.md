@@ -52,21 +52,23 @@ In what follows we use the legal interpretation of processing, which includes cr
 
 The eight PbD principles proposed for DECODE are:
 
-@. _Minimise_: Limit the processing of personal data as much as possible.
+(#) _Minimise_: Limit the processing of personal data as much as possible.
 
-@. _Separate_: Prevent correlation of personal data by separating the processing logically or physically.
+(#) _Separate_: Prevent correlation of personal data by separating the processing logically or physically.
 
-@. _Abstract_: Limit as much as possible the amount of detail of personal data being processed.
+(#) _Abstract_: Limit as much as possible the amount of detail of personal data being processed.
 
-@. _Hide_: protect personal data, or make them unlinkable or unobservable. Prevent personal data becoming public. Prevent exposure of personal data by restricting access, or hiding its very existence.
+(#) _Hide_: protect personal data, or make them unlinkable or unobservable. Prevent personal data becoming public. Prevent exposure of personal data by restricting access, or hiding its very existence.
 
-@. _Inform_: provide data subjects with adequate information about which personal data is processed, how it is processed, and for what purpose.
+(#) _Inform_: provide data subjects with adequate information about which personal data is processed, how it is processed, and for what purpose.
 
-@. _Control_: provide data subjects mechanisms to control the processing of their personal data.
+(#) _Control_: provide data subjects mechanisms to control the processing of their personal data.
 
-@. _Enforce_: commit to a privacy friendly way of processing personal data, and enforce this.
+(#) _Enforce_: commit to a privacy friendly way of processing personal data, and enforce this.
 
-@. _Demonstrate_: provide evidence that you process personal data in a privacy friendly way.
+(#) _Demonstrate_: provide evidence that you process personal data in a privacy friendly way.
+
+<!-- end of list -->
 
 
 ## User friendliness

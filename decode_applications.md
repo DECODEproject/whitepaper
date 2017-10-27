@@ -25,7 +25,7 @@ The range of applications for DECODE is wide. In order to bring together the con
 These are:
 
 - Participatory Democracy
-- Participatory Citizen Sensing (IOT)
+- Participatory Citizen Sensing (IoT)
 - Peer to peer verification of credentials
 - Digital commons and Open data
 
@@ -39,13 +39,15 @@ It is important to note that actual Legal voting is somewhat beyond the scope of
 
 There are several important invariants for this system:
 
-- It should not be possible for any entity to be able to connect the real world identity of a signatory of the petition to their signature
-- Any entity should be able to cryptographically verify the results of the petition (how many signatories there were)
-- It should not be possible for a participant to sign the petition twice, or should be possible to identify that two signatures are from the same account 
-- A signatory must demonstrate cryptographic evidence that they are a legal resident of the city
-- It must be possible for a signatory to withdraw their support
-- It should be possible to gather demographic information (e.g. Age group) about the signatories in a privacy preserving manner and only with their consent and awareness 
-- The petition mechanism should be decentralised to avoid interference or subversion by any single entity
+(#) It should not be possible for any entity to be able to connect the real world identity of a signatory of the petition to their signature
+(#) Any entity should be able to cryptographically verify the results of the petition (how many signatories there were)
+(#) It should not be possible for a participant to sign the petition twice, or should be possible to identify that two signatures are from the same account 
+(#) A signatory must demonstrate cryptographic evidence that they are a legal resident of the city
+(#) It must be possible for a signatory to withdraw their support
+(#) It should be possible to gather demographic information (e.g. Age group) about the signatories in a privacy preserving manner and only with their consent and awareness 
+(#) The petition mechanism should be decentralised to avoid interference or subversion by any single entity
+
+<!-- end of list -->
 
 The foundation for implementing this scenario in DECODE is that of Attribute Based Credentials (ABC). As we have described previously, this mechanism allows that a participant can obtain a credential issued by the city authority and cryptographically linked to the participants private key, but *without the participant being required to share their private key with the council*. This means that whilst the citizen must engage with the authority in an exchange in order to obtain the credential, the council has no contact with the *account* of the participant and so cannot later link the real world identity to the signature satisfying (1).
 
@@ -67,7 +69,7 @@ By employing the combination of ABC, a privacy preserving ledger (does not conta
 
 Signing petitions or voting is not limited to participatory democracy. It is in fact a very common activity amongst any group and will have wide-ranging utility to community movements and organisations. For example UNICEF have successfully developed a community project called [Ureport](https://ureport.in/) which does exactly this and enables communities to have a voice.
 
-## Example - Participatory Citizen Sensing (IOT Entitlements)
+## Example - Participatory Citizen Sensing (IoT Entitlements)
 
 Noise pollution is an issue for a number of citizens living in particularly noisy areas, such as, large public squares where activities take place. In these areas there is higher than average participation in citizens setting up IoT devices that measure noise. In this example, an involved citizen is interested in the correlation between health data (sleep patterns) and the levels of noise pollution in the area.
 
@@ -84,7 +86,7 @@ Several cities include IoT devices that measure pollution levels (including nois
 
 Individual citizens regularly measure and gather data from wearable devices such as activity, sleep, blood pressure, and heart rate etc. Terrabytes of IoT data from personal wearable devices currently live in closed data silos which are not amenable to contributing to a Digital Commons dataset. Combining both private and public data in this context, can lead to new insights about citizens habits and correlations. DECODE provides a privacy aware solution to establishing this union of data sets, giving people the ability to control the visibility of their personal data.
 
-Using DECODE to implement this scenario will use DECODE as a smart rule based data entitlements engine for IoT data streams. Within DECODE, a complete and normalised ontology for the IoT data will be provided by the IoT connector. This maps all data coming from external sensor devices to an ontology known to DECODE. With privacy in mind, a user's preferences on data sharing policies are captured and translated to a smart rule language. 
+In this example, DECODE will be used as a smart rule based data entitlements engine for IoT data streams. Within DECODE, a complete and normalised ontology for the IoT data will be provided by the IoT connector. This maps all data coming from external sensor devices to an ontology known to DECODE. With privacy in mind, a user's preferences on data sharing policies are captured and translated to a smart rule language. 
 
 The smart rules enable setting data entitlements below (as a prototype)
 
@@ -103,7 +105,7 @@ Based on the user's preferences and the ontology of the IoT data being processed
 - Transactional data on the ownership of the data
 - Device registry (a registry of devices that are known to DECODE and interact with the system)
 
-Within DECODE, this continues to be a topic of research and evolution. IoT data is currently both fragmented and siloed, with the application of user interfaces that easily and transperantly allow users to add/remove/change entitlements on their IoT data, DECODE will enable IoT data to be used to share IoT data in  privacy preserving way.
+Within DECODE, this continues to be a topic of research and evolution. IoT data is currently both fragmented and siloed, with the application of user interfaces that easily and transparently allow users to add/remove/change entitlements on their IoT data, DECODE will enable IoT data to be used to share IoT data in  privacy preserving way.
 
 ```
 Priya: Jim, I'm not sure if we discussed the relevance of ABC in this pilot/example/scenario.
@@ -112,13 +114,13 @@ Options for securing access (including just securing access to the stream via AB
 
 ## Example - Peer to peer identity and reputation verification
 
-There has been rapid growth in the sharing economy in the last decade. The presence of several large online platforms such as AirBnb and has enabled more people to engage in sharing resources available to them. A core driving factor in this fast growing economy is _trust_, and is one of the biggest concerns of using sharing economy platforms. 
+There has been rapid growth in the sharing economy in the last decade. The presence of several large online platforms such as Airbnb and has enabled more people to engage in sharing resources available to them. A core driving factor in this fast growing economy is _trust_, and is one of the biggest concerns of using sharing economy platforms. 
 
-Sharing economy companies are beginning to understand the importance of that trust. In a peer-to-peer marketplace, verifying user identity increases trust, and from there users begins to build their online reputations. Identity verification is currently implemented via thrid parties undertaking the process of conducting identity and background checks on the users of the platform. Concerns have been raised that the Verified ID model disrupts privacy. Criticism is also spread to the reliance on social networks, which opens up issues of surveillance, identity theft and fake identity use. This presents a use case for a peer to peer identity and reputation verification. In this example, DECODE is used as a decentralised platform that enables users to anonymously and securely verify the identity of other users in their community.
+Sharing economy companies are beginning to understand the importance of that trust. In a peer-to-peer marketplace, verifying user identity increases trust, and from there users begins to build their online reputations. Identity verification is currently implemented via third parties undertaking the process of conducting identity and background checks on the users of the platform. Concerns have been raised that the Verified ID model disrupts privacy. Criticism is also spread to the reliance on social networks, which opens up issues of surveillance, identity theft and fake identity use. This presents a use case for a peer to peer identity and reputation verification. In this example, DECODE is used as a decentralised platform that enables users to anonymously and securely verify the identity of other users in their community.
 
 The core implementation of P2P verification in DECODE relies on a group of people acting as a decentralised Issuer within the context of ABC. 
 
-* An unverfied user submits a 'claim' for an identity verification into the system, for example, this could be a claim that 'User X is a resident of block 10, nicholson street, Edinburgh'. 
+* An unverified user submits a 'claim' for an identity verification into the system, for example, this could be a claim that 'User X is a resident of block 10, Nicholson street, Edinburgh'. 
 * A smart contract is created for this claim, and this is submitted into DECODE.
 * Existing verified users (or nominated administrators) are notified of this claim, and they can anonymously verify the claim, based on their location or association with the claimant via other applications.
 * When a consensus is reached on the results of the claim contract, the transaction is deemed complete and the user making the claim is then promoted to a verified user.
@@ -126,15 +128,15 @@ The core implementation of P2P verification in DECODE relies on a group of peopl
 
 There is potential for using various DECODE enabled applications for the verification of separate identity attributes and reputation credentials. This moves away from using a centralised issuing party for credential checking, this provides users the privacy and control of their data. 
 
-This is an area of research both within DECODE and among the blockchain community. Findings from Indre (@Indre) particularly in the area of accommodation sharing have shown that relying only on software based solutions is not enough. There was a strong demand for community based design decisions, such as approaching networks of friends or neighborhoods for identity and reputation verification.
+This is an area of research both within DECODE and among the blockchain community. Findings in 'Designing To Facilitate Genuine Accommodation Sharing: Identity and Reputation Verification' [@Indre] particularly in the area of accommodation sharing have shown that relying only on software based solutions is not enough. There was a strong demand for community based design decisions, such as approaching networks of friends or neighborhoods for identity and reputation verification.
 
 ## Example - Digital commons and Open data
 
-The latests years have seen a rise of movements demanding transparency of data in general, and specially in the domain of public administrations. Citizens and companies are increasingly asking for datasets to be released in the form of Open Data, so they can be shared and reused. These datasets, however, usually provide a general broad picture but should be combined with other crowd-sourced pools of data and also with private data in order to fully leverage their potential.
+The latest years have seen a rise of movements demanding transparency of data in general, and specially in the domain of public administrations. Citizens and companies are increasingly asking for datasets to be released in the form of Open Data, so they can be shared and reused. These datasets, however, usually provide a general broad picture but should be combined with other crowd-sourced pools of data and also with private data in order to fully leverage their potential.
 
-DECODE in this sense can help, by providing a platform where an application to view public data and generate custom visualizations of it, in relation to each user's private information, can be developped. Also, it can help in providing a platform allowing a controlled crowd-sourcing of data, thus enabling the idea of Digital Commons to go beyond the simple concept of Open Data. The earlier examples of IoT entitlements or of a petition system that allows to disclose general information about the voters are two concrete examples of this.
+DECODE in this sense can help, by providing a platform where an application to view public data and generate custom visualizations of it, in relation to each user's private information, can be developed. Also, it can help in providing a platform allowing a controlled crowd-sourcing of data, thus enabling the idea of Digital Commons to go beyond the simple concept of Open Data. The earlier examples of IoT entitlements or of a petition system that allows to disclose general information about the voters are two concrete examples of this.
 
-A detailed example could be a dashboard that mixes public data sources as well as crowd-sources one. There, each user can generate visualizations that put their profiles in contrast with the general "public trends", thus obtaining unique information of their private information in a controlled way (which would be loaded on the client side). The configuration of each dashboard could be shared with peers so each person gets their own vision, and even the private data in it could also selectively be shared with the proper entitlements. Such an application would on the one hand effectively use a mix of public, private and crowd-sourced data for the common good, and on the other hand exemplify and induce the need to users to "donate" their data to generate Digital Commons that allow to tackle societal problems such as pollution, citizen concerns, etc...
+A detailed example could be a dashboard that mixes public data sources as well as crowd-sources one. There, each user can generate visualizations that put their profiles in contrast with the general "public trends", thus obtaining unique information of their private information in a controlled way (which would be loaded on the client side). The configuration of each dashboard could be shared with peers so each person gets their own vision, and even the private data in it could also selectively be shared with the proper entitlements. Such an application would on the one hand effectively use a mix of public, private and crowd-sourced data for the common good, and on the other hand exemplify and induce the need to users to "donate" their data to generate Digital Commons that allow to tackle societal problems such as pollution and other citizen concerns.
 
 ```
 (Ula) Tried to answer the questions:

@@ -6,4 +6,4 @@ We have demonstrated the core components of the architecture and the principles 
 
 The DECODE project is specifically target to applying the latest innovations in technology to the good of citizens and furthering a socially beneficial agenda as opposed to the centralisation and exploitation of individuals through their data that is rife in the modern world.
 
-The ongoing evolution of the architecture will be documented via a set of public whitepapers that will be published on the [DECODE website](https://decodeproject.eu/) and notifications will be made via twitter ([@decodeproject] (https://twitter.com/decodeproject)).
+The ongoing evolution of the architecture will be documented via a set of public whitepapers that will be published on the [DECODE website](https://decodeproject.eu/) and notifications will be made via twitter (https://twitter.com/decodeproject (https://twitter.com/decodeproject)).
