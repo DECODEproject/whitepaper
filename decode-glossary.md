@@ -1,13 +1,5 @@
 # DECODE Glossary
 
-##### IDENTITY
-
-##### DECODE IDENTITY (DCID)
-
-##### USER JOURNEY
-
-##### LEDGER HOST
-
 ##### Account
 An account is the software construct within decode that provides control of attributes and represents either the Participant, Operator or Attribute verifier in any decode transaction. The account will ultimately relate to some cryptographic construct such as private / public key pair. Attributes will be related to and controlled by an account. An account will be able to submit transactions to the ledger.
 
@@ -56,10 +48,10 @@ Controlled execution environment where the DECODE Hub runs. Decentralized transa
 [@D4.3]
 
 #### DECODE Hub
-The DECODE HUB is the hardware component of the DECODE architecture. The HUB is any device on which the DECODE OS is installed. It provides connectivity to IoT devices, connects to other DE- CODE nodes and supports the DECODE OS. As any other component of the DECODE architecture, the HUB needs to follow the values of openness, security, scalability, deployability and flexibility. [@D4.3]
+The DECODE HUB is the hardware component of the DECODE architecture. The HUB is any device on which the DECODE OS is installed. It provides connectivity to IoT devices, connects to other DECODE nodes and supports the DECODE OS. As any other component of the DECODE architecture, the HUB needs to follow the values of openness, security, scalability, deployability and flexibility. [@D4.3]
 
 #### DECODE OS
-The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project. [@D4.4]. The DECODE OS is a blend of Devuan OS, with DECODE specific packages included within it.
+The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project [@D4.4]. The DECODE OS is a blend of Devuan OS, with DECODE specific packages included within it.
 
 #### DECODE Core
 The DECODE Core is a process that acts as a co-ordinator for different components of DECODE (Application Smart Rule engines, IOT Connector, Attribute Vault, Ledger Connector).Note: this may need refining as it's still under discussion.

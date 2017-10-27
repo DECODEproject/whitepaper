@@ -1,10 +1,10 @@
+abbreviations.md
 
 introduction.md
 
 architectural_principles.md
 
 conceptual_framework.md
-
 
 hardware_supports.md
 

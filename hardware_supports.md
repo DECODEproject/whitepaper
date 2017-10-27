@@ -13,7 +13,7 @@ There are three significant *types* of data which are stored within the DECODE s
 
 1. Attributes
 2. Ledger Transactions
-3. IOT Data streams
+3. IoT Data streams
 
 **Attributes** are stored in the **Attribute Store**. In the simplest case the implementation is to store in encrypted form locally to the wallet. This will be the starting point for the implementation of DECODE. It is however possible that a **distributed storage** mechanism could be provided using a P2P protocol such as [IPFS](https://ipfs.io/). This capability would be exposed via the attribute store interface. The advantage of a distributed store are:
 
@@ -188,7 +188,7 @@ Anti-intrusion sensors can be incorporated into the electrical design to ensure 
 - **Side channel attacks protection:**
 Side channel attacks consist in attacks based on information gained from the physical implementation of a system, rather than brute force or weaknesses in the algorithms. For example, timing information, power consumption, electromagnetic leaks or even sound can	provide an extra source of information, which can be exploited to break the system. The first step to protect against this types of threats is the reduction of the electromagnetic and sound radiations. Other measures include random calculations and delays introduced between normal operations and try to balance the power consumption of different data values.
 - **Access	attempt detection:**
-Any attempt to access the system data remotely is detected. If the 		access is illegitimate (unauthenticated, coming from an unknown IP 		address, etc.), access is denied and in some cases data can be erased.
+Any attempt to access the system data remotely is detected. If the 		access is illegitimate (unauthenticated, coming from an unknown IP address, etc.), access is denied and in some cases data can be erased.
 
 
 #### Connectivity
@@ -227,11 +227,11 @@ Open source examples for hardware security modules and login tokens:
 
 
 
-## IOT connectivity
+## IoT connectivity
 
 A core use-case for the DECODE project is to provide a set of tools to enable personal IOT data to be securely managed.
 
-Integrating with the plethora of IOT devices on the market is a non-trivial problem and one that the DECODE project considers solving by :
+Integrating with the plethora of IoT devices on the market is a non-trivial problem and one that the DECODE project considers solving by :
 
 **Normalisation** Data from devices range from high level representations in JSON and XML to a series of bytes. Normalisation is the process of transforming into a common, open format. JSON-LD (https://json-ld.org/) is an example of one such format.
 
