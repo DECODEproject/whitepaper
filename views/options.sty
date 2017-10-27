@@ -8,8 +8,18 @@
 \usepackage[margin=2.5cm]{geometry}
 
 \usepackage{xcolor}
+% https://tex.stackexchange.com/questions/50747/options-for-appearance-of-links-in-hyperref%
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    urlcolor = {blue},
+    linkcolor = {black},
+    anchorcolor = {red}
+}
 
 \setlength{\parskip}{1.2ex}
+
 
 % Need to compile pandoc with `--listings` for this to work - submitting a PR to writedown for this
 %% \lstset{
