@@ -32,7 +32,7 @@ The theme of data storage will continue to evolve and will be published via the 
 
 ## Validating Nodes
 
-The integrity and resilience of the network is provided through a distributed network of Validating nodes. One of the key architectural features of DECODE is that it separates *execution* of logic (*contracts*) from the *verification* of that logic, which allows for privacy aware execution [REF!](section-on-concepts-distributed-ledgers).
+The integrity and resilience of the network is provided through a distributed network of Validating nodes. One of the key architectural features of DECODE is that it separates *execution* of logic (*contracts*) from the *verification* of that logic, which allows for privacy aware execution.
 
 The validating nodes are key to providing the integrity and availability of the DECODE network. Therefore we build them from the ground up with a strong emphasis on verifiability by basing them on the DECODE OS. Each node will also contain the distributed ledger node and any other libraries and software that is required to participate in the DECODE network. This is likely to include cryptographic functionality and P2P networking capabilities to allow dynamic and evolving P2P networks to be formed. It is possible that the P2P networking capabilities can come from the underlying ledger implementation, or be augmented with custom protocols.
 
@@ -89,11 +89,11 @@ There is a tradeoff with this scenario in that while it allows for lower barrier
 
 ### Chainspace 
 
-As part of the mission of DECODE, we present a distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found at [REF!-CHAINSPACE PAPER](...).
+As part of the mission of DECODE, we present a distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found within the chainspace whitepaper [@1708.03778].
 
 In summary, chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
 
-**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the [chainspace whitepaperREF!](space) for more details.
+**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the chainspace whitepaper [@1708.03778] for more details.
 
 ### Alternatives
 
@@ -237,7 +237,7 @@ Integrating with the plethora of IoT devices on the market is a non-trivial prob
 
 **Semantic Understanding** Once data is normalised it is important to understand the meaning of the data. To add this understanding you could use an ontology such as the M3-Lite (http://ontology.fiesta-iot.eu/ontologyDocs/m3-lite.owl#).
 
-An example of a tool that provides this approach is the device-hub software offered by thingful. The tool is available at [https://github.com/thingful/device-hub](https://github.com/thingful/device-hub)
+An example of a tool that provides this approach is the device-hub software offered by Thingful. The tool is available at [https://github.com/thingful/device-hub](https://github.com/thingful/device-hub)
 
 
 

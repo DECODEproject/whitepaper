@@ -85,7 +85,7 @@ locality : ["decode-account:543232", "schema:addressLocality", "Paris"]
 ATTRIBUTE           SUBJECT                 PREDICATE           OBJECT
 ```
 
-where `schema` and `decode-account` are [URNs](https://www.w3.org/TR/uri-clarification/#urn-namespaces) `schema` expands to [https://schema.org/](https://schema.org/).
+where `schema` and `decode-account` are [URNs](https://www.w3.org/TR/uri-clarification/#urn-namespaces). `schema` expands to [https://schema.org/](https://schema.org/).
 
 
 This already provides a lot of value. However DECODE adds two further concepts to the model, PROVENANCE and SCOPE.

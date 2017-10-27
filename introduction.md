@@ -42,7 +42,7 @@ Ethereum [@EthereumWP] provides a blockchain implementation that can be used to 
 
 Identity on the internet has evolved from being implemented as centralised silos to federated identity models. Federated identity enables single sign on available across several large service provider platforms. Service providers continue to be data controllers, in both centralised and federated models. Sovrin [@Sovrin] is a blockchain based identity platform, providing the user control, security, and portability.
 
-DECODE is an evolution of the concept of decentralised systems which leverages state of the art cryptographic techniques such as [Distributed Ledgers](section-link) and [Attribute Based Credentials](section-link) to build a system that provides its [participants](glossary-link) the capability to store data securely, give control and transparency over with whom and for what purpose data is shared and transact with other participants or  organisations.
+DECODE is an evolution of the concept of decentralised systems which leverages state of the art cryptographic techniques such as Distributed Ledgers and Attribute Based Credentials to build a system that provides its *Participants* the capability to store data securely, give control and transparency over with whom and for what purpose data is shared and transact with other participants or  organisations.
 
 At a high level we can describe DECODE as being composed of the following:
 
