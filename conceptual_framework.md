@@ -47,11 +47,9 @@ To describe how data (hereafter **attributes**) is produced and consumed we firs
 - Organisations
     - Public authorities
     - Businesses
-    - NGOs
+    - NGO and civic society organizations
 
-```comment
-jimb: How would we classify the organisation of GO or DECIDIM?
-```
+
 
 Within DECODE we define several *roles* that these individuals or organisations play within the ecosystem.
 
