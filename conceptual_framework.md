@@ -234,9 +234,9 @@ DECODE defines three possible access levels:
 
 | Access level    | Description        |
 | --------------- | ------------------ |
-| `invisible`     | Subject can see neither the existence of this attribute, or its value           |
+| `owner-only`     | Subject can see neither the existence of this attribute, or its value           |
 | `can-discover`  | Subject can see that the data item has a value for this attribute, but not what it is |
-| `can-read`      | Subject can both see that the data item has a value and read that value  |
+| `can-access`      | Subject can both see that the data item has a value and read that value  |
 
 
 In most cases, the participants in the system will not be creating the entitlements directly, they will be interacting with DECODE applications. These applications will have the ability to declare what entitlements they require and the participants can agree to them, in much the same way that users can accept authorisation grants using OAuth.
