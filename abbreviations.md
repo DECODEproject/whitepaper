@@ -4,7 +4,7 @@
 
 3FA - 3 Factor Authentication
 
-ABC - Attribute Based Cryptography
+ABC - Attribute Based Credentials
 
 ABE - Attribute Based Encryption
 
@@ -12,7 +12,7 @@ AI - Artificial Intelligence
 
 AWS - Amazon Web Service
 
-BFT - Byzantine Fault t=Tolerance
+BFT - Byzantine Fault Tolerance
 
 BLE - Bluetooth Low Energy
 
