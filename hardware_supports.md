@@ -192,7 +192,7 @@ Any attempt to access the system data remotely is detected. If the 		access is i
 
 
 #### Connectivity
-Decentralized transactions will be continuously being carried by the NODE. This will result in the NODE using the network resources in an extensive manner. To reduce the latency in the communication and to avoid bandwidth bottlenecks, a high speed Ethernet port should be part of the specifications.
+Decentralized transactions will be continuously being carried by the Node. This will result in the Node using the network resources in an extensive manner. To reduce the latency in the communication and to avoid bandwidth bottlenecks, a high speed Ethernet port should be part of the specifications.
 
 
 

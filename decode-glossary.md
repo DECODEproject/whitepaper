@@ -48,7 +48,7 @@ A DECODE application is a domain specific software application which will levera
 The SDK is a development kit for modules developed and distributed by other consortium partners. It can be used to build, test and profile individual software applications on top of the DECODE OS, both locally and remotely on the continous integration infrastructure. [@D4.1]
 
 #### DECODE Node
-Controlled execution environment where the DECODE Hub runs. Decentralized transactions will be continuously being carried by the NODE.
+Controlled execution environment where the DECODE Hub runs. Decentralized transactions will be continuously being carried by the Node.
 [@D4.3]
 
 #### DECODE Hub
