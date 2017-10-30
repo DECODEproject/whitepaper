@@ -1,4 +1,4 @@
-# DECODE Applications
+# DECODE applications
 
 ## What is a DECODE application?
 
@@ -31,9 +31,9 @@ These are:
 
 
 
-## Example - Participatory Democracy through Petitions
+## Example - participatory democracy through petitions
 
-In this example a City Authority would like to allow Citizens to participate more directly in decision making. One way to do this is to provide support for Citizens to support proposed initiatives through signing a petition. This example of course can be generalised to any context in which a group of people wish to create a petition and is closely related to an example where participants vote between choices, either as a Poll or a vote. 
+In this example a City Authority would like to allow citizens to participate more directly in decision making. One way to do this is to provide support for Citizens to support proposed initiatives through signing a petition. This example of course can be generalised to any context in which a group of people wish to create a petition and is closely related to an example where participants vote between choices, either as a Poll or a vote. 
 
 It is important to note that actual Legal voting is somewhat beyond the scope of DECODE at this stage as it requires many more legal constraints, however it can be seen as a step in that direction that exemplifies the use of cryptography and ledgers.
 
@@ -69,7 +69,7 @@ By employing the combination of ABC, a privacy preserving ledger (does not conta
 
 Signing petitions or voting is not limited to participatory democracy. It is in fact a very common activity amongst any group and will have wide-ranging utility to community movements and organisations. For example UNICEF have successfully developed a community project called [Ureport](https://ureport.in/) which does exactly this and enables communities to have a voice.
 
-## Example - Participatory Citizen Sensing (IoT Entitlements)
+## Example - participatory citizen sensing (IoT entitlements)
 
 Noise pollution is an issue for a number of citizens living in particularly noisy areas, such as, large public squares where activities take place. In these areas there is higher than average participation in citizens setting up IoT devices that measure noise. In this example, an involved citizen is interested in the correlation between health data (sleep patterns) and the levels of noise pollution in the area.
 
@@ -112,7 +112,7 @@ Priya: Jim, I'm not sure if we discussed the relevance of ABC in this pilot/exam
 Options for securing access (including just securing access to the stream via ABC)
 -->
 
-## Example - Peer to peer identity and reputation verification
+## Example - peer to peer identity and reputation verification
 
 There has been rapid growth in the sharing economy in the last decade. The presence of several large online platforms such as Airbnb and has enabled more people to engage in sharing resources available to them. A core driving factor in this fast growing economy is _trust_, and is one of the biggest concerns of using sharing economy platforms. 
 
@@ -130,7 +130,7 @@ There is potential for using various DECODE enabled applications for the verific
 
 This is an area of research both within DECODE and among the blockchain community. Findings in 'Designing To Facilitate Genuine Accommodation Sharing: Identity and Reputation Verification' [@Indre] particularly in the area of accommodation sharing have shown that relying only on software based solutions is not enough. There was a strong demand for community based design decisions, such as approaching networks of friends or neighborhoods for identity and reputation verification.
 
-## Example - Digital commons and Open data
+## Example - digital commons and open data
 
 The latest years have seen a rise of movements demanding transparency of data in general, and specially in the domain of public administrations. Citizens and companies are increasingly asking for datasets to be released in the form of Open Data, so they can be shared and reused. These datasets, however, usually provide a general broad picture but should be combined with other crowd-sourced pools of data and also with private data in order to fully leverage their potential.
 

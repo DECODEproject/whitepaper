@@ -1,4 +1,4 @@
-# DECODE Architecture
+# DECODE architecture
 
 
 DECODE is at the core a distributed P2P network of "nodes" that together provide data privacy and integrity services to application developers.
@@ -7,7 +7,7 @@ The overall architecture is similar to other distributed ledgers and we have fol
 
 ![Decode Network Architecture](img/decode-network-architecture.png "Decode Network Architecture")
 
-## Data Storage
+## Data storage
 
 There are three significant *types* of data which are stored within the DECODE system:
 
@@ -57,9 +57,9 @@ Optionally a participant can push the cryptographic functions of the wallet onto
 
 We have identified two options for participants to obtain a wallet and begin interacting with DECODE. This is a topic of research for the DECODE system and is likely to evolve as we move into field testing with real communities of participants.
 
-### User Experience
+### User experience
 
-The wallet will be one of the primary interfaces between DECODE and the participant, the other being the *applications* themselves. The wallet interface will be explored through a user centric design process which will aim to provide a state of the art experience for participants focused on transparency of who they have shared their data with. The Wallet will also be the point at which a particpant interacts with smart rules. 
+The wallet will be one of the primary interfaces between DECODE and the participant, the other being the *applications* themselves. The wallet interface will be explored through a user centric design process which will aim to provide a state of the art experience for participants focused on transparency of who they have shared their data with. The Wallet will also be the point at which a participant interacts with smart rules. 
 
 
 
@@ -74,7 +74,7 @@ Whenever the participant must perform a cryptographically sensitive activity suc
 
 We recognise however that *requiring* participants to download software and engage with a registration process *may* be a barrier to adoption. We plan to explore this through user research and field experiments. With this in mind, the architecture of DECODE also supports the concept of an ***hosted wallet***. 
 
-DECODE intends to provide tools and documentation to allow **operators**[^3rdpartywallet] to host wallets *on behalf* of their existing users. This is an  low barrier to entry for an operator, involving minimal integration whereby the operator maintains any existing authentication mechanisms they have in place and links existing accounts to a DECODE wallet. It also preserves any existing authentication structures the application may have, allowing DECODE functionality to be added in a decoupled and safe manner.
+DECODE intends to provide tools and documentation to allow **operators**[^3rdpartywallet] to host wallets *on behalf* of their existing users. This is a low barrier to entry for an operator, involving minimal integration whereby the operator maintains any existing authentication mechanisms they have in place and links existing accounts to a DECODE wallet. It also preserves any existing authentication structures the application may have, allowing DECODE functionality to be added in a decoupled and safe manner.
 
 [^3rdpartywallet]: It might be possible for 3rd Parties to create an online wallet hosting service,  however we have yet to explore the demand for this scenario.
 
@@ -85,23 +85,23 @@ There is a tradeoff with this scenario in that while it allows for lower barrier
 ![Decode Overview](img/decode-overview.png "Decode Overview")
  
 
-## The Ledger Implementation 
+## The ledger implementation 
 
 ### Chainspace 
 
-As part of the mission of DECODE, we present a distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found within the chainspace whitepaper [@1708.03778].
+As part of the mission of DECODE, we present a distributed ledger implementation **Chainspace** ([http://chainspace.io](http://chainspace.io)) which has been designed deliberately with privacy and scalability in mind and is fully aligned to the goals and principles of DECODE. The full technical details of this implementation can be found within the Chainspace whitepaper [@1708.03778].
 
-In summary, chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
+In summary, Chainspace provides a highly scalable, BFT fault tolerance ledger which separates transaction *execution* from *verification*. In implementation it provides for this in an entirely technology neutral and decoupled manner. 
 
-**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, definining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the chainspace whitepaper [@1708.03778] for more details.
+**Chainspace contracts** can be written in any language and are composed of two asymmetric but cryptographically related  components. These are the *contract* and the *checker*. The *contract* is responsible for executing the transaction, defining the constraints that are required. The result of the execution of a *contract* is a *proof* which has no data from the transaction but which can be cryptographically verified by the  *checker*. The network of Chainspace nodes are responsible for verifying transactions and publishing the verifications as a blockchain. In implementation, Chainspace creates multiple blockchains, please see the Chainspace whitepaper [@1708.03778] for more details.
 
 ### Alternatives
 
-The architecture of DECODE, following the guiding principles of being modular and reusing code, is not restricted to the implementation of Chainspace to provide the underlying ledger capability. It is possible for example that with the cryptographic advances in Solidity already mentioned, that it would be possible to build DECODE using any ledger system that also incorporated the solidity vm, either Ethereum itself or for example the hyperledger [Burrow project](https://github.com/hyperledger/burrow) from [Monax](https://monax.io/).
+The architecture of DECODE, following the guiding principles of being modular and reusing code, is not restricted to the implementation of Chainspace to provide the underlying ledger capability. It is possible for example that with the cryptographic advances in Solidity already mentioned, that it would be possible to build DECODE using any ledger system that also incorporated the solidity VM, either Ethereum itself or for example, the Hyperledger [Burrow project](https://github.com/hyperledger/burrow) from [Monax](https://monax.io/).
 
 As the project evolves alternatives will be explored and tested as they may solve for different tradeoffs, these will be documented in the public whitepaper. 
 
-## Smart rules Engine
+## Smart rules engine
 
 What we call "Smart Rules" in DECODE are a computable [@sober1978computability] sociolect [@louwerse2004semantic] that can be parsed into a semantic model referred to a finite ontology and executed by a distributed computing cluster. It is of central importance to grant participants the access to such a language and clear understanding of what it expresses and of the consequences of its execution.
 
@@ -180,7 +180,7 @@ For this reason the DECODE offers Participants the option to adopt hardware-base
 Potential hardware security features for the Hub:
 
 - **Multiple factor authentication:**
-The security protection provided by a single authentication method, e.g. a password, have proved to be weak. To make access conditions 		more secure, the system can ask for a multiple factor authentication. This could be the combination of a password with some token that the user have (like an RFID or BLE device) or  biometric data like fingerprint readers or voice recognition.
+The security protection provided by a single authentication method, e.g. a password, have proved to be weak. To make access conditions more secure, the system can ask for a multiple factor authentication. This could be the combination of a password with some token that the user have (like an RFID or BLE device) or  biometric data like fingerprint readers or voice recognition.
 - **Secure processors:**
 Secure microcontrollers with built-in cryptographic engines and secure 	boot loader can guard against threats such as cryptanalysis intrusions, physical tampering, and reverse engineering. These secure microcontrollers are equipped with silicon-level anti-tampering features that allow to make them tamper resistant and to provide tamper evidence. The security keys, used to run cryptographic algorithms, need to be stored in a secure memory 	managed by a secure microcontroller and should only be accessible by the secure microcontroller and not from the outside of the 	memory.
 - **Tamper avoidance:**
@@ -188,7 +188,7 @@ Anti-intrusion sensors can be incorporated into the electrical design to ensure 
 - **Side channel attacks protection:**
 Side channel attacks consist in attacks based on information gained from the physical implementation of a system, rather than brute force or weaknesses in the algorithms. For example, timing information, power consumption, electromagnetic leaks or even sound can	provide an extra source of information, which can be exploited to break the system. The first step to protect against this types of threats is the reduction of the electromagnetic and sound radiations. Other measures include random calculations and delays introduced between normal operations and try to balance the power consumption of different data values.
 - **Access	attempt detection:**
-Any attempt to access the system data remotely is detected. If the 		access is illegitimate (unauthenticated, coming from an unknown IP address, etc.), access is denied and in some cases data can be erased.
+Any attempt to access the system data remotely is detected. If the access is illegitimate (unauthenticated, coming from an unknown IP address, etc.), access is denied and in some cases data can be erased.
 
 
 #### Connectivity

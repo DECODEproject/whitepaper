@@ -1,4 +1,4 @@
-# Conceptual Foundations
+# Conceptual foundations
 
 This section describes the foundational concepts that are combined to achieve the purpose of DECODE.
 
@@ -132,14 +132,15 @@ A participant demonstrates control of these **attributes** through some cryptogr
 
 Taking this approach to "identity", also has the benefit of following a privacy by design principle of only providing the minimum set of information that is absolutely required for a particular interaction.
 
-### Attribute Provenance
+### Attribute provenance
 
 #### Accountability of systems
 
-Of course digital systems cannot be held accountable in any legal sense (yet), but we'll need to address the fact that consequences of using digital and 'autonomous' systems are no longer as precooked as they once were.
-No longer is it guaranteed that the mechanisms and processes though which technology interacts with the world are clear and understandable, even to the engineers who build the systems; the bias in the training data is invisibly and irretreivably encoded in the trained models.
+Of course digital systems cannot be held accountable in any legal sense (yet), but we'll need to address the fact that consequences of using digital and 'autonomous' systems are no longer as pre-cooked as they once were.
+
+No longer is it guaranteed that the mechanisms and processes though which technology interacts with the world are clear and understandable, even to the engineers who build the systems; the bias in the training data is invisibly and irretrievably encoded in the trained models.
 This means that technology needs to be able to be held accountable in itself, not only through the people running it or the engineers building it.
-In order to enable this, accountability needs to be designed into the sytems, needs to be part of the systems, and thus, in a certain sense, systems need to be able to reflect on their actions; at least in response to queries.
+In order to enable this, accountability needs to be designed into the systems, needs to be part of the systems, and thus, in a certain sense, systems need to be able to reflect on their actions; at least in response to queries.
 
 #### Data transparency
 
@@ -165,8 +166,9 @@ The customer shows their credential; an identity card issued by the government, 
 ABCs provide a cryptographic way to authenticate using selectively disclosed personal attributes.
 This means that in the above example, we can use an ABC credential to convey just the property of 'being over the age of 18', without revealing any of the other attributes in our credential, and even without linking this event to previous interactions.
 
-An different example, proves the usefulness when attempting to digitise a membership system.
-Clasically, a library card allows a member to borrow a book.
+A different example, proves the usefulness when attempting to digitise a membership system.
+
+Classically, a library card allows a member to borrow a book.
 This credential reveals no more information about the borrower than their membership of the library.
 When building a digital library card system, it is difficult to verify active membership without cross-referencing the card with a list of authorised members.
 ABCs allow the showing of a membership credential, without having to check the list of authorised members.
@@ -184,7 +186,7 @@ A tested implementation of ABCs is IRMA by the Privacy by Design Foundation (htt
 Credentials can be part of a claim.
 
 So how are claims actually verified in the first place?
-In the example, the entity responsibile for verification would be the city of Barcelona.
+In the example, the entity responsible for verification would be the city of Barcelona.
 This could be a physical process, or could be done online (as in the Dutch [DigiD](https://www.digid.nl/) mechanism), and involves some exchange between the city and the individual.
 The result of this exchange would be a cryptographic token, signed by the city, which, invoked with a specific smart rule would result in an attribute with verified provenance and value being set in the DECODE platform.
 This whole process could take place through a website which is run by the city of Barcelona (and thus is a DECODE enabled application).
@@ -197,14 +199,14 @@ In this example there would be a validity time limit on the attribute, a month, 
 Because the choice of using applications that accepts this credential is in the hands of the participant they have strong control of how this link is used.
 In a P2P sharing application a different proof-of-residency attribute may be good enough, for instance.
 
-In order to make it straighforward for developers to build DECODE applications, the mechanisms for interacting with and validating external or "official" claims will be a core part of the language that is used to express Smart Rules.
+In order to make it straightforward for developers to build DECODE applications, the mechanisms for interacting with and validating external or "official" claims will be a core part of the language that is used to express Smart Rules.
 
 ## Entitlements
 
 We define two parties in any given data exchange, the **data owner** and the **data consumer**. An **entitlement** is an agreement of disclosure controlled by the **data owner**. A **data entitlement**  concerns the sharing of data. In DECODE an **entitlement** is defined in a **policy**  *and* implemented with the application of cryptography.
 
 
-### Entitlement Policies
+### Entitlement policies
 
 The DECODE architecture is inherently distributed and as such the management of entitlement policies will need to respond to some well understood challenges :
 
@@ -243,7 +245,7 @@ In most cases, the participants in the system will not be creating the entitleme
 
 
 
-### Implementation (Access control)
+### Implementation (access control)
 
 Defining and declaring entitlements is a matter of describing access rules. In order for these to be useful we require a mechanism to enforce them. In a traditional system we would simply "trust" that the system has been coded to take account of the entitlement declaration - for example we might install an authorisation server product to define and store entitlements and rely on the developers of the system to code appropriate controls into the system that communicate with the authorisation server.
 
@@ -304,11 +306,11 @@ Potential options are:
 - Investigate DRM tech for encrypting large streams (e.g. video). Can similar approaches be applied to user data?
 
 
-## Distributed Ledger
+## Distributed ledger
 
 Within DECODE, the ledger provides for two characteristics, Integrity and Availability. This is an important distinction within DECODE. Privacy (or Confidentiality) is not a core function of the ledger but is rather enabled by its features and design.
 
-In combination with ABC and ABE, DECODE achieves privacy through the core principle that *no private data must be stored on the ledger*. Privacy is one of the classic issues faced by decentralised systems (the other being scalability). For example while bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. The same is true for Ethereum, although it is moving in this direction by integrating features from [ZCash](https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow [zk-SNARK](https://eprint.iacr.org/2013/879.pdf) computations from solidity, in the upcoming [metropolis release](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). Other ledger implementations are exploring different designs by which privacy can be obtained, for example [R3 Corda](https://www.corda.net/).
+In combination with ABC and ABE, DECODE achieves privacy through the core principle that *no private data must be stored on the ledger*. Privacy is one of the classic issues faced by decentralised systems (the other being scalability). For example while Bitcoin provides some level of anonymity, all nodes have access to all transactions and all the data within them. The same is true for Ethereum, although it is moving in this direction by integrating features from [ZCash](https://blog.ethereum.org/2017/01/19/update-integrating-zcash-ethereum/) to allow [zk-SNARK](https://eprint.iacr.org/2013/879.pdf) computations from solidity, in the upcoming [metropolis release](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/). Other ledger implementations are exploring different designs by which privacy can be obtained, for example [R3 Corda](https://www.corda.net/).
 
 DECODE puts this principal at the centre of its Privacy by Design strategy. The cryptographic mechanism by which this is achieved is through Zero Knowledge proofs.
 

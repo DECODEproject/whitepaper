@@ -1,11 +1,8 @@
-# Architectural Principles
+# Architectural principles
 
 DECODE is composed of both hardware and software components - each component will adhere to the core architectural principles described below. The underlying philosophy adopted is that of the Unix philosophy [@Raymond:2003:AUP:829549] following key principles of modularity, clarity, composition, separation, simplicity, parsimony, transparency, robustness, representation and least surprise.
 
-
-
-
-## Free and Open source
+## Free and open source
 
 All work produced by DECODE will be published as free and open source according to licenses approved by the Free Software Foundation Europe and emerging open hardware standards. The openness of the platform will enable innovation and citizen participation.
 
@@ -23,7 +20,7 @@ Adopting the key unix principle of modularity (simple parts connected by clean i
 
 DECODE will adopts a layered architecture, with components that build on top of each other. As opposed to building privacy aware applications solely in the application layer (layer 7) of the Operating System, privacy will be built into the lower layers as well, such as transport, network and data-link layers.
 
-## Reuse don't Re-Invent
+## Reuse don't re-invent
 
 DECODE aims to be built upon the solid foundations of existing well proven software wherever appropriate. For example, "DECODE OS" is based on the well known and solid Debian OS.
 
@@ -43,7 +40,7 @@ DECODE will provide transparency for participants about exactly where their data
 
 Further, many of the privacy by design principles will correlate with needs of GDPR compliance, for example right to be forgotten.
 
-### Privacy Design Strategies
+### Privacy design strategies
 
 As described in [@PrivacyDeisngStrategiesColesky16] a privacy design strategy specifies a distinct architectural goal in privacy by design to achieve a certain level of privacy protection. It is noted that this is different from what is understood to be an architectural strategy within the software engineering domain. Instead our strategies can be seen as goals of the privacy protection quality attribute (where a quality attribute is a term from software engineering describing non-functional requirements like performance, security, and also privacy).
 In the description of privacy design strategies we frequently refer to processing of personal data.
