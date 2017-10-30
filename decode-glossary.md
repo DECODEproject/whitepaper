@@ -52,7 +52,7 @@ Controlled execution environment where the DECODE Hub runs. Decentralized transa
 [@D4.3]
 
 #### DECODE Hub
-The DECODE HUB is the hardware component of the DECODE architecture. The HUB is any device on which the DECODE OS is installed. It provides connectivity to IoT devices, connects to other DECODE nodes and supports the DECODE OS. As any other component of the DECODE architecture, the HUB needs to follow the values of openness, security, scalability, deployability and flexibility. [@D4.3]
+The DECODE Hub is the hardware component of the DECODE architecture. The Hub is any device on which the DECODE OS is installed. It provides connectivity to IoT devices, connects to other DECODE nodes and supports the DECODE OS. As any other component of the DECODE architecture, the Hub needs to follow the values of openness, security, scalability, deployability and flexibility. [@D4.3]
 
 #### DECODE OS
 The DECODE OS is the base operating system running all software designed, developed and deployed for the DECODE project [@D4.4]. The DECODE OS is a blend of Devuan OS, with DECODE specific packages included within it.
