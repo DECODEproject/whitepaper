@@ -1,2 +1,12 @@
-Today's Internet and digital platforms are becoming increasingly centralised, slowing innovation and challenging their potential to revolutionise society and the economy in a pluralistic manner. The DECODE project will develop practical alternatives, through the creation, evaluation and demonstration of a distributed and open architecture for managing online access and aggregation of private information to allow a citizen-friendly and privacy-aware governance of access entitlements. Strong ethical and digital rights principles are at the base of DECODE's mission, moving towards the implementation of open standards for a technical architecture resting on the use of Attribute Based Cryptography, distributed ledgers, a secure operating system and a privacy focused smart rules language.
-
+Today's Internet and digital platforms are becoming increasingly
+centralised, slowing innovation and challenging their potential to
+revolutionise society and the economy in a pluralistic manner. The
+DECODE project will develop practical alternatives, through the
+creation, evaluation and demonstration of a distributed and open
+architecture for managing online access and aggregation of private
+information to allow a citizen-friendly and privacy-aware governance
+of access entitlements. Strong ethical and digital rights principles
+are at the base of DECODE's mission, moving towards the implementation
+of open standards for a technical architecture resting on the use of
+Attribute Based Cryptography, distributed ledgers, a secure operating
+system and a privacy focused smart rules language.
