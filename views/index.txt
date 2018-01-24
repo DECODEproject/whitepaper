@@ -6,6 +6,10 @@ architectural_principles.md
 
 conceptual_framework.md
 
+os_architecture.md
+
+smart_rules.md
+
 hardware_supports.md
 
 decode_applications.md

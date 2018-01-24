@@ -24,6 +24,8 @@ DRM - Digital rights management
 
 EA - Early Access
 
+ELF - Executable and Linking Format
+
 EVM - Ethereum Virtual Machine
 
 FST - Flying STone

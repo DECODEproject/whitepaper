@@ -10,7 +10,7 @@ tradition in UNIX systems, still running modern software applications
 and inheriting the security patches from Debian.
 
 The first release of the DECODE OS is made available at the Internet
-address https://files.dyne.org/decode/OS and it incudes fully
+address <https://files.dyne.org/decode/OS> and it incudes fully
 functioning virtual machine images (Vagrant/vbox and Qcow2/Qemu
 formats) implementing a base architecture (kernel and base system
 tools) to build, run and connect a diverse range of future
@@ -149,50 +149,6 @@ for instance to open a listening port below 100, for a web or an SMTP
 server. In order to regulate the privilege escalation *sup* handles a
 few conditions to authorize execution, all hard-coded in a static ELF
 binary.
-
-
-\pagebreak
-
-An example `config.h` is here:
-
-``` c
-
-struct rule_t {
-    int uid; // user identifier
-    int gid; // group identifier
-    const char *cmd; // command
-    const char *path; // fixed path to the command (or * for any)
-    const char *hash; // SHA256 hash of the binary
-};
-
-static struct rule_t rules[] = {
-{ USER, GROUP, "pgld", "*",
-"47c045091bd152cbc2d4a2a3bf1b7b42d5b185d39ccba08b2aa51a21" },
-{ USER, GROUP, "webui", "*",
-"0063bb188264830b28129416a8ee070ac7c894f66b2b8b9f355ff617" },
-{ USER, GROUP, "route", "*",
-"d725571c48ac45130c15274204ffae07bb9607b06610e8f7a26d89e5" },
-{ USER, GROUP, "dnscrypt-proxy", "*",
-"ce69a33f43f399b9b4e50db21eb5cbf73ba291544d65d5cc209cf607" },
-{ USER, GROUP, "modprobe", "*",
-"ecf184748467fe4c6d561e3e3813f028f03ba9b7affe10855df4538b" },
-{ USER, GROUP, "ebtables", "*",
-"a4e4b6de1fa9527892aae8d3e9f0a6e60c6d99725ba5acee7aaf7751" },
-{ USER, GROUP, "xtables-multi", "*",
-"adee44923e1f20d6cb168ea5f51e5abefc5d07f476fd82e79fb6fa75" },
-{ USER, GROUP, "ifconfig", "*",
-"d13a85ca313d24261a520cd4f33087679edded86308dd6a23047cfb0" },
-{ USER, GROUP, "nmap", "*",
-"8b2cc682660baf70513f13287531c869f1c233466888414a4fd65caf" },
-{ USER, GROUP, "dhcpd", "*",
-"b45a15c8b4f3e4114ec825a5dcc961f32f0f44d0fe9ed5cda8d8f4de" },
-{ USER, GROUP, "kill", "*",
-"0f277f0cdc17952156a63a246f19345031e27e02baf8434f7a4aa6ce" },
-{ USER, GROUP, "sysctl", "*",
-"239eb3eafeb39ed3a28420c34164fa2f11daf3993cc139352d8ddbeb" },
-{ 0 },
-};
-```
 
 For the DECODE OS an "allow list" is provided to *sup* at the time of
 building the ISO installers and SD card images, so that running "*sup*
