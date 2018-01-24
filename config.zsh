@@ -16,7 +16,7 @@ WRITEDOWN_NRSEC=no
 WRITEDOWN_TOC=yes
 WRITEDOWN_TOC_DEPTH=3
 # bibliographic citation style (see writedown/citstyle)
-WRITEDOWN_CITSTYLE=turabian-fullnote-bibliography
+WRITEDOWN_CITSTYLE=harvard-kings-college-london
 # font size
 WRITEDOWN_FONTSIZE=14pt
 # bibtex file for bibliographic sources
