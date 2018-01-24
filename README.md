@@ -1,85 +1,13 @@
 # DECODE whitepaper
 
-This repository contains the DECODE architecture whitepaper
+This whitepaper describes the overall architecture of the [DECODE
+project](decodeproject.eu). This document comprises contents from
+various deliverables and is a comprehensive introduction to the
+project aims and solutions provided.
 
-## Timelines
-
-<img src="https://gogs.dyne.org/DECODE/decode-whitepaper/raw/master/whitepaper-timeline.png"  />
-
-
-| Date    | Milestone                    |
-|---------|------------------------------|
-| 28-Sept | Structure / Narrative Agreed |
-|         | Authors asigned              |
-| 13-Oct  | First draft for circulation  |
-| 20-Oct  | Final draft deadline         |
-| 31-Oct  | Publish first version        |
-
-
-## Curators
-
-Here a list of sections and people busy curating them
-
-| Section                   | curators |
-|---------------------------|----------|
-| Introduction              | priya    |
-| Conceptual framework      | jimb     |
-| Architectural principles  | priya    |
-| OS architecture           | jaromil  |
-| The DECODE network        | jimb     |
-| Distributed ledger        | alberto  |
-| Smart rules engine        | jaromil  |
-| DECODE applications       | jimb     |
-
-## Lead Contributors
-
-**Introduction**
-- What is DECODE and why is it important - Priya
-- History and current "state of the art" - Priya
-
-**Conceptual Framework**
-- Privacy By Design - Paulus
-- Attributes - Tom D
-  - Identity - Tom D
-  - Attribute Provenance - Tom D
-  - Attribute Verification with ABC - Paulus
-- Entitlements - Mark
-  - Entitlement Policies - Mark
-  - Implementation (Access Control)
-  - Attribute based Encryption - Paulus
-  - Transparency and integrity - JimB
-- Authentication - Jim - Move to Wallet Nodes?
-- Distributed Ledger - Alberto
-
-**Architectural Principles**
-- Priya
-
-**Operating system Architecture**
-
-- Jaromil
-
-**The DECODE Network**
-- Intro - Jim
-- Relay Nodes (validating nodes) - Jim 
-- Wallet Nodes - Jim
-- Hardware hubs - Kristoffer + Ernesto
-- Keys and smart cards - Kristoffer + Ernesto
-- IOT connectivity - Mark
-- P2P Networking - Jaromil? - do we need this section?
-
-
-**Distributed ledger**
-- Alberto
-
-**smart rules engine**
-- Jaromil
-
-**DECODE Applications**
-- what is a decode applciation - Jim 
-- application ecosystem - Jim / Priya
-- example of petitions - Jim / Priya
-- example of IOT - Jim / Priya
-
+This document will be updated in the course of the project to reflect
+choices and changes made to the plan, leading to a final version by
+the end of 2019; However no major changes are predicted until then.
 
 ## Building
 
@@ -117,13 +45,10 @@ Rendering to DOCX is activated by running
 ./writedown/render
 ```
 
-## Contributors
+# Licensing
 
-- Jim B / Priya (TW)
-- Bano / George (UCL)
-- Tom D (WAAG)
-- Jaap-Henk / Paulus (RU)
-- Mark (Thingful)
-- Jaromil (Dyne)
-
-
+This work is licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International License. To view a copy of
+this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or
+send a letter to Creative Commons, PO Box 1866, Mountain View, CA
+94042, USA.
