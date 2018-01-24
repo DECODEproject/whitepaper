@@ -429,9 +429,10 @@ verify a credential (*Relying Party*).
 The proposed model for ABCs in DECODE is based on Idemix
 [@CamenischL01] [@IBM_Idemix], since the DECODE implementation
 requires multiple verifications of non-identifying credentials to be
-unlinkable.  A tested implementation of ABCs is IRMA by the Privacy by
-Design Foundation (https://privacybydesign.foundation/en/,
-https://credentials.github.io/).  Credentials can be part of a claim.
+unlinkable.  A tested implementation of ABCs is
+[IRMA](https://credentials.github.io) by the Privacy by [Design
+Foundation](https://privacybydesign.foundation/en).  Credentials can
+be part of a claim.
 
 So how are claims actually verified in the first place?  In the
 example, the entity responsible for verification would be the city of

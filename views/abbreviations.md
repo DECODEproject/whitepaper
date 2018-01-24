@@ -42,7 +42,7 @@ IP - Internet Protocol
 
 IPFS - InterPlanetary File System
 
-IRMA - I Reveal My Attributes https://www.irmacard.org/irma/
+IRMA - I Reveal My Attributes
 
 IoT - Internet of Things
 
