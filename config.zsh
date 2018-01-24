@@ -1,11 +1,11 @@
 DEBUG=0
 LOG="./writedown.log"
 
-WRITEDOWN_VERSION="EA-SNAPSHOT"
+WRITEDOWN_VERSION="1.0"
 
 # Added by Writedown on Mon Apr 10 12:10:58 CEST 2017
 WRITEDOWN_TITLE="DECODE Whitepaper v${WRITEDOWN_VERSION}"
-WRITEDOWN_AUTHOR="[Denis Rojo, James Barritt, Jaap-Henk Hoepman, Mark de Villiers, Priya Samuel, George Danezis, Tom Demeyer, Shehar Bano, Oleguer Sagarra]"
+WRITEDOWN_AUTHOR="[Denis Roio, James Barritt, Jaap-Henk Hoepman, Mark de Villiers, Priya Samuel, George Danezis, Tom Demeyer, Shehar Bano, Oleguer Sagarra]"
 WRITEDOWN_AFFILIATION="DECODEproject.EU Research Consortium"
 #WRITEDOWN_DATE="Monday 10 April 2017"
 WRITEDOWN_TAGS="[blockchain, privacy, architecture, sharing economy, platform cooperativism, implementation]"
@@ -18,7 +18,7 @@ WRITEDOWN_TOC_DEPTH=3
 # bibliographic citation style (see writedown/citstyle)
 WRITEDOWN_CITSTYLE=harvard-kings-college-london
 # font size
-WRITEDOWN_FONTSIZE=14pt
+WRITEDOWN_FONTSIZE=12pt
 # bibtex file for bibliographic sources
 WRITEDOWN_BIB=views/references.bib
 
